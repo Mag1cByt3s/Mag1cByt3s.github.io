@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pascals Blog</title>
+    <link>https://blog.ppeinecke.de/</link>
+    <description>Recent content on Pascals Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 10 Mar 2022 20:39:53 +0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ectf Forensics I Am Groot</title>
+      <link>https://blog.ppeinecke.de/posts/ectf-forensics-i-am-groot/</link>
+      <pubDate>Thu, 10 Mar 2022 20:39:53 +0100</pubDate>
+      
+      <guid>https://blog.ppeinecke.de/posts/ectf-forensics-i-am-groot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://blog.ppeinecke.de/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.ppeinecke.de/about/</guid>
+      <description>Hello!
+I am Pascal Peinecke, Student of Applied Computer Sciences at Hochschule Niederrhein and information security enthusiast based in Ratingen, Germany.
+On this blog I will publish all of my security related writeups from CTFs, crackmes, HTB machines, etc</description>
+    </item>
+    
+    <item>
+      <title>Contact Me</title>
+      <link>https://blog.ppeinecke.de/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.ppeinecke.de/contact/</guid>
+      <description>The Force is strong with this one. I have you now. I find your lack of faith disturbing. Hey, Luke! May the Force be with you. She must have hidden the plans in the escape pod. Send a detachment down to retrieve them, and see to it personally, Commander. There’ll be no one to stop us this time!</description>
+    </item>
+    
+    <item>
+      <title>Style Guide</title>
+      <link>https://blog.ppeinecke.de/styleguide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.ppeinecke.de/styleguide/</guid>
+      <description>A paragraph looks like this — dolor amet cray stumptown fingerstache neutra food truck seitan poke cardigan waistcoat VHS snackwave celiac hella. Godard seitan shoreditch flexitarian next level trust fund man braid vegan listicle keytar bitters. Disrupt cray fashion axe unicorn lomo shaman poke glossier keffiyeh snackwave austin tattooed seitan hexagon lo-fi. Lumbersexual irony vaporware, butcher shaman.
+ Headings by default: H1 Default styles for headings H2 Default styles for headings H3 Default styles for headings H4 Default styles for headings H5 Default styles for headings H6 Default styles for headings  Lists Ordered list example:  Poutine drinking vinegar bitters.</description>
+    </item>
+    
+  </channel>
+</rss>
