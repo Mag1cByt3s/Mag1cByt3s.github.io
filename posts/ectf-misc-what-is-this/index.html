@@ -152,27 +152,30 @@ I get an image file whatisthis.png</p>
 I am presented with the following:
 whatisthis.png: POSIX tar archive</p>
 <p>So its a tar file</p>
-<p>So lets rename this file to a proper file extension
-cp whatisthis.png whatisthis.tar</p>
-<p>Now I will try to extract that archive
-tar -xf whatisthis.tar</p>
-<p>I get a lot of random folders</p>
-<p>each contains three files:
-json,
+<p>So lets rename this file to a proper file extension</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>cp whatisthis.png whatisthis.tar
+</code></pre></div><p>Now I will try to extract that archive</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>tar -xf whatisthis.tar
+</code></pre></div><p>I get a lot of random folders</p>
+<p>each contains three files:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>json,
 layer.tar,
-VERSION</p>
-<p>VERSION is always 1.0</p>
+VERSION
+</code></pre></div><p>VERSION is always 1.0</p>
 <p>So lets look at the content of all those weird json files</p>
-<p>cat *.json</p>
-<p>what immediately sparks my eyes is the following:
-cat /etc/m/m/nothing.txt</p>
-<p>looks like we are dealing with docker containers here &mldr;</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>cat *.json
+</code></pre></div><p>what immediately sparks my eyes is the following:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>cat /etc/m/m/nothing.txt
+</code></pre></div><p>looks like we are dealing with docker containers here &mldr;</p>
 <p>There are still a lot of tar files inside each subfolders</p>
 <p>so lets extract them</p>
-<p>find . -name &lsquo;*.tar&rsquo; -execdir tar -xzvf &lsquo;{}&rsquo; ;</p>
-<p>After digging a lot around I found the file etc/m/m/nothing.txt</p>
-<p>cat etc/m/m/nothing.txt</p>
-<p>CTF{D0cker_ent3r5_the_p4rty}</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>find . -name <span class=s1>&#39;*.tar&#39;</span> -execdir tar -xzvf <span class=s1>&#39;{}&#39;</span> <span class=se>\;</span>
+</code></pre></div><p>After digging a lot around I found the file etc/m/m/nothing.txt</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>cat etc/m/m/nothing.txt
+</code></pre></div><p>CTF{D0cker_ent3r5_the_p4rty}</p>
+<p>So the flag is</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>CTF{D0cker_ent3r5_the_p4rty}
+</code></pre></div>
 </div>
 <div class=post__share>
 <div class=share__head>

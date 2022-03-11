@@ -137,13 +137,16 @@ Pascals Blog
 <p>Detective Jake Peralta and his partner Charles Boyle are assigned a Grand Larceny case, by their captain Raymond Holt. Upon their arrival to crime scene they find that there are no clues for them to catch the victim, so they leave the crime scene and at the exif exit door they find an image along with a note saying &ldquo;THE CAT KNOWS THE CULPRIT.&rdquo;</p>
 <h2 id=writeup>Writeup</h2>
 <p>Ok so what we got here is a jfif file.</p>
-<p>A quick google search tells me this:
-A JFIF file is a bitmap graphic that uses JPEG compression.</p>
+<p>A quick google search tells me this:</p>
+<blockquote>
+<p>A JFIF file is a bitmap graphic that uses JPEG compression.</p>
+</blockquote>
 <p>Ok so we just have a jpeg file here.</p>
 <p>The first thing I did was to check with steghide for any steganography. Negative.</p>
 <p>Then I just opened the jfif file in gHex to look at the bytes.</p>
 <p>After that I could directly see the flag</p>
-<p>CTF{It_1s_D0UG_JUdY}</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>CTF{It_1s_D0UG_JUdY}
+</code></pre></div>
 </div>
 <div class=post__share>
 <div class=share__head>
