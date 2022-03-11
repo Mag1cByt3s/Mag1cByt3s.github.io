@@ -2,5 +2,5 @@
 Link: https://wec-ctf-2022-web.herokuapp.com/q2
 Writeup If we refresh the webpage we see there is a cookie that changes everytime i refresh the page.
 That cookie is called _gatj
-Currently its value is c3RpbGwgY2Fubm90IHNvbHZlIHRoaXMgdGFzaz90aW1lcz0wMDAwMDAwOCZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3
-That is base64 and decodes to still cannot solve this task?</description></item></channel></rss>
+Currently its value is
+c3RpbGwgY2Fubm90IHNvbHZlIHRoaXMgdGFzaz90aW1lcz0wMDAwMDAwOCZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3 That is base64 and decodes to</description></item></channel></rss>
