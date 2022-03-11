@@ -13,7 +13,7 @@ Link:
 Writeup If we refresh the webpage we see there is a cookie that changes everytime i refresh the page.
 That cookie is called _gatj
 Currently its value is
-c3RpbGwgY2Fubm90IHNvbHZlIHRoaXMgdGFzaz90aW1lcz0wMDAwMDAwOCZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3  That is base64 and decodes to">
+c3RpbGwgY2Fubm90IHNvbHZlIHRoaXMgdGFzaz90aW1lcz0wMDAwMDAwOCZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3 That is base64 and decodes to">
 <meta name=twitter:image content="https://blog.ppeinecke.de/images/cookies.png">
 <meta property="og:title" content="E-CTF - Web - Favourite Website | Pascals Blog">
 <meta property="og:description" content="Web - Favourite Website - writeup Description After a long time, Alex tries to visit his favorite website. But nobody thought he would become very unlucky. Visit the website and help him get the flag.
@@ -21,7 +21,7 @@ Link:
 Writeup If we refresh the webpage we see there is a cookie that changes everytime i refresh the page.
 That cookie is called _gatj
 Currently its value is
-c3RpbGwgY2Fubm90IHNvbHZlIHRoaXMgdGFzaz90aW1lcz0wMDAwMDAwOCZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3  That is base64 and decodes to">
+c3RpbGwgY2Fubm90IHNvbHZlIHRoaXMgdGFzaz90aW1lcz0wMDAwMDAwOCZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3 That is base64 and decodes to">
 <meta property="og:image" content="https://blog.ppeinecke.de/images/cookies.png">
 <link rel=preconnect href=https://fonts.gstatic.com>
 <link rel=preload href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600%7CPoppins:400,600,700&display=swap" as=style>
@@ -144,25 +144,21 @@ Pascals Blog
 <p>If we refresh the webpage we see there is a cookie that changes everytime i refresh the page.</p>
 <p>That cookie is called _gatj</p>
 <p>Currently its value is</p>
-<pre><code>c3RpbGwgY2Fubm90IHNvbHZlIHRoaXMgdGFzaz90aW1lcz0wMDAwMDAwOCZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3
-</code></pre>
-<p>That is base64 and decodes to</p>
-<pre><code>still cannot solve this task?times=00000008&amp;id=7c87f0e8-a83b-42d4-be51-aab926934cc27
-</code></pre>
-<p>So since the website says
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>c3RpbGwgY2Fubm90IHNvbHZlIHRoaXMgdGFzaz90aW1lcz0wMDAwMDAwOCZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3
+</code></pre></div><p>That is base64 and decodes to</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>still cannot solve this task?times=00000008&amp;id=7c87f0e8-a83b-42d4-be51-aab926934cc27
+</code></pre></div><p>So since the website says
 You can get the flag when you visit our website for 12893422th time.</p>
 <p>We just change the value to</p>
-<pre><code>task?times=12893422&amp;id=7c87f0e8-a83b-42d4-be51-aab926934cc27
-</code></pre>
-<p>Then we use base64 to encode this string again and we get</p>
-<pre><code>dGFzaz90aW1lcz0xMjg5MzQyMiZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3
-</code></pre>
-<p>If we now replace the cookies value with that string &mldr; lets see what happens</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>task?times=12893422&amp;id=7c87f0e8-a83b-42d4-be51-aab926934cc27
+</code></pre></div><p>Then we use base64 to encode this string again and we get</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>dGFzaz90aW1lcz0xMjg5MzQyMiZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3
+</code></pre></div><p>If we now replace the cookies value with that string &mldr; lets see what happens</p>
 <p>If we now refresh the page after replacing the cookie value we see:</p>
 <p>Congrats! You got the flag: CTF{C@@kie$_@re_the_be$t}</p>
 <p>So the flag is</p>
-<pre><code>CTF{C@@kie$_@re_the_be$t}
-</code></pre>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>CTF{C@@kie$_@re_the_be$t}
+</code></pre></div>
 </div>
 <div class=post__share>
 <div class=share__head>
