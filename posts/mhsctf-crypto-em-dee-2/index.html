@@ -4,21 +4,27 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1">
 <link rel=icon type=image/x-icon href=/favicon.ico>
-<title>E-CTF - Misc - What Is This | Pascals Blog</title>
+<title>MHSCTF - Crypto - Em Dee 2 | Pascals Blog</title>
 <meta name=description content>
 <meta name=twitter:card content="summary_large_image">
-<meta name=twitter:title content="E-CTF - Misc - What Is This | Pascals Blog">
-<meta name=twitter:description content="Misc - whatisthis - writeup Description Intelligence has found same weird material from Mr. Codeshankar (yes,him again). So it is your task now to find out whats contained in it. The link is here 
-Writeup after unpacking the zip file whatisthis.zip I get an image file whatisthis.png
-The file itself is broken and cannot be opened.
-After checking with the file command what that file actually is I am presented with the following: whatisthis.">
-<meta name=twitter:image content="https://blog.ppeinecke.de/images/docker.jpg">
-<meta property="og:title" content="E-CTF - Misc - What Is This | Pascals Blog">
-<meta property="og:description" content="Misc - whatisthis - writeup Description Intelligence has found same weird material from Mr. Codeshankar (yes,him again). So it is your task now to find out whats contained in it. The link is here 
-Writeup after unpacking the zip file whatisthis.zip I get an image file whatisthis.png
-The file itself is broken and cannot be opened.
-After checking with the file command what that file actually is I am presented with the following: whatisthis.">
-<meta property="og:image" content="https://blog.ppeinecke.de/images/docker.jpg">
+<meta name=twitter:title content="MHSCTF - Crypto - Em Dee 2 | Pascals Blog">
+<meta name=twitter:description content="Crypto - Em Dee - writeup Description Another super-secret message from Em!
+What does this one mean?
+b4b11af47f3086ce1293df4908d026d4 Remember to enter your answer in the &ldquo;flag{&mldr;}&rdquo; format!
+Hint: If at first you don&rsquo;t succeed, try, try again.
+Writeup Looks like an MD5 hash
+ found the hash:
+Found : zero_cool (hash = b4b11af47f3086ce1293df4908d026d4) flag{zero_cool} ">
+<meta name=twitter:image content="https://blog.ppeinecke.de/images/">
+<meta property="og:title" content="MHSCTF - Crypto - Em Dee 2 | Pascals Blog">
+<meta property="og:description" content="Crypto - Em Dee - writeup Description Another super-secret message from Em!
+What does this one mean?
+b4b11af47f3086ce1293df4908d026d4 Remember to enter your answer in the &ldquo;flag{&mldr;}&rdquo; format!
+Hint: If at first you don&rsquo;t succeed, try, try again.
+Writeup Looks like an MD5 hash
+ found the hash:
+Found : zero_cool (hash = b4b11af47f3086ce1293df4908d026d4) flag{zero_cool} ">
+<meta property="og:image" content="https://blog.ppeinecke.de/images/">
 <link rel=preconnect href=https://fonts.gstatic.com>
 <link rel=preload href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600%7CPoppins:400,600,700&display=swap" as=style>
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600%7CPoppins:400,600,700&display=swap" rel=stylesheet>
@@ -113,7 +119,7 @@ Pascals Blog
 <div class=row>
 <div class="col col-12">
 <div class=image-box>
-<img class=post-image src=https://blog.ppeinecke.de/images/docker.jpg alt="E-CTF - Misc - What Is This">
+<img class=post-image src=https://blog.ppeinecke.de/images/ alt="MHSCTF - Crypto - Em Dee 2">
 </div>
 </div>
 </div>
@@ -124,57 +130,33 @@ Pascals Blog
 <article class="post amimate">
 <div class=post__head>
 <div class=post__tags>
-<a href=https://blog.ppeinecke.de/tags/misc/ class=post-tags__tag>misc</a>
-<a href=https://blog.ppeinecke.de/tags/ectf/ class=post-tags__tag>ectf</a>
+<a href=https://blog.ppeinecke.de/tags/crypto/ class=post-tags__tag>crypto</a>
+<a href=https://blog.ppeinecke.de/tags/mhsctf/ class=post-tags__tag>mhsctf</a>
 </div>
-<h1 class=post__title>E-CTF - Misc - What Is This</h1>
+<h1 class=post__title>MHSCTF - Crypto - Em Dee 2</h1>
 <div class=post__meta>
 <div class=post__author>
 <a href=/about/ class=post__author-image style=background-image:url(https://ppeinecke.de/custom_assets/images/pascal_portrait.png) aria-label="Pascal Peinecke's Picture"></a> <a href=/about/ class=post__author-link>Pascal Peinecke</a>
 </div>
 <span class=post__date>
-<time datetime=" 2022-03-11T00:58:29+01:00">Mar 11, 2022</time>
+<time datetime=" 2022-03-11T14:35:29+01:00">Mar 11, 2022</time>
 </span>
 </div>
 </div>
 <div class=post__content>
-<h1 id=misc---whatisthis---writeup>Misc - whatisthis - writeup</h1>
+<h1 id=crypto---em-dee---writeup>Crypto - Em Dee - writeup</h1>
 <h2 id=description>Description</h2>
-<p>Intelligence has found same weird material from Mr. Codeshankar (yes,him again).
-So it is your task now to find out whats contained in it.
-The link is here
-<a href="https://drive.google.com/file/d/1fFAexozA987VAgDI2AnOcr4ei2TLUO6Q/view?usp=sharing"></a></p>
+<p>Another super-secret message from Em!</p>
+<p>What does this one mean?</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>b4b11af47f3086ce1293df4908d026d4 
+</code></pre></div><p>Remember to enter your answer in the &ldquo;flag{&mldr;}&rdquo; format!</p>
+<p>Hint: If at first you don&rsquo;t succeed, try, try again.</p>
 <h2 id=writeup>Writeup</h2>
-<p>after unpacking the zip file whatisthis.zip
-I get an image file whatisthis.png</p>
-<p>The file itself is broken and cannot be opened.</p>
-<p>After checking with the file command what that file actually is
-I am presented with the following:
-whatisthis.png: POSIX tar archive</p>
-<p>So its a tar file</p>
-<p>So lets rename this file to a proper file extension</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>cp whatisthis.png whatisthis.tar
-</code></pre></div><p>Now I will try to extract that archive</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>tar -xf whatisthis.tar
-</code></pre></div><p>I get a lot of random folders</p>
-<p>each contains three files:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>json,
-layer.tar,
-VERSION
-</code></pre></div><p>VERSION is always 1.0</p>
-<p>So lets look at the content of all those weird json files</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>cat *.json
-</code></pre></div><p>what immediately sparks my eyes is the following:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>cat /etc/m/m/nothing.txt
-</code></pre></div><p>looks like we are dealing with docker containers here &mldr;</p>
-<p>There are still a lot of tar files inside each subfolders</p>
-<p>so lets extract them</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>find . -name <span class=s1>&#39;*.tar&#39;</span> -execdir tar -xzvf <span class=s1>&#39;{}&#39;</span> <span class=se>\;</span>
-</code></pre></div><p>After digging a lot around I found the file etc/m/m/nothing.txt</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>cat etc/m/m/nothing.txt
-</code></pre></div><p>CTF{D0cker_ent3r5_the_p4rty}</p>
-<p>So the flag is</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>CTF{D0cker_ent3r5_the_p4rty}
+<p>Looks like an MD5 hash</p>
+<p><a href=md5online.org></a> found the hash:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Found : zero_cool
+(hash = b4b11af47f3086ce1293df4908d026d4)
+</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>flag{zero_cool}
 </code></pre></div>
 </div>
 <div class=post__share>
@@ -183,31 +165,31 @@ VERSION
 </div>
 <ul class="share__list list-reset">
 <li class=share__item>
-<a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fectf-misc-what-is-this%2f" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on Facebook" rel=nofollow><ion-icon name=logo-facebook role=img class="md hydrated" aria-label="logo facebook"></ion-icon></a>
+<a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fmhsctf-crypto-em-dee-2%2f" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on Facebook" rel=nofollow><ion-icon name=logo-facebook role=img class="md hydrated" aria-label="logo facebook"></ion-icon></a>
 </li>
 <li class=share__item>
-<a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=E-CTF%20-%20Misc%20-%20What%20Is%20This&url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fectf-misc-what-is-this%2f" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on Twitter" rel=nofollow><ion-icon name=logo-twitter role=img class="md hydrated" aria-label="logo twitter"></ion-icon></a>
+<a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=MHSCTF%20-%20Crypto%20-%20Em%20Dee%202&url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fmhsctf-crypto-em-dee-2%2f" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on Twitter" rel=nofollow><ion-icon name=logo-twitter role=img class="md hydrated" aria-label="logo twitter"></ion-icon></a>
 </li>
 <li class=share__item>
-<a class="share__link share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fectf-misc-what-is-this%2f&title=E-CTF%20-%20Misc%20-%20What%20Is%20This&summary=&source=E-CTF%20-%20Misc%20-%20What%20Is%20This" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on LinkedIn" rel=nofollow><ion-icon name=logo-linkedin role=img class="md hydrated" aria-label="logo linkedin"></ion-icon></a>
+<a class="share__link share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fmhsctf-crypto-em-dee-2%2f&title=MHSCTF%20-%20Crypto%20-%20Em%20Dee%202&summary=&source=MHSCTF%20-%20Crypto%20-%20Em%20Dee%202" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on LinkedIn" rel=nofollow><ion-icon name=logo-linkedin role=img class="md hydrated" aria-label="logo linkedin"></ion-icon></a>
 </li>
 <li class=share__item>
-<a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fectf-misc-what-is-this%2f&media=https%3a%2f%2fblog.ppeinecke.de%2fimages%2fdocker.jpg&description=E-CTF%20-%20Misc%20-%20What%20Is%20This" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=900,height=500,toolbar=1,resizable=0'),!1" title="Share on Pinterest" aria-label="Share on Pinterest"><ion-icon name=logo-pinterest role=img class="md hydrated" aria-label="logo pinterest"></ion-icon></a>
+<a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fmhsctf-crypto-em-dee-2%2f&media=https%3a%2f%2fblog.ppeinecke.de%2fimages%2f&description=MHSCTF%20-%20Crypto%20-%20Em%20Dee%202" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=900,height=500,toolbar=1,resizable=0'),!1" title="Share on Pinterest" aria-label="Share on Pinterest"><ion-icon name=logo-pinterest role=img class="md hydrated" aria-label="logo pinterest"></ion-icon></a>
 </li>
 </ul>
 </div>
 <div class=post__navigation>
-<a class=prev href=https://blog.ppeinecke.de/posts/ectf-forensics-the-cat-knows-the-culprit/ style=background-image:url(/images/cat.jfif)>
+<a class=prev href=https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee/ style=background-image:url(/images/)>
 <div class=post__nav-box>
 <div class="post__nav post__nav__prev"><i class="ion ion-ios-arrow-back"></i> Previous
 Page</div>
-<h4 class=post__nav__title>E-CTF - Forensics - THE CAT KNOWS THE CULPRIT</h4>
+<h4 class=post__nav__title>MHSCTF - Crypto - Em Dee</h4>
 </div>
 </a>
-<a class=next href=https://blog.ppeinecke.de/posts/ectf-osint-vacation/ style=background-image:url(/images/tiger_and_bear.jpeg)>
+<a class=next href=https://blog.ppeinecke.de/posts/mhsctf-crypto-whats-cooking/ style=background-image:url(/images/)>
 <div class=post__nav-box>
 <div class="post__nav post__nav__next">Next Page <i class="ion ion-ios-arrow-forward"></i></div>
-<h4 class=post__nav__title>E-CTF - Osint - Vacation</h4>
+<h4 class=post__nav__title>MHSCTF - Crypto - What's Cooking?</h4>
 </div>
 </a>
 </div>
