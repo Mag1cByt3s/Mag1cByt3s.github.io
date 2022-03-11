@@ -147,29 +147,36 @@ I am presented with the following:
 whatisthis.png: POSIX tar archive</p>
 <p>So its a tar file</p>
 <p>So lets rename this file to a proper file extension</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cp whatisthis.png whatisthis.tar
-</code></pre></div><p>Now I will try to extract that archive</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>tar -xf whatisthis.tar
-</code></pre></div><p>I get a lot of random folders</p>
+<pre><code class=language-bash>cp whatisthis.png whatisthis.tar
+</code></pre>
+<p>Now I will try to extract that archive</p>
+<pre><code class=language-bash>tar -xf whatisthis.tar
+</code></pre>
+<p>I get a lot of random folders</p>
 <p>each contains three files:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>json,
+<pre><code>json,
 layer.tar,
 VERSION
-</code></pre></div><p>VERSION is always 1.0</p>
+</code></pre>
+<p>VERSION is always 1.0</p>
 <p>So lets look at the content of all those weird json files</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cat *.json
-</code></pre></div><p>what immediately sparks my eyes is the following:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cat /etc/m/m/nothing.txt
-</code></pre></div><p>looks like we are dealing with docker containers here &mldr;</p>
+<pre><code class=language-bash>cat *.json
+</code></pre>
+<p>what immediately sparks my eyes is the following:</p>
+<pre><code class=language-bash>cat /etc/m/m/nothing.txt
+</code></pre>
+<p>looks like we are dealing with docker containers here &mldr;</p>
 <p>There are still a lot of tar files inside each subfolders</p>
 <p>so lets extract them</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>find . -name <span style=color:#e6db74>&#39;*.tar&#39;</span> -execdir tar -xzvf <span style=color:#e6db74>&#39;{}&#39;</span> <span style=color:#ae81ff>\;</span>
-</code></pre></div><p>After digging a lot around I found the file etc/m/m/nothing.txt</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cat etc/m/m/nothing.txt
-</code></pre></div><p>CTF{D0cker_ent3r5_the_p4rty}</p>
+<pre><code class=language-bash>find . -name '*.tar' -execdir tar -xzvf '{}' \;
+</code></pre>
+<p>After digging a lot around I found the file etc/m/m/nothing.txt</p>
+<pre><code class=language-bash>cat etc/m/m/nothing.txt
+</code></pre>
+<p>CTF{D0cker_ent3r5_the_p4rty}</p>
 <p>So the flag is</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>CTF{D0cker_ent3r5_the_p4rty}
-</code></pre></div>
+<pre><code>CTF{D0cker_ent3r5_the_p4rty}
+</code></pre>
 </div>
 <div class=post__share>
 <div class=share__head>
