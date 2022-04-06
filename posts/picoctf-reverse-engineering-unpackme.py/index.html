@@ -14,7 +14,7 @@ writeup Let&rsquo;s download the python program first.
 wget https://artifacts.picoctf.net/c/470/unpackme.flag.py I will try to reverse engineer this python code &mldr;
 If we take a look at the code:
 import base64 from cryptography.fernet import Fernet payload = b'gAAAAABiMD1Ju5_eZeZy7C03K_YcWGDGXfvy5A9b5HzV-uZIYN8syTFGHgLwoRonYtCS0WcDrufxRRXlvNKtyEMqMS0AADLcRNr6VYpLLbKaETF37L22GEg1ok8NutHXK6gy47sBLmxmWWU729b86rzK6IMc2Kg-CR0bMm_fzrbRrWEYSk0WRNnKxy7Juuy-Ss2RjbACKgbwL7HNGATu3hYuPflf3PCKztLRFXCBxijKncKZgt68wYhGnPAzYvUVrdhhtMg9ra7ZKIirltPfKC8iX2DqmR9vVA==' key_str = 'correctstaplecorrectstaplecorrec' key_base64 = base64.b64encode(key_str.encode()) f = Fernet(key_base64) plain = f.decrypt(payload) exec(plain.decode()) We can see that some part of the code is missing.">
-<meta name=twitter:image content="https://blog.ppeinecke.de/images/picoctf.jpg">
+<meta name=twitter:image content="https://blog.ppeinecke.de/images/picoCTF_logo.png">
 <meta property="og:title" content="picoCTF - Reverse Engineering - unpackme.py | Pascals Blog">
 <meta property="og:description" content="Reverse Engineering - unpackme.py - writeup description Can you get the flag?
 Reverse engineer this Python program.
@@ -22,7 +22,7 @@ writeup Let&rsquo;s download the python program first.
 wget https://artifacts.picoctf.net/c/470/unpackme.flag.py I will try to reverse engineer this python code &mldr;
 If we take a look at the code:
 import base64 from cryptography.fernet import Fernet payload = b'gAAAAABiMD1Ju5_eZeZy7C03K_YcWGDGXfvy5A9b5HzV-uZIYN8syTFGHgLwoRonYtCS0WcDrufxRRXlvNKtyEMqMS0AADLcRNr6VYpLLbKaETF37L22GEg1ok8NutHXK6gy47sBLmxmWWU729b86rzK6IMc2Kg-CR0bMm_fzrbRrWEYSk0WRNnKxy7Juuy-Ss2RjbACKgbwL7HNGATu3hYuPflf3PCKztLRFXCBxijKncKZgt68wYhGnPAzYvUVrdhhtMg9ra7ZKIirltPfKC8iX2DqmR9vVA==' key_str = 'correctstaplecorrectstaplecorrec' key_base64 = base64.b64encode(key_str.encode()) f = Fernet(key_base64) plain = f.decrypt(payload) exec(plain.decode()) We can see that some part of the code is missing.">
-<meta property="og:image" content="https://blog.ppeinecke.de/images/picoctf.jpg">
+<meta property="og:image" content="https://blog.ppeinecke.de/images/picoCTF_logo.png">
 <link rel=preconnect href=https://fonts.gstatic.com>
 <link rel=preload href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600%7CPoppins:400,600,700&display=swap" as=style>
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600%7CPoppins:400,600,700&display=swap" rel=stylesheet>
@@ -111,7 +111,7 @@ Pascals Blog
 <div class=row>
 <div class="col col-12">
 <div class=image-box>
-<img class=post-image src=https://blog.ppeinecke.de/images/picoctf.jpg alt="picoCTF - Reverse Engineering - unpackme.py">
+<img class=post-image src=https://blog.ppeinecke.de/images/picoCTF_logo.png alt="picoCTF - Reverse Engineering - unpackme.py">
 </div>
 </div>
 </div>
@@ -192,19 +192,19 @@ to show us the encoded code in plaintext:</p>
 <a class="share__link share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-reverse-engineering-unpackme.py%2f&title=picoCTF%20-%20Reverse%20Engineering%20-%20unpackme.py&summary=&source=picoCTF%20-%20Reverse%20Engineering%20-%20unpackme.py" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on LinkedIn" rel=nofollow><ion-icon name=logo-linkedin role=img class="md hydrated" aria-label="logo linkedin"></ion-icon></a>
 </li>
 <li class=share__item>
-<a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-reverse-engineering-unpackme.py%2f&media=https%3a%2f%2fblog.ppeinecke.de%2fimages%2fpicoctf.jpg&description=picoCTF%20-%20Reverse%20Engineering%20-%20unpackme.py" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=900,height=500,toolbar=1,resizable=0'),!1" title="Share on Pinterest" aria-label="Share on Pinterest"><ion-icon name=logo-pinterest role=img class="md hydrated" aria-label="logo pinterest"></ion-icon></a>
+<a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-reverse-engineering-unpackme.py%2f&media=https%3a%2f%2fblog.ppeinecke.de%2fimages%2fpicoCTF_logo.png&description=picoCTF%20-%20Reverse%20Engineering%20-%20unpackme.py" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=900,height=500,toolbar=1,resizable=0'),!1" title="Share on Pinterest" aria-label="Share on Pinterest"><ion-icon name=logo-pinterest role=img class="md hydrated" aria-label="logo pinterest"></ion-icon></a>
 </li>
 </ul>
 </div>
 <div class=post__navigation>
-<a class=prev href=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-safe-opener/ style=background-image:url(/images/picoctf.jpg)>
+<a class=prev href=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-safe-opener/ style=background-image:url(/images/picoCTF_logo.png)>
 <div class=post__nav-box>
 <div class="post__nav post__nav__prev"><i class="ion ion-ios-arrow-back"></i> Previous
 Page</div>
 <h4 class=post__nav__title>picoCTF - Reverse Engineering - Safe Opener</h4>
 </div>
 </a>
-<a class=next href=https://blog.ppeinecke.de/posts/picoctf-web-exploitation-includes/ style=background-image:url(/images/picoctf.jpg)>
+<a class=next href=https://blog.ppeinecke.de/posts/picoctf-web-exploitation-includes/ style=background-image:url(/images/picoCTF_logo.png)>
 <div class=post__nav-box>
 <div class="post__nav post__nav__next">Next Page <i class="ion ion-ios-arrow-forward"></i></div>
 <h4 class=post__nav__title>picoCTF - Web Exploitation - Includes</h4>
