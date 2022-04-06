@@ -1,0 +1,388 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=icon type=image/x-icon href=/favicon.ico>
+<title>picoCTF - Cryptography - basic-mod1 | Pascals Blog</title>
+<meta name=description content>
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:title content="picoCTF - Cryptography - basic-mod1 | Pascals Blog">
+<meta name=twitter:description content="Cryptography - basic-mod1 - writeup description We found this weird message being passed around on the servers, we think we have a working decrpytion scheme. Download the message here. Take each number mod 37 and map it to the following character set: 0-25 is the alphabet (uppercase), 26-35 are the decimal digits, and 36 is an underscore. Wrap your decrypted message in the picoCTF flag format (i.e. picoCTF{decrypted_message})
+writeup Lets write a simple python program which reads the message into a string first.">
+<meta name=twitter:image content="https://blog.ppeinecke.de/images/picoctf.jpg">
+<meta property="og:title" content="picoCTF - Cryptography - basic-mod1 | Pascals Blog">
+<meta property="og:description" content="Cryptography - basic-mod1 - writeup description We found this weird message being passed around on the servers, we think we have a working decrpytion scheme. Download the message here. Take each number mod 37 and map it to the following character set: 0-25 is the alphabet (uppercase), 26-35 are the decimal digits, and 36 is an underscore. Wrap your decrypted message in the picoCTF flag format (i.e. picoCTF{decrypted_message})
+writeup Lets write a simple python program which reads the message into a string first.">
+<meta property="og:image" content="https://blog.ppeinecke.de/images/picoctf.jpg">
+<link rel=preconnect href=https://fonts.gstatic.com>
+<link rel=preload href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600%7CPoppins:400,600,700&display=swap" as=style>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600%7CPoppins:400,600,700&display=swap" rel=stylesheet>
+<link rel=stylesheet href=/css/main.min.e3acc672bcc200c36538e28ba51d0bd9329337306b4d77b221cae314dc360558.css>
+</head>
+<body>
+<header class=header>
+<div class=container>
+<div class=row>
+<div class="header__inner col col-12">
+<div class=logo>
+<a class=logo__link href=https://blog.ppeinecke.de/>
+Pascals Blog
+</a>
+</div>
+<div class=menu-overlay>
+<nav class=main-nav>
+<div class=main-nav__box>
+<div class=nav__icon-close>
+<i class="ion ion-md-close"></i>
+</div>
+<div class=nav-grid>
+<div class=nav-grid__item>
+<h2 class=nav-grid__title>Menu</h2>
+<div class=mobile-nav>
+<ul class="nav__list list-reset">
+<li class=nav__item>
+<a href=/ class=nav__link>Home</a>
+</li>
+<li class=nav__item>
+<a href=/about class=nav__link>About</a>
+</li>
+<li class=nav__item>
+<a href=/contact class=nav__link>Contact Me</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<div class=navigation>
+<div class=top-nav>
+<ul class="nav__list list-reset">
+<li class=nav__item>
+<a href=/ class=nav__link>Home</a>
+</li>
+<li class=nav__item>
+<a href=/about class=nav__link>About</a>
+</li>
+<li class=nav__item>
+<a href=/contact class=nav__link>Contact Me</a>
+</li>
+</ul>
+</div>
+<div class=nav-buttons>
+<i class="nav__icon nav__icon-menu ion ion-md-menu"></i>
+<i class="nav__icon nav__icon-search ion ion-md-search"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class=search>
+<div class=container>
+<div class=row>
+<div class="col col-12">
+<div class=search__box>
+<div class=search__group>
+<div class=search__close>
+<i class="ion ion-md-close"></i>
+</div>
+<label for=js-search-input class=screen-reader-text>Search for Blog</label>
+<input type=text id=js-search-input class=search__text autocomplete=off placeholder="Type to search...">
+</div>
+<div id=js-results-container class=search-results-list style=display:none></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<main class=content aria-label=Content>
+<div class=container>
+<div class=row>
+<div class="col col-12">
+<div class=image-box>
+<img class=post-image src=https://blog.ppeinecke.de/images/picoctf.jpg alt="picoCTF - Cryptography - basic-mod1">
+</div>
+</div>
+</div>
+</div>
+<div class=container>
+<div class=row>
+<div class="col col-8 col-d-10 push-2 push-d-1 col-t-12 push-t-0">
+<article class="post amimate">
+<div class=post__head>
+<div class=post__tags>
+<a href=https://blog.ppeinecke.de/tags/crypto/ class=post-tags__tag>crypto</a>
+<a href=https://blog.ppeinecke.de/tags/cryptography/ class=post-tags__tag>cryptography</a>
+<a href=https://blog.ppeinecke.de/tags/picoctf/ class=post-tags__tag>picoctf</a>
+</div>
+<h1 class=post__title>picoCTF - Cryptography - basic-mod1</h1>
+<div class=post__meta>
+<div class=post__author>
+<a href=/about/ class=post__author-image style=background-image:url(https://ppeinecke.de/custom_assets/images/pascal_portrait.png) aria-label="Pascal Peinecke's Picture"></a> <a href=/about/ class=post__author-link>Pascal Peinecke</a>
+</div>
+<span class=post__date>
+<time datetime=" 2022-04-06T13:58:41+02:00">Apr 6, 2022</time>
+</span>
+</div>
+</div>
+<div class=post__content>
+<h1 id=cryptography---basic-mod1---writeup>Cryptography - basic-mod1 - writeup</h1>
+<h2 id=description>description</h2>
+<p>We found this weird message being passed around on the servers,
+we think we have a working decrpytion scheme.
+Download the message here. Take each number mod 37 and
+map it to the following character set: 0-25 is the alphabet (uppercase),
+26-35 are the decimal digits, and 36 is an underscore.
+Wrap your decrypted message in the picoCTF flag
+format (i.e. picoCTF{decrypted_message})</p>
+<h2 id=writeup>writeup</h2>
+<p>Lets write a simple python program which reads the message
+into a string first.</p>
+<p>Then I will read each number into an array and take each
+number in the array mod 37</p>
+<p>After that I will try to map each array field to the following scheme:</p>
+<blockquote>
+<p>0-25 is the alphabet (uppercase),
+26-35 are the decimal digits, and 36 is an underscore.</p>
+</blockquote>
+<p>At the end I will warp the decoded message in the picoCTF
+flag format like so: (i.e. picoCTF{decrypted_message})</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#6272a4>#!/usr/bin/env python3</span>
+
+<span style=color:#ff79c6>import</span> string
+
+<span style=color:#6272a4># read the file into a string</span>
+<span style=color:#ff79c6>with</span> <span style=color:#8be9fd;font-style:italic>open</span>(<span style=color:#f1fa8c>&#39;message.txt&#39;</span>, <span style=color:#f1fa8c>&#39;r&#39;</span>) <span style=color:#ff79c6>as</span> file:
+    enc_msg <span style=color:#ff79c6>=</span> file<span style=color:#ff79c6>.</span>read()
+
+<span style=color:#6272a4># split the string by &#39; &#39; and insert the values into an array</span>
+enc_arr <span style=color:#ff79c6>=</span> enc_msg<span style=color:#ff79c6>.</span>split( )
+
+<span style=color:#6272a4># print out the array for test purposes</span>
+enc_arr_len <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>len</span>(enc_arr)
+
+<span style=color:#6272a4># define empty mod_arr</span>
+mod_arr <span style=color:#ff79c6>=</span> []
+
+<span style=color:#6272a4># calculate modulo 37 of every number</span>
+<span style=color:#ff79c6>for</span> i <span style=color:#ff79c6>in</span> <span style=color:#8be9fd;font-style:italic>range</span>(<span style=color:#bd93f9>0</span>, enc_arr_len):
+        mod_arr<span style=color:#ff79c6>.</span>append(<span style=color:#8be9fd;font-style:italic>round</span>(<span style=color:#8be9fd;font-style:italic>int</span>(enc_arr[i]) <span style=color:#ff79c6>%</span> <span style=color:#bd93f9>37</span>))
+
+<span style=color:#6272a4># get length of resulting array</span>
+mod_arr_len <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>len</span>(mod_arr)
+
+<span style=color:#6272a4># define array for final string</span>
+final_string <span style=color:#ff79c6>=</span> []
+
+
+<span style=color:#ff79c6>for</span> i <span style=color:#ff79c6>in</span> <span style=color:#8be9fd;font-style:italic>range</span>(<span style=color:#bd93f9>0</span>, mod_arr_len):
+        <span style=color:#6272a4># try to map numbers from 0 to 25 to uppercase characters of the alphabet</span>
+        <span style=color:#ff79c6>if</span> <span style=color:#bd93f9>0</span> <span style=color:#ff79c6>&lt;=</span> <span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>&lt;=</span> <span style=color:#bd93f9>25</span>:
+                <span style=color:#ff79c6>if</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>0</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;A&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>1</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;B&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>2</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;C&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>3</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;D&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>4</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;E&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>5</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;F&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>6</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;G&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>7</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;H&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>8</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;I&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>9</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;J&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>10</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;K&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>11</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;L&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>12</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;M&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>13</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;N&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>14</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;O&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>15</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;P&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>16</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;Q&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>17</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;R&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>18</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;S&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>19</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;T&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>20</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;U&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>21</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;V&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>22</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;W&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>23</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;X&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>24</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;Y&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>25</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;Z&#39;</span>)
+        <span style=color:#6272a4># try to map numbers from 26 to 35 to decimal digits</span>
+        <span style=color:#ff79c6>elif</span> <span style=color:#bd93f9>26</span> <span style=color:#ff79c6>&lt;=</span> <span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>&lt;=</span> <span style=color:#bd93f9>35</span>:
+                <span style=color:#ff79c6>if</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>26</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;0&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>27</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;1&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>28</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;2&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>29</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;3&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>30</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;4&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>31</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;5&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>32</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;6&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>33</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;7&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>34</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;8&#39;</span>)
+                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>35</span>):
+                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;9&#39;</span>)
+        <span style=color:#6272a4># try to map 36 to an underscore _</span>
+        <span style=color:#ff79c6>elif</span> <span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>36</span>:
+                final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#34;_&#34;</span>)
+
+final_flag <span style=color:#ff79c6>=</span> <span style=color:#f1fa8c>&#39;&#39;</span><span style=color:#ff79c6>.</span>join(final_string)
+
+<span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;picoCTF{&#34;</span> <span style=color:#ff79c6>+</span> final_flag <span style=color:#ff79c6>+</span> <span style=color:#f1fa8c>&#34;}&#34;</span>)
+</code></pre></div><h2 id=flag>Flag:</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>picoCTF{R0UND_N_R0UND_B0D5F596}
+</code></pre></div>
+</div>
+<div class=post__share>
+<div class=share__head>
+<div class=share__title>Share this article</div>
+</div>
+<ul class="share__list list-reset">
+<li class=share__item>
+<a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-cryptography-basic-mod1%2f" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on Facebook" rel=nofollow><ion-icon name=logo-facebook role=img class="md hydrated" aria-label="logo facebook"></ion-icon></a>
+</li>
+<li class=share__item>
+<a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=picoCTF%20-%20Cryptography%20-%20basic-mod1&url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-cryptography-basic-mod1%2f" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on Twitter" rel=nofollow><ion-icon name=logo-twitter role=img class="md hydrated" aria-label="logo twitter"></ion-icon></a>
+</li>
+<li class=share__item>
+<a class="share__link share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-cryptography-basic-mod1%2f&title=picoCTF%20-%20Cryptography%20-%20basic-mod1&summary=&source=picoCTF%20-%20Cryptography%20-%20basic-mod1" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on LinkedIn" rel=nofollow><ion-icon name=logo-linkedin role=img class="md hydrated" aria-label="logo linkedin"></ion-icon></a>
+</li>
+<li class=share__item>
+<a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-cryptography-basic-mod1%2f&media=https%3a%2f%2fblog.ppeinecke.de%2fimages%2fpicoctf.jpg&description=picoCTF%20-%20Cryptography%20-%20basic-mod1" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=900,height=500,toolbar=1,resizable=0'),!1" title="Share on Pinterest" aria-label="Share on Pinterest"><ion-icon name=logo-pinterest role=img class="md hydrated" aria-label="logo pinterest"></ion-icon></a>
+</li>
+</ul>
+</div>
+<div class=post__navigation>
+<a class=prev href=https://blog.ppeinecke.de/posts/picoctf-binary-exploitation-buffer-overflow-0/ style=background-image:url(/images/picoctf.jpg)>
+<div class=post__nav-box>
+<div class="post__nav post__nav__prev"><i class="ion ion-ios-arrow-back"></i> Previous
+Page</div>
+<h4 class=post__nav__title>picoCTF - Binary Exploitation - Buffer Overflow 0</h4>
+</div>
+</a>
+<a class=next href=https://blog.ppeinecke.de/posts/picoctf-cryptography-credstuff/ style=background-image:url(/images/picoctf.jpg)>
+<div class=post__nav-box>
+<div class="post__nav post__nav__next">Next Page <i class="ion ion-ios-arrow-forward"></i></div>
+<h4 class=post__nav__title>picoCTF - Cryptography - credstuff</h4>
+</div>
+</a>
+</div>
+<div id=disqus_thread class=post__comments>
+<div id=disqus_empty></div>
+</div>
+<script>function load_disqus(){var c='pascals-blog',b=document.getElementById('disqus_empty'),d=document.getElementById('disqus_thread'),a=document.createElement('script'),e=document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0];d&&b&&(a.type='text/javascript',a.async=!0,a.src='//'+c+'.disqus.com/embed.js',e.appendChild(a),b.remove())}window.addEventListener('scroll',function(c){var b=document.scrollingElement.scrollTop,a=document.getElementById('disqus_thread');a&&b>a.getBoundingClientRect().top-150&&load_disqus('disqus_shortname')},!1)</script>
+<noscript>Please enable JavaScript to view the
+<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a>
+</noscript>
+</article>
+</div>
+</div>
+</div>
+</main>
+<div class=top title=Top><ion-icon name=chevron-up-outline></ion-icon></div>
+<section class=footer-widgets>
+<div class=container>
+<div class=row>
+<div class="col col-4 col-d-6 col-t-12">
+<div class="widget widget-info">
+<div class=footer-logo>
+Pascals Blog
+</div>
+<p class=footer-desc>writeups of CTFs, crackmes, HTB machines, etc</p>
+</div>
+</div>
+<div class="col col-4 col-d-6 col-t-12">
+<div class="widget widget-nav">
+<div class=widget__head>
+<h3 class=widget__title>Menu</h3>
+</div>
+<ul class="nav__list list-reset">
+<li class=nav__item>
+<a href=/ class=nav__link>Home</a>
+</li>
+<li class=nav__item>
+<a href=/about class=nav__link>About</a>
+</li>
+<li class=nav__item>
+<a href=/contact class=nav__link>Contact Me</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class=footer>
+<div class=container>
+<div class=row>
+<div class="col col-12">
+<div class=footer__inner>
+<div class=social>
+<ul class="social__list list-reset">
+<li class=social__item>
+<a class=social__link href=https://www.gitlab.com/Pascal3366 target=_blank rel=noopener aria-label="GitLab link"><ion-icon name=logo-gitlab></ion-icon>
+</a>
+</li>
+<li class=social__item>
+<a class=social__link href=https://www.github.com/Pascal3366 target=_blank rel=noopener aria-label="GitHub link"><ion-icon name=logo-github></ion-icon>
+</a>
+</li>
+<li class=social__item>
+<a class=social__link href=https://www.xing.com/profile/Pascal_Peinecke target=_blank rel=noopener aria-label="Xing link"><ion-icon name=logo-xing></ion-icon>
+</a>
+</li>
+<li class=social__item>
+<a class=social__link href=http://www.linkedin.com/in/Pascal-Peinecke target=_blank rel=noopener aria-label="LinkedIn link"><ion-icon name=logo-linkedin></ion-icon>
+</a>
+</li>
+<li class=social__item>
+<a class=social__link href=https://app.hackthebox.com/users/878647 target=_blank rel=noopener aria-label="HackTheBox link"><ion-icon name=cube-outline></ion-icon>
+</a>
+</li>
+</ul>
+</div>
+<div class=copyright>2022 &copy; <a href=/>Pascals Blog</a>. All Right Reserved. Published with <a href=https://gohugo.io/>Hugo</a>.</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script src=/js/scripts.min.e5b74335e86cf180cc9e9f5a07c245a7762af2aae0f872e1ea78f1f061df66f5.js></script>
+<script src=/js/common.min.65bb105fca69fc4a0b7bf5db491e4f32ed155e661bd310e8369590e135a896d4.js></script>
+<script type=module src=https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js></script>
+<script nomodule src=https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js></script>
+</body>
+</html>

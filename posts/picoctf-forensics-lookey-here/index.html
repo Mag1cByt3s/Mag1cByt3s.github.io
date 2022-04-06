@@ -1,0 +1,279 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=icon type=image/x-icon href=/favicon.ico>
+<title>picoCTF - Forensics - Lookey Here | Pascals Blog</title>
+<meta name=description content>
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:title content="picoCTF - Forensics - Lookey Here | Pascals Blog">
+<meta name=twitter:description content="Forensics - Lookey here - writeup description Attackers have hidden information in a very large mass of data in the past, maybe they are still doing it. Download the data here.
+writeup looking at the content of the txt file I can see a lot of random text&mldr;
+head anthem.flag.txt ANTHEM by Ayn Rand CONTENTS PART ONE PART TWO By simply grepping out picoCTF I could find the flag
+cat anthem.">
+<meta name=twitter:image content="https://blog.ppeinecke.de/images/picoctf.jpg">
+<meta property="og:title" content="picoCTF - Forensics - Lookey Here | Pascals Blog">
+<meta property="og:description" content="Forensics - Lookey here - writeup description Attackers have hidden information in a very large mass of data in the past, maybe they are still doing it. Download the data here.
+writeup looking at the content of the txt file I can see a lot of random text&mldr;
+head anthem.flag.txt ANTHEM by Ayn Rand CONTENTS PART ONE PART TWO By simply grepping out picoCTF I could find the flag
+cat anthem.">
+<meta property="og:image" content="https://blog.ppeinecke.de/images/picoctf.jpg">
+<link rel=preconnect href=https://fonts.gstatic.com>
+<link rel=preload href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600%7CPoppins:400,600,700&display=swap" as=style>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600%7CPoppins:400,600,700&display=swap" rel=stylesheet>
+<link rel=stylesheet href=/css/main.min.e3acc672bcc200c36538e28ba51d0bd9329337306b4d77b221cae314dc360558.css>
+</head>
+<body>
+<header class=header>
+<div class=container>
+<div class=row>
+<div class="header__inner col col-12">
+<div class=logo>
+<a class=logo__link href=https://blog.ppeinecke.de/>
+Pascals Blog
+</a>
+</div>
+<div class=menu-overlay>
+<nav class=main-nav>
+<div class=main-nav__box>
+<div class=nav__icon-close>
+<i class="ion ion-md-close"></i>
+</div>
+<div class=nav-grid>
+<div class=nav-grid__item>
+<h2 class=nav-grid__title>Menu</h2>
+<div class=mobile-nav>
+<ul class="nav__list list-reset">
+<li class=nav__item>
+<a href=/ class=nav__link>Home</a>
+</li>
+<li class=nav__item>
+<a href=/about class=nav__link>About</a>
+</li>
+<li class=nav__item>
+<a href=/contact class=nav__link>Contact Me</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<div class=navigation>
+<div class=top-nav>
+<ul class="nav__list list-reset">
+<li class=nav__item>
+<a href=/ class=nav__link>Home</a>
+</li>
+<li class=nav__item>
+<a href=/about class=nav__link>About</a>
+</li>
+<li class=nav__item>
+<a href=/contact class=nav__link>Contact Me</a>
+</li>
+</ul>
+</div>
+<div class=nav-buttons>
+<i class="nav__icon nav__icon-menu ion ion-md-menu"></i>
+<i class="nav__icon nav__icon-search ion ion-md-search"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class=search>
+<div class=container>
+<div class=row>
+<div class="col col-12">
+<div class=search__box>
+<div class=search__group>
+<div class=search__close>
+<i class="ion ion-md-close"></i>
+</div>
+<label for=js-search-input class=screen-reader-text>Search for Blog</label>
+<input type=text id=js-search-input class=search__text autocomplete=off placeholder="Type to search...">
+</div>
+<div id=js-results-container class=search-results-list style=display:none></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<main class=content aria-label=Content>
+<div class=container>
+<div class=row>
+<div class="col col-12">
+<div class=image-box>
+<img class=post-image src=https://blog.ppeinecke.de/images/picoctf.jpg alt="picoCTF - Forensics - Lookey Here">
+</div>
+</div>
+</div>
+</div>
+<div class=container>
+<div class=row>
+<div class="col col-8 col-d-10 push-2 push-d-1 col-t-12 push-t-0">
+<article class="post amimate">
+<div class=post__head>
+<div class=post__tags>
+<a href=https://blog.ppeinecke.de/tags/forensics/ class=post-tags__tag>forensics</a>
+<a href=https://blog.ppeinecke.de/tags/picoctf/ class=post-tags__tag>picoctf</a>
+</div>
+<h1 class=post__title>picoCTF - Forensics - Lookey Here</h1>
+<div class=post__meta>
+<div class=post__author>
+<a href=/about/ class=post__author-image style=background-image:url(https://ppeinecke.de/custom_assets/images/pascal_portrait.png) aria-label="Pascal Peinecke's Picture"></a> <a href=/about/ class=post__author-link>Pascal Peinecke</a>
+</div>
+<span class=post__date>
+<time datetime=" 2022-04-06T14:25:47+02:00">Apr 6, 2022</time>
+</span>
+</div>
+</div>
+<div class=post__content>
+<h1 id=forensics---lookey-here---writeup>Forensics - Lookey here - writeup</h1>
+<h2 id=description>description</h2>
+<p>Attackers have hidden information in a very large mass of data in the past, maybe they are still doing it. Download the data <a href=https://artifacts.picoctf.net/c/300/anthem.flag.txt>here</a>.</p>
+<h2 id=writeup>writeup</h2>
+<p>looking at the content of the txt file I can see
+a lot of random text&mldr;</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>head anthem.flag.txt
+
+ANTHEM
+
+      by Ayn Rand
+
+
+        CONTENTS
+
+         PART ONE
+
+         PART TWO
+</code></pre></div><p>By simply grepping out picoCTF I could find the flag</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cat anthem.flag.txt| grep picoCTF
+
+we think that the men of picoCTF<span style=color:#ff79c6>{</span>gr3p_15_@w3s0m3_c91a291d<span style=color:#ff79c6>}</span>
+</code></pre></div><p>So the flag is</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>picoCTF{gr3p_15_@w3s0m3_c91a291d}</code></pre></div>
+</div>
+<div class=post__share>
+<div class=share__head>
+<div class=share__title>Share this article</div>
+</div>
+<ul class="share__list list-reset">
+<li class=share__item>
+<a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-forensics-lookey-here%2f" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on Facebook" rel=nofollow><ion-icon name=logo-facebook role=img class="md hydrated" aria-label="logo facebook"></ion-icon></a>
+</li>
+<li class=share__item>
+<a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=picoCTF%20-%20Forensics%20-%20Lookey%20Here&url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-forensics-lookey-here%2f" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on Twitter" rel=nofollow><ion-icon name=logo-twitter role=img class="md hydrated" aria-label="logo twitter"></ion-icon></a>
+</li>
+<li class=share__item>
+<a class="share__link share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-forensics-lookey-here%2f&title=picoCTF%20-%20Forensics%20-%20Lookey%20Here&summary=&source=picoCTF%20-%20Forensics%20-%20Lookey%20Here" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on LinkedIn" rel=nofollow><ion-icon name=logo-linkedin role=img class="md hydrated" aria-label="logo linkedin"></ion-icon></a>
+</li>
+<li class=share__item>
+<a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-forensics-lookey-here%2f&media=https%3a%2f%2fblog.ppeinecke.de%2fimages%2fpicoctf.jpg&description=picoCTF%20-%20Forensics%20-%20Lookey%20Here" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=900,height=500,toolbar=1,resizable=0'),!1" title="Share on Pinterest" aria-label="Share on Pinterest"><ion-icon name=logo-pinterest role=img class="md hydrated" aria-label="logo pinterest"></ion-icon></a>
+</li>
+</ul>
+</div>
+<div class=post__navigation>
+<a class=prev href=https://blog.ppeinecke.de/posts/picoctf-forensics-file-types/ style=background-image:url(/images/picoctf.jpg)>
+<div class=post__nav-box>
+<div class="post__nav post__nav__prev"><i class="ion ion-ios-arrow-back"></i> Previous
+Page</div>
+<h4 class=post__nav__title>picoCTF - Forensics - File types</h4>
+</div>
+</a>
+<a class=next href=https://blog.ppeinecke.de/posts/picoctf-forensics-operation-oni/ style=background-image:url(/images/picoctf.jpg)>
+<div class=post__nav-box>
+<div class="post__nav post__nav__next">Next Page <i class="ion ion-ios-arrow-forward"></i></div>
+<h4 class=post__nav__title>picoCTF - Forensics - Operation Oni</h4>
+</div>
+</a>
+</div>
+<div id=disqus_thread class=post__comments>
+<div id=disqus_empty></div>
+</div>
+<script>function load_disqus(){var c='pascals-blog',b=document.getElementById('disqus_empty'),d=document.getElementById('disqus_thread'),a=document.createElement('script'),e=document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0];d&&b&&(a.type='text/javascript',a.async=!0,a.src='//'+c+'.disqus.com/embed.js',e.appendChild(a),b.remove())}window.addEventListener('scroll',function(c){var b=document.scrollingElement.scrollTop,a=document.getElementById('disqus_thread');a&&b>a.getBoundingClientRect().top-150&&load_disqus('disqus_shortname')},!1)</script>
+<noscript>Please enable JavaScript to view the
+<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a>
+</noscript>
+</article>
+</div>
+</div>
+</div>
+</main>
+<div class=top title=Top><ion-icon name=chevron-up-outline></ion-icon></div>
+<section class=footer-widgets>
+<div class=container>
+<div class=row>
+<div class="col col-4 col-d-6 col-t-12">
+<div class="widget widget-info">
+<div class=footer-logo>
+Pascals Blog
+</div>
+<p class=footer-desc>writeups of CTFs, crackmes, HTB machines, etc</p>
+</div>
+</div>
+<div class="col col-4 col-d-6 col-t-12">
+<div class="widget widget-nav">
+<div class=widget__head>
+<h3 class=widget__title>Menu</h3>
+</div>
+<ul class="nav__list list-reset">
+<li class=nav__item>
+<a href=/ class=nav__link>Home</a>
+</li>
+<li class=nav__item>
+<a href=/about class=nav__link>About</a>
+</li>
+<li class=nav__item>
+<a href=/contact class=nav__link>Contact Me</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class=footer>
+<div class=container>
+<div class=row>
+<div class="col col-12">
+<div class=footer__inner>
+<div class=social>
+<ul class="social__list list-reset">
+<li class=social__item>
+<a class=social__link href=https://www.gitlab.com/Pascal3366 target=_blank rel=noopener aria-label="GitLab link"><ion-icon name=logo-gitlab></ion-icon>
+</a>
+</li>
+<li class=social__item>
+<a class=social__link href=https://www.github.com/Pascal3366 target=_blank rel=noopener aria-label="GitHub link"><ion-icon name=logo-github></ion-icon>
+</a>
+</li>
+<li class=social__item>
+<a class=social__link href=https://www.xing.com/profile/Pascal_Peinecke target=_blank rel=noopener aria-label="Xing link"><ion-icon name=logo-xing></ion-icon>
+</a>
+</li>
+<li class=social__item>
+<a class=social__link href=http://www.linkedin.com/in/Pascal-Peinecke target=_blank rel=noopener aria-label="LinkedIn link"><ion-icon name=logo-linkedin></ion-icon>
+</a>
+</li>
+<li class=social__item>
+<a class=social__link href=https://app.hackthebox.com/users/878647 target=_blank rel=noopener aria-label="HackTheBox link"><ion-icon name=cube-outline></ion-icon>
+</a>
+</li>
+</ul>
+</div>
+<div class=copyright>2022 &copy; <a href=/>Pascals Blog</a>. All Right Reserved. Published with <a href=https://gohugo.io/>Hugo</a>.</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script src=/js/scripts.min.e5b74335e86cf180cc9e9f5a07c245a7762af2aae0f872e1ea78f1f061df66f5.js></script>
+<script src=/js/common.min.65bb105fca69fc4a0b7bf5db491e4f32ed155e661bd310e8369590e135a896d4.js></script>
+<script type=module src=https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js></script>
+<script nomodule src=https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>reverse engineering on Pascals Blog</title><link>https://blog.ppeinecke.de/categories/reverse-engineering/</link><description>Recent content in reverse engineering on Pascals Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 06 Apr 2022 15:29:28 +0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/categories/reverse-engineering/index.xml" rel="self" type="application/rss+xml"/><item><title>picoCTF - Reverse Engineering - unpackme.py</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-unpackme.py/</link><pubDate>Wed, 06 Apr 2022 15:29:28 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-unpackme.py/</guid><description>Reverse Engineering - unpackme.py - writeup description Can you get the flag?
+Reverse engineer this Python program.
+writeup Let&amp;rsquo;s download the python program first.
+wget https://artifacts.picoctf.net/c/470/unpackme.flag.py I will try to reverse engineer this python code &amp;hellip;
+If we take a look at the code:
+import base64 from cryptography.fernet import Fernet payload = b&amp;#39;gAAAAABiMD1Ju5_eZeZy7C03K_YcWGDGXfvy5A9b5HzV-uZIYN8syTFGHgLwoRonYtCS0WcDrufxRRXlvNKtyEMqMS0AADLcRNr6VYpLLbKaETF37L22GEg1ok8NutHXK6gy47sBLmxmWWU729b86rzK6IMc2Kg-CR0bMm_fzrbRrWEYSk0WRNnKxy7Juuy-Ss2RjbACKgbwL7HNGATu3hYuPflf3PCKztLRFXCBxijKncKZgt68wYhGnPAzYvUVrdhhtMg9ra7ZKIirltPfKC8iX2DqmR9vVA==&amp;#39; key_str = &amp;#39;correctstaplecorrectstaplecorrec&amp;#39; key_base64 = base64.b64encode(key_str.encode()) f = Fernet(key_base64) plain = f.decrypt(payload) exec(plain.decode()) We can see that some part of the code is missing.</description></item><item><title>picoCTF - Reverse Engineering - Safe Opener</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-safe-opener/</link><pubDate>Wed, 06 Apr 2022 15:27:09 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-safe-opener/</guid><description>Reverse Engineering - Safe Opener - writeup description Can you open this safe?
+I forgot the key to my safe but this program is supposed to help me with retrieving the lost key.
+Can you help me unlock my safe?
+Put the password you recover into the picoCTF flag format like: picoCTF{password}
+writeup The &amp;ldquo;safe&amp;rdquo; is a .java file.
+Since .java is used for java source code this should be fairly easy to reverse engineer.</description></item><item><title>picoCTF - Reverse Engineering - patchme.py</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-patchme.py/</link><pubDate>Wed, 06 Apr 2022 15:25:17 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-patchme.py/</guid><description>Reverse Engineering - patchme.py - writeup description Can you get the flag?
+Run this Python program in the same directory as this encrypted flag.
+writeup lets take a look at the encrypted flag&amp;hellip;
+cat flag.txt.enc CR1@ UYX+ 6UB P\E That does not help.
+Let&amp;rsquo;s look at the python code&amp;hellip;
+Mh that us peculiar:
+if( user_pw == &amp;#34;ak98&amp;#34; + \ &amp;#34;-=90&amp;#34; + \ &amp;#34;adfjhgj321&amp;#34; + \ &amp;#34;sleuth9000&amp;#34;) Lets fire up bpython and input this code:</description></item><item><title>picoCTF - Reverse Engineering - file-run2</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-file-run2/</link><pubDate>Wed, 06 Apr 2022 15:23:34 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-file-run2/</guid><description>Reverse Engineering - file-run2 - writeup description Another program, but this time, it seems to want some input. What happens if you try to run it on the command line with input &amp;ldquo;Hello!&amp;rdquo;?
+Download the program here.
+writeup by simply executing the file with ./run we get
+Run this file with only one argument. if I try to supply one argument like this: ./run 1 I get
+Won&amp;#39;t you say &amp;#39;Hello!</description></item><item><title>picoCTF - Reverse Engineering - file-run1</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-file-run1/</link><pubDate>Wed, 06 Apr 2022 15:19:34 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-file-run1/</guid><description>Reverse Engineering - file-run1 - writeup description A program has been provided to you, what happens if you try to run it on the command line?
+Download the program here.
+https://artifacts.picoctf.net/c/314/run
+writeup by simply running the program we get the flag:
+The flag is: picoCTF{U51N6_Y0Ur_F1r57_F113_ac61264e}</description></item><item><title>picoCTF - Reverse Engineering - bloat.py</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/</link><pubDate>Wed, 06 Apr 2022 15:16:12 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/</guid><description>Reverse Engineering - bloat.py - writeup description Can you get the flag?
+Run this Python program in the same directory as this encrypted flag.
+writeup So let&amp;rsquo;s download the python program and the encrypted flag first!
+wget https://artifacts.picoctf.net/c/434/bloat.flag.py wget https://artifacts.picoctf.net/c/434/flag.txt.enc Let&amp;rsquo;s make a copy of the python program and try to fix it using debugging in bpython!
+cp bloat.flag.py flag.py After a lot of debugging and reverse engineering using bpython I found the flag!</description></item></channel></rss>
