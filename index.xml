@@ -40,7 +40,7 @@ Put the password you recover into the picoCTF flag format like: picoCTF{password
 writeup The &amp;ldquo;safe&amp;rdquo; is a .java file.
 Since .java is used for java source code this should be fairly easy to reverse engineer.</description></item><item><title>picoCTF - Reverse Engineering - patchme.py</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-patchme.py/</link><pubDate>Wed, 06 Apr 2022 15:25:17 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-patchme.py/</guid><description>Reverse Engineering - patchme.py - writeup description Can you get the flag?
 Run this Python program in the same directory as this encrypted flag.
-writeup lets take a look at the encrypted flag&amp;hellip;
+writeup Let&amp;rsquo;s take a look at the encrypted flag&amp;hellip;
 cat flag.txt.enc CR1@ UYX+ 6UB P\E That does not help.
 Let&amp;rsquo;s look at the python code&amp;hellip;
 Mh that is peculiar:
