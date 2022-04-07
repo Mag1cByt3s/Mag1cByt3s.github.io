@@ -9,13 +9,13 @@
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:title content="RITSEC CTF - Misc - Scrumptions Snacks | Pascals Blog">
 <meta name=twitter:description content="Misc - Scrumptions Snacks - writeup description Sheamus the STEGOsaurus is hungry! He&rsquo;s somewhat secretive about his favorite snack spot, but he&rsquo;ll gladly share his secret if you say the word: &ldquo;lunch&rdquo;. Can you identify the name of Sheamus' favorite food establishment?
-writeup So I first downlaoded the file &lsquo;stegosaurus.jpg&rsquo;.
+writeup So I first downloaded the file &lsquo;stegosaurus.jpg&rsquo;.
 Let&rsquo;s see what we have here:
 mv ~/Downloads/stegosaurus.jpg . file stegosaurus.jpg stegosaurus.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 168x168, segment length 16, baseline, precision 8, 964x910, components 3 It is a JPEG file so steganography is possible.">
 <meta name=twitter:image content="https://blog.ppeinecke.de/images/ritsecCTF_logo.png">
 <meta property="og:title" content="RITSEC CTF - Misc - Scrumptions Snacks | Pascals Blog">
 <meta property="og:description" content="Misc - Scrumptions Snacks - writeup description Sheamus the STEGOsaurus is hungry! He&rsquo;s somewhat secretive about his favorite snack spot, but he&rsquo;ll gladly share his secret if you say the word: &ldquo;lunch&rdquo;. Can you identify the name of Sheamus' favorite food establishment?
-writeup So I first downlaoded the file &lsquo;stegosaurus.jpg&rsquo;.
+writeup So I first downloaded the file &lsquo;stegosaurus.jpg&rsquo;.
 Let&rsquo;s see what we have here:
 mv ~/Downloads/stegosaurus.jpg . file stegosaurus.jpg stegosaurus.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 168x168, segment length 16, baseline, precision 8, 964x910, components 3 It is a JPEG file so steganography is possible.">
 <meta property="og:image" content="https://blog.ppeinecke.de/images/ritsecCTF_logo.png">
@@ -138,7 +138,7 @@ Pascals Blog
 He&rsquo;s somewhat secretive about his favorite snack spot, but he&rsquo;ll gladly share his secret if you say the word: &ldquo;lunch&rdquo;.
 Can you identify the name of Sheamus' favorite food establishment?</p>
 <h2 id=writeup>writeup</h2>
-<p>So I first downlaoded the file &lsquo;stegosaurus.jpg&rsquo;.</p>
+<p>So I first downloaded the file &lsquo;stegosaurus.jpg&rsquo;.</p>
 <p>Let&rsquo;s see what we have here:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>mv ~/Downloads/stegosaurus.jpg .
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>file stegosaurus.jpg 
@@ -149,7 +149,8 @@ stegosaurus.jpg: JPEG image data, JFIF standard 1.01, resolution <span style=col
 ./stegosaurus.jpg : negative
 </code></pre></div><p>Ok so that does not lead to anything &mldr;.</p>
 <p>In the task description there stands:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback></code></pre></div><p>So I tried to extract any steganography using steghide with the password &lsquo;lunch&rsquo;</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>He&#39;s somewhat secretive about his favorite snack spot, but he&#39;ll gladly share his secret if you say the word: &#34;lunch&#34;.
+</code></pre></div><p>So I tried to extract any steganography using steghide with the password &lsquo;lunch&rsquo;</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>steghide extract -sf stegosaurus.jpg -p lunch -xf solved.txt
 </code></pre></div><p>The extracted data was written to a file &lsquo;solved.txt&rsquo;</p>
 <p>let&rsquo;s see what&rsquo;s inside !</p>
