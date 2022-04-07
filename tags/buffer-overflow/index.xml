@@ -3,5 +3,5 @@ Let&amp;rsquo;s start off simple, can you overflow the correct buffer?
 The program is available here.
 You can view source here.
 And connect with it using: nc saturn.picoctf.net 57331
-Writeup first i checked the strings of the binary file using the strings command but unfortunately I did not find anything interesting.
-lets fire up Ghidra and see what we&amp;rsquo;ve got here &amp;hellip;.</description></item></channel></rss>
+Writeup First I checked the strings of the binary file using the strings command but unfortunately I did not find anything interesting.
+Let&amp;rsquo;s fire up Ghidra and see what we&amp;rsquo;ve got here &amp;hellip;</description></item></channel></rss>
