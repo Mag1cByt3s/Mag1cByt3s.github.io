@@ -1,176 +1,132 @@
-<!doctype html><html lang=en-us>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<link rel=icon type=image/x-icon href=/favicon.ico>
-<title>picoCTF - Forensics - Sleuthkit Apprentice | Pascals Blog</title>
-<meta name=description content>
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:title content="picoCTF - Forensics - Sleuthkit Apprentice | Pascals Blog">
-<meta name=twitter:description content="Forensics - Sleuthkit Apprentice - writeup description Download this disk image and find the flag. Note: if you are using the webshell, download and extract the disk image into /tmp not your home directory.
-Download compressed disk image
-writeup So we a got a file &lsquo;disk.flag.img&rsquo;.
-I will try to create a folder and mount the disk image into that folder first.
-mkdir mnt mount ./disk.flag.img mnt mount: mnt: failed to setup loop device for /home/pascal/Pentesting/picoCTF_2022/Forensics/Sleuthkit Apprentice/disk.">
-<meta name=twitter:image content="https://blog.ppeinecke.de/images/picoCTF_logo.png">
-<meta property="og:title" content="picoCTF - Forensics - Sleuthkit Apprentice | Pascals Blog">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>picoCTF - Forensics - Sleuthkit Apprentice - Pascal&#39;s Blog</title><meta name="description" content="Welcome to my personal blog!"><meta property="og:title" content="picoCTF - Forensics - Sleuthkit Apprentice" />
 <meta property="og:description" content="Forensics - Sleuthkit Apprentice - writeup description Download this disk image and find the flag. Note: if you are using the webshell, download and extract the disk image into /tmp not your home directory.
-Download compressed disk image
-writeup So we a got a file &lsquo;disk.flag.img&rsquo;.
+Download compressed disk imagewriteup So we a got a file &lsquo;disk.flag.img&rsquo;.
 I will try to create a folder and mount the disk image into that folder first.
-mkdir mnt mount ./disk.flag.img mnt mount: mnt: failed to setup loop device for /home/pascal/Pentesting/picoCTF_2022/Forensics/Sleuthkit Apprentice/disk.">
-<meta property="og:image" content="https://blog.ppeinecke.de/images/picoCTF_logo.png">
-<link rel=preconnect href=https://fonts.gstatic.com>
-<link rel=preload href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600%7CPoppins:400,600,700&display=swap" as=style>
-<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600%7CPoppins:400,600,700&display=swap" rel=stylesheet>
-<link rel=stylesheet href=/css/main.min.e3acc672bcc200c36538e28ba51d0bd9329337306b4d77b221cae314dc360558.css>
-</head>
-<body>
-<header class=header>
-<div class=container>
-<div class=row>
-<div class="header__inner col col-12">
-<div class=logo>
-<a class=logo__link href=https://blog.ppeinecke.de/>
-Pascals Blog
-</a>
-</div>
-<div class=menu-overlay>
-<nav class=main-nav>
-<div class=main-nav__box>
-<div class=nav__icon-close>
-<i class="ion ion-md-close"></i>
-</div>
-<div class=nav-grid>
-<div class=nav-grid__item>
-<h2 class=nav-grid__title>Menu</h2>
-<div class=mobile-nav>
-<ul class="nav__list list-reset">
-<li class=nav__item>
-<a href=/ class=nav__link>Home</a>
-</li>
-<li class=nav__item>
-<a href=/about class=nav__link>About</a>
-</li>
-<li class=nav__item>
-<a href=/contact class=nav__link>Contact Me</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</nav>
-</div>
-<div class=navigation>
-<div class=top-nav>
-<ul class="nav__list list-reset">
-<li class=nav__item>
-<a href=/ class=nav__link>Home</a>
-</li>
-<li class=nav__item>
-<a href=/about class=nav__link>About</a>
-</li>
-<li class=nav__item>
-<a href=/contact class=nav__link>Contact Me</a>
-</li>
-</ul>
-</div>
-<div class=nav-buttons>
-<i class="nav__icon nav__icon-menu ion ion-md-menu"></i>
-<i class="nav__icon nav__icon-search ion ion-md-search"></i>
-</div>
-</div>
-</div>
-</div>
-</div>
-</header>
-<div class=search>
-<div class=container>
-<div class=row>
-<div class="col col-12">
-<div class=search__box>
-<div class=search__group>
-<div class=search__close>
-<i class="ion ion-md-close"></i>
-</div>
-<label for=js-search-input class=screen-reader-text>Search for Blog</label>
-<input type=text id=js-search-input class=search__text autocomplete=off placeholder="Type to search...">
-</div>
-<div id=js-results-container class=search-results-list style=display:none></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<main class=content aria-label=Content>
-<div class=container>
-<div class=row>
-<div class="col col-12">
-<div class=image-box>
-<img class=post-image src=https://blog.ppeinecke.de/images/picoCTF_logo.png alt="picoCTF - Forensics - Sleuthkit Apprentice">
-</div>
-</div>
-</div>
-</div>
-<div class=container>
-<div class=row>
-<div class="col col-8 col-d-10 push-2 push-d-1 col-t-12 push-t-0">
-<article class="post amimate">
-<div class=post__head>
-<div class=post__tags>
-<a href=https://blog.ppeinecke.de/tags/forensics/ class=post-tags__tag>forensics</a>
-<a href=https://blog.ppeinecke.de/tags/picoctf/ class=post-tags__tag>picoctf</a>
-</div>
-<h1 class=post__title>picoCTF - Forensics - Sleuthkit Apprentice</h1>
-<div class=post__meta>
-<div class=post__author>
-<a href=/about/ class=post__author-image style=background-image:url(https://ppeinecke.de/custom_assets/images/pascal_portrait.png) aria-label="Pascal Peinecke's Picture"></a> <a href=/about/ class=post__author-link>Pascal Peinecke</a>
-</div>
-<span class=post__date>
-<time datetime=" 2022-04-06T15:05:06+02:00">Apr 6, 2022</time>
-</span>
-</div>
-</div>
-<div class=post__content>
-<h1 id=forensics---sleuthkit-apprentice---writeup>Forensics - Sleuthkit Apprentice - writeup</h1>
-<h2 id=description>description</h2>
+mkdir mnt mount ./disk.flag.img mnt mount: mnt: failed to setup loop device for /home/pascal/Pentesting/picoCTF_2022/Forensics/Sleuthkit Apprentice/disk." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.ppeinecke.de/posts/picoctf-forensics-sleuthkit-apprentice/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-04-06T15:05:06+02:00" />
+<meta property="article:modified_time" content="2022-04-06T15:05:06+02:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="picoCTF - Forensics - Sleuthkit Apprentice"/>
+<meta name="twitter:description" content="Forensics - Sleuthkit Apprentice - writeup description Download this disk image and find the flag. Note: if you are using the webshell, download and extract the disk image into /tmp not your home directory.
+Download compressed disk imagewriteup So we a got a file &lsquo;disk.flag.img&rsquo;.
+I will try to create a folder and mount the disk image into that folder first.
+mkdir mnt mount ./disk.flag.img mnt mount: mnt: failed to setup loop device for /home/pascal/Pentesting/picoCTF_2022/Forensics/Sleuthkit Apprentice/disk."/>
+<meta name="application-name" content="Pascal&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Pascal&#39;s Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.ppeinecke.de/posts/picoctf-forensics-sleuthkit-apprentice/" /><link rel="prev" href="https://blog.ppeinecke.de/posts/picoctf-forensics-packets-primer/" /><link rel="next" href="https://blog.ppeinecke.de/posts/picoctf-forensics-st3g0/" /><link rel="stylesheet" href="/css/page.min.css"><link rel="stylesheet" href="/css/home.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "picoCTF - Forensics - Sleuthkit Apprentice",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.ppeinecke.de\/posts\/picoctf-forensics-sleuthkit-apprentice\/"
+        },"genre": "posts","keywords": "forensics, picoctf\u0022","wordcount":  595 ,
+        "url": "https:\/\/blog.ppeinecke.de\/posts\/picoctf-forensics-sleuthkit-apprentice\/","datePublished": "2022-04-06T15:05:06+02:00","dateModified": "2022-04-06T15:05:06+02:00","publisher": {
+            "@type": "Organization",
+            "name": "Author"},"author": {
+                "@type": "Person",
+                "name": "Author"
+            },"description": ""
+    }
+    </script></head><body data-header-desktop="" data-header-mobile=""><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Pascal&#39;s Blog">Pascal&#39;s Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/contact"> Contact Me </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Pascal&#39;s Blog">Pascal&#39;s Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/contact" title="">Contact Me</a><div class="menu-item"><a href="javascript:void(0);" class="theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single" data-toc="disable"><div class="single-card" ><h2 class="single-title animated flipInX">picoCTF - Forensics - Sleuthkit Apprentice</h2><div class="post-meta">
+                <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Author</a></span>&nbsp;<span class="post-category">published in <a href="/categories/forensics/"><i class="far fa-folder fa-fw"></i>forensics</a></span></div>
+                <div class="post-meta-line"><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-06">2022-04-06</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;595 words</span>&nbsp;
+                    <span><i class="far fa-clock fa-fw"></i>&nbsp;3 minutes</span>&nbsp;</div>
+            </div>
+            
+            <hr><div class="details toc" id="toc-static"  data-kept="">
+                    <div class="details-summary toc-title">
+                        <span>Contents</span>
+                        <span><i class="details-icon fas fa-angle-right"></i></span>
+                    </div>
+                    <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#description">description</a></li>
+    <li><a href="#writeup">writeup</a></li>
+  </ul>
+</nav></div>
+                </div><div class="content" id="content"><h1 id="forensics---sleuthkit-apprentice---writeup">Forensics - Sleuthkit Apprentice - writeup</h1>
+<h2 id="description">description</h2>
 <p>Download this disk image and find the flag.
 Note: if you are using the webshell, download and
 extract the disk image into /tmp not your home directory.</p>
-<p><a href=https://artifacts.picoctf.net/c/336/disk.flag.img.gz>Download compressed disk image</a></p>
-<h2 id=writeup>writeup</h2>
+<p><!-- raw HTML omitted -->Download compressed disk image<!-- raw HTML omitted --></p>
+<h2 id="writeup">writeup</h2>
 <p>So we a got a file &lsquo;disk.flag.img&rsquo;.</p>
 <p>I will try to create a folder and mount the disk
 image into that folder first.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>mkdir mnt
-
-mount ./disk.flag.img mnt 
-mount: mnt: failed to setup loop device <span style=color:#ff79c6>for</span> /home/pascal/Pentesting/picoCTF_2022/Forensics/Sleuthkit Apprentice/disk.flag.img.
-</code></pre></div><p>Ok so that did not work.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir mnt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mount ./disk.flag.img mnt 
+</span></span><span class="line"><span class="cl">mount: mnt: failed to setup loop device <span class="k">for</span> /home/pascal/Pentesting/picoCTF_2022/Forensics/Sleuthkit Apprentice/disk.flag.img.
+</span></span></code></pre></div><p>Ok so that did not work.</p>
 <p>If I check using the file command what that file actually is
 I see that it is a &lsquo;DOS/MBR boot sector&rsquo;
 So it is using a dos (MBR) partition table</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>file disk.flag.img  
-
-disk.flag.img: DOS/MBR boot sector; partition <span style=color:#bd93f9>1</span> : <span style=color:#8be9fd;font-style:italic>ID</span><span style=color:#ff79c6>=</span>0x83, active, start-CHS <span style=color:#ff79c6>(</span>0x0,32,33<span style=color:#ff79c6>)</span>, end-CHS <span style=color:#ff79c6>(</span>0xc,223,19<span style=color:#ff79c6>)</span>, startsector 2048, <span style=color:#bd93f9>204800</span> sectors; partition <span style=color:#bd93f9>2</span> : <span style=color:#8be9fd;font-style:italic>ID</span><span style=color:#ff79c6>=</span>0x82, start-CHS <span style=color:#ff79c6>(</span>0xc,223,20<span style=color:#ff79c6>)</span>, end-CHS <span style=color:#ff79c6>(</span>0x16,111,25<span style=color:#ff79c6>)</span>, startsector 206848, <span style=color:#bd93f9>153600</span> sectors; partition <span style=color:#bd93f9>3</span> : <span style=color:#8be9fd;font-style:italic>ID</span><span style=color:#ff79c6>=</span>0x83, start-CHS <span style=color:#ff79c6>(</span>0x16,111,26<span style=color:#ff79c6>)</span>, end-CHS <span style=color:#ff79c6>(</span>0x26,62,24<span style=color:#ff79c6>)</span>, startsector 360448, <span style=color:#bd93f9>253952</span> sectors
-</code></pre></div><p>Let&rsquo;s check with fdisk what partitions are there.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file disk.flag.img  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">disk.flag.img: DOS/MBR boot sector<span class="p">;</span> partition <span class="m">1</span> : <span class="nv">ID</span><span class="o">=</span>0x83, active, start-CHS <span class="o">(</span>0x0,32,33<span class="o">)</span>, end-CHS <span class="o">(</span>0xc,223,19<span class="o">)</span>, startsector 2048, <span class="m">204800</span> sectors<span class="p">;</span> partition <span class="m">2</span> : <span class="nv">ID</span><span class="o">=</span>0x82, start-CHS <span class="o">(</span>0xc,223,20<span class="o">)</span>, end-CHS <span class="o">(</span>0x16,111,25<span class="o">)</span>, startsector 206848, <span class="m">153600</span> sectors<span class="p">;</span> partition <span class="m">3</span> : <span class="nv">ID</span><span class="o">=</span>0x83, start-CHS <span class="o">(</span>0x16,111,26<span class="o">)</span>, end-CHS <span class="o">(</span>0x26,62,24<span class="o">)</span>, startsector 360448, <span class="m">253952</span> sectors
+</span></span></code></pre></div><p>Let&rsquo;s check with fdisk what partitions are there.
 We already saw 3 partitions inside that partition table.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>fdisk -l disk.flag.img      
-                                                                     
-Disk disk.flag.img: <span style=color:#bd93f9>300</span> MiB, <span style=color:#bd93f9>314572800</span> bytes, <span style=color:#bd93f9>614400</span> sectors
-Units: sectors of <span style=color:#bd93f9>1</span> * <span style=color:#8be9fd;font-style:italic>512</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>512</span> bytes
-Sector size <span style=color:#ff79c6>(</span>logical/physical<span style=color:#ff79c6>)</span>: <span style=color:#bd93f9>512</span> bytes / <span style=color:#bd93f9>512</span> bytes
-I/O size <span style=color:#ff79c6>(</span>minimum/optimal<span style=color:#ff79c6>)</span>: <span style=color:#bd93f9>512</span> bytes / <span style=color:#bd93f9>512</span> bytes
-Disklabel type: dos
-Disk identifier: 0x7389e82d
-
-Device         Boot  Start    End Sectors  Size Id Type
-disk.flag.img1 *      <span style=color:#bd93f9>2048</span> <span style=color:#bd93f9>206847</span>  <span style=color:#bd93f9>204800</span>  100M <span style=color:#bd93f9>83</span> Linux
-disk.flag.img2      <span style=color:#bd93f9>206848</span> <span style=color:#bd93f9>360447</span>  <span style=color:#bd93f9>153600</span>   75M <span style=color:#bd93f9>82</span> Linux swap / Solaris
-disk.flag.img3      <span style=color:#bd93f9>360448</span> <span style=color:#bd93f9>614399</span>  <span style=color:#bd93f9>253952</span>  124M <span style=color:#bd93f9>83</span> Linux
-</code></pre></div><p>The first partition &lsquo;disk.flag.img1&rsquo; is a boot partition.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">fdisk -l disk.flag.img      
+</span></span><span class="line"><span class="cl">                                                                     
+</span></span><span class="line"><span class="cl">Disk disk.flag.img: <span class="m">300</span> MiB, <span class="m">314572800</span> bytes, <span class="m">614400</span> sectors
+</span></span><span class="line"><span class="cl">Units: sectors of <span class="m">1</span> * <span class="nv">512</span> <span class="o">=</span> <span class="m">512</span> bytes
+</span></span><span class="line"><span class="cl">Sector size <span class="o">(</span>logical/physical<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
+</span></span><span class="line"><span class="cl">I/O size <span class="o">(</span>minimum/optimal<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
+</span></span><span class="line"><span class="cl">Disklabel type: dos
+</span></span><span class="line"><span class="cl">Disk identifier: 0x7389e82d
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Device         Boot  Start    End Sectors  Size Id Type
+</span></span><span class="line"><span class="cl">disk.flag.img1 *      <span class="m">2048</span> <span class="m">206847</span>  <span class="m">204800</span>  100M <span class="m">83</span> Linux
+</span></span><span class="line"><span class="cl">disk.flag.img2      <span class="m">206848</span> <span class="m">360447</span>  <span class="m">153600</span>   75M <span class="m">82</span> Linux swap / Solaris
+</span></span><span class="line"><span class="cl">disk.flag.img3      <span class="m">360448</span> <span class="m">614399</span>  <span class="m">253952</span>  124M <span class="m">83</span> Linux
+</span></span></code></pre></div><p>The first partition &lsquo;disk.flag.img1&rsquo; is a boot partition.
 We can see that because of the fact that the boot flag is
 activated. Also the start of 2048 and the size of 100 Megabytes
 indicates that this might be a boot partition.</p>
@@ -180,190 +136,87 @@ That is indicated by the partition type &lsquo;Linux swap / Solaris&rsquo;.</p>
 a root partition. With a size of 124 Megabytes this is the biggest
 partition and the type is &lsquo;Linux&rsquo;. So it is probbaly EXT4.</p>
 <p>After running parted I tried to find the start sector of the third partition:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>parted disk.flag.img
-
-WARNING: You are not superuser.  Watch out <span style=color:#ff79c6>for</span> permissions.
-GNU Parted 3.4
-Using /home/pascal/Pentesting/picoCTF_2022/Forensics/Sleuthkit Apprentice/disk.flag.img
-Welcome to GNU Parted! Type <span style=color:#f1fa8c>&#39;help&#39;</span> to view a list of commands.
-<span style=color:#ff79c6>(</span>parted<span style=color:#ff79c6>)</span> u                                                                
-Unit?  <span style=color:#ff79c6>[</span>compact<span style=color:#ff79c6>]</span>? B                                                       
-<span style=color:#ff79c6>(</span>parted<span style=color:#ff79c6>)</span> print                                                            
-Model:  <span style=color:#ff79c6>(</span>file<span style=color:#ff79c6>)</span>
-Disk /home/pascal/Pentesting/picoCTF_2022/Forensics/Sleuthkit Apprentice/disk.flag.img: 314572800B
-Sector size <span style=color:#ff79c6>(</span>logical/physical<span style=color:#ff79c6>)</span>: 512B/512B
-Partition Table: msdos
-Disk Flags: 
-
-Number  Start       End         Size        Type     File system     Flags
- <span style=color:#bd93f9>1</span>      1048576B    105906175B  104857600B  primary  ext4            boot
- <span style=color:#bd93f9>2</span>      105906176B  184549375B  78643200B   primary  linux-swap<span style=color:#ff79c6>(</span>v1<span style=color:#ff79c6>)</span>
- <span style=color:#bd93f9>3</span>      184549376B  314572799B  130023424B  primary  ext4
-</code></pre></div><p>Then I tried to mount the third partition using an offset of 184549376</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>mount -t ext4 -o loop,offset<span style=color:#ff79c6>=</span><span style=color:#bd93f9>184549376</span> disk.flag.img ./mnt
-</code></pre></div><p>But that fails</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>mount: ./mnt: failed to setup loop device <span style=color:#ff79c6>for</span> /home/pascal/Pentesting/picoCTF_2022/Forensics/Sleuthkit Apprentice/disk.flag.img
-</code></pre></div><p>I ended up with a simple bash script to mount the loop device:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#ff79c6>#!/usr/bin/bash
-</span><span style=color:#ff79c6></span>
-<span style=color:#8be9fd;font-style:italic>img</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;disk.flag.img&#34;</span>
-
-<span style=color:#8be9fd;font-style:italic>dev</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;</span><span style=color:#ff79c6>$(</span>sudo losetup --show -f -P <span style=color:#f1fa8c>&#34;</span><span style=color:#8be9fd;font-style:italic>$img</span><span style=color:#f1fa8c>&#34;</span><span style=color:#ff79c6>)</span><span style=color:#f1fa8c>&#34;</span>
-
-<span style=color:#8be9fd;font-style:italic>echo</span> <span style=color:#f1fa8c>&#34;</span><span style=color:#8be9fd;font-style:italic>$dev</span><span style=color:#f1fa8c>&#34;</span>
-
-<span style=color:#ff79c6>for</span> part in <span style=color:#f1fa8c>&#34;</span><span style=color:#8be9fd;font-style:italic>$dev</span><span style=color:#f1fa8c>&#34;</span>?*; <span style=color:#ff79c6>do</span>
-  <span style=color:#ff79c6>if</span> <span style=color:#ff79c6>[</span> <span style=color:#f1fa8c>&#34;</span><span style=color:#8be9fd;font-style:italic>$part</span><span style=color:#f1fa8c>&#34;</span> <span style=color:#ff79c6>=</span> <span style=color:#f1fa8c>&#34;</span><span style=color:#f1fa8c>${</span><span style=color:#8be9fd;font-style:italic>dev</span><span style=color:#f1fa8c>}</span><span style=color:#f1fa8c>p*&#34;</span> <span style=color:#ff79c6>]</span>; <span style=color:#ff79c6>then</span>
-    <span style=color:#8be9fd;font-style:italic>part</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;</span><span style=color:#f1fa8c>${</span><span style=color:#8be9fd;font-style:italic>dev</span><span style=color:#f1fa8c>}</span><span style=color:#f1fa8c>&#34;</span>
-  <span style=color:#ff79c6>fi</span>
-  <span style=color:#8be9fd;font-style:italic>dst</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;mnt/</span><span style=color:#ff79c6>$(</span>basename <span style=color:#f1fa8c>&#34;</span><span style=color:#8be9fd;font-style:italic>$part</span><span style=color:#f1fa8c>&#34;</span><span style=color:#ff79c6>)</span><span style=color:#f1fa8c>&#34;</span>
-  <span style=color:#8be9fd;font-style:italic>echo</span> <span style=color:#f1fa8c>&#34;</span><span style=color:#8be9fd;font-style:italic>$dst</span><span style=color:#f1fa8c>&#34;</span>
-  mkdir -p <span style=color:#f1fa8c>&#34;</span><span style=color:#8be9fd;font-style:italic>$dst</span><span style=color:#f1fa8c>&#34;</span>
-  sudo mount -o loop <span style=color:#f1fa8c>&#34;</span><span style=color:#8be9fd;font-style:italic>$part</span><span style=color:#f1fa8c>&#34;</span> <span style=color:#f1fa8c>&#34;</span><span style=color:#8be9fd;font-style:italic>$dst</span><span style=color:#f1fa8c>&#34;</span>
-<span style=color:#ff79c6>done</span>
-</code></pre></div><p>Running that script I was able to mount the filesystems into my local &lsquo;mnt&rsquo;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">parted disk.flag.img
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">WARNING: You are not superuser.  Watch out <span class="k">for</span> permissions.
+</span></span><span class="line"><span class="cl">GNU Parted 3.4
+</span></span><span class="line"><span class="cl">Using /home/pascal/Pentesting/picoCTF_2022/Forensics/Sleuthkit Apprentice/disk.flag.img
+</span></span><span class="line"><span class="cl">Welcome to GNU Parted! Type <span class="s1">&#39;help&#39;</span> to view a list of commands.
+</span></span><span class="line"><span class="cl"><span class="o">(</span>parted<span class="o">)</span> u                                                                
+</span></span><span class="line"><span class="cl">Unit?  <span class="o">[</span>compact<span class="o">]</span>? B                                                       
+</span></span><span class="line"><span class="cl"><span class="o">(</span>parted<span class="o">)</span> print                                                            
+</span></span><span class="line"><span class="cl">Model:  <span class="o">(</span>file<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Disk /home/pascal/Pentesting/picoCTF_2022/Forensics/Sleuthkit Apprentice/disk.flag.img: 314572800B
+</span></span><span class="line"><span class="cl">Sector size <span class="o">(</span>logical/physical<span class="o">)</span>: 512B/512B
+</span></span><span class="line"><span class="cl">Partition Table: msdos
+</span></span><span class="line"><span class="cl">Disk Flags: 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Number  Start       End         Size        Type     File system     Flags
+</span></span><span class="line"><span class="cl"> <span class="m">1</span>      1048576B    105906175B  104857600B  primary  ext4            boot
+</span></span><span class="line"><span class="cl"> <span class="m">2</span>      105906176B  184549375B  78643200B   primary  linux-swap<span class="o">(</span>v1<span class="o">)</span>
+</span></span><span class="line"><span class="cl"> <span class="m">3</span>      184549376B  314572799B  130023424B  primary  ext4
+</span></span></code></pre></div><p>Then I tried to mount the third partition using an offset of 184549376</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mount -t ext4 -o loop,offset<span class="o">=</span><span class="m">184549376</span> disk.flag.img ./mnt
+</span></span></code></pre></div><p>But that fails</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mount: ./mnt: failed to setup loop device <span class="k">for</span> /home/pascal/Pentesting/picoCTF_2022/Forensics/Sleuthkit Apprentice/disk.flag.img
+</span></span></code></pre></div><p>I ended up with a simple bash script to mount the loop device:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">img</span><span class="o">=</span><span class="s2">&#34;disk.flag.img&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">dev</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>sudo losetup --show -f -P <span class="s2">&#34;</span><span class="nv">$img</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$dev</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> part in <span class="s2">&#34;</span><span class="nv">$dev</span><span class="s2">&#34;</span>?*<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$part</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">dev</span><span class="si">}</span><span class="s2">p*&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">part</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">dev</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">dst</span><span class="o">=</span><span class="s2">&#34;mnt/</span><span class="k">$(</span>basename <span class="s2">&#34;</span><span class="nv">$part</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$dst</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  mkdir -p <span class="s2">&#34;</span><span class="nv">$dst</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  sudo mount -o loop <span class="s2">&#34;</span><span class="nv">$part</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$dst</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></div><p>Running that script I was able to mount the filesystems into my local &lsquo;mnt&rsquo;
 folder.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>ls
-
-loop11p1  loop11p2  loop11p3
-</code></pre></div><p>loop11p3 is the root partition.</p>
-<p>Let&rsquo;s see what we can find here&mldr;.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#8be9fd;font-style:italic>cd</span> loop11p3
-</code></pre></div><p>Maybe there is something in the home directory of the root user &mldr;</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>ls root
-
-my_folder
-</code></pre></div><p>That folder seems interesting &mldr;.</p>
-<p>Let&rsquo;s see what is in there&mldr;.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>ls root/my_folder
-
-flag.uni.txt
-</code></pre></div><p>Could that be our flag?</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">loop11p1  loop11p2  loop11p3
+</span></span></code></pre></div><p>loop11p3 is the root partition.</p>
+<p>Let&rsquo;s see what we can find here&hellip;.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> loop11p3
+</span></span></code></pre></div><p>Maybe there is something in the home directory of the root user &hellip;</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls root
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">my_folder
+</span></span></code></pre></div><p>That folder seems interesting &hellip;.</p>
+<p>Let&rsquo;s see what is in there&hellip;.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls root/my_folder
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">flag.uni.txt
+</span></span></code></pre></div><p>Could that be our flag?</p>
 <p>Let&rsquo;s cat it out!</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cat root/my_folder/flag.uni.txt
-picoCTF<span style=color:#ff79c6>{</span>by73_5urf3r_25b0d0c0<span style=color:#ff79c6>}</span>
-</code></pre></div><p>Gotcha!</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat root/my_folder/flag.uni.txt
+</span></span><span class="line"><span class="cl">picoCTF<span class="o">{</span>by73_5urf3r_25b0d0c0<span class="o">}</span>
+</span></span></code></pre></div><p>Gotcha!</p>
 <p>So the flag is</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>picoCTF{by73_5urf3r_25b0d0c0}
-</code></pre></div>
-</div>
-<div class=post__share>
-<div class=share__head>
-<div class=share__title>Share this article</div>
-</div>
-<ul class="share__list list-reset">
-<li class=share__item>
-<a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-forensics-sleuthkit-apprentice%2f" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on Facebook" rel=nofollow><ion-icon name=logo-facebook role=img class="md hydrated" aria-label="logo facebook"></ion-icon></a>
-</li>
-<li class=share__item>
-<a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=picoCTF%20-%20Forensics%20-%20Sleuthkit%20Apprentice&url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-forensics-sleuthkit-apprentice%2f" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on Twitter" rel=nofollow><ion-icon name=logo-twitter role=img class="md hydrated" aria-label="logo twitter"></ion-icon></a>
-</li>
-<li class=share__item>
-<a class="share__link share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-forensics-sleuthkit-apprentice%2f&title=picoCTF%20-%20Forensics%20-%20Sleuthkit%20Apprentice&summary=&source=picoCTF%20-%20Forensics%20-%20Sleuthkit%20Apprentice" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on LinkedIn" rel=nofollow><ion-icon name=logo-linkedin role=img class="md hydrated" aria-label="logo linkedin"></ion-icon></a>
-</li>
-<li class=share__item>
-<a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-forensics-sleuthkit-apprentice%2f&media=https%3a%2f%2fblog.ppeinecke.de%2fimages%2fpicoCTF_logo.png&description=picoCTF%20-%20Forensics%20-%20Sleuthkit%20Apprentice" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=900,height=500,toolbar=1,resizable=0'),!1" title="Share on Pinterest" aria-label="Share on Pinterest"><ion-icon name=logo-pinterest role=img class="md hydrated" aria-label="logo pinterest"></ion-icon></a>
-</li>
-</ul>
-</div>
-<div class=post__navigation>
-<a class=prev href=https://blog.ppeinecke.de/posts/picoctf-forensics-packets-primer/ style=background-image:url(/images/picoCTF_logo.png)>
-<div class=post__nav-box>
-<div class="post__nav post__nav__prev"><i class="ion ion-ios-arrow-back"></i> Previous
-Page</div>
-<h4 class=post__nav__title>picoCTF - Forensics - Packets Primer</h4>
-</div>
-</a>
-<a class=next href=https://blog.ppeinecke.de/posts/picoctf-forensics-st3g0/ style=background-image:url(/images/picoCTF_logo.png)>
-<div class=post__nav-box>
-<div class="post__nav post__nav__next">Next Page <i class="ion ion-ios-arrow-forward"></i></div>
-<h4 class=post__nav__title>picoCTF - Forensics - St3g0</h4>
-</div>
-</a>
-</div>
-<div id=disqus_thread class=post__comments>
-<div id=disqus_empty></div>
-</div>
-<script>function load_disqus(){var c='pascals-blog',b=document.getElementById('disqus_empty'),d=document.getElementById('disqus_thread'),a=document.createElement('script'),e=document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0];d&&b&&(a.type='text/javascript',a.async=!0,a.src='//'+c+'.disqus.com/embed.js',e.appendChild(a),b.remove())}window.addEventListener('scroll',function(c){var b=document.scrollingElement.scrollTop,a=document.getElementById('disqus_thread');a&&b>a.getBoundingClientRect().top-150&&load_disqus('disqus_shortname')},!1)</script>
-<noscript>Please enable JavaScript to view the
-<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a>
-</noscript>
-</article>
-</div>
-</div>
-</div>
-</main>
-<div class=top title=Top><ion-icon name=chevron-up-outline></ion-icon></div>
-<section class=footer-widgets>
-<div class=container>
-<div class=row>
-<div class="col col-4 col-d-6 col-t-12">
-<div class="widget widget-info">
-<div class=footer-logo>
-Pascals Blog
-</div>
-<p class=footer-desc>writeups of CTFs, crackmes, HTB machines, etc</p>
-</div>
-</div>
-<div class="col col-4 col-d-6 col-t-12">
-<div class="widget widget-nav">
-<div class=widget__head>
-<h3 class=widget__title>Menu</h3>
-</div>
-<ul class="nav__list list-reset">
-<li class=nav__item>
-<a href=/ class=nav__link>Home</a>
-</li>
-<li class=nav__item>
-<a href=/about class=nav__link>About</a>
-</li>
-<li class=nav__item>
-<a href=/contact class=nav__link>Contact Me</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-<footer class=footer>
-<div class=container>
-<div class=row>
-<div class="col col-12">
-<div class=footer__inner>
-<div class=social>
-<ul class="social__list list-reset">
-<li class=social__item>
-<a class=social__link href=https://www.gitlab.com/Pascal3366 target=_blank rel=noopener aria-label="GitLab link"><ion-icon name=logo-gitlab></ion-icon>
-</a>
-</li>
-<li class=social__item>
-<a class=social__link href=https://www.github.com/Pascal3366 target=_blank rel=noopener aria-label="GitHub link"><ion-icon name=logo-github></ion-icon>
-</a>
-</li>
-<li class=social__item>
-<a class=social__link href=https://www.xing.com/profile/Pascal_Peinecke target=_blank rel=noopener aria-label="Xing link"><ion-icon name=logo-xing></ion-icon>
-</a>
-</li>
-<li class=social__item>
-<a class=social__link href=http://www.linkedin.com/in/Pascal-Peinecke target=_blank rel=noopener aria-label="LinkedIn link"><ion-icon name=logo-linkedin></ion-icon>
-</a>
-</li>
-<li class=social__item>
-<a class=social__link href=https://app.hackthebox.com/users/878647 target=_blank rel=noopener aria-label="HackTheBox link"><ion-icon name=cube-outline></ion-icon>
-</a>
-</li>
-</ul>
-</div>
-<div class=copyright>2022 &copy; <a href=/>Pascals Blog</a>. All Right Reserved. Published with <a href=https://gohugo.io/>Hugo</a>.</div>
-</div>
-</div>
-</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{by73_5urf3r_25b0d0c0}
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info"><div class="post-info-tag"><span><a href="/tags/forensics/">forensics</a>
+                </span><span><a href="/tags/picoctf/">picoctf</a>
+                </span></div><div class="post-info-line"><div class="post-info-mod">
+                <span>Updated on 2022-04-06</span>
+            </div><div class="post-info-mod"></div>
+        </div></div><div class="post-nav"><a href="/posts/picoctf-forensics-packets-primer/" class="prev" rel="prev" title="picoCTF - Forensics - Packets Primer"><i class="fas fa-angle-left fa-fw"></i>Previous Post</a>
+            <a href="/posts/picoctf-forensics-st3g0/" class="next" rel="next" title="picoCTF - Forensics - St3g0">Next Post<i class="fas fa-angle-right fa-fw"></i></a></div></div>
+</div></article></div>
+            </main>
+            <footer class="footer"><div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.95.0">Hugo</a> | Theme - <a href="https://github.com/khusika/FeelIt" target="_blank" rel="noopener noreffer" title="FeelIt 1.0.1"><i class="fas fa-hand-holding-heart fa-fw"></i> FeelIt</a>
+        </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/"></a></span></div>
 </div>
 </footer>
-<script src=/js/scripts.min.e5b74335e86cf180cc9e9f5a07c245a7762af2aae0f872e1ea78f1f061df66f5.js></script>
-<script src=/js/common.min.65bb105fca69fc4a0b7bf5db491e4f32ed155e661bd310e8369590e135a896d4.js></script>
-<script type=module src=https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js></script>
-<script nomodule src=https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js></script>
-</body>
-</html>
+        </div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-chevron-up fa-fw"></i>
+            </a></div><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script src="/js/theme.min.js"></script></body></html>

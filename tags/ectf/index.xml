@@ -1,23 +1,64 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ectf on Pascals Blog</title><link>https://blog.ppeinecke.de/tags/ectf/</link><description>Recent content in ectf on Pascals Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 11 Mar 2022 01:14:24 +0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/ectf/index.xml" rel="self" type="application/rss+xml"/><item><title>E-CTF - Web - Favourite Website</title><link>https://blog.ppeinecke.de/posts/ectf-web-favourite-website/</link><pubDate>Fri, 11 Mar 2022 01:14:24 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-web-favourite-website/</guid><description>Web - Favourite Website - writeup Description After a long time, Alex tries to visit his favorite website. But nobody thought he would become very unlucky. Visit the website and help him get the flag.
-Link: https://wec-ctf-2022-web.herokuapp.com/q2
-Writeup If we refresh the webpage we see there is a cookie that changes everytime i refresh the page.
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>ectf - Tag - Pascal&#39;s Blog</title>
+        <link>https://blog.ppeinecke.de/tags/ectf/</link>
+        <description>ectf - Tag - Pascal&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 11 Mar 2022 01:14:24 &#43;0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/ectf/" rel="self" type="application/rss+xml" /><item>
+    <title>E-CTF - Web - Favourite Website</title>
+    <link>https://blog.ppeinecke.de/posts/ectf-web-favourite-website/</link>
+    <pubDate>Fri, 11 Mar 2022 01:14:24 &#43;0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-web-favourite-website/</guid>
+    <description><![CDATA[Web - Favourite Website - writeup Description After a long time, Alex tries to visit his favorite website. But nobody thought he would become very unlucky. Visit the website and help him get the flag.
+Link: https://wec-ctf-2022-web.herokuapp.com/q2Writeup If we refresh the webpage we see there is a cookie that changes everytime i refresh the page.
 That cookie is called _gatj
 Currently its value is
-c3RpbGwgY2Fubm90IHNvbHZlIHRoaXMgdGFzaz90aW1lcz0wMDAwMDAwOCZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3 That is base64 and decodes to</description></item><item><title>E-CTF - Osint - Vacation</title><link>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</link><pubDate>Fri, 11 Mar 2022 01:07:27 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</guid><description>Osint - Vacation - Writeup Description People even try to turn their pets into celebrities, it gets annoying quite fast. That reminds me, have you come across @tig3r_and_b3ar ? Apparently their owner is a photographer, I haven’t contacted her though.
+c3RpbGwgY2Fubm90IHNvbHZlIHRoaXMgdGFzaz90aW1lcz0wMDAwMDAwOCZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3 That is base64 and decodes to]]></description>
+</item>
+<item>
+    <title>E-CTF - Osint - Vacation</title>
+    <link>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</link>
+    <pubDate>Fri, 11 Mar 2022 01:07:27 &#43;0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</guid>
+    <description><![CDATA[Osint - Vacation - Writeup Description People even try to turn their pets into celebrities, it gets annoying quite fast. That reminds me, have you come across @tig3r_and_b3ar ? Apparently their owner is a photographer, I haven’t contacted her though.
 Writeup Since the owner is a photographer we should look at instagram.
 By using an instagram viewer we can look at her profile without actually logging in.
 https://dumpor.com/v/tig3r_and_b3ar
-The one thing that sticks out here is that this account is following exactly one other account.</description></item><item><title>E-CTF - Misc - What Is This</title><link>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</link><pubDate>Fri, 11 Mar 2022 00:58:29 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</guid><description>Misc - whatisthis - writeup Description Intelligence has found same weird material from Mr. Codeshankar (yes,him again). So it is your task now to find out whats contained in it. The link is here
+The one thing that sticks out here is that this account is following exactly one other account.]]></description>
+</item>
+<item>
+    <title>E-CTF - Misc - What Is This</title>
+    <link>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</link>
+    <pubDate>Fri, 11 Mar 2022 00:58:29 &#43;0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</guid>
+    <description><![CDATA[Misc - whatisthis - writeup Description Intelligence has found same weird material from Mr. Codeshankar (yes,him again). So it is your task now to find out whats contained in it. The link is here 
 Writeup after unpacking the zip file whatisthis.zip I get an image file whatisthis.png
 The file itself is broken and cannot be opened.
-After checking with the file command what that file actually is I am presented with the following: whatisthis.</description></item><item><title>E-CTF - Forensics - THE CAT KNOWS THE CULPRIT</title><link>https://blog.ppeinecke.de/posts/ectf-forensics-the-cat-knows-the-culprit/</link><pubDate>Fri, 11 Mar 2022 00:36:10 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-forensics-the-cat-knows-the-culprit/</guid><description>Forensics - THE CAT KNOWS THE CULPRIT writeup Description Detective Jake Peralta and his partner Charles Boyle are assigned a Grand Larceny case, by their captain Raymond Holt. Upon their arrival to crime scene they find that there are no clues for them to catch the victim, so they leave the crime scene and at the exif exit door they find an image along with a note saying &amp;ldquo;THE CAT KNOWS THE CULPRIT.</description></item><item><title>E-CTF - Forensics - I Can Do This All Day</title><link>https://blog.ppeinecke.de/posts/ectf-forensics-i-can-do-this-all-day/</link><pubDate>Fri, 11 Mar 2022 00:16:36 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-forensics-i-can-do-this-all-day/</guid><description>Forensics - I can do this all day - writeup Description Tony Stark: a hacker who&amp;rsquo;s faster than ultron? he could be anywhere GLOBAL. And as this is the center of everything, I&amp;rsquo;m just a REGULAR guy looking for a needle in the world&amp;rsquo;s biggest haystack.
+After checking with the file command what that file actually is I am presented with the following: whatisthis.]]></description>
+</item>
+<item>
+    <title>E-CTF - Forensics - THE CAT KNOWS THE CULPRIT</title>
+    <link>https://blog.ppeinecke.de/posts/ectf-forensics-the-cat-knows-the-culprit/</link>
+    <pubDate>Fri, 11 Mar 2022 00:36:10 &#43;0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-forensics-the-cat-knows-the-culprit/</guid>
+    <description><![CDATA[Forensics - THE CAT KNOWS THE CULPRIT writeup Description Detective Jake Peralta and his partner Charles Boyle are assigned a Grand Larceny case, by their captain Raymond Holt. Upon their arrival to crime scene they find that there are no clues for them to catch the victim, so they leave the crime scene and at the exif exit door they find an image along with a note saying &ldquo;THE CAT KNOWS THE CULPRIT.]]></description>
+</item>
+<item>
+    <title>E-CTF - Forensics - I Can Do This All Day</title>
+    <link>https://blog.ppeinecke.de/posts/ectf-forensics-i-can-do-this-all-day/</link>
+    <pubDate>Fri, 11 Mar 2022 00:16:36 &#43;0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-forensics-i-can-do-this-all-day/</guid>
+    <description><![CDATA[Forensics - I can do this all day - writeup Description Tony Stark: a hacker who&rsquo;s faster than ultron? he could be anywhere GLOBAL. And as this is the center of everything, I&rsquo;m just a REGULAR guy looking for a needle in the world&rsquo;s biggest haystack.
 World Hub Tech: How do you find it? Tony Stark: pretty simple. you bring a magnet.
-Flag format: CTF{&amp;hellip;}
-Writeup cat *.txt | grep CTF CTF{d3cry471ng_nu3l34r_c0d35} So by simply just simply cat&amp;rsquo;ing all of the files in the different directories we got the flag.</description></item><item><title>E-CTF - Forensics - I Am Groot</title><link>https://blog.ppeinecke.de/posts/ectf-forensics-i-am-groot/</link><pubDate>Thu, 10 Mar 2022 20:39:53 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-forensics-i-am-groot/</guid><description>Forensics - I am Groot - writeup Description Send the right message to get your flag from Groot.
+Flag format: CTF{&hellip;}
+Writeup cat *.txt | grep CTF CTF{d3cry471ng_nu3l34r_c0d35} So by simply just simply cat&rsquo;ing all of the files in the different directories we got the flag.]]></description>
+</item>
+<item>
+    <title>E-CTF - Forensics - I Am Groot</title>
+    <link>https://blog.ppeinecke.de/posts/ectf-forensics-i-am-groot/</link>
+    <pubDate>Thu, 10 Mar 2022 20:39:53 &#43;0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-forensics-i-am-groot/</guid>
+    <description><![CDATA[Forensics - I am Groot - writeup Description Send the right message to get your flag from Groot.
 Check the discord server, !groot will call the bot.
 Hint: We are friends
 Writeup Once I tried to dm the bot directly with: !groot rocket
 I get
 01001001 00100000 01100001 01101101 00100000 01000111 01110010 01101111 01101111 01110100 00100001 Lets convert that binary to ascii
 that is binary and coverts to
-I am Groot!</description></item></channel></rss>
+I am Groot!]]></description>
+</item>
+</channel>
+</rss>

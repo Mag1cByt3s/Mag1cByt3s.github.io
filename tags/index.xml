@@ -1,1 +1,67 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tags on Pascals Blog</title><link>https://blog.ppeinecke.de/tags/</link><description>Recent content in Tags on Pascals Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 07 Apr 2022 17:54:54 +0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/index.xml" rel="self" type="application/rss+xml"/><item><title>crypto</title><link>https://blog.ppeinecke.de/tags/crypto/</link><pubDate>Thu, 07 Apr 2022 17:54:54 +0200</pubDate><guid>https://blog.ppeinecke.de/tags/crypto/</guid><description/></item><item><title>ritsecctf</title><link>https://blog.ppeinecke.de/tags/ritsecctf/</link><pubDate>Thu, 07 Apr 2022 17:54:54 +0200</pubDate><guid>https://blog.ppeinecke.de/tags/ritsecctf/</guid><description/></item><item><title>misc</title><link>https://blog.ppeinecke.de/tags/misc/</link><pubDate>Thu, 07 Apr 2022 17:51:01 +0200</pubDate><guid>https://blog.ppeinecke.de/tags/misc/</guid><description/></item><item><title>picoctf</title><link>https://blog.ppeinecke.de/tags/picoctf/</link><pubDate>Wed, 06 Apr 2022 16:12:40 +0200</pubDate><guid>https://blog.ppeinecke.de/tags/picoctf/</guid><description/></item><item><title>web</title><link>https://blog.ppeinecke.de/tags/web/</link><pubDate>Wed, 06 Apr 2022 16:12:40 +0200</pubDate><guid>https://blog.ppeinecke.de/tags/web/</guid><description/></item><item><title>web-exploitation</title><link>https://blog.ppeinecke.de/tags/web-exploitation/</link><pubDate>Wed, 06 Apr 2022 16:12:40 +0200</pubDate><guid>https://blog.ppeinecke.de/tags/web-exploitation/</guid><description/></item><item><title>reverse engineering</title><link>https://blog.ppeinecke.de/tags/reverse-engineering/</link><pubDate>Wed, 06 Apr 2022 15:29:28 +0200</pubDate><guid>https://blog.ppeinecke.de/tags/reverse-engineering/</guid><description/></item><item><title>forensics</title><link>https://blog.ppeinecke.de/tags/forensics/</link><pubDate>Wed, 06 Apr 2022 15:12:22 +0200</pubDate><guid>https://blog.ppeinecke.de/tags/forensics/</guid><description/></item><item><title>cryptography</title><link>https://blog.ppeinecke.de/tags/cryptography/</link><pubDate>Wed, 06 Apr 2022 14:07:33 +0200</pubDate><guid>https://blog.ppeinecke.de/tags/cryptography/</guid><description/></item><item><title>buffer overflow</title><link>https://blog.ppeinecke.de/tags/buffer-overflow/</link><pubDate>Wed, 06 Apr 2022 13:50:56 +0200</pubDate><guid>https://blog.ppeinecke.de/tags/buffer-overflow/</guid><description/></item><item><title>exploit</title><link>https://blog.ppeinecke.de/tags/exploit/</link><pubDate>Wed, 06 Apr 2022 13:50:56 +0200</pubDate><guid>https://blog.ppeinecke.de/tags/exploit/</guid><description/></item><item><title>mhsctf</title><link>https://blog.ppeinecke.de/tags/mhsctf/</link><pubDate>Fri, 11 Mar 2022 14:57:15 +0100</pubDate><guid>https://blog.ppeinecke.de/tags/mhsctf/</guid><description/></item><item><title>general</title><link>https://blog.ppeinecke.de/tags/general/</link><pubDate>Fri, 11 Mar 2022 14:54:29 +0100</pubDate><guid>https://blog.ppeinecke.de/tags/general/</guid><description/></item><item><title>ectf</title><link>https://blog.ppeinecke.de/tags/ectf/</link><pubDate>Fri, 11 Mar 2022 01:14:24 +0100</pubDate><guid>https://blog.ppeinecke.de/tags/ectf/</guid><description/></item><item><title>osint</title><link>https://blog.ppeinecke.de/tags/osint/</link><pubDate>Fri, 11 Mar 2022 01:07:27 +0100</pubDate><guid>https://blog.ppeinecke.de/tags/osint/</guid><description/></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - Tag - Pascal&#39;s Blog</title>
+        <link>https://blog.ppeinecke.de/tags/</link>
+        <description>Tags - Tag - Pascal&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 07 Apr 2022 17:54:54 &#43;0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>crypto</title>
+    <link>https://blog.ppeinecke.de/tags/crypto/</link>
+    <pubDate>Thu, 07 Apr 2022 17:54:54 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/tags/crypto/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>ritsecctf</title>
+    <link>https://blog.ppeinecke.de/tags/ritsecctf/</link>
+    <pubDate>Thu, 07 Apr 2022 17:54:54 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/tags/ritsecctf/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>misc</title>
+    <link>https://blog.ppeinecke.de/tags/misc/</link>
+    <pubDate>Thu, 07 Apr 2022 17:51:01 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/tags/misc/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>picoctf</title>
+    <link>https://blog.ppeinecke.de/tags/picoctf/</link>
+    <pubDate>Wed, 06 Apr 2022 16:12:40 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/tags/picoctf/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>web</title>
+    <link>https://blog.ppeinecke.de/tags/web/</link>
+    <pubDate>Wed, 06 Apr 2022 16:12:40 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/tags/web/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>web-exploitation</title>
+    <link>https://blog.ppeinecke.de/tags/web-exploitation/</link>
+    <pubDate>Wed, 06 Apr 2022 16:12:40 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/tags/web-exploitation/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>reverse engineering</title>
+    <link>https://blog.ppeinecke.de/tags/reverse-engineering/</link>
+    <pubDate>Wed, 06 Apr 2022 15:29:28 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/tags/reverse-engineering/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>forensics</title>
+    <link>https://blog.ppeinecke.de/tags/forensics/</link>
+    <pubDate>Wed, 06 Apr 2022 15:12:22 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/tags/forensics/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>cryptography</title>
+    <link>https://blog.ppeinecke.de/tags/cryptography/</link>
+    <pubDate>Wed, 06 Apr 2022 14:07:33 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/tags/cryptography/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>buffer overflow</title>
+    <link>https://blog.ppeinecke.de/tags/buffer-overflow/</link>
+    <pubDate>Wed, 06 Apr 2022 13:50:56 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/tags/buffer-overflow/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>

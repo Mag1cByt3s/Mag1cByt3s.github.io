@@ -1,166 +1,113 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Pascals Blog</title><link>https://blog.ppeinecke.de/posts/</link><description>Recent content in Posts on Pascals Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 07 Apr 2022 17:54:54 +0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>RITSEC CTF - Crypto - Lost In</title><link>https://blog.ppeinecke.de/posts/ritsecctf-crypto-lost-in/</link><pubDate>Thu, 07 Apr 2022 17:54:54 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-crypto-lost-in/</guid><description>Crypto - Lost in - writeup description 324c6e597364696f3259725a6f646d673261453d
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - Pascal&#39;s Blog</title>
+        <link>https://blog.ppeinecke.de/posts/</link>
+        <description>All Posts | Pascal&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 07 Apr 2022 17:54:54 &#43;0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>RITSEC CTF - Crypto - Lost In</title>
+    <link>https://blog.ppeinecke.de/posts/ritsecctf-crypto-lost-in/</link>
+    <pubDate>Thu, 07 Apr 2022 17:54:54 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-crypto-lost-in/</guid>
+    <description><![CDATA[Crypto - Lost in - writeup description 324c6e597364696f3259725a6f646d673261453d
 Bingus sent us this encrypted messagen
 Can you decrypt?
 writeup this is the message we got:
-324c6e597364696f3259725a6f646d673261453d this looks to be hex let&amp;rsquo;s translate that hex string to ascii:
+324c6e597364696f3259725a6f646d673261453d this looks to be hex let&rsquo;s translate that hex string to ascii:
 2LnYsdio2YrZodmg2aE= The = at the end most probably means that this is base64
 If I try to decode this from base64 I get this:
 عربي١٠١ this is Arabic.
-Once I try to use google translate to translate this to English I get this:</description></item><item><title>RITSEC CTF - Misc - Stegwalk</title><link>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</link><pubDate>Thu, 07 Apr 2022 17:51:01 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</guid><description>Misc - Stegwalk - writeup description We found these files in storage. We think there might be something more to one of these images. Good luck!
-writeup Ok so I first downloaded the file &amp;lsquo;StegWalk.zip&amp;rsquo;
-Let&amp;rsquo;s move it for our convenience.
+Once I try to use google translate to translate this to English I get this:]]></description>
+</item>
+<item>
+    <title>RITSEC CTF - Misc - Stegwalk</title>
+    <link>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</link>
+    <pubDate>Thu, 07 Apr 2022 17:51:01 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</guid>
+    <description><![CDATA[Misc - Stegwalk - writeup description We found these files in storage. We think there might be something more to one of these images. Good luck!
+writeup Ok so I first downloaded the file &lsquo;StegWalk.zip&rsquo;
+Let&rsquo;s move it for our convenience.
 mv ~/Downloads/StegWalk.zip . I am going to extract the file first
-unzip StegWalk.zip -d StegWalk Inside this zip archive are a dozen of .png files &amp;hellip;
-Most of these image files just say &amp;lsquo;Nothing&amp;rsquo;.</description></item><item><title>RITSEC CTF - Misc - Scrumptions Snacks</title><link>https://blog.ppeinecke.de/posts/ritsecctf-misc-scrumptions-snacks/</link><pubDate>Thu, 07 Apr 2022 17:44:03 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-misc-scrumptions-snacks/</guid><description>Misc - Scrumptions Snacks - writeup description Sheamus the STEGOsaurus is hungry! He&amp;rsquo;s somewhat secretive about his favorite snack spot, but he&amp;rsquo;ll gladly share his secret if you say the word: &amp;ldquo;lunch&amp;rdquo;. Can you identify the name of Sheamus' favorite food establishment?
-writeup So I first downloaded the file &amp;lsquo;stegosaurus.jpg&amp;rsquo;.
-Let&amp;rsquo;s see what we have here:
-mv ~/Downloads/stegosaurus.jpg . file stegosaurus.jpg stegosaurus.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 168x168, segment length 16, baseline, precision 8, 964x910, components 3 It is a JPEG file so steganography is possible.</description></item><item><title>picoCTF - Web Exploitation - SQLiLite</title><link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sqlilite/</link><pubDate>Wed, 06 Apr 2022 16:12:40 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sqlilite/</guid><description>Web Exploitation - SQLiLite - writeup description Can you login to this website?
+unzip StegWalk.zip -d StegWalk Inside this zip archive are a dozen of .png files &hellip;
+Most of these image files just say &lsquo;Nothing&rsquo;.]]></description>
+</item>
+<item>
+    <title>RITSEC CTF - Misc - Scrumptions Snacks</title>
+    <link>https://blog.ppeinecke.de/posts/ritsecctf-misc-scrumptions-snacks/</link>
+    <pubDate>Thu, 07 Apr 2022 17:44:03 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-misc-scrumptions-snacks/</guid>
+    <description><![CDATA[Misc - Scrumptions Snacks - writeup description Sheamus the STEGOsaurus is hungry! He&rsquo;s somewhat secretive about his favorite snack spot, but he&rsquo;ll gladly share his secret if you say the word: &ldquo;lunch&rdquo;. Can you identify the name of Sheamus&rsquo; favorite food establishment?
+writeup So I first downloaded the file &lsquo;stegosaurus.jpg&rsquo;.
+Let&rsquo;s see what we have here:
+mv ~/Downloads/stegosaurus.jpg . file stegosaurus.jpg stegosaurus.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 168x168, segment length 16, baseline, precision 8, 964x910, components 3 It is a JPEG file so steganography is possible.]]></description>
+</item>
+<item>
+    <title>picoCTF - Web Exploitation - SQLiLite</title>
+    <link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sqlilite/</link>
+    <pubDate>Wed, 06 Apr 2022 16:12:40 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sqlilite/</guid>
+    <description><![CDATA[Web Exploitation - SQLiLite - writeup description Can you login to this website?
 Try to login here.
-writeup Once i visit the website http://saturn.picoctf.net:60431/ in firefox I can see a login form with a username and a password field.
-My first attempt was to use the username &amp;lsquo;admin&amp;rsquo; and try a basic sql injection.
+writeup Once i visit the website http://saturn.picoctf.net:60431/in firefox I can see a login form with a username and a password field.
+My first attempt was to use the username &lsquo;admin&rsquo; and try a basic sql injection.
 So I input in the username field this:
-admin&amp;#39;-- the single quote is here to end the input of the text box.</description></item><item><title>picoCTF - Web Exploitation - SQL Direct</title><link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sql-direct/</link><pubDate>Wed, 06 Apr 2022 16:10:25 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sql-direct/</guid><description>Web Exploitation - SQL Direct - writeup description Connect to this PostgreSQL server and find the flag!
+admin&#39;-- the single quote is here to end the input of the text box.]]></description>
+</item>
+<item>
+    <title>picoCTF - Web Exploitation - SQL Direct</title>
+    <link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sql-direct/</link>
+    <pubDate>Wed, 06 Apr 2022 16:10:25 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sql-direct/</guid>
+    <description><![CDATA[Web Exploitation - SQL Direct - writeup description Connect to this PostgreSQL server and find the flag!
 psql -h saturn.picoctf.net -p 49248 -U postgres pico
 Password is postgres
-writeup Ok let&amp;rsquo;s first connect to the database server:
-psql -h saturn.picoctf.net -p 49248 -U postgres pico the password is &amp;lsquo;postgres&amp;rsquo;
-Let&amp;rsquo;s list all databases first
-pico=# \l List of databases Name | Owner | Encoding | Collate | Ctype | Access privileges -----------+----------+----------+------------+------------+----------------------- pico | postgres | UTF8 | en_US.</description></item><item><title>picoCTF - Web Exploitation - Search source</title><link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-search-source/</link><pubDate>Wed, 06 Apr 2022 16:08:45 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-search-source/</guid><description>Web Exploitation - Search Source - writeup description The developer of this website mistakenly left an important artifact in the website source, can you find it? The website is here
-writeup I was not able to find anything interesting on the website by just looking at the source code in the browser.
-So let&amp;rsquo;s clone the website first using HTTrack so we can take a look at the full source.</description></item><item><title>picoCTF - Web Exploitation - Power Cookie</title><link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-power-cookie/</link><pubDate>Wed, 06 Apr 2022 16:04:26 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-power-cookie/</guid><description>Web Exploitation - Power Cookie - writeup description Can you get the flag? Go to this website and see what you can discover.
-writeup Looking at the check.php function I can see that it requests a cookie &amp;lsquo;isAdmin&amp;rsquo;.
+writeup Ok let&rsquo;s first connect to the database server:
+psql -h saturn.picoctf.net -p 49248 -U postgres pico the password is &lsquo;postgres&rsquo;
+Let&rsquo;s list all databases first
+pico=# \l List of databases Name | Owner | Encoding | Collate | Ctype | Access privileges -----------+----------+----------+------------+------------+----------------------- pico | postgres | UTF8 | en_US.]]></description>
+</item>
+<item>
+    <title>picoCTF - Web Exploitation - Search source</title>
+    <link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-search-source/</link>
+    <pubDate>Wed, 06 Apr 2022 16:08:45 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-search-source/</guid>
+    <description><![CDATA[Web Exploitation - Search Source - writeup description The developer of this website mistakenly left an important artifact in the website source, can you find it? The website is herewriteup I was not able to find anything interesting on the website by just looking at the source code in the browser.
+So let&rsquo;s clone the website first using HTTrack so we can take a look at the full source.
+httrack http://saturn.]]></description>
+</item>
+<item>
+    <title>picoCTF - Web Exploitation - Power Cookie</title>
+    <link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-power-cookie/</link>
+    <pubDate>Wed, 06 Apr 2022 16:04:26 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-power-cookie/</guid>
+    <description><![CDATA[Web Exploitation - Power Cookie - writeup description Can you get the flag? Go to this websiteand see what you can discover.
+writeup Looking at the check.php function I can see that it requests a cookie &lsquo;isAdmin&rsquo;.
 That cookie is not present at the first visit of the page.
 So lets refresh the webpage.
 Now the cookie is present.
-The value of this particuluar cookie is &amp;lsquo;0&amp;rsquo; currently.
-So lets change it to &amp;lsquo;1&amp;rsquo; and refresh the page once more.</description></item><item><title>picoCTF - Web Exploitation - Local Authority</title><link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-local-authority/</link><pubDate>Wed, 06 Apr 2022 15:58:43 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-local-authority/</guid><description>Web Exploitation - Local Authority - writeup description Can you get the flag? Go to this website and see what you can discover.
-writeup Once I open the link http://saturn.picoctf.net:51419/ in firefox I get to a page &amp;ldquo;Secure Customer Portal&amp;rdquo;.
+The value of this particuluar cookie is &lsquo;0&rsquo; currently.
+So lets change it to &lsquo;1&rsquo; and refresh the page once more.]]></description>
+</item>
+<item>
+    <title>picoCTF - Web Exploitation - Local Authority</title>
+    <link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-local-authority/</link>
+    <pubDate>Wed, 06 Apr 2022 15:58:43 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-local-authority/</guid>
+    <description><![CDATA[Web Exploitation - Local Authority - writeup description Can you get the flag? Go to this websiteand see what you can discover.
+writeup Once I open the link http://saturn.picoctf.net:51419/in firefox I get to a page &ldquo;Secure Customer Portal&rdquo;.
 I can see a login form with username and password.
 On the website I see a hint:
-Only letters and numbers allowed for username and password.
-I tried to do a simple post request to the login.</description></item><item><title>picoCTF - Web Exploitation - Inspect HTML</title><link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-inspect-html/</link><pubDate>Wed, 06 Apr 2022 15:51:22 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-inspect-html/</guid><description>Web Exploitation - Includes - writeup description Can you get the flag? Go to this website and see what you can discover.
-writeup Once I opened the website http://saturn.picoctf.net:60935/ in firefox and looking at the source code I could immediately find the flag inside a comment in the html source code:
-&amp;lt;!--picoCTF{1n5p3t0r_0f_h7ml_ab1df88d}--&amp;gt; So the flag is:
-picoCTF{1n5p3t0r_0f_h7ml_ab1df88d}</description></item><item><title>picoCTF - Web Exploitation - Includes</title><link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-includes/</link><pubDate>Wed, 06 Apr 2022 15:42:26 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-includes/</guid><description>Web Exploitation - Includes - writeup description Can you get the flag? Go to this website and see what you can discover.
-writeup Ok so I went ahead and visited the url http://saturn.picoctf.net:52811/ in firefox.
-I am presente with a webpage with a bunch of text and a button that says &amp;ldquo;Say hello&amp;rdquo;.
-Once I press that button I get a javascript alert() popup that says &amp;ldquo;This code is in a separate file!</description></item><item><title>picoCTF - Reverse Engineering - unpackme.py</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-unpackme.py/</link><pubDate>Wed, 06 Apr 2022 15:29:28 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-unpackme.py/</guid><description>Reverse Engineering - unpackme.py - writeup description Can you get the flag?
-Reverse engineer this Python program.
-writeup Let&amp;rsquo;s download the python program first.
-wget https://artifacts.picoctf.net/c/470/unpackme.flag.py I will try to reverse engineer this python code &amp;hellip;
-If we take a look at the code:
-import base64 from cryptography.fernet import Fernet payload = b&amp;#39;gAAAAABiMD1Ju5_eZeZy7C03K_YcWGDGXfvy5A9b5HzV-uZIYN8syTFGHgLwoRonYtCS0WcDrufxRRXlvNKtyEMqMS0AADLcRNr6VYpLLbKaETF37L22GEg1ok8NutHXK6gy47sBLmxmWWU729b86rzK6IMc2Kg-CR0bMm_fzrbRrWEYSk0WRNnKxy7Juuy-Ss2RjbACKgbwL7HNGATu3hYuPflf3PCKztLRFXCBxijKncKZgt68wYhGnPAzYvUVrdhhtMg9ra7ZKIirltPfKC8iX2DqmR9vVA==&amp;#39; key_str = &amp;#39;correctstaplecorrectstaplecorrec&amp;#39; key_base64 = base64.b64encode(key_str.encode()) f = Fernet(key_base64) plain = f.decrypt(payload) exec(plain.decode()) We can see that some part of the code is missing.</description></item><item><title>picoCTF - Reverse Engineering - Safe Opener</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-safe-opener/</link><pubDate>Wed, 06 Apr 2022 15:27:09 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-safe-opener/</guid><description>Reverse Engineering - Safe Opener - writeup description Can you open this safe?
-I forgot the key to my safe but this program is supposed to help me with retrieving the lost key.
-Can you help me unlock my safe?
-Put the password you recover into the picoCTF flag format like: picoCTF{password}
-writeup The &amp;ldquo;safe&amp;rdquo; is a .java file.
-Since .java is used for java source code this should be fairly easy to reverse engineer.</description></item><item><title>picoCTF - Reverse Engineering - patchme.py</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-patchme.py/</link><pubDate>Wed, 06 Apr 2022 15:25:17 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-patchme.py/</guid><description>Reverse Engineering - patchme.py - writeup description Can you get the flag?
-Run this Python program in the same directory as this encrypted flag.
-writeup Let&amp;rsquo;s take a look at the encrypted flag&amp;hellip;
-cat flag.txt.enc CR1@ UYX+ 6UB P\E That does not help.
-Let&amp;rsquo;s look at the python code&amp;hellip;
-Mh that is peculiar:
-if( user_pw == &amp;#34;ak98&amp;#34; + \ &amp;#34;-=90&amp;#34; + \ &amp;#34;adfjhgj321&amp;#34; + \ &amp;#34;sleuth9000&amp;#34;) Let&amp;rsquo;s fire up bpython and input this code:</description></item><item><title>picoCTF - Reverse Engineering - file-run2</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-file-run2/</link><pubDate>Wed, 06 Apr 2022 15:23:34 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-file-run2/</guid><description>Reverse Engineering - file-run2 - writeup description Another program, but this time, it seems to want some input. What happens if you try to run it on the command line with input &amp;ldquo;Hello!&amp;rdquo;?
-Download the program here.
-writeup by simply executing the file with ./run we get
-Run this file with only one argument. if I try to supply one argument like this: ./run 1 I get
-Won&amp;#39;t you say &amp;#39;Hello!</description></item><item><title>picoCTF - Reverse Engineering - file-run1</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-file-run1/</link><pubDate>Wed, 06 Apr 2022 15:19:34 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-file-run1/</guid><description>Reverse Engineering - file-run1 - writeup description A program has been provided to you, what happens if you try to run it on the command line?
-Download the program here.
-https://artifacts.picoctf.net/c/314/run
-writeup by simply running the program we get the flag:
-The flag is: picoCTF{U51N6_Y0Ur_F1r57_F113_ac61264e}</description></item><item><title>picoCTF - Reverse Engineering - bloat.py</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/</link><pubDate>Wed, 06 Apr 2022 15:16:12 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/</guid><description>Reverse Engineering - bloat.py - writeup description Can you get the flag?
-Run this Python program in the same directory as this encrypted flag.
-writeup So let&amp;rsquo;s download the python program and the encrypted flag first!
-wget https://artifacts.picoctf.net/c/434/bloat.flag.py wget https://artifacts.picoctf.net/c/434/flag.txt.enc Let&amp;rsquo;s make a copy of the python program and try to fix it using debugging in bpython!
-cp bloat.flag.py flag.py After a lot of debugging and reverse engineering using bpython I found the flag!</description></item><item><title>picoCTF - Reverse Engineering - Bbbbloat</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bbbbloat/</link><pubDate>Wed, 06 Apr 2022 15:12:22 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bbbbloat/</guid><description>Forensics - Bbbbloat - writeup description Can you get the flag?
-Reverse engineer this binary.
-writeup After loading the binary into Ghidra and browsing the decompiled code I noticed this function:
-undefined8 FUN_00101307(void) { char *__s; long in_FS_OFFSET; int local_48; undefined8 local_38; undefined8 local_30; undefined8 local_28; undefined8 local_20; long local_10; local_10 = *(long *)(in_FS_OFFSET + 0x28); local_38 = 0x4c75257240343a41; local_30 = 0x3062396630664634; local_28 = 0x33343066635f3d33; local_20 = 0x4e5f3463665f34; printf(&amp;#34;What\&amp;#39;s my favorite number?</description></item><item><title>picoCTF - Forensics - St3g0</title><link>https://blog.ppeinecke.de/posts/picoctf-forensics-st3g0/</link><pubDate>Wed, 06 Apr 2022 15:08:21 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-forensics-st3g0/</guid><description>Forensics - St3g0 - writeup description Download this image and find the flag.
-Download image
-writeup Ok so let&amp;rsquo;s download the file first &amp;hellip;
-wget https://artifacts.picoctf.net/c/427/pico.flag.png Let&amp;rsquo;s check the file type just to make sure we actually have a .png file here &amp;hellip;
-file pico.flag.png pico.flag.png: PNG image data, 585 x 172, 8-bit/color RGBA, non-interlaced Ok so it is in fact a PNG file.
-Let&amp;rsquo;s check for any steganography using stegdetect</description></item><item><title>picoCTF - Forensics - Sleuthkit Apprentice</title><link>https://blog.ppeinecke.de/posts/picoctf-forensics-sleuthkit-apprentice/</link><pubDate>Wed, 06 Apr 2022 15:05:06 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-forensics-sleuthkit-apprentice/</guid><description>Forensics - Sleuthkit Apprentice - writeup description Download this disk image and find the flag. Note: if you are using the webshell, download and extract the disk image into /tmp not your home directory.
-Download compressed disk image
-writeup So we a got a file &amp;lsquo;disk.flag.img&amp;rsquo;.
-I will try to create a folder and mount the disk image into that folder first.
-mkdir mnt mount ./disk.flag.img mnt mount: mnt: failed to setup loop device for /home/pascal/Pentesting/picoCTF_2022/Forensics/Sleuthkit Apprentice/disk.</description></item><item><title>picoCTF - Forensics - Packets Primer</title><link>https://blog.ppeinecke.de/posts/picoctf-forensics-packets-primer/</link><pubDate>Wed, 06 Apr 2022 14:51:19 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-forensics-packets-primer/</guid><description>Forensics - Packets Primer - writeup description Download the packet capture file and use packet analysis software to find the flag.
-Download packet capture
-writeup Ok so we got a .pcap file as a download:
-network-dump.flag.pcap Lets look at the content using wireshark.
-wireshark -r network-dump.flag.pcap I found some interesting traffic:
-4 0.001225 10.0.2.15 10.0.2.4 TCP 126 48750 → 9000 [PSH, ACK] Seq=1 Ack=1 Win=64256 Len=60 TSval=2379213157 TSecr=1760620995 Looking at the hex dump of that transaction I can see the following:</description></item><item><title>picoCTF - Forensics - Redaction gone wrong</title><link>https://blog.ppeinecke.de/posts/picoctf-forensics-redaction-gone-wrong/</link><pubDate>Wed, 06 Apr 2022 14:51:19 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-forensics-redaction-gone-wrong/</guid><description>Forensics - Redaction gone wrong - writeup description Now you DON’T see me. This report has some critical data in it, some of which have been redacted correctly, while some were not. Can you find an important key that was not redacted properly?
-writeup By simply opening the pdf file in LibreOffice Draw I was able to move the black boxes to uncover the flag!
-The flag is:
-picoCTF{C4n_Y0u_S33_m3_fully}</description></item><item><title>picoCTF - Forensics - Operation Orchid</title><link>https://blog.ppeinecke.de/posts/picoctf-forensics-operation-orchid/</link><pubDate>Wed, 06 Apr 2022 14:49:28 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-forensics-operation-orchid/</guid><description>Forensics - Operation Orchid - writeup description Download this disk image and find the flag.
-Note: if you are using the webshell, download and extract the disk image into /tmp not your home directory.
-https://artifacts.picoctf.net/c/242/disk.flag.img.gz
-writeup Ok let&amp;rsquo;s download the image first!
-wget https://artifacts.picoctf.net/c/242/disk.flag.img.gz Next I will extract it.
-gunzip disk.flag.img.gz file disk.flag.img disk.flag.img: DOS/MBR boot sector; partition 1 : ID=0x83, active, start-CHS (0x0,32,33), end-CHS (0xc,223,19), startsector 2048, 204800 sectors; partition 2 : ID=0x82, start-CHS (0xc,223,20), end-CHS (0x19,159,6), startsector 206848, 204800 sectors; partition 3 : ID=0x83, start-CHS (0x19,159,7), end-CHS (0x32,253,11), startsector 411648, 407552 sectors That is a dos / mbr boot partition</description></item><item><title>picoCTF - Forensics - Operation Oni</title><link>https://blog.ppeinecke.de/posts/picoctf-forensics-operation-oni/</link><pubDate>Wed, 06 Apr 2022 14:47:15 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-forensics-operation-oni/</guid><description>Forensics - Operation Oni - writeup description Download this disk image, find the key and log into the remote machine.
-Note: if you are using the webshell, download and extract the disk image into /tmp not your home directory.
-writeup So I went ahead, fired up the remote machine and downloaded the disk image.
-wget https://artifacts.picoctf.net/c/372/disk.img.gz It is gzip compressed so I first had to decompress it
-gunzip disk.img.gz Now I have a &amp;lsquo;disk.</description></item><item><title>picoCTF - Forensics - Lookey Here</title><link>https://blog.ppeinecke.de/posts/picoctf-forensics-lookey-here/</link><pubDate>Wed, 06 Apr 2022 14:25:47 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-forensics-lookey-here/</guid><description>Forensics - Lookey here - writeup description Attackers have hidden information in a very large mass of data in the past, maybe they are still doing it. Download the data here.
-writeup looking at the content of the txt file I can see a lot of random text&amp;hellip;
-head anthem.flag.txt ANTHEM by Ayn Rand CONTENTS PART ONE PART TWO By simply grepping out picoCTF I could find the flag
-cat anthem.</description></item><item><title>picoCTF - Forensics - File types</title><link>https://blog.ppeinecke.de/posts/picoctf-forensics-file-types/</link><pubDate>Wed, 06 Apr 2022 14:21:10 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-forensics-file-types/</guid><description>Forensics - File types - writeup description This file was found among some files marked confidential but my pdf reader cannot read it, maybe yours can. You can download the file from here.
-writeup Let&amp;rsquo;s download the file!
-wget https://artifacts.picoctf.net/c/329/Flag.pdf lets see what file we got here&amp;hellip;
-file Flag.pdf Flag.pdf: shell archive text Looks like this is a shell archive file (.shar)
-lets rename the file to a proper file extension first.</description></item><item><title>picoCTF - Forensics - Enhance!</title><link>https://blog.ppeinecke.de/posts/picoctf-forensics-enhance/</link><pubDate>Wed, 06 Apr 2022 14:18:09 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-forensics-enhance/</guid><description>Forensics - Enhance! - writeup description Download this image file and find the flag.
-Download image file
-writeup Ok so I downloaded the image file drawing.flag.svg
-Checking with the file command what that actually is:
-file drawing.flag.svg drawing.flag.svg: SVG Scalable Vector Graphics image looks like it is actually a svg file.
-Lets try to open it using feh e.g.
-feh drawing.flag.svg feh WARNING: drawing.flag.svg - Does not look like an image (magic bytes missing) feh tells me that the magic bytes are missing.</description></item><item><title>picoCTF - Forensics - Eavesdrop</title><link>https://blog.ppeinecke.de/posts/picoctf-forensics-eavesdrop/</link><pubDate>Wed, 06 Apr 2022 14:13:00 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-forensics-eavesdrop/</guid><description>Forensics - Eavesdrop - writeup description Download this packet capture and find the flag.
-Download packet capture
-writeup Let&amp;rsquo;s first download this file: https://artifacts.picoctf.net/c/364/capture.flag.pcap
-wget https://artifacts.picoctf.net/c/364/capture.flag.pcap --2022-03-17 18:29:49-- https://artifacts.picoctf.net/c/364/capture.flag.pcap Resolving artifacts.picoctf.net (artifacts.picoctf.net)... 108.157.4.16, 108.157.4.118, 108.157.4.13, ... Connecting to artifacts.picoctf.net (artifacts.picoctf.net)|108.157.4.16|:443... connected. HTTP request sent, awaiting response... 200 OK Length: 7518 (7.3K) [application/octet-stream] Saving to: &amp;#39;capture.flag.pcap&amp;#39; capture.flag.pcap 100%[=======================================&amp;gt;] 7.34K --.-KB/s in 0s 2022-03-17 18:29:50 (92.7 MB/s) - &amp;#39;capture.flag.pcap&amp;#39; saved [7518/7518] Ok so we have a file called &amp;lsquo;capture.</description></item><item><title>picoCTF - Cryptography - Morse Code</title><link>https://blog.ppeinecke.de/posts/picoctf-cryptography-morse-code/</link><pubDate>Wed, 06 Apr 2022 14:07:33 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-cryptography-morse-code/</guid><description>Cryptography - morse-code - writeup description Morse code is well known. Can you decrypt this? Download the file here. Wrap your answer with picoCTF{}, put underscores in place of pauses, and use all lowercase.
-writeup Opening the file in ghex or sonic visualizer did not help
-After reading the following article I decided to try to open it using audacity.
-https://dropn0w.medium.com/do-the-loop-downunderctf-2021-5d8ee86c0f2b
-Next I tried to interpret the waves as morse code.</description></item><item><title>picoCTF - Cryptography - credstuff</title><link>https://blog.ppeinecke.de/posts/picoctf-cryptography-credstuff/</link><pubDate>Wed, 06 Apr 2022 14:02:03 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-cryptography-credstuff/</guid><description>Cryptography - credstuff - writeup description We found a leak of a blackmarket website&amp;rsquo;s login credentials. Can you find the password of the user cultiris and successfully decrypt it? Download the leak here. The first user in usernames.txt corresponds to the first password in passwords.txt. The second user corresponds to the second password, and so on.
-writeup let&amp;rsquo;s write a python program that finds the corresponding password for the user &amp;lsquo;cultiris&amp;rsquo;</description></item><item><title>picoCTF - Cryptography - basic-mod1</title><link>https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/</link><pubDate>Wed, 06 Apr 2022 13:58:41 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/</guid><description>Cryptography - basic-mod1 - writeup description We found this weird message being passed around on the servers, we think we have a working decrpytion scheme. Download the message here. Take each number mod 37 and map it to the following character set: 0-25 is the alphabet (uppercase), 26-35 are the decimal digits, and 36 is an underscore. Wrap your decrypted message in the picoCTF flag format (i.e. picoCTF{decrypted_message})
-writeup Lets write a simple python program which reads the message into a string first.</description></item><item><title>picoCTF - Binary Exploitation - Buffer Overflow 0</title><link>https://blog.ppeinecke.de/posts/picoctf-binary-exploitation-buffer-overflow-0/</link><pubDate>Wed, 06 Apr 2022 13:50:56 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-binary-exploitation-buffer-overflow-0/</guid><description>Binary Exploitation - buffer overflow 0 - writeup Description Smash the stack
-Let&amp;rsquo;s start off simple, can you overflow the correct buffer?
-The program is available here.
-You can view source here.
-And connect with it using: nc saturn.picoctf.net 57331
-Writeup First I checked the strings of the binary file using the strings command but unfortunately I did not find anything interesting.
-Let&amp;rsquo;s fire up Ghidra and see what we&amp;rsquo;ve got here &amp;hellip;</description></item><item><title>MHSCTF - Web - Et tu, Brute?</title><link>https://blog.ppeinecke.de/posts/mhsctf-web-et-tu-brute/</link><pubDate>Fri, 11 Mar 2022 14:57:15 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-web-et-tu-brute/</guid><description>Web - Et tu, Brute? - writeup Description I want to see how many people are actually my friends and aren&amp;rsquo;t just pretending! Only my best friends get flags. You can check our friendship status at this website. mhsctf-ettubrute.0xmmalik.repl.co (you may need to wait for the site to wake up)
-Writeup So I went ahead and wrote a simple brute force program in python:
-#!/usr/bin/env python3 import requests from requests.adapters import HTTPAdapter from requests.</description></item><item><title>MHSCTF - General - Where the Wildcards Are 2</title><link>https://blog.ppeinecke.de/posts/mhsctf-general-where-the-wildcards-are-2/</link><pubDate>Fri, 11 Mar 2022 14:54:29 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-general-where-the-wildcards-are-2/</guid><description>General - Where the Wildcards Are 2 - writeup Writeup Match all lowercase letters: [a-z] Match all lowercase letters which are followed by two or more capital letters then three or more digits: (the capital letters and digits should not be included in the match) [a-z](?=[A-Z]{2,}[0-9]{3,}) Match all numbers, letters, or underscores using the shortest possible pattern \w Flag: flag{m@tc#_mak3r}</description></item><item><title>MHSCTF - Forensics - Blatant Corruption</title><link>https://blog.ppeinecke.de/posts/mhsctf-forensics-blatant-corruption/</link><pubDate>Fri, 11 Mar 2022 14:48:13 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-forensics-blatant-corruption/</guid><description>Forensics - Blatant Corruption - writeup Writeup so the file is broken.
-If we open the file with a hex editor we can see that the file header &amp;ldquo;.PNG&amp;rdquo; is missing at the top although it is a .png file.
-So if we insert the hex bytes
-89 50 4E 47 at the very top of the file which translates to .PNG and we save the modified file we can now open the file successfully.</description></item><item><title>MHSCTF - Forensics - Blank Slate</title><link>https://blog.ppeinecke.de/posts/mhsctf-forensics-blank-slate/</link><pubDate>Fri, 11 Mar 2022 14:45:45 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-forensics-blank-slate/</guid><description>Forensics - Blank Slate - writeup Writeup by simply cat&amp;rsquo;ing out the raw file I can see
-flag{get_grepped}</description></item><item><title>MHSCTF - Crypto - What's Cooking?</title><link>https://blog.ppeinecke.de/posts/mhsctf-crypto-whats-cooking/</link><pubDate>Fri, 11 Mar 2022 14:42:11 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-crypto-whats-cooking/</guid><description>Crypto - What&amp;rsquo;s Cooking? - writeup Writeup 65 141 40 66 144 40 67 70 40 66 70 40 65 141 40 63 63 40 67 64 40 67 64 40 66 62 40 65 67 40 63 61 40 66 66 40 66 63 40 64 65 40 64 61 40 66 142 40 66 64 40 64 67 40 64 66 40 63 71 According to cyberchef it is octal =&amp;gt; hex =&amp;gt; base64</description></item><item><title>MHSCTF - Crypto - Em Dee 2</title><link>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee-2/</link><pubDate>Fri, 11 Mar 2022 14:35:29 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee-2/</guid><description>Crypto - Em Dee - writeup Description Another super-secret message from Em!
-What does this one mean?
-b4b11af47f3086ce1293df4908d026d4 Remember to enter your answer in the &amp;ldquo;flag{&amp;hellip;}&amp;rdquo; format!
-Hint: If at first you don&amp;rsquo;t succeed, try, try again.
-Writeup Looks like an MD5 hash
-found the hash:
-Found : zero_cool (hash = b4b11af47f3086ce1293df4908d026d4) flag{zero_cool}</description></item><item><title>MHSCTF - Crypto - Em Dee</title><link>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee/</link><pubDate>Fri, 11 Mar 2022 14:24:10 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee/</guid><description>Crypto - Em Dee - writeup Description I have a good friend named Em. She loves secret codes, so when she challenged me this time, I was well up for it! She told me that she encoded the word &amp;ldquo;happy&amp;rdquo; as &amp;ldquo;56ab24c15b72a457069c5ea42fcfc640&amp;rdquo; and &amp;ldquo;sad&amp;rdquo; as &amp;ldquo;49f0bad299687c62334182178bfd75d8&amp;rdquo; (without the quotes) and challenged me to encode &amp;ldquo;mhsctf&amp;rdquo; using her method! I can&amp;rsquo;t figure it out! What would it be? Enter your answer in flag format: &amp;ldquo;flag{&amp;hellip;}&amp;rdquo;</description></item><item><title>E-CTF - Web - Favourite Website</title><link>https://blog.ppeinecke.de/posts/ectf-web-favourite-website/</link><pubDate>Fri, 11 Mar 2022 01:14:24 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-web-favourite-website/</guid><description>Web - Favourite Website - writeup Description After a long time, Alex tries to visit his favorite website. But nobody thought he would become very unlucky. Visit the website and help him get the flag.
-Link: https://wec-ctf-2022-web.herokuapp.com/q2
-Writeup If we refresh the webpage we see there is a cookie that changes everytime i refresh the page.
-That cookie is called _gatj
-Currently its value is
-c3RpbGwgY2Fubm90IHNvbHZlIHRoaXMgdGFzaz90aW1lcz0wMDAwMDAwOCZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3 That is base64 and decodes to</description></item><item><title>E-CTF - Osint - Vacation</title><link>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</link><pubDate>Fri, 11 Mar 2022 01:07:27 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</guid><description>Osint - Vacation - Writeup Description People even try to turn their pets into celebrities, it gets annoying quite fast. That reminds me, have you come across @tig3r_and_b3ar ? Apparently their owner is a photographer, I haven’t contacted her though.
-Writeup Since the owner is a photographer we should look at instagram.
-By using an instagram viewer we can look at her profile without actually logging in.
-https://dumpor.com/v/tig3r_and_b3ar
-The one thing that sticks out here is that this account is following exactly one other account.</description></item><item><title>E-CTF - Misc - What Is This</title><link>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</link><pubDate>Fri, 11 Mar 2022 00:58:29 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</guid><description>Misc - whatisthis - writeup Description Intelligence has found same weird material from Mr. Codeshankar (yes,him again). So it is your task now to find out whats contained in it. The link is here
-Writeup after unpacking the zip file whatisthis.zip I get an image file whatisthis.png
-The file itself is broken and cannot be opened.
-After checking with the file command what that file actually is I am presented with the following: whatisthis.</description></item><item><title>E-CTF - Forensics - THE CAT KNOWS THE CULPRIT</title><link>https://blog.ppeinecke.de/posts/ectf-forensics-the-cat-knows-the-culprit/</link><pubDate>Fri, 11 Mar 2022 00:36:10 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-forensics-the-cat-knows-the-culprit/</guid><description>Forensics - THE CAT KNOWS THE CULPRIT writeup Description Detective Jake Peralta and his partner Charles Boyle are assigned a Grand Larceny case, by their captain Raymond Holt. Upon their arrival to crime scene they find that there are no clues for them to catch the victim, so they leave the crime scene and at the exif exit door they find an image along with a note saying &amp;ldquo;THE CAT KNOWS THE CULPRIT.</description></item><item><title>E-CTF - Forensics - I Can Do This All Day</title><link>https://blog.ppeinecke.de/posts/ectf-forensics-i-can-do-this-all-day/</link><pubDate>Fri, 11 Mar 2022 00:16:36 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-forensics-i-can-do-this-all-day/</guid><description>Forensics - I can do this all day - writeup Description Tony Stark: a hacker who&amp;rsquo;s faster than ultron? he could be anywhere GLOBAL. And as this is the center of everything, I&amp;rsquo;m just a REGULAR guy looking for a needle in the world&amp;rsquo;s biggest haystack.
-World Hub Tech: How do you find it? Tony Stark: pretty simple. you bring a magnet.
-Flag format: CTF{&amp;hellip;}
-Writeup cat *.txt | grep CTF CTF{d3cry471ng_nu3l34r_c0d35} So by simply just simply cat&amp;rsquo;ing all of the files in the different directories we got the flag.</description></item><item><title>E-CTF - Forensics - I Am Groot</title><link>https://blog.ppeinecke.de/posts/ectf-forensics-i-am-groot/</link><pubDate>Thu, 10 Mar 2022 20:39:53 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-forensics-i-am-groot/</guid><description>Forensics - I am Groot - writeup Description Send the right message to get your flag from Groot.
-Check the discord server, !groot will call the bot.
-Hint: We are friends
-Writeup Once I tried to dm the bot directly with: !groot rocket
-I get
-01001001 00100000 01100001 01101101 00100000 01000111 01110010 01101111 01101111 01110100 00100001 Lets convert that binary to ascii
-that is binary and coverts to
-I am Groot!</description></item></channel></rss>
+ Only letters and numbers allowed for username and password.
+ I tried to do a simple post request to the login.]]></description>
+</item>
+<item>
+    <title>picoCTF - Web Exploitation - Inspect HTML</title>
+    <link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-inspect-html/</link>
+    <pubDate>Wed, 06 Apr 2022 15:51:22 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-inspect-html/</guid>
+    <description><![CDATA[Web Exploitation - Includes - writeup description Can you get the flag? Go to this websiteand see what you can discover.
+writeup Once I opened the website http://saturn.picoctf.net:60935/in firefox and looking at the source code I could immediately find the flag inside a comment in the html source code:
+&lt;!--picoCTF{1n5p3t0r_0f_h7ml_ab1df88d}--&gt; So the flag is:
+picoCTF{1n5p3t0r_0f_h7ml_ab1df88d} ]]></description>
+</item>
+<item>
+    <title>picoCTF - Web Exploitation - Includes</title>
+    <link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-includes/</link>
+    <pubDate>Wed, 06 Apr 2022 15:42:26 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-includes/</guid>
+    <description><![CDATA[Web Exploitation - Includes - writeup description Can you get the flag? Go to this websiteand see what you can discover.
+writeup Ok so I went ahead and visited the url http://saturn.picoctf.net:52811/in firefox.
+I am presente with a webpage with a bunch of text and a button that says &ldquo;Say hello&rdquo;.
+Once I press that button I get a javascript alert() popup that says &ldquo;This code is in a separate file!]]></description>
+</item>
+</channel>
+</rss>

@@ -1,9 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>crypto on Pascals Blog</title><link>https://blog.ppeinecke.de/categories/crypto/</link><description>Recent content in crypto on Pascals Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 07 Apr 2022 17:54:54 +0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/categories/crypto/index.xml" rel="self" type="application/rss+xml"/><item><title>RITSEC CTF - Crypto - Lost In</title><link>https://blog.ppeinecke.de/posts/ritsecctf-crypto-lost-in/</link><pubDate>Thu, 07 Apr 2022 17:54:54 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-crypto-lost-in/</guid><description>Crypto - Lost in - writeup description 324c6e597364696f3259725a6f646d673261453d
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>crypto - Category - Pascal&#39;s Blog</title>
+        <link>https://blog.ppeinecke.de/categories/crypto/</link>
+        <description>crypto - Category - Pascal&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 07 Apr 2022 17:54:54 &#43;0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/categories/crypto/" rel="self" type="application/rss+xml" /><item>
+    <title>RITSEC CTF - Crypto - Lost In</title>
+    <link>https://blog.ppeinecke.de/posts/ritsecctf-crypto-lost-in/</link>
+    <pubDate>Thu, 07 Apr 2022 17:54:54 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-crypto-lost-in/</guid>
+    <description><![CDATA[Crypto - Lost in - writeup description 324c6e597364696f3259725a6f646d673261453d
 Bingus sent us this encrypted messagen
 Can you decrypt?
 writeup this is the message we got:
-324c6e597364696f3259725a6f646d673261453d this looks to be hex let&amp;rsquo;s translate that hex string to ascii:
+324c6e597364696f3259725a6f646d673261453d this looks to be hex let&rsquo;s translate that hex string to ascii:
 2LnYsdio2YrZodmg2aE= The = at the end most probably means that this is base64
 If I try to decode this from base64 I get this:
 عربي١٠١ this is Arabic.
-Once I try to use google translate to translate this to English I get this:</description></item><item><title>MHSCTF - Crypto - Em Dee</title><link>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee/</link><pubDate>Fri, 11 Mar 2022 14:24:10 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee/</guid><description>Crypto - Em Dee - writeup Description I have a good friend named Em. She loves secret codes, so when she challenged me this time, I was well up for it! She told me that she encoded the word &amp;ldquo;happy&amp;rdquo; as &amp;ldquo;56ab24c15b72a457069c5ea42fcfc640&amp;rdquo; and &amp;ldquo;sad&amp;rdquo; as &amp;ldquo;49f0bad299687c62334182178bfd75d8&amp;rdquo; (without the quotes) and challenged me to encode &amp;ldquo;mhsctf&amp;rdquo; using her method! I can&amp;rsquo;t figure it out! What would it be? Enter your answer in flag format: &amp;ldquo;flag{&amp;hellip;}&amp;rdquo;</description></item></channel></rss>
+Once I try to use google translate to translate this to English I get this:]]></description>
+</item>
+<item>
+    <title>MHSCTF - Crypto - Em Dee</title>
+    <link>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee/</link>
+    <pubDate>Fri, 11 Mar 2022 14:24:10 &#43;0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee/</guid>
+    <description><![CDATA[Crypto - Em Dee - writeup Description I have a good friend named Em. She loves secret codes, so when she challenged me this time, I was well up for it! She told me that she encoded the word &ldquo;happy&rdquo; as &ldquo;56ab24c15b72a457069c5ea42fcfc640&rdquo; and &ldquo;sad&rdquo; as &ldquo;49f0bad299687c62334182178bfd75d8&rdquo; (without the quotes) and challenged me to encode &ldquo;mhsctf&rdquo; using her method! I can&rsquo;t figure it out! What would it be? Enter your answer in flag format: &ldquo;flag{&hellip;}&rdquo;]]></description>
+</item>
+</channel>
+</rss>

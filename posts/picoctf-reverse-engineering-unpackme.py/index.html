@@ -1,299 +1,154 @@
-<!doctype html><html lang=en-us>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<link rel=icon type=image/x-icon href=/favicon.ico>
-<title>picoCTF - Reverse Engineering - unpackme.py | Pascals Blog</title>
-<meta name=description content>
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:title content="picoCTF - Reverse Engineering - unpackme.py | Pascals Blog">
-<meta name=twitter:description content="Reverse Engineering - unpackme.py - writeup description Can you get the flag?
-Reverse engineer this Python program.
-writeup Let&rsquo;s download the python program first.
-wget https://artifacts.picoctf.net/c/470/unpackme.flag.py I will try to reverse engineer this python code &mldr;
-If we take a look at the code:
-import base64 from cryptography.fernet import Fernet payload = b'gAAAAABiMD1Ju5_eZeZy7C03K_YcWGDGXfvy5A9b5HzV-uZIYN8syTFGHgLwoRonYtCS0WcDrufxRRXlvNKtyEMqMS0AADLcRNr6VYpLLbKaETF37L22GEg1ok8NutHXK6gy47sBLmxmWWU729b86rzK6IMc2Kg-CR0bMm_fzrbRrWEYSk0WRNnKxy7Juuy-Ss2RjbACKgbwL7HNGATu3hYuPflf3PCKztLRFXCBxijKncKZgt68wYhGnPAzYvUVrdhhtMg9ra7ZKIirltPfKC8iX2DqmR9vVA==' key_str = 'correctstaplecorrectstaplecorrec' key_base64 = base64.b64encode(key_str.encode()) f = Fernet(key_base64) plain = f.decrypt(payload) exec(plain.decode()) We can see that some part of the code is missing.">
-<meta name=twitter:image content="https://blog.ppeinecke.de/images/picoCTF_logo.png">
-<meta property="og:title" content="picoCTF - Reverse Engineering - unpackme.py | Pascals Blog">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>picoCTF - Reverse Engineering - unpackme.py - Pascal&#39;s Blog</title><meta name="description" content="Welcome to my personal blog!"><meta property="og:title" content="picoCTF - Reverse Engineering - unpackme.py" />
 <meta property="og:description" content="Reverse Engineering - unpackme.py - writeup description Can you get the flag?
 Reverse engineer this Python program.
 writeup Let&rsquo;s download the python program first.
-wget https://artifacts.picoctf.net/c/470/unpackme.flag.py I will try to reverse engineer this python code &mldr;
+wget https://artifacts.picoctf.net/c/470/unpackme.flag.py I will try to reverse engineer this python code &hellip;
 If we take a look at the code:
-import base64 from cryptography.fernet import Fernet payload = b'gAAAAABiMD1Ju5_eZeZy7C03K_YcWGDGXfvy5A9b5HzV-uZIYN8syTFGHgLwoRonYtCS0WcDrufxRRXlvNKtyEMqMS0AADLcRNr6VYpLLbKaETF37L22GEg1ok8NutHXK6gy47sBLmxmWWU729b86rzK6IMc2Kg-CR0bMm_fzrbRrWEYSk0WRNnKxy7Juuy-Ss2RjbACKgbwL7HNGATu3hYuPflf3PCKztLRFXCBxijKncKZgt68wYhGnPAzYvUVrdhhtMg9ra7ZKIirltPfKC8iX2DqmR9vVA==' key_str = 'correctstaplecorrectstaplecorrec' key_base64 = base64.b64encode(key_str.encode()) f = Fernet(key_base64) plain = f.decrypt(payload) exec(plain.decode()) We can see that some part of the code is missing.">
-<meta property="og:image" content="https://blog.ppeinecke.de/images/picoCTF_logo.png">
-<link rel=preconnect href=https://fonts.gstatic.com>
-<link rel=preload href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600%7CPoppins:400,600,700&display=swap" as=style>
-<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600%7CPoppins:400,600,700&display=swap" rel=stylesheet>
-<link rel=stylesheet href=/css/main.min.e3acc672bcc200c36538e28ba51d0bd9329337306b4d77b221cae314dc360558.css>
-</head>
-<body>
-<header class=header>
-<div class=container>
-<div class=row>
-<div class="header__inner col col-12">
-<div class=logo>
-<a class=logo__link href=https://blog.ppeinecke.de/>
-Pascals Blog
-</a>
-</div>
-<div class=menu-overlay>
-<nav class=main-nav>
-<div class=main-nav__box>
-<div class=nav__icon-close>
-<i class="ion ion-md-close"></i>
-</div>
-<div class=nav-grid>
-<div class=nav-grid__item>
-<h2 class=nav-grid__title>Menu</h2>
-<div class=mobile-nav>
-<ul class="nav__list list-reset">
-<li class=nav__item>
-<a href=/ class=nav__link>Home</a>
-</li>
-<li class=nav__item>
-<a href=/about class=nav__link>About</a>
-</li>
-<li class=nav__item>
-<a href=/contact class=nav__link>Contact Me</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</nav>
-</div>
-<div class=navigation>
-<div class=top-nav>
-<ul class="nav__list list-reset">
-<li class=nav__item>
-<a href=/ class=nav__link>Home</a>
-</li>
-<li class=nav__item>
-<a href=/about class=nav__link>About</a>
-</li>
-<li class=nav__item>
-<a href=/contact class=nav__link>Contact Me</a>
-</li>
-</ul>
-</div>
-<div class=nav-buttons>
-<i class="nav__icon nav__icon-menu ion ion-md-menu"></i>
-<i class="nav__icon nav__icon-search ion ion-md-search"></i>
-</div>
-</div>
-</div>
-</div>
-</div>
-</header>
-<div class=search>
-<div class=container>
-<div class=row>
-<div class="col col-12">
-<div class=search__box>
-<div class=search__group>
-<div class=search__close>
-<i class="ion ion-md-close"></i>
-</div>
-<label for=js-search-input class=screen-reader-text>Search for Blog</label>
-<input type=text id=js-search-input class=search__text autocomplete=off placeholder="Type to search...">
-</div>
-<div id=js-results-container class=search-results-list style=display:none></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<main class=content aria-label=Content>
-<div class=container>
-<div class=row>
-<div class="col col-12">
-<div class=image-box>
-<img class=post-image src=https://blog.ppeinecke.de/images/picoCTF_logo.png alt="picoCTF - Reverse Engineering - unpackme.py">
-</div>
-</div>
-</div>
-</div>
-<div class=container>
-<div class=row>
-<div class="col col-8 col-d-10 push-2 push-d-1 col-t-12 push-t-0">
-<article class="post amimate">
-<div class=post__head>
-<div class=post__tags>
-<a href=https://blog.ppeinecke.de/tags/reverse-engineering/ class=post-tags__tag>reverse engineering</a>
-<a href=https://blog.ppeinecke.de/tags/picoctf/ class=post-tags__tag>picoctf</a>
-</div>
-<h1 class=post__title>picoCTF - Reverse Engineering - unpackme.py</h1>
-<div class=post__meta>
-<div class=post__author>
-<a href=/about/ class=post__author-image style=background-image:url(https://ppeinecke.de/custom_assets/images/pascal_portrait.png) aria-label="Pascal Peinecke's Picture"></a> <a href=/about/ class=post__author-link>Pascal Peinecke</a>
-</div>
-<span class=post__date>
-<time datetime=" 2022-04-06T15:29:28+02:00">Apr 6, 2022</time>
-</span>
-</div>
-</div>
-<div class=post__content>
-<h1 id=reverse-engineering---unpackmepy---writeup>Reverse Engineering - unpackme.py - writeup</h1>
-<h2 id=description>description</h2>
+import base64 from cryptography.fernet import Fernet payload = b&#39;gAAAAABiMD1Ju5_eZeZy7C03K_YcWGDGXfvy5A9b5HzV-uZIYN8syTFGHgLwoRonYtCS0WcDrufxRRXlvNKtyEMqMS0AADLcRNr6VYpLLbKaETF37L22GEg1ok8NutHXK6gy47sBLmxmWWU729b86rzK6IMc2Kg-CR0bMm_fzrbRrWEYSk0WRNnKxy7Juuy-Ss2RjbACKgbwL7HNGATu3hYuPflf3PCKztLRFXCBxijKncKZgt68wYhGnPAzYvUVrdhhtMg9ra7ZKIirltPfKC8iX2DqmR9vVA==&#39; key_str = &#39;correctstaplecorrectstaplecorrec&#39; key_base64 = base64.b64encode(key_str.encode()) f = Fernet(key_base64) plain = f.decrypt(payload) exec(plain.decode()) We can see that some part of the code is missing." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-unpackme.py/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-04-06T15:29:28+02:00" />
+<meta property="article:modified_time" content="2022-04-06T15:29:28+02:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="picoCTF - Reverse Engineering - unpackme.py"/>
+<meta name="twitter:description" content="Reverse Engineering - unpackme.py - writeup description Can you get the flag?
+Reverse engineer this Python program.
+writeup Let&rsquo;s download the python program first.
+wget https://artifacts.picoctf.net/c/470/unpackme.flag.py I will try to reverse engineer this python code &hellip;
+If we take a look at the code:
+import base64 from cryptography.fernet import Fernet payload = b&#39;gAAAAABiMD1Ju5_eZeZy7C03K_YcWGDGXfvy5A9b5HzV-uZIYN8syTFGHgLwoRonYtCS0WcDrufxRRXlvNKtyEMqMS0AADLcRNr6VYpLLbKaETF37L22GEg1ok8NutHXK6gy47sBLmxmWWU729b86rzK6IMc2Kg-CR0bMm_fzrbRrWEYSk0WRNnKxy7Juuy-Ss2RjbACKgbwL7HNGATu3hYuPflf3PCKztLRFXCBxijKncKZgt68wYhGnPAzYvUVrdhhtMg9ra7ZKIirltPfKC8iX2DqmR9vVA==&#39; key_str = &#39;correctstaplecorrectstaplecorrec&#39; key_base64 = base64.b64encode(key_str.encode()) f = Fernet(key_base64) plain = f.decrypt(payload) exec(plain.decode()) We can see that some part of the code is missing."/>
+<meta name="application-name" content="Pascal&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Pascal&#39;s Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-unpackme.py/" /><link rel="prev" href="https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-safe-opener/" /><link rel="next" href="https://blog.ppeinecke.de/posts/picoctf-web-exploitation-includes/" /><link rel="stylesheet" href="/css/page.min.css"><link rel="stylesheet" href="/css/home.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "picoCTF - Reverse Engineering - unpackme.py",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.ppeinecke.de\/posts\/picoctf-reverse-engineering-unpackme.py\/"
+        },"genre": "posts","keywords": "reverse engineering, picoctf\u0022","wordcount":  153 ,
+        "url": "https:\/\/blog.ppeinecke.de\/posts\/picoctf-reverse-engineering-unpackme.py\/","datePublished": "2022-04-06T15:29:28+02:00","dateModified": "2022-04-06T15:29:28+02:00","publisher": {
+            "@type": "Organization",
+            "name": "Author"},"author": {
+                "@type": "Person",
+                "name": "Author"
+            },"description": ""
+    }
+    </script></head><body data-header-desktop="" data-header-mobile=""><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Pascal&#39;s Blog">Pascal&#39;s Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/contact"> Contact Me </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Pascal&#39;s Blog">Pascal&#39;s Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/contact" title="">Contact Me</a><div class="menu-item"><a href="javascript:void(0);" class="theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single" data-toc="disable"><div class="single-card" ><h2 class="single-title animated flipInX">picoCTF - Reverse Engineering - unpackme.py</h2><div class="post-meta">
+                <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Author</a></span>&nbsp;<span class="post-category">published in <a href="/categories/reverse-engineering/"><i class="far fa-folder fa-fw"></i>reverse engineering</a></span></div>
+                <div class="post-meta-line"><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-06">2022-04-06</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;153 words</span>&nbsp;
+                    <span><i class="far fa-clock fa-fw"></i>&nbsp;One minute</span>&nbsp;</div>
+            </div>
+            
+            <hr><div class="details toc" id="toc-static"  data-kept="">
+                    <div class="details-summary toc-title">
+                        <span>Contents</span>
+                        <span><i class="details-icon fas fa-angle-right"></i></span>
+                    </div>
+                    <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#description">description</a></li>
+    <li><a href="#writeup">writeup</a></li>
+  </ul>
+</nav></div>
+                </div><div class="content" id="content"><h1 id="reverse-engineering---unpackmepy---writeup">Reverse Engineering - unpackme.py - writeup</h1>
+<h2 id="description">description</h2>
 <p>Can you get the flag?</p>
-<p>Reverse engineer this <a href=https://artifacts.picoctf.net/c/470/unpackme.flag.py>Python program</a>.</p>
-<h2 id=writeup>writeup</h2>
+<p>Reverse engineer this <!-- raw HTML omitted -->Python program<!-- raw HTML omitted -->.</p>
+<h2 id="writeup">writeup</h2>
 <p>Let&rsquo;s download the python program first.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>wget https://artifacts.picoctf.net/c/470/unpackme.flag.py
-</code></pre></div><p>I will try to reverse engineer this python code &mldr;</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://artifacts.picoctf.net/c/470/unpackme.flag.py
+</span></span></code></pre></div><p>I will try to reverse engineer this python code &hellip;</p>
 <p>If we take a look at the code:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#ff79c6>import</span> base64
-<span style=color:#ff79c6>from</span> cryptography.fernet <span style=color:#ff79c6>import</span> Fernet
-
-
-payload <span style=color:#ff79c6>=</span> <span style=color:#f1fa8c>b</span><span style=color:#f1fa8c>&#39;gAAAAABiMD1Ju5_eZeZy7C03K_YcWGDGXfvy5A9b5HzV-uZIYN8syTFGHgLwoRonYtCS0WcDrufxRRXlvNKtyEMqMS0AADLcRNr6VYpLLbKaETF37L22GEg1ok8NutHXK6gy47sBLmxmWWU729b86rzK6IMc2Kg-CR0bMm_fzrbRrWEYSk0WRNnKxy7Juuy-Ss2RjbACKgbwL7HNGATu3hYuPflf3PCKztLRFXCBxijKncKZgt68wYhGnPAzYvUVrdhhtMg9ra7ZKIirltPfKC8iX2DqmR9vVA==&#39;</span>
-
-key_str <span style=color:#ff79c6>=</span> <span style=color:#f1fa8c>&#39;correctstaplecorrectstaplecorrec&#39;</span>
-key_base64 <span style=color:#ff79c6>=</span> base64<span style=color:#ff79c6>.</span>b64encode(key_str<span style=color:#ff79c6>.</span>encode())
-f <span style=color:#ff79c6>=</span> Fernet(key_base64)
-plain <span style=color:#ff79c6>=</span> f<span style=color:#ff79c6>.</span>decrypt(payload)
-exec(plain<span style=color:#ff79c6>.</span>decode())
-</code></pre></div><p>We can see that some part of the code is missing.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">base64</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">cryptography.fernet</span> <span class="kn">import</span> <span class="n">Fernet</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;gAAAAABiMD1Ju5_eZeZy7C03K_YcWGDGXfvy5A9b5HzV-uZIYN8syTFGHgLwoRonYtCS0WcDrufxRRXlvNKtyEMqMS0AADLcRNr6VYpLLbKaETF37L22GEg1ok8NutHXK6gy47sBLmxmWWU729b86rzK6IMc2Kg-CR0bMm_fzrbRrWEYSk0WRNnKxy7Juuy-Ss2RjbACKgbwL7HNGATu3hYuPflf3PCKztLRFXCBxijKncKZgt68wYhGnPAzYvUVrdhhtMg9ra7ZKIirltPfKC8iX2DqmR9vVA==&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">key_str</span> <span class="o">=</span> <span class="s1">&#39;correctstaplecorrectstaplecorrec&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">key_base64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">key_str</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">f</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><span class="n">key_base64</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plain</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">exec</span><span class="p">(</span><span class="n">plain</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span></span></code></pre></div><p>We can see that some part of the code is missing.</p>
 <p>That part is encoded using base64 with a key.</p>
 <p>Here is the part that encodes the code:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>f <span style=color:#ff79c6>=</span> Fernet(key_base64)
-plain <span style=color:#ff79c6>=</span> f<span style=color:#ff79c6>.</span>decrypt(payload)
-exec(plain<span style=color:#ff79c6>.</span>decode())
-</code></pre></div><p>We can simply go ahead and modify the program
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">f</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><span class="n">key_base64</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plain</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">exec</span><span class="p">(</span><span class="n">plain</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span></span></code></pre></div><p>We can simply go ahead and modify the program
 to show us the encoded code in plaintext:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#8be9fd;font-style:italic>print</span>(plain<span style=color:#ff79c6>.</span>decode())
-</code></pre></div><p>We get this:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>pw <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>input</span>(<span style=color:#f1fa8c>&#39;What</span><span style=color:#f1fa8c>\&#39;</span><span style=color:#f1fa8c>s the password? &#39;</span>)
-
-<span style=color:#ff79c6>if</span> pw <span style=color:#ff79c6>==</span> <span style=color:#f1fa8c>&#39;batteryhorse&#39;</span>:
-  <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#39;picoCTF</span><span style=color:#f1fa8c>{175_chr157m45_616d21a3}</span><span style=color:#f1fa8c>&#39;</span>)
-<span style=color:#ff79c6>else</span>:
-  <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#39;That password is incorrect.&#39;</span>)
-</code></pre></div><p>This is the part that was missing.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">plain</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span></span></code></pre></div><p>We get this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">pw</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;What</span><span class="se">\&#39;</span><span class="s1">s the password? &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">pw</span> <span class="o">==</span> <span class="s1">&#39;batteryhorse&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;picoCTF</span><span class="si">{175_chr157m45_616d21a3}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;That password is incorrect.&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p>This is the part that was missing.</p>
 <p>And we can immediately see the flag:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>picoCTF{175_chr157m45_616d21a3}
-</code></pre></div>
-</div>
-<div class=post__share>
-<div class=share__head>
-<div class=share__title>Share this article</div>
-</div>
-<ul class="share__list list-reset">
-<li class=share__item>
-<a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-reverse-engineering-unpackme.py%2f" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on Facebook" rel=nofollow><ion-icon name=logo-facebook role=img class="md hydrated" aria-label="logo facebook"></ion-icon></a>
-</li>
-<li class=share__item>
-<a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=picoCTF%20-%20Reverse%20Engineering%20-%20unpackme.py&url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-reverse-engineering-unpackme.py%2f" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on Twitter" rel=nofollow><ion-icon name=logo-twitter role=img class="md hydrated" aria-label="logo twitter"></ion-icon></a>
-</li>
-<li class=share__item>
-<a class="share__link share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-reverse-engineering-unpackme.py%2f&title=picoCTF%20-%20Reverse%20Engineering%20-%20unpackme.py&summary=&source=picoCTF%20-%20Reverse%20Engineering%20-%20unpackme.py" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on LinkedIn" rel=nofollow><ion-icon name=logo-linkedin role=img class="md hydrated" aria-label="logo linkedin"></ion-icon></a>
-</li>
-<li class=share__item>
-<a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-reverse-engineering-unpackme.py%2f&media=https%3a%2f%2fblog.ppeinecke.de%2fimages%2fpicoCTF_logo.png&description=picoCTF%20-%20Reverse%20Engineering%20-%20unpackme.py" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=900,height=500,toolbar=1,resizable=0'),!1" title="Share on Pinterest" aria-label="Share on Pinterest"><ion-icon name=logo-pinterest role=img class="md hydrated" aria-label="logo pinterest"></ion-icon></a>
-</li>
-</ul>
-</div>
-<div class=post__navigation>
-<a class=prev href=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-safe-opener/ style=background-image:url(/images/picoCTF_logo.png)>
-<div class=post__nav-box>
-<div class="post__nav post__nav__prev"><i class="ion ion-ios-arrow-back"></i> Previous
-Page</div>
-<h4 class=post__nav__title>picoCTF - Reverse Engineering - Safe Opener</h4>
-</div>
-</a>
-<a class=next href=https://blog.ppeinecke.de/posts/picoctf-web-exploitation-includes/ style=background-image:url(/images/picoCTF_logo.png)>
-<div class=post__nav-box>
-<div class="post__nav post__nav__next">Next Page <i class="ion ion-ios-arrow-forward"></i></div>
-<h4 class=post__nav__title>picoCTF - Web Exploitation - Includes</h4>
-</div>
-</a>
-</div>
-<div id=disqus_thread class=post__comments>
-<div id=disqus_empty></div>
-</div>
-<script>function load_disqus(){var c='pascals-blog',b=document.getElementById('disqus_empty'),d=document.getElementById('disqus_thread'),a=document.createElement('script'),e=document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0];d&&b&&(a.type='text/javascript',a.async=!0,a.src='//'+c+'.disqus.com/embed.js',e.appendChild(a),b.remove())}window.addEventListener('scroll',function(c){var b=document.scrollingElement.scrollTop,a=document.getElementById('disqus_thread');a&&b>a.getBoundingClientRect().top-150&&load_disqus('disqus_shortname')},!1)</script>
-<noscript>Please enable JavaScript to view the
-<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a>
-</noscript>
-</article>
-</div>
-</div>
-</div>
-</main>
-<div class=top title=Top><ion-icon name=chevron-up-outline></ion-icon></div>
-<section class=footer-widgets>
-<div class=container>
-<div class=row>
-<div class="col col-4 col-d-6 col-t-12">
-<div class="widget widget-info">
-<div class=footer-logo>
-Pascals Blog
-</div>
-<p class=footer-desc>writeups of CTFs, crackmes, HTB machines, etc</p>
-</div>
-</div>
-<div class="col col-4 col-d-6 col-t-12">
-<div class="widget widget-nav">
-<div class=widget__head>
-<h3 class=widget__title>Menu</h3>
-</div>
-<ul class="nav__list list-reset">
-<li class=nav__item>
-<a href=/ class=nav__link>Home</a>
-</li>
-<li class=nav__item>
-<a href=/about class=nav__link>About</a>
-</li>
-<li class=nav__item>
-<a href=/contact class=nav__link>Contact Me</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-<footer class=footer>
-<div class=container>
-<div class=row>
-<div class="col col-12">
-<div class=footer__inner>
-<div class=social>
-<ul class="social__list list-reset">
-<li class=social__item>
-<a class=social__link href=https://www.gitlab.com/Pascal3366 target=_blank rel=noopener aria-label="GitLab link"><ion-icon name=logo-gitlab></ion-icon>
-</a>
-</li>
-<li class=social__item>
-<a class=social__link href=https://www.github.com/Pascal3366 target=_blank rel=noopener aria-label="GitHub link"><ion-icon name=logo-github></ion-icon>
-</a>
-</li>
-<li class=social__item>
-<a class=social__link href=https://www.xing.com/profile/Pascal_Peinecke target=_blank rel=noopener aria-label="Xing link"><ion-icon name=logo-xing></ion-icon>
-</a>
-</li>
-<li class=social__item>
-<a class=social__link href=http://www.linkedin.com/in/Pascal-Peinecke target=_blank rel=noopener aria-label="LinkedIn link"><ion-icon name=logo-linkedin></ion-icon>
-</a>
-</li>
-<li class=social__item>
-<a class=social__link href=https://app.hackthebox.com/users/878647 target=_blank rel=noopener aria-label="HackTheBox link"><ion-icon name=cube-outline></ion-icon>
-</a>
-</li>
-</ul>
-</div>
-<div class=copyright>2022 &copy; <a href=/>Pascals Blog</a>. All Right Reserved. Published with <a href=https://gohugo.io/>Hugo</a>.</div>
-</div>
-</div>
-</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{175_chr157m45_616d21a3}
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info"><div class="post-info-tag"><span><a href="/tags/reverse-engineering/">reverse engineering</a>
+                </span><span><a href="/tags/picoctf/">picoctf</a>
+                </span></div><div class="post-info-line"><div class="post-info-mod">
+                <span>Updated on 2022-04-06</span>
+            </div><div class="post-info-mod"></div>
+        </div></div><div class="post-nav"><a href="/posts/picoctf-reverse-engineering-safe-opener/" class="prev" rel="prev" title="picoCTF - Reverse Engineering - Safe Opener"><i class="fas fa-angle-left fa-fw"></i>Previous Post</a>
+            <a href="/posts/picoctf-web-exploitation-includes/" class="next" rel="next" title="picoCTF - Web Exploitation - Includes">Next Post<i class="fas fa-angle-right fa-fw"></i></a></div></div>
+</div></article></div>
+            </main>
+            <footer class="footer"><div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.95.0">Hugo</a> | Theme - <a href="https://github.com/khusika/FeelIt" target="_blank" rel="noopener noreffer" title="FeelIt 1.0.1"><i class="fas fa-hand-holding-heart fa-fw"></i> FeelIt</a>
+        </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/"></a></span></div>
 </div>
 </footer>
-<script src=/js/scripts.min.e5b74335e86cf180cc9e9f5a07c245a7762af2aae0f872e1ea78f1f061df66f5.js></script>
-<script src=/js/common.min.65bb105fca69fc4a0b7bf5db491e4f32ed155e661bd310e8369590e135a896d4.js></script>
-<script type=module src=https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js></script>
-<script nomodule src=https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js></script>
-</body>
-</html>
+        </div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-chevron-up fa-fw"></i>
+            </a></div><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script src="/js/theme.min.js"></script></body></html>

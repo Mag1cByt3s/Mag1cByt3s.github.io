@@ -1,12 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>misc on Pascals Blog</title><link>https://blog.ppeinecke.de/categories/misc/</link><description>Recent content in misc on Pascals Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 07 Apr 2022 17:51:01 +0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/categories/misc/index.xml" rel="self" type="application/rss+xml"/><item><title>RITSEC CTF - Misc - Stegwalk</title><link>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</link><pubDate>Thu, 07 Apr 2022 17:51:01 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</guid><description>Misc - Stegwalk - writeup description We found these files in storage. We think there might be something more to one of these images. Good luck!
-writeup Ok so I first downloaded the file &amp;lsquo;StegWalk.zip&amp;rsquo;
-Let&amp;rsquo;s move it for our convenience.
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>misc - Category - Pascal&#39;s Blog</title>
+        <link>https://blog.ppeinecke.de/categories/misc/</link>
+        <description>misc - Category - Pascal&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 07 Apr 2022 17:51:01 &#43;0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/categories/misc/" rel="self" type="application/rss+xml" /><item>
+    <title>RITSEC CTF - Misc - Stegwalk</title>
+    <link>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</link>
+    <pubDate>Thu, 07 Apr 2022 17:51:01 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</guid>
+    <description><![CDATA[Misc - Stegwalk - writeup description We found these files in storage. We think there might be something more to one of these images. Good luck!
+writeup Ok so I first downloaded the file &lsquo;StegWalk.zip&rsquo;
+Let&rsquo;s move it for our convenience.
 mv ~/Downloads/StegWalk.zip . I am going to extract the file first
-unzip StegWalk.zip -d StegWalk Inside this zip archive are a dozen of .png files &amp;hellip;
-Most of these image files just say &amp;lsquo;Nothing&amp;rsquo;.</description></item><item><title>RITSEC CTF - Misc - Scrumptions Snacks</title><link>https://blog.ppeinecke.de/posts/ritsecctf-misc-scrumptions-snacks/</link><pubDate>Thu, 07 Apr 2022 17:44:03 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-misc-scrumptions-snacks/</guid><description>Misc - Scrumptions Snacks - writeup description Sheamus the STEGOsaurus is hungry! He&amp;rsquo;s somewhat secretive about his favorite snack spot, but he&amp;rsquo;ll gladly share his secret if you say the word: &amp;ldquo;lunch&amp;rdquo;. Can you identify the name of Sheamus' favorite food establishment?
-writeup So I first downloaded the file &amp;lsquo;stegosaurus.jpg&amp;rsquo;.
-Let&amp;rsquo;s see what we have here:
-mv ~/Downloads/stegosaurus.jpg . file stegosaurus.jpg stegosaurus.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 168x168, segment length 16, baseline, precision 8, 964x910, components 3 It is a JPEG file so steganography is possible.</description></item><item><title>E-CTF - Misc - What Is This</title><link>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</link><pubDate>Fri, 11 Mar 2022 00:58:29 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</guid><description>Misc - whatisthis - writeup Description Intelligence has found same weird material from Mr. Codeshankar (yes,him again). So it is your task now to find out whats contained in it. The link is here
+unzip StegWalk.zip -d StegWalk Inside this zip archive are a dozen of .png files &hellip;
+Most of these image files just say &lsquo;Nothing&rsquo;.]]></description>
+</item>
+<item>
+    <title>RITSEC CTF - Misc - Scrumptions Snacks</title>
+    <link>https://blog.ppeinecke.de/posts/ritsecctf-misc-scrumptions-snacks/</link>
+    <pubDate>Thu, 07 Apr 2022 17:44:03 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-misc-scrumptions-snacks/</guid>
+    <description><![CDATA[Misc - Scrumptions Snacks - writeup description Sheamus the STEGOsaurus is hungry! He&rsquo;s somewhat secretive about his favorite snack spot, but he&rsquo;ll gladly share his secret if you say the word: &ldquo;lunch&rdquo;. Can you identify the name of Sheamus&rsquo; favorite food establishment?
+writeup So I first downloaded the file &lsquo;stegosaurus.jpg&rsquo;.
+Let&rsquo;s see what we have here:
+mv ~/Downloads/stegosaurus.jpg . file stegosaurus.jpg stegosaurus.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 168x168, segment length 16, baseline, precision 8, 964x910, components 3 It is a JPEG file so steganography is possible.]]></description>
+</item>
+<item>
+    <title>E-CTF - Misc - What Is This</title>
+    <link>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</link>
+    <pubDate>Fri, 11 Mar 2022 00:58:29 &#43;0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</guid>
+    <description><![CDATA[Misc - whatisthis - writeup Description Intelligence has found same weird material from Mr. Codeshankar (yes,him again). So it is your task now to find out whats contained in it. The link is here 
 Writeup after unpacking the zip file whatisthis.zip I get an image file whatisthis.png
 The file itself is broken and cannot be opened.
-After checking with the file command what that file actually is I am presented with the following: whatisthis.</description></item></channel></rss>
+After checking with the file command what that file actually is I am presented with the following: whatisthis.]]></description>
+</item>
+</channel>
+</rss>
