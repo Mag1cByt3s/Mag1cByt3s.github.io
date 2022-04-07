@@ -1,17 +1,85 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>osint - Tag - Pascal&#39;s Blog</title>
-        <link>https://blog.ppeinecke.de/tags/osint/</link>
-        <description>osint - Tag - Pascal&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 11 Mar 2022 01:07:27 &#43;0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/osint/" rel="self" type="application/rss+xml" /><item>
-    <title>E-CTF - Osint - Vacation</title>
-    <link>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</link>
-    <pubDate>Fri, 11 Mar 2022 01:07:27 &#43;0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</guid>
-    <description><![CDATA[Osint - Vacation - Writeup Description People even try to turn their pets into celebrities, it gets annoying quite fast. That reminds me, have you come across @tig3r_and_b3ar ? Apparently their owner is a photographer, I haven’t contacted her though.
-Writeup Since the owner is a photographer we should look at instagram.
-By using an instagram viewer we can look at her profile without actually logging in.
-https://dumpor.com/v/tig3r_and_b3ar
-The one thing that sticks out here is that this account is following exactly one other account.]]></description>
-</item>
-</channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>osint - Tag - Pascal's Blog</title><link>https://blog.ppeinecke.de/tags/osint/</link><description>osint - Tag - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 11 Mar 2022 01:07:27 +0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/osint/" rel="self" type="application/rss+xml"/><item><title>E-CTF - Osint - Vacation</title><link>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</link><pubDate>Fri, 11 Mar 2022 01:07:27 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/tiger_and_bear.jpeg" referrerpolicy="no-referrer">
+            </div><h1 id="osint---vacation---writeup">Osint - Vacation - Writeup</h1>
+<h2 id="description">Description</h2>
+<p>People even try to turn their pets into celebrities, it gets annoying quite fast. That reminds me, have you come across @tig3r_and_b3ar ? Apparently their owner is a photographer, I haven’t contacted her though.</p>
+<h2 id="writeup">Writeup</h2>
+<p>Since the owner is a photographer we should look at instagram.</p>
+<p>By using an instagram viewer we can look at her profile without
+actually logging in.</p>
+<p><a href="https://dumpor.com/v/tig3r_and_b3ar" target="_blank" rel="noopener noreffer">https://dumpor.com/v/tig3r_and_b3ar</a></p>
+<p>The one thing that sticks out here is that this account is following
+exactly one other account.</p>
+<p><a href="https://dumpor.com/v/tig3r_and_b3ar/following" target="_blank" rel="noopener noreffer">https://dumpor.com/v/tig3r_and_b3ar/following</a></p>
+<p>So lets take a look at the profile of Ashlyn Bardot.</p>
+<p><a href="https://dumpor.com/v/ashlynbardot%29" target="_blank" rel="noopener noreffer">https://dumpor.com/v/ashlynbardot)</a></p>
+<p>In her profile description we can see</p>
+<blockquote>
+<p>Photographer</p>
+</blockquote>
+<blockquote>
+<p>Contact me at <a href="mailto:ashlyn_bardot@yahoo.com" rel="">ashlyn_bardot@yahoo.com</a></p>
+</blockquote>
+<p>Wait &hellip; that is peculiar &hellip; an exposed email on that profile??</p>
+<p>So I decided to send her an email:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">From: [myEmail]
+</span></span><span class="line"><span class="cl">To: ashlyn_bardot@yahoo.com
+</span></span><span class="line"><span class="cl">Subject: flag
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Hi, can you provide me the flag for E-CTF Vacation?
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I quickly received a response from here:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">From: ashlyn_bardot@yahoo.com
+</span></span><span class="line"><span class="cl">To: [myEmail]
+</span></span><span class="line"><span class="cl">Subject: Auto Response: flag
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Hello!
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">I&#39;m currently on vacation, so I can&#39;t really help at the moment.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">I wonder if this is what you were looking for when you contacted me: 
+</span></span><span class="line"><span class="cl">CTF{f0und_th3_fl@g}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Yours truly,
+</span></span><span class="line"><span class="cl">Ashlyn Bardot.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So the flag is</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CTF{f0und_th3_fl@g}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

@@ -1,36 +1,288 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>misc - Tag - Pascal&#39;s Blog</title>
-        <link>https://blog.ppeinecke.de/tags/misc/</link>
-        <description>misc - Tag - Pascal&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 07 Apr 2022 17:51:01 &#43;0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/misc/" rel="self" type="application/rss+xml" /><item>
-    <title>RITSEC CTF - Misc - Stegwalk</title>
-    <link>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</link>
-    <pubDate>Thu, 07 Apr 2022 17:51:01 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</guid>
-    <description><![CDATA[Misc - Stegwalk - writeup description We found these files in storage. We think there might be something more to one of these images. Good luck!
-writeup Ok so I first downloaded the file &lsquo;StegWalk.zip&rsquo;
-Let&rsquo;s move it for our convenience.
-mv ~/Downloads/StegWalk.zip . I am going to extract the file first
-unzip StegWalk.zip -d StegWalk Inside this zip archive are a dozen of .png files &hellip;
-Most of these image files just say &lsquo;Nothing&rsquo;.]]></description>
-</item>
-<item>
-    <title>RITSEC CTF - Misc - Scrumptions Snacks</title>
-    <link>https://blog.ppeinecke.de/posts/ritsecctf-misc-scrumptions-snacks/</link>
-    <pubDate>Thu, 07 Apr 2022 17:44:03 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-misc-scrumptions-snacks/</guid>
-    <description><![CDATA[Misc - Scrumptions Snacks - writeup description Sheamus the STEGOsaurus is hungry! He&rsquo;s somewhat secretive about his favorite snack spot, but he&rsquo;ll gladly share his secret if you say the word: &ldquo;lunch&rdquo;. Can you identify the name of Sheamus&rsquo; favorite food establishment?
-writeup So I first downloaded the file &lsquo;stegosaurus.jpg&rsquo;.
-Let&rsquo;s see what we have here:
-mv ~/Downloads/stegosaurus.jpg . file stegosaurus.jpg stegosaurus.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 168x168, segment length 16, baseline, precision 8, 964x910, components 3 It is a JPEG file so steganography is possible.]]></description>
-</item>
-<item>
-    <title>E-CTF - Misc - What Is This</title>
-    <link>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</link>
-    <pubDate>Fri, 11 Mar 2022 00:58:29 &#43;0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</guid>
-    <description><![CDATA[Misc - whatisthis - writeup Description Intelligence has found same weird material from Mr. Codeshankar (yes,him again). So it is your task now to find out whats contained in it. The link is here 
-Writeup after unpacking the zip file whatisthis.zip I get an image file whatisthis.png
-The file itself is broken and cannot be opened.
-After checking with the file command what that file actually is I am presented with the following: whatisthis.]]></description>
-</item>
-</channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>misc - Tag - Pascal's Blog</title><link>https://blog.ppeinecke.de/tags/misc/</link><description>misc - Tag - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 07 Apr 2022 17:51:01 +0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/misc/" rel="self" type="application/rss+xml"/><item><title>RITSEC CTF - Misc - Stegwalk</title><link>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</link><pubDate>Thu, 07 Apr 2022 17:51:01 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/ritsecCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="misc---stegwalk---writeup">Misc - Stegwalk - writeup</h1>
+<h2 id="description">description</h2>
+<p>We found these files in storage. We think there might be
+something more to one of these featuredImages. Good luck!</p>
+<h2 id="writeup">writeup</h2>
+<p>Ok so I first downloaded the file &lsquo;StegWalk.zip&rsquo;</p>
+<p>Let&rsquo;s move it for our convenience.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mv ~/Downloads/StegWalk.zip .
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I am going to extract the file first</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">unzip StegWalk.zip -d StegWalk
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Inside this zip archive are a dozen of .png files &hellip;</p>
+<p>Most of these featuredImage files just say &lsquo;Nothing&rsquo;.</p>
+<p>But looking at the file sizes of the files I can see that all
+files have the size 2150 bytes except the file &lsquo;iyav473h.png&rsquo;
+which is 110436 bytes in size.</p>
+<p>After opening that particular file I see some sort of ancient map.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file iyav473h.png
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iyav473h.png: JPEG featuredImage data, JFIF standard 1.01, aspect ratio, density 1x1, segment length 16, baseline, precision 8, 991x991, components <span class="m">3</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After trying to extract files from the featuredImage using cyberchef I found
+a zip archive &rsquo;extracted_at_0x1adc4.zip'</p>
+<p>Inside this zip archive is a folder called &lsquo;secret&rsquo;</p>
+<p>I already had seen that folder while looking at the hexcode of the featuredImage bytes.</p>
+<p>Inside of that folder is a file called &lsquo;secret.txt&rsquo;</p>
+<p>Let&rsquo;s see what is inside there &hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat secret.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Nothing here... or is there?                                                
+</span></span><span class="line"><span class="cl">                                                                          
+</span></span><span class="line"><span class="cl">                                                                           
+</span></span><span class="line"><span class="cl">                                                                           
+</span></span><span class="line"><span class="cl">                                                                           
+</span></span><span class="line"><span class="cl">                                                                         
+</span></span><span class="line"><span class="cl">                     
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Mh a lot of whitespace.</p>
+<p>Chances are high this could be some sort of whitespace steganography
+or zero width space steganography &hellip;.</p>
+<p>Let&rsquo;s try to decode it using stegsnow &hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">stegsnow -C secret.txt output.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat output.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">RS<span class="o">{</span>st3g0_w4lk_432849<span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>There is our flag!</p>
+]]></description></item><item><title>RITSEC CTF - Misc - Scrumptions Snacks</title><link>https://blog.ppeinecke.de/posts/ritsecctf-misc-scrumptions-snacks/</link><pubDate>Thu, 07 Apr 2022 17:44:03 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-misc-scrumptions-snacks/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/ritsecCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="misc---scrumptions-snacks---writeup">Misc - Scrumptions Snacks - writeup</h1>
+<h2 id="description">description</h2>
+<p>Sheamus the STEGOsaurus is hungry!
+He&rsquo;s somewhat secretive about his favorite snack spot, but he&rsquo;ll gladly share his secret if you say the word: &ldquo;lunch&rdquo;.
+Can you identify the name of Sheamus&rsquo; favorite food establishment?</p>
+<h2 id="writeup">writeup</h2>
+<p>So I first downloaded the file &lsquo;stegosaurus.jpg&rsquo;.</p>
+<p>Let&rsquo;s see what we have here:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mv ~/Downloads/stegosaurus.jpg .
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file stegosaurus.jpg 
+</span></span><span class="line"><span class="cl">stegosaurus.jpg: JPEG featuredImage data, JFIF standard 1.01, resolution <span class="o">(</span>DPI<span class="o">)</span>, density 168x168, segment length 16, baseline, precision 8, 964x910, components <span class="m">3</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It is a JPEG file so steganography is possible.</p>
+<p>According to stegdetect there is no steganography hidden in here &hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">stegdetect ./stegosaurus.jpg 
+</span></span><span class="line"><span class="cl">./stegosaurus.jpg : negative
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ok so that does not lead to anything &hellip;.</p>
+<p>In the task description there stands:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">He&#39;s somewhat secretive about his favorite snack spot, but he&#39;ll gladly share his secret if you say the word: &#34;lunch&#34;.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So I tried to extract any steganography using steghide with the password &rsquo;lunch'</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">steghide extract -sf stegosaurus.jpg -p lunch -xf solved.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The extracted data was written to a file &lsquo;solved.txt&rsquo;</p>
+<p>let&rsquo;s see what&rsquo;s inside !</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat solved.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">39.95187791397735, -75.17117334360019
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Mhh &hellip; What is that?</p>
+<p>I suppose these have to be the coordinates of his favorite snack spot!</p>
+<p>Let&rsquo;s fire up google maps and input the above coordinates!</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>I found this:</p>
+<p></p>
+<p>On that google maps page I found this featuredImage:</p>
+<p></p>
+<p>The establishment seems to be called &lsquo;sweetgreen&rsquo;</p>
+<p>So the flag is</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">RS{sweetgreen}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>E-CTF - Misc - What Is This</title><link>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</link><pubDate>Fri, 11 Mar 2022 00:58:29 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/docker.jpg" referrerpolicy="no-referrer">
+            </div><h1 id="misc---whatisthis---writeup">Misc - whatisthis - writeup</h1>
+<h2 id="description">Description</h2>
+<p>Intelligence has found same weird material from Mr. Codeshankar (yes,him again).
+So it is your task now to find out whats contained in it.
+The link is here
+<a href="https://drive.google.com/file/d/1fFAexozA987VAgDI2AnOcr4ei2TLUO6Q/view?usp=sharing" target="_blank" rel="noopener noreffer"></a></p>
+<h2 id="writeup">Writeup</h2>
+<p>after unpacking the zip file whatisthis.zip
+I get an featuredImage file whatisthis.png</p>
+<p>The file itself is broken and cannot be opened.</p>
+<p>After checking with the file command what that file actually is
+I am presented with the following:
+whatisthis.png: POSIX tar archive</p>
+<p>So its a tar file</p>
+<p>So lets rename this file to a proper file extension</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp whatisthis.png whatisthis.tar
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now I will try to extract that archive</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -xf whatisthis.tar
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I get a lot of random folders</p>
+<p>each contains three files:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">json,
+</span></span><span class="line"><span class="cl">layer.tar,
+</span></span><span class="line"><span class="cl">VERSION
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>VERSION is always 1.0</p>
+<p>So lets look at the content of all those weird json files</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat *.json
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>what immediately sparks my eyes is the following:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat /etc/m/m/nothing.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>looks like we are dealing with docker containers here &hellip;</p>
+<p>There are still a lot of tar files inside each subfolders</p>
+<p>so lets extract them</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">find . -name <span class="s1">&#39;*.tar&#39;</span> -execdir tar -xzvf <span class="s1">&#39;{}&#39;</span> <span class="se">\;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After digging a lot around I found the file etc/m/m/nothing.txt</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat etc/m/m/nothing.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>CTF{D0cker_ent3r5_the_p4rty}</p>
+<p>So the flag is</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CTF{D0cker_ent3r5_the_p4rty}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

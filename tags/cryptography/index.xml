@@ -1,30 +1,454 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>cryptography - Tag - Pascal&#39;s Blog</title>
-        <link>https://blog.ppeinecke.de/tags/cryptography/</link>
-        <description>cryptography - Tag - Pascal&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 06 Apr 2022 14:07:33 &#43;0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/cryptography/" rel="self" type="application/rss+xml" /><item>
-    <title>picoCTF - Cryptography - Morse Code</title>
-    <link>https://blog.ppeinecke.de/posts/picoctf-cryptography-morse-code/</link>
-    <pubDate>Wed, 06 Apr 2022 14:07:33 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-cryptography-morse-code/</guid>
-    <description><![CDATA[Cryptography - morse-code - writeup description Morse code is well known. Can you decrypt this? Download the file here. Wrap your answer with picoCTF{}, put underscores in place of pauses, and use all lowercase.
-writeup Opening the file in ghex or sonic visualizer did not help
-After reading the following article I decided to try to open it using audacity.
-https://dropn0w.medium.com/do-the-loop-downunderctf-2021-5d8ee86c0f2bNext I tried to interpret the waves as morse code.]]></description>
-</item>
-<item>
-    <title>picoCTF - Cryptography - credstuff</title>
-    <link>https://blog.ppeinecke.de/posts/picoctf-cryptography-credstuff/</link>
-    <pubDate>Wed, 06 Apr 2022 14:02:03 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-cryptography-credstuff/</guid>
-    <description><![CDATA[Cryptography - credstuff - writeup description We found a leak of a blackmarket website&rsquo;s login credentials. Can you find the password of the user cultiris and successfully decrypt it? Download the leak here. The first user in usernames.txt corresponds to the first password in passwords.txt. The second user corresponds to the second password, and so on.
-writeup let&rsquo;s write a python program that finds the corresponding password for the user &lsquo;cultiris&rsquo;]]></description>
-</item>
-<item>
-    <title>picoCTF - Cryptography - basic-mod1</title>
-    <link>https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/</link>
-    <pubDate>Wed, 06 Apr 2022 13:58:41 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/</guid>
-    <description><![CDATA[Cryptography - basic-mod1 - writeup description We found this weird message being passed around on the servers, we think we have a working decrpytion scheme. Download the message here. Take each number mod 37 and map it to the following character set: 0-25 is the alphabet (uppercase), 26-35 are the decimal digits, and 36 is an underscore. Wrap your decrypted message in the picoCTF flag format (i.e. picoCTF{decrypted_message})
-writeup Lets write a simple python program which reads the message into a string first.]]></description>
-</item>
-</channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>cryptography - Tag - Pascal's Blog</title><link>https://blog.ppeinecke.de/tags/cryptography/</link><description>cryptography - Tag - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 06 Apr 2022 14:07:33 +0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/cryptography/" rel="self" type="application/rss+xml"/><item><title>picoCTF - Cryptography - Morse Code</title><link>https://blog.ppeinecke.de/posts/picoctf-cryptography-morse-code/</link><pubDate>Wed, 06 Apr 2022 14:07:33 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-cryptography-morse-code/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="cryptography---morse-code---writeup">Cryptography - morse-code - writeup</h1>
+<h2 id="description">description</h2>
+<p>Morse code is well known. Can you decrypt this?
+Download the file <!-- raw HTML omitted -->here<!-- raw HTML omitted -->.
+Wrap your answer with picoCTF{},
+put underscores in place of pauses, and use all lowercase.</p>
+<h2 id="writeup">writeup</h2>
+<p>Opening the file in ghex or sonic visualizer did not help</p>
+<p>After reading the following article I decided to try to open it
+using audacity.</p>
+<p><!-- raw HTML omitted --><a href="https://dropn0w.medium.com/do-the-loop-downunderctf-2021-5d8ee86c0f2b" target="_blank" rel="noopener noreffer">https://dropn0w.medium.com/do-the-loop-downunderctf-2021-5d8ee86c0f2b</a><!-- raw HTML omitted --></p>
+<p>Next I tried to interpret the waves as morse code.</p>
+<p>I can see that there is a long pattern consisting
+out of dashes and dots.
+It looks like this:
+</p>
+<p>I ended up with the following morse code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.-- .... ....- --... .... ....- --... .... ----. ----- -.. .-- ..--- ----- ..- ----. .... --...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Using cyberchef &lsquo;From Morse Code&rsquo; I end up with the following string:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">WH47H47H90DW20U9H7
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Since the task says &ldquo;Wrap your answer with picoCTF{}, put underscores in place of pauses, and use all lowercase.&rdquo;</p>
+<p>I ended up with the following flag:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{wh47_h47h_90d_w20u9h7}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>picoCTF - Cryptography - credstuff</title><link>https://blog.ppeinecke.de/posts/picoctf-cryptography-credstuff/</link><pubDate>Wed, 06 Apr 2022 14:02:03 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-cryptography-credstuff/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="cryptography---credstuff---writeup">Cryptography - credstuff - writeup</h1>
+<h2 id="description">description</h2>
+<p>We found a leak of a blackmarket website&rsquo;s login credentials.
+Can you find the password of the user cultiris and successfully decrypt it?
+Download the leak here. The first user in usernames.txt corresponds to the first password in passwords.txt. The second user corresponds to the second password, and so on.</p>
+<h2 id="writeup">writeup</h2>
+<p>let&rsquo;s write a python program that finds the corresponding password
+for the user &lsquo;cultiris&rsquo;</p>
+<p>According to the task description the n-th user corresponds to the n-th
+password.</p>
+<p>So my task here is to find the position of the user &lsquo;cultiris&rsquo;
+in the file &lsquo;usernames.txt&rsquo; and find the password with the same
+position in the file &lsquo;passwords.txt&rsquo;</p>
+<p>Here is the program I came up with:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env python3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">username</span><span class="o">=</span><span class="s2">&#34;cultiris&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">username_file</span><span class="o">=</span><span class="s2">&#34;leak/usernames.txt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">password_file</span><span class="o">=</span><span class="s2">&#34;leak/passwords.txt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># find position of cultiris in file leak/usernames.txt</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">search_string_in_file</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">string_to_search</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Search for the given string in file and return lines containing that string,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    along with line numbers&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">line_number</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list_of_results</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Open the file in read only mode</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_obj</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Read all lines in the file one by one</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">read_obj</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># For each line, check if line contains the string</span>
+</span></span><span class="line"><span class="cl">            <span class="n">line_number</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">string_to_search</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># If yes, then add the line number &amp; line as a tuple in the list</span>
+</span></span><span class="line"><span class="cl">                <span class="n">list_of_results</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">line_number</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()))</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Return list of tuples containing line numbers and lines where string is found</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">list_of_results</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">search_string_in_file</span><span class="p">(</span><span class="n">username_file</span><span class="p">,</span> <span class="n">username</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># running this code so far we found the username &#39;cultiris&#39; on line 378</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># lets extract line 378 of the file leak/passwords.txt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>                             		 <span class="c1"># Declare an empty list named lines.</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">&#39;leak/passwords.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">psswd_file</span><span class="p">:</span> <span class="c1"># Open leak/passwords.txt for reading text data.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">psswd_file</span><span class="p">:</span>                	 <span class="c1"># For each line, stored as line,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>           		 <span class="c1"># add its contents to lines.</span>
+</span></span><span class="line"><span class="cl">                          		
+</span></span><span class="line"><span class="cl"><span class="c1"># now just print out line 378 to find the correct password</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># for the user cultiris</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># the index is 377 because arrays start at 0</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">377</span><span class="p">])</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Using my python program I found the username &lsquo;cultiris&rsquo;
+on line 378:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[(378, &#39;cultiris&#39;)]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So all I have to do now is to extract line 378
+of the file &lsquo;passwords.txt&rsquo;.</p>
+<p>I got this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cvpbPGS{P7e1S_54I35_71Z3}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This seems to be encrypted</p>
+<p>We need a hint on how to solve this&hellip;</p>
+<p>Let&rsquo;s take a look at the passwords.txt file:</p>
+<p>If I search the file for the term &lsquo;pico&rsquo;, I found this line:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pICo7rYpiCoU51N6PicOr0t13
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I think that could be a hint to use ROT13 to decrypt the flag!</p>
+<p>So let&rsquo;s try to rotate each character by 13 position using ROT13:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{C7r1F_54V35_71M3}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>That is our flag!</p>
+<p>Awesome!</p>
+]]></description></item><item><title>picoCTF - Cryptography - basic-mod1</title><link>https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/</link><pubDate>Wed, 06 Apr 2022 13:58:41 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="cryptography---basic-mod1---writeup">Cryptography - basic-mod1 - writeup</h1>
+<h2 id="description">description</h2>
+<p>We found this weird message being passed around on the servers,
+we think we have a working decrpytion scheme.
+Download the message here. Take each number mod 37 and
+map it to the following character set: 0-25 is the alphabet (uppercase),
+26-35 are the decimal digits, and 36 is an underscore.
+Wrap your decrypted message in the picoCTF flag
+format (i.e. picoCTF{decrypted_message})</p>
+<h2 id="writeup">writeup</h2>
+<p>Lets write a simple python program which reads the message
+into a string first.</p>
+<p>Then I will read each number into an array and take each
+number in the array mod 37</p>
+<p>After that I will try to map each array field to the following scheme:</p>
+<blockquote>
+<p>0-25 is the alphabet (uppercase),
+26-35 are the decimal digits, and 36 is an underscore.</p>
+</blockquote>
+<p>At the end I will warp the decoded message in the picoCTF
+flag format like so: (i.e. picoCTF{decrypted_message})</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env python3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">string</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># read the file into a string</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;message.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">enc_msg</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># split the string by &#39; &#39; and insert the values into an array</span>
+</span></span><span class="line"><span class="cl"><span class="n">enc_arr</span> <span class="o">=</span> <span class="n">enc_msg</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># print out the array for test purposes</span>
+</span></span><span class="line"><span class="cl"><span class="n">enc_arr_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">enc_arr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># define empty mod_arr</span>
+</span></span><span class="line"><span class="cl"><span class="n">mod_arr</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># calculate modulo 37 of every number</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">enc_arr_len</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mod_arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">enc_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">%</span> <span class="mi">37</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># get length of resulting array</span>
+</span></span><span class="line"><span class="cl"><span class="n">mod_arr_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># define array for final string</span>
+</span></span><span class="line"><span class="cl"><span class="n">final_string</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">mod_arr_len</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># try to map numbers from 0 to 25 to uppercase characters of the alphabet</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">3</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">4</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">5</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">6</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">7</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">8</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">9</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;J&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">10</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;K&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">11</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">12</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">13</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">14</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;O&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">15</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">16</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Q&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">17</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">18</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">19</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">20</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">21</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;V&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">22</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">23</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">24</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">25</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># try to map numbers from 26 to 35 to decimal digits</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="mi">26</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">35</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">26</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">27</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">28</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">29</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">30</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;4&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">31</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;5&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">32</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;6&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">33</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;7&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">34</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">35</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;9&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># try to map 36 to an underscore _</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="nb">int</span><span class="p">(</span><span class="n">mod_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">36</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">final_string</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;_&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">final_flag</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">final_string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;picoCTF{&#34;</span> <span class="o">+</span> <span class="n">final_flag</span> <span class="o">+</span> <span class="s2">&#34;}&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="flag">Flag:</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{R0UND_N_R0UND_B0D5F596}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

@@ -1,113 +1,828 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>picoctf - Tag - Pascal&#39;s Blog</title>
-        <link>https://blog.ppeinecke.de/tags/picoctf/</link>
-        <description>picoctf - Tag - Pascal&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 06 Apr 2022 16:12:40 &#43;0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/picoctf/" rel="self" type="application/rss+xml" /><item>
-    <title>picoCTF - Web Exploitation - SQLiLite</title>
-    <link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sqlilite/</link>
-    <pubDate>Wed, 06 Apr 2022 16:12:40 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sqlilite/</guid>
-    <description><![CDATA[Web Exploitation - SQLiLite - writeup description Can you login to this website?
-Try to login here.
-writeup Once i visit the website http://saturn.picoctf.net:60431/in firefox I can see a login form with a username and a password field.
-My first attempt was to use the username &lsquo;admin&rsquo; and try a basic sql injection.
-So I input in the username field this:
-admin&#39;-- the single quote is here to end the input of the text box.]]></description>
-</item>
-<item>
-    <title>picoCTF - Web Exploitation - SQL Direct</title>
-    <link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sql-direct/</link>
-    <pubDate>Wed, 06 Apr 2022 16:10:25 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sql-direct/</guid>
-    <description><![CDATA[Web Exploitation - SQL Direct - writeup description Connect to this PostgreSQL server and find the flag!
-psql -h saturn.picoctf.net -p 49248 -U postgres pico
-Password is postgres
-writeup Ok let&rsquo;s first connect to the database server:
-psql -h saturn.picoctf.net -p 49248 -U postgres pico the password is &lsquo;postgres&rsquo;
-Let&rsquo;s list all databases first
-pico=# \l List of databases Name | Owner | Encoding | Collate | Ctype | Access privileges -----------+----------+----------+------------+------------+----------------------- pico | postgres | UTF8 | en_US.]]></description>
-</item>
-<item>
-    <title>picoCTF - Web Exploitation - Search source</title>
-    <link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-search-source/</link>
-    <pubDate>Wed, 06 Apr 2022 16:08:45 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-search-source/</guid>
-    <description><![CDATA[Web Exploitation - Search Source - writeup description The developer of this website mistakenly left an important artifact in the website source, can you find it? The website is herewriteup I was not able to find anything interesting on the website by just looking at the source code in the browser.
-So let&rsquo;s clone the website first using HTTrack so we can take a look at the full source.
-httrack http://saturn.]]></description>
-</item>
-<item>
-    <title>picoCTF - Web Exploitation - Power Cookie</title>
-    <link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-power-cookie/</link>
-    <pubDate>Wed, 06 Apr 2022 16:04:26 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-power-cookie/</guid>
-    <description><![CDATA[Web Exploitation - Power Cookie - writeup description Can you get the flag? Go to this websiteand see what you can discover.
-writeup Looking at the check.php function I can see that it requests a cookie &lsquo;isAdmin&rsquo;.
-That cookie is not present at the first visit of the page.
-So lets refresh the webpage.
-Now the cookie is present.
-The value of this particuluar cookie is &lsquo;0&rsquo; currently.
-So lets change it to &lsquo;1&rsquo; and refresh the page once more.]]></description>
-</item>
-<item>
-    <title>picoCTF - Web Exploitation - Local Authority</title>
-    <link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-local-authority/</link>
-    <pubDate>Wed, 06 Apr 2022 15:58:43 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-local-authority/</guid>
-    <description><![CDATA[Web Exploitation - Local Authority - writeup description Can you get the flag? Go to this websiteand see what you can discover.
-writeup Once I open the link http://saturn.picoctf.net:51419/in firefox I get to a page &ldquo;Secure Customer Portal&rdquo;.
-I can see a login form with username and password.
-On the website I see a hint:
- Only letters and numbers allowed for username and password.
- I tried to do a simple post request to the login.]]></description>
-</item>
-<item>
-    <title>picoCTF - Web Exploitation - Inspect HTML</title>
-    <link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-inspect-html/</link>
-    <pubDate>Wed, 06 Apr 2022 15:51:22 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-inspect-html/</guid>
-    <description><![CDATA[Web Exploitation - Includes - writeup description Can you get the flag? Go to this websiteand see what you can discover.
-writeup Once I opened the website http://saturn.picoctf.net:60935/in firefox and looking at the source code I could immediately find the flag inside a comment in the html source code:
-&lt;!--picoCTF{1n5p3t0r_0f_h7ml_ab1df88d}--&gt; So the flag is:
-picoCTF{1n5p3t0r_0f_h7ml_ab1df88d} ]]></description>
-</item>
-<item>
-    <title>picoCTF - Web Exploitation - Includes</title>
-    <link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-includes/</link>
-    <pubDate>Wed, 06 Apr 2022 15:42:26 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-includes/</guid>
-    <description><![CDATA[Web Exploitation - Includes - writeup description Can you get the flag? Go to this websiteand see what you can discover.
-writeup Ok so I went ahead and visited the url http://saturn.picoctf.net:52811/in firefox.
-I am presente with a webpage with a bunch of text and a button that says &ldquo;Say hello&rdquo;.
-Once I press that button I get a javascript alert() popup that says &ldquo;This code is in a separate file!]]></description>
-</item>
-<item>
-    <title>picoCTF - Reverse Engineering - unpackme.py</title>
-    <link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-unpackme.py/</link>
-    <pubDate>Wed, 06 Apr 2022 15:29:28 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-unpackme.py/</guid>
-    <description><![CDATA[Reverse Engineering - unpackme.py - writeup description Can you get the flag?
-Reverse engineer this Python program.
-writeup Let&rsquo;s download the python program first.
-wget https://artifacts.picoctf.net/c/470/unpackme.flag.py I will try to reverse engineer this python code &hellip;
-If we take a look at the code:
-import base64 from cryptography.fernet import Fernet payload = b&#39;gAAAAABiMD1Ju5_eZeZy7C03K_YcWGDGXfvy5A9b5HzV-uZIYN8syTFGHgLwoRonYtCS0WcDrufxRRXlvNKtyEMqMS0AADLcRNr6VYpLLbKaETF37L22GEg1ok8NutHXK6gy47sBLmxmWWU729b86rzK6IMc2Kg-CR0bMm_fzrbRrWEYSk0WRNnKxy7Juuy-Ss2RjbACKgbwL7HNGATu3hYuPflf3PCKztLRFXCBxijKncKZgt68wYhGnPAzYvUVrdhhtMg9ra7ZKIirltPfKC8iX2DqmR9vVA==&#39; key_str = &#39;correctstaplecorrectstaplecorrec&#39; key_base64 = base64.b64encode(key_str.encode()) f = Fernet(key_base64) plain = f.decrypt(payload) exec(plain.decode()) We can see that some part of the code is missing.]]></description>
-</item>
-<item>
-    <title>picoCTF - Reverse Engineering - Safe Opener</title>
-    <link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-safe-opener/</link>
-    <pubDate>Wed, 06 Apr 2022 15:27:09 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-safe-opener/</guid>
-    <description><![CDATA[Reverse Engineering - Safe Opener - writeup description Can you open this safe?
-I forgot the key to my safe but this programis supposed to help me with retrieving the lost key.
-Can you help me unlock my safe?
-Put the password you recover into the picoCTF flag format like: picoCTF{password}
-writeup The &ldquo;safe&rdquo; is a .java file.
-Since .java is used for java source code this should be fairly easy to reverse engineer.]]></description>
-</item>
-<item>
-    <title>picoCTF - Reverse Engineering - patchme.py</title>
-    <link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-patchme.py/</link>
-    <pubDate>Wed, 06 Apr 2022 15:25:17 &#43;0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-patchme.py/</guid>
-    <description><![CDATA[Reverse Engineering - patchme.py - writeup description Can you get the flag?
-Run this Python programin the same directory as this encrypted flag.
-writeup Let&rsquo;s take a look at the encrypted flag&hellip;
-cat flag.txt.enc CR1@ UYX+ 6UB P\E That does not help.
-Let&rsquo;s look at the python code&hellip;
-Mh that is peculiar:
-if( user_pw == &#34;ak98&#34; + \ &#34;-=90&#34; + \ &#34;adfjhgj321&#34; + \ &#34;sleuth9000&#34;) Let&rsquo;s fire up bpython and input this code:]]></description>
-</item>
-</channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>picoctf - Tag - Pascal's Blog</title><link>https://blog.ppeinecke.de/tags/picoctf/</link><description>picoctf - Tag - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 06 Apr 2022 16:12:40 +0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/picoctf/" rel="self" type="application/rss+xml"/><item><title>picoCTF - Web Exploitation - SQLiLite</title><link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sqlilite/</link><pubDate>Wed, 06 Apr 2022 16:12:40 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sqlilite/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="web-exploitation---sqlilite---writeup">Web Exploitation - SQLiLite - writeup</h1>
+<h2 id="description">description</h2>
+<p>Can you login to this website?</p>
+<p>Try to login <!-- raw HTML omitted -->here<!-- raw HTML omitted -->.</p>
+<h2 id="writeup">writeup</h2>
+<p>Once i visit the website <!-- raw HTML omitted --><a href="http://saturn.picoctf.net:60431/" target="_blank" rel="noopener noreffer">http://saturn.picoctf.net:60431/</a><!-- raw HTML omitted -->
+in firefox I can see a login form with a username and a password field.</p>
+<p>My first attempt was to use the username &lsquo;admin&rsquo;
+and try a basic sql injection.</p>
+<p>So I input in the username field this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">admin&#39;--
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>the single quote is here to end the input of the text box.</p>
+<p>The double dash (&ndash;) is here to comment out the rest of the sql query
+so we can skip the password check.</p>
+<p>Once I try to login using this method I get redirected to a page with the following content:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">username: admin&#39;--
+</span></span><span class="line"><span class="cl">password: 
+</span></span><span class="line"><span class="cl">SQL query: SELECT * FROM users WHERE name=&#39;admin&#39;--&#39; AND password=&#39;&#39;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Logged in! But can you see the flag, it is in plainsight.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>But looking at the html code reveals the flag pretty quickly:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">hidden</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>Your flag is: picoCTF{L00k5_l1k3_y0u_solv3d_it_8dac17f1}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So the flag is</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{L00k5_l1k3_y0u_solv3d_it_8dac17f1}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>picoCTF - Web Exploitation - SQL Direct</title><link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sql-direct/</link><pubDate>Wed, 06 Apr 2022 16:10:25 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sql-direct/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="web-exploitation---sql-direct---writeup">Web Exploitation - SQL Direct - writeup</h1>
+<h2 id="description">description</h2>
+<p>Connect to this PostgreSQL server and find the flag!</p>
+<p>psql -h saturn.picoctf.net -p 49248 -U postgres pico</p>
+<p>Password is postgres</p>
+<h2 id="writeup">writeup</h2>
+<p>Ok let&rsquo;s first connect to the database server:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">psql -h saturn.picoctf.net -p <span class="m">49248</span> -U postgres pico 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>the password is &lsquo;postgres&rsquo;</p>
+<p>Let&rsquo;s list all databases first</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">pico</span><span class="o">=</span><span class="c1"># \l</span>
+</span></span><span class="line"><span class="cl">                                 List of databases
+</span></span><span class="line"><span class="cl">   Name    <span class="p">|</span>  Owner   <span class="p">|</span> Encoding <span class="p">|</span>  Collate   <span class="p">|</span>   Ctype    <span class="p">|</span>   Access privileges   
+</span></span><span class="line"><span class="cl">-----------+----------+----------+------------+------------+-----------------------
+</span></span><span class="line"><span class="cl"> pico      <span class="p">|</span> postgres <span class="p">|</span> UTF8     <span class="p">|</span> en_US.utf8 <span class="p">|</span> en_US.utf8 <span class="p">|</span> 
+</span></span><span class="line"><span class="cl"> postgres  <span class="p">|</span> postgres <span class="p">|</span> UTF8     <span class="p">|</span> en_US.utf8 <span class="p">|</span> en_US.utf8 <span class="p">|</span> 
+</span></span><span class="line"><span class="cl"> template0 <span class="p">|</span> postgres <span class="p">|</span> UTF8     <span class="p">|</span> en_US.utf8 <span class="p">|</span> en_US.utf8 <span class="p">|</span> <span class="o">=</span>c/postgres          +
+</span></span><span class="line"><span class="cl">           <span class="p">|</span>          <span class="p">|</span>          <span class="p">|</span>            <span class="p">|</span>            <span class="p">|</span> <span class="nv">postgres</span><span class="o">=</span>CTc/postgres
+</span></span><span class="line"><span class="cl"> template1 <span class="p">|</span> postgres <span class="p">|</span> UTF8     <span class="p">|</span> en_US.utf8 <span class="p">|</span> en_US.utf8 <span class="p">|</span> <span class="o">=</span>c/postgres          +
+</span></span><span class="line"><span class="cl">           <span class="p">|</span>          <span class="p">|</span>          <span class="p">|</span>            <span class="p">|</span>            <span class="p">|</span> <span class="nv">postgres</span><span class="o">=</span>CTc/postgres
+</span></span><span class="line"><span class="cl"><span class="o">(</span><span class="m">4</span> rows<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Connect to the &lsquo;pico&rsquo; database</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">pico</span><span class="o">=</span><span class="c1"># \c pico</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>List all tables</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">pico</span><span class="o">=</span><span class="c1"># \dt</span>
+</span></span><span class="line"><span class="cl">         List of relations
+</span></span><span class="line"><span class="cl"> Schema <span class="p">|</span> Name  <span class="p">|</span> Type  <span class="p">|</span>  Owner   
+</span></span><span class="line"><span class="cl">--------+-------+-------+----------
+</span></span><span class="line"><span class="cl"> public <span class="p">|</span> flags <span class="p">|</span> table <span class="p">|</span> postgres
+</span></span><span class="line"><span class="cl"><span class="o">(</span><span class="m">1</span> row<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>the table &lsquo;flags&rsquo; sounds interesting &hellip;</p>
+<p>lets look at the contents:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">pico</span><span class="o">=</span><span class="c1"># select * from flags;</span>
+</span></span><span class="line"><span class="cl"> id <span class="p">|</span> firstname <span class="p">|</span> lastname  <span class="p">|</span>                address                 
+</span></span><span class="line"><span class="cl">----+-----------+-----------+----------------------------------------
+</span></span><span class="line"><span class="cl">  <span class="m">1</span> <span class="p">|</span> Luke      <span class="p">|</span> Skywalker <span class="p">|</span> picoCTF<span class="o">{</span>L3arN_S0m3_5qL_t0d4Y_a26695df<span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="m">2</span> <span class="p">|</span> Leia      <span class="p">|</span> Organa    <span class="p">|</span> Alderaan
+</span></span><span class="line"><span class="cl">  <span class="m">3</span> <span class="p">|</span> Han       <span class="p">|</span> Solo      <span class="p">|</span> Corellia
+</span></span><span class="line"><span class="cl"><span class="o">(</span><span class="m">3</span> rows<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>There is our flag.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{L3arN_S0m3_5qL_t0d4Y_a26695df}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>picoCTF - Web Exploitation - Search source</title><link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-search-source/</link><pubDate>Wed, 06 Apr 2022 16:08:45 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-search-source/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="web-exploitation---search-source---writeup">Web Exploitation - Search Source - writeup</h1>
+<h2 id="description">description</h2>
+<p>The developer of this website mistakenly left an
+important artifact in the website source, can you find it?
+The website is <!-- raw HTML omitted -->here<!-- raw HTML omitted --></p>
+<h2 id="writeup">writeup</h2>
+<p>I was not able to find anything interesting on the website
+by just looking at the source code in the browser.</p>
+<p>So let&rsquo;s clone the website first using HTTrack so we can
+take a look at the full source.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">httrack http://saturn.picoctf.net:64200/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Let&rsquo;s use grep recursively to find the flag inside all
+of the files of the webroot.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">grep -nr <span class="s1">&#39;picoCTF*&#39;</span> .
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">./css/style.css:328:/** banner_main picoCTF<span class="o">{</span>1nsp3ti0n_0f_w3bpag3s_3003ba70<span class="o">}</span> **/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We found the flag inside the file css/style.css on line 328.</p>
+<p>Flag:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{1nsp3ti0n_0f_w3bpag3s_3003ba70}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>picoCTF - Web Exploitation - Power Cookie</title><link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-power-cookie/</link><pubDate>Wed, 06 Apr 2022 16:04:26 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-power-cookie/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="web-exploitation---power-cookie---writeup">Web Exploitation - Power Cookie - writeup</h1>
+<h2 id="description">description</h2>
+<p>Can you get the flag? Go to this <!-- raw HTML omitted -->website<!-- raw HTML omitted -->
+and see what you can discover.</p>
+<h2 id="writeup">writeup</h2>
+<p>Looking at the check.php function I can see that it requests a cookie &lsquo;isAdmin&rsquo;.</p>
+<p>That cookie is not present at the first visit of the page.</p>
+<p>So lets refresh the webpage.</p>
+<p>Now the cookie is present.</p>
+<p>The value of this particuluar cookie is &lsquo;0&rsquo; currently.</p>
+<p>So lets change it to &lsquo;1&rsquo; and refresh the page once more.</p>
+<p>I am immediately presented with the flag:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{gr4d3_A_c00k13_1d871e17}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>picoCTF - Web Exploitation - Local Authority</title><link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-local-authority/</link><pubDate>Wed, 06 Apr 2022 15:58:43 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-local-authority/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="web-exploitation---local-authority---writeup">Web Exploitation - Local Authority - writeup</h1>
+<h2 id="description">description</h2>
+<p>Can you get the flag?
+Go to this <!-- raw HTML omitted -->website<!-- raw HTML omitted --> and see what you can discover.</p>
+<h2 id="writeup">writeup</h2>
+<p>Once I open the link <!-- raw HTML omitted --><a href="http://saturn.picoctf.net:51419/" target="_blank" rel="noopener noreffer">http://saturn.picoctf.net:51419/</a><!-- raw HTML omitted --> in firefox I get to a page &ldquo;Secure Customer Portal&rdquo;.</p>
+<p>I can see a login form with username and password.</p>
+<p>On the website I see a hint:</p>
+<blockquote>
+<p>Only letters and numbers allowed for username and password.</p>
+</blockquote>
+<p>I tried to do a simple post request to the login.php</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">username=admin&amp;password=test&amp;login=true
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Using that payload I get the following html response:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;viewport&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;width=device-width, initial-scale=1.0&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&#34;X-UA-Compatible&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;ie=edge&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;style.css&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Login Page<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;secure.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;msg&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">form</span> <span class="na">hidden</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;admin.php&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;hiddenAdminForm&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;hash&#34;</span> <span class="na">required</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;adminFormHash&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">function</span> <span class="nx">filter</span><span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">filterPassed</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">string</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">cc</span> <span class="o">=</span> <span class="nx">string</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          
+</span></span><span class="line"><span class="cl">          <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="nx">cc</span> <span class="o">&gt;=</span> <span class="mi">48</span> <span class="o">&amp;&amp;</span> <span class="nx">cc</span> <span class="o">&lt;=</span> <span class="mi">57</span><span class="p">)</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">               <span class="p">(</span><span class="nx">cc</span> <span class="o">&gt;=</span> <span class="mi">65</span> <span class="o">&amp;&amp;</span> <span class="nx">cc</span> <span class="o">&lt;=</span> <span class="mi">90</span><span class="p">)</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">               <span class="p">(</span><span class="nx">cc</span> <span class="o">&gt;=</span> <span class="mi">97</span> <span class="o">&amp;&amp;</span> <span class="nx">cc</span> <span class="o">&lt;=</span> <span class="mi">122</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">filterPassed</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>     
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="k">else</span>
+</span></span><span class="line"><span class="cl">          <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">      <span class="nb">window</span><span class="p">.</span><span class="nx">username</span> <span class="o">=</span> <span class="s2">&#34;admin&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">window</span><span class="p">.</span><span class="nx">password</span> <span class="o">=</span> <span class="s2">&#34;test&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">      <span class="nx">usernameFilterPassed</span> <span class="o">=</span> <span class="nx">filter</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">username</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">passwordFilterPassed</span> <span class="o">=</span> <span class="nx">filter</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">password</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span> <span class="nx">usernameFilterPassed</span> <span class="o">&amp;&amp;</span> <span class="nx">passwordFilterPassed</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">        <span class="nx">loggedIn</span> <span class="o">=</span> <span class="nx">checkPassword</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">password</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="nx">loggedIn</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;msg&#39;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;Log In Successful&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;adminFormHash&#39;</span><span class="p">).</span><span class="nx">value</span> <span class="o">=</span> <span class="s2">&#34;2196812e91c29df34f5e217cfd639881&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;hiddenAdminForm&#39;</span><span class="p">).</span><span class="nx">submit</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;msg&#39;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;Log In Failed&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;msg&#39;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;Illegal character in username or password.&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Looking at that html code there are two lines that stick out:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">window.username = &#34;admin&#34;;
+</span></span><span class="line"><span class="cl">window.password = &#34;test&#34;;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Lets try the username &lsquo;admin&rsquo; and the password &rsquo;test&rsquo;&hellip;</p>
+<p>No luck</p>
+<p>The file &lsquo;secure.js&rsquo; seems to be more interesting &hellip;</p>
+<p>Let&rsquo;s take a look at it:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">checkPassword</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span> <span class="nx">password</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="p">(</span> <span class="nx">username</span> <span class="o">===</span> <span class="s1">&#39;admin&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">password</span> <span class="o">===</span> <span class="s1">&#39;strongPassword098765&#39;</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So the username seems to be &lsquo;admin&rsquo; and the password &lsquo;strongPassword098765&rsquo;</p>
+<p>Using that combination the login was successful and I can see the flag:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{j5_15_7r4n5p4r3n7_d6a44d91} 
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>picoCTF - Web Exploitation - Inspect HTML</title><link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-inspect-html/</link><pubDate>Wed, 06 Apr 2022 15:51:22 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-inspect-html/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="web-exploitation---includes---writeup">Web Exploitation - Includes - writeup</h1>
+<h2 id="description">description</h2>
+<p>Can you get the flag?
+Go to this <!-- raw HTML omitted -->website<!-- raw HTML omitted --> and see what you can discover.</p>
+<h2 id="writeup">writeup</h2>
+<p>Once I opened the website <!-- raw HTML omitted --><a href="http://saturn.picoctf.net:60935/" target="_blank" rel="noopener noreffer">http://saturn.picoctf.net:60935/</a><!-- raw HTML omitted --> in firefox and looking at the source code I could immediately find the flag inside a comment in the html source code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!--picoCTF{1n5p3t0r_0f_h7ml_ab1df88d}--&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So the flag is:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{1n5p3t0r_0f_h7ml_ab1df88d}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>picoCTF - Web Exploitation - Includes</title><link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-includes/</link><pubDate>Wed, 06 Apr 2022 15:42:26 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-includes/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="web-exploitation---includes---writeup">Web Exploitation - Includes - writeup</h1>
+<h2 id="description">description</h2>
+<p>Can you get the flag? Go to this <!-- raw HTML omitted -->website<!-- raw HTML omitted --> and see what you can discover.</p>
+<h2 id="writeup">writeup</h2>
+<p>Ok so I went ahead and visited the url <!-- raw HTML omitted --><a href="http://saturn.picoctf.net:52811/" target="_blank" rel="noopener noreffer">http://saturn.picoctf.net:52811/</a><!-- raw HTML omitted --> in firefox.</p>
+<p>I am presente with a webpage with a bunch of text and a button that says &ldquo;Say hello&rdquo;.</p>
+<p>Once I press that button I get a javascript alert() popup that says &ldquo;This code is in a separate file!&rdquo;</p>
+<p>If I look at the source code of that button I see this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">onclick=&#34;greetings();&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So the button is calling a javascript function &lsquo;greetings()&rsquo;</p>
+<p>Lets take a look at that function.</p>
+<p>Since the html code is including the js code from a seperate file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;script.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We need to take a look at that file</p>
+<p>So once I point my browser at the address <!-- raw HTML omitted --><a href="http://saturn.picoctf.net:52811/script.js" target="_blank" rel="noopener noreffer">http://saturn.picoctf.net:52811/script.js</a><!-- raw HTML omitted --> I see the following JavaScript Code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">greetings</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;This code is in a separate file!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//  f7w_2of2_3d50f001}
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>The comment looks like a part of our flag!</p>
+<p>There is also a CSS stylesheet &lsquo;style.css&rsquo;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-color</span><span class="p">:</span> <span class="kc">lightblue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/*  picoCTF{1nclu51v17y_1of2_  */</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Great! Here is our first part of the flag.</p>
+<p>Lets put it together:</p>
+<p>picoCTF{1nclu51v17y_1of2_f7w_2of2_3d50f001}</p>
+<p>So the flag is:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{1nclu51v17y_1of2_f7w_2of2_3d50f001}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>picoCTF - Reverse Engineering - unpackme.py</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-unpackme.py/</link><pubDate>Wed, 06 Apr 2022 15:29:28 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-unpackme.py/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="reverse-engineering---unpackmepy---writeup">Reverse Engineering - unpackme.py - writeup</h1>
+<h2 id="description">description</h2>
+<p>Can you get the flag?</p>
+<p>Reverse engineer this <!-- raw HTML omitted -->Python program<!-- raw HTML omitted -->.</p>
+<h2 id="writeup">writeup</h2>
+<p>Let&rsquo;s download the python program first.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://artifacts.picoctf.net/c/470/unpackme.flag.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I will try to reverse engineer this python code &hellip;</p>
+<p>If we take a look at the code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">base64</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">cryptography.fernet</span> <span class="kn">import</span> <span class="n">Fernet</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;gAAAAABiMD1Ju5_eZeZy7C03K_YcWGDGXfvy5A9b5HzV-uZIYN8syTFGHgLwoRonYtCS0WcDrufxRRXlvNKtyEMqMS0AADLcRNr6VYpLLbKaETF37L22GEg1ok8NutHXK6gy47sBLmxmWWU729b86rzK6IMc2Kg-CR0bMm_fzrbRrWEYSk0WRNnKxy7Juuy-Ss2RjbACKgbwL7HNGATu3hYuPflf3PCKztLRFXCBxijKncKZgt68wYhGnPAzYvUVrdhhtMg9ra7ZKIirltPfKC8iX2DqmR9vVA==&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">key_str</span> <span class="o">=</span> <span class="s1">&#39;correctstaplecorrectstaplecorrec&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">key_base64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">key_str</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">f</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><span class="n">key_base64</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plain</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">exec</span><span class="p">(</span><span class="n">plain</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We can see that some part of the code is missing.</p>
+<p>That part is encoded using base64 with a key.</p>
+<p>Here is the part that encodes the code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">f</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><span class="n">key_base64</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plain</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">exec</span><span class="p">(</span><span class="n">plain</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We can simply go ahead and modify the program
+to show us the encoded code in plaintext:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">plain</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We get this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">pw</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;What</span><span class="se">\&#39;</span><span class="s1">s the password? &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">pw</span> <span class="o">==</span> <span class="s1">&#39;batteryhorse&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;picoCTF</span><span class="si">{175_chr157m45_616d21a3}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;That password is incorrect.&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is the part that was missing.</p>
+<p>And we can immediately see the flag:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{175_chr157m45_616d21a3}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>picoCTF - Reverse Engineering - Safe Opener</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-safe-opener/</link><pubDate>Wed, 06 Apr 2022 15:27:09 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-safe-opener/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="reverse-engineering---safe-opener---writeup">Reverse Engineering - Safe Opener - writeup</h1>
+<h2 id="description">description</h2>
+<p>Can you open this safe?</p>
+<p>I forgot the key to my safe but this <!-- raw HTML omitted -->program<!-- raw HTML omitted --> is supposed to help me with retrieving the lost key.</p>
+<p>Can you help me unlock my safe?</p>
+<p>Put the password you recover into the picoCTF flag format like: picoCTF{password}</p>
+<h2 id="writeup">writeup</h2>
+<p>The &ldquo;safe&rdquo; is a .java file.</p>
+<p>Since .java is used for java source code this should be
+fairly easy to reverse engineer.</p>
+<p>In the main method of the class &lsquo;SafeOpener&rsquo;,
+directly at the top I see this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Base64</span><span class="o">.</span><span class="na">Encoder</span> <span class="n">encoder</span> <span class="o">=</span> <span class="n">Base64</span><span class="o">.</span><span class="na">getEncoder</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">String</span> <span class="n">encodedkey</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So the key is simply encoded in base64.</p>
+<p>Inside the method &lsquo;boolean openSafe(String password)&rsquo;
+I found this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">String</span> <span class="n">encodedkey</span> <span class="o">=</span> <span class="s">&#34;cGwzYXMzX2wzdF9tM18xbnQwX3RoM19zYWYz&#34;</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So that is the encoded key.</p>
+<p>All I have to do here is to decode the aforementioned key using base64 decoding.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> -n <span class="s2">&#34;cGwzYXMzX2wzdF9tM18xbnQwX3RoM19zYWYz&#34;</span> <span class="p">|</span> base64 -d
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">pl3as3_l3t_m3_1nt0_th3_saf3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>That should be the correct password.</p>
+<p>Let&rsquo;s compile and run that java code&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">javac SafeOpener.java
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">java SafeOpener
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Enter password <span class="k">for</span> the safe: pl3as3_l3t_m3_1nt0_th3_saf3
+</span></span><span class="line"><span class="cl">cGwzYXMzX2wzdF9tM18xbnQwX3RoM19zYWYz
+</span></span><span class="line"><span class="cl">Sesame open
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>And here we have our flag.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{pl3as3_l3t_m3_1nt0_th3_saf3}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>picoCTF - Reverse Engineering - patchme.py</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-patchme.py/</link><pubDate>Wed, 06 Apr 2022 15:25:17 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-patchme.py/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="reverse-engineering---patchmepy---writeup">Reverse Engineering - patchme.py - writeup</h1>
+<h2 id="description">description</h2>
+<p>Can you get the flag?</p>
+<p>Run this <!-- raw HTML omitted -->Python program<!-- raw HTML omitted --> in the same directory as this <!-- raw HTML omitted -->encrypted flag<!-- raw HTML omitted -->.</p>
+<h2 id="writeup">writeup</h2>
+<p>Let&rsquo;s take a look at the encrypted flag&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat flag.txt.enc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">CR1@    UYX+
+</span></span><span class="line"><span class="cl">6UB
+</span></span><span class="line"><span class="cl">P<span class="se">\E</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>That does not help.</p>
+<p>Let&rsquo;s look at the python code&hellip;</p>
+<p>Mh that is peculiar:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span> <span class="n">user_pw</span> <span class="o">==</span> <span class="s2">&#34;ak98&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;-=90&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;adfjhgj321&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;sleuth9000&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Let&rsquo;s fire up bpython and input this code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="s2">&#34;ak98&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;-=90&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;adfjhgj321&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;sleuth9000&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is the result:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#39;ak98-=90adfjhgj321sleuth9000&#39;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Once I try to supply the aforementioned string as the password I get this output:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Please enter correct password for flag: ak98-=90adfjhgj321sleuth9000
+</span></span><span class="line"><span class="cl">Welcome back... your flag, user:
+</span></span><span class="line"><span class="cl">picoCTF{p47ch1ng_l1f3_h4ck_e40c120e}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>so the flag is:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{p47ch1ng_l1f3_h4ck_e40c120e}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is probably not the way that was intended by the author to solve this challenge since the name of it is &lsquo;patchme.py&rsquo;.
+But I got the flag nevertheless.</p>
+]]></description></item></channel></rss>

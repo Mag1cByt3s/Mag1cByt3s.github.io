@@ -1,64 +1,349 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>ectf - Tag - Pascal&#39;s Blog</title>
-        <link>https://blog.ppeinecke.de/tags/ectf/</link>
-        <description>ectf - Tag - Pascal&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 11 Mar 2022 01:14:24 &#43;0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/ectf/" rel="self" type="application/rss+xml" /><item>
-    <title>E-CTF - Web - Favourite Website</title>
-    <link>https://blog.ppeinecke.de/posts/ectf-web-favourite-website/</link>
-    <pubDate>Fri, 11 Mar 2022 01:14:24 &#43;0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-web-favourite-website/</guid>
-    <description><![CDATA[Web - Favourite Website - writeup Description After a long time, Alex tries to visit his favorite website. But nobody thought he would become very unlucky. Visit the website and help him get the flag.
-Link: https://wec-ctf-2022-web.herokuapp.com/q2Writeup If we refresh the webpage we see there is a cookie that changes everytime i refresh the page.
-That cookie is called _gatj
-Currently its value is
-c3RpbGwgY2Fubm90IHNvbHZlIHRoaXMgdGFzaz90aW1lcz0wMDAwMDAwOCZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3 That is base64 and decodes to]]></description>
-</item>
-<item>
-    <title>E-CTF - Osint - Vacation</title>
-    <link>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</link>
-    <pubDate>Fri, 11 Mar 2022 01:07:27 &#43;0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</guid>
-    <description><![CDATA[Osint - Vacation - Writeup Description People even try to turn their pets into celebrities, it gets annoying quite fast. That reminds me, have you come across @tig3r_and_b3ar ? Apparently their owner is a photographer, I haven’t contacted her though.
-Writeup Since the owner is a photographer we should look at instagram.
-By using an instagram viewer we can look at her profile without actually logging in.
-https://dumpor.com/v/tig3r_and_b3ar
-The one thing that sticks out here is that this account is following exactly one other account.]]></description>
-</item>
-<item>
-    <title>E-CTF - Misc - What Is This</title>
-    <link>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</link>
-    <pubDate>Fri, 11 Mar 2022 00:58:29 &#43;0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</guid>
-    <description><![CDATA[Misc - whatisthis - writeup Description Intelligence has found same weird material from Mr. Codeshankar (yes,him again). So it is your task now to find out whats contained in it. The link is here 
-Writeup after unpacking the zip file whatisthis.zip I get an image file whatisthis.png
-The file itself is broken and cannot be opened.
-After checking with the file command what that file actually is I am presented with the following: whatisthis.]]></description>
-</item>
-<item>
-    <title>E-CTF - Forensics - THE CAT KNOWS THE CULPRIT</title>
-    <link>https://blog.ppeinecke.de/posts/ectf-forensics-the-cat-knows-the-culprit/</link>
-    <pubDate>Fri, 11 Mar 2022 00:36:10 &#43;0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-forensics-the-cat-knows-the-culprit/</guid>
-    <description><![CDATA[Forensics - THE CAT KNOWS THE CULPRIT writeup Description Detective Jake Peralta and his partner Charles Boyle are assigned a Grand Larceny case, by their captain Raymond Holt. Upon their arrival to crime scene they find that there are no clues for them to catch the victim, so they leave the crime scene and at the exif exit door they find an image along with a note saying &ldquo;THE CAT KNOWS THE CULPRIT.]]></description>
-</item>
-<item>
-    <title>E-CTF - Forensics - I Can Do This All Day</title>
-    <link>https://blog.ppeinecke.de/posts/ectf-forensics-i-can-do-this-all-day/</link>
-    <pubDate>Fri, 11 Mar 2022 00:16:36 &#43;0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-forensics-i-can-do-this-all-day/</guid>
-    <description><![CDATA[Forensics - I can do this all day - writeup Description Tony Stark: a hacker who&rsquo;s faster than ultron? he could be anywhere GLOBAL. And as this is the center of everything, I&rsquo;m just a REGULAR guy looking for a needle in the world&rsquo;s biggest haystack.
-World Hub Tech: How do you find it? Tony Stark: pretty simple. you bring a magnet.
-Flag format: CTF{&hellip;}
-Writeup cat *.txt | grep CTF CTF{d3cry471ng_nu3l34r_c0d35} So by simply just simply cat&rsquo;ing all of the files in the different directories we got the flag.]]></description>
-</item>
-<item>
-    <title>E-CTF - Forensics - I Am Groot</title>
-    <link>https://blog.ppeinecke.de/posts/ectf-forensics-i-am-groot/</link>
-    <pubDate>Thu, 10 Mar 2022 20:39:53 &#43;0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-forensics-i-am-groot/</guid>
-    <description><![CDATA[Forensics - I am Groot - writeup Description Send the right message to get your flag from Groot.
-Check the discord server, !groot will call the bot.
-Hint: We are friends
-Writeup Once I tried to dm the bot directly with: !groot rocket
-I get
-01001001 00100000 01100001 01101101 00100000 01000111 01110010 01101111 01101111 01110100 00100001 Lets convert that binary to ascii
-that is binary and coverts to
-I am Groot!]]></description>
-</item>
-</channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>ectf - Tag - Pascal's Blog</title><link>https://blog.ppeinecke.de/tags/ectf/</link><description>ectf - Tag - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 11 Mar 2022 01:14:24 +0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/ectf/" rel="self" type="application/rss+xml"/><item><title>E-CTF - Web - Favourite Website</title><link>https://blog.ppeinecke.de/posts/ectf-web-favourite-website/</link><pubDate>Fri, 11 Mar 2022 01:14:24 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-web-favourite-website/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/cookies.png" referrerpolicy="no-referrer">
+            </div><h1 id="web---favourite-website---writeup">Web - Favourite Website - writeup</h1>
+<h2 id="description">Description</h2>
+<p>After a long time, Alex tries to visit his favorite website. But nobody thought he would become very unlucky. Visit the website and help him get the flag.</p>
+<p>Link: <!-- raw HTML omitted --><a href="https://wec-ctf-2022-web.herokuapp.com/q2" target="_blank" rel="noopener noreffer">https://wec-ctf-2022-web.herokuapp.com/q2</a><!-- raw HTML omitted --></p>
+<h2 id="writeup">Writeup</h2>
+<p>If we refresh the webpage we see there is a cookie that changes everytime i refresh the page.</p>
+<p>That cookie is called _gatj</p>
+<p>Currently its value is</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">c3RpbGwgY2Fubm90IHNvbHZlIHRoaXMgdGFzaz90aW1lcz0wMDAwMDAwOCZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>That is base64 and decodes to</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">still cannot solve this task?times=00000008&amp;id=7c87f0e8-a83b-42d4-be51-aab926934cc27
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So since the website says
+You can get the flag when you visit our website for 12893422th time.</p>
+<p>We just change the value to</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">task?times=12893422&amp;id=7c87f0e8-a83b-42d4-be51-aab926934cc27
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Then we use base64 to encode this string again and we get</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">dGFzaz90aW1lcz0xMjg5MzQyMiZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If we now replace the cookies value with that string &hellip; lets see what happens</p>
+<p>If we now refresh the page after replacing the cookie value we see:</p>
+<p>Congrats! You got the flag: CTF{C@@kie$_@re_the_be$t}</p>
+<p>So the flag is</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CTF{C@@kie$_@re_the_be$t}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>E-CTF - Osint - Vacation</title><link>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</link><pubDate>Fri, 11 Mar 2022 01:07:27 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/tiger_and_bear.jpeg" referrerpolicy="no-referrer">
+            </div><h1 id="osint---vacation---writeup">Osint - Vacation - Writeup</h1>
+<h2 id="description">Description</h2>
+<p>People even try to turn their pets into celebrities, it gets annoying quite fast. That reminds me, have you come across @tig3r_and_b3ar ? Apparently their owner is a photographer, I haven’t contacted her though.</p>
+<h2 id="writeup">Writeup</h2>
+<p>Since the owner is a photographer we should look at instagram.</p>
+<p>By using an instagram viewer we can look at her profile without
+actually logging in.</p>
+<p><a href="https://dumpor.com/v/tig3r_and_b3ar" target="_blank" rel="noopener noreffer">https://dumpor.com/v/tig3r_and_b3ar</a></p>
+<p>The one thing that sticks out here is that this account is following
+exactly one other account.</p>
+<p><a href="https://dumpor.com/v/tig3r_and_b3ar/following" target="_blank" rel="noopener noreffer">https://dumpor.com/v/tig3r_and_b3ar/following</a></p>
+<p>So lets take a look at the profile of Ashlyn Bardot.</p>
+<p><a href="https://dumpor.com/v/ashlynbardot%29" target="_blank" rel="noopener noreffer">https://dumpor.com/v/ashlynbardot)</a></p>
+<p>In her profile description we can see</p>
+<blockquote>
+<p>Photographer</p>
+</blockquote>
+<blockquote>
+<p>Contact me at <a href="mailto:ashlyn_bardot@yahoo.com" rel="">ashlyn_bardot@yahoo.com</a></p>
+</blockquote>
+<p>Wait &hellip; that is peculiar &hellip; an exposed email on that profile??</p>
+<p>So I decided to send her an email:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">From: [myEmail]
+</span></span><span class="line"><span class="cl">To: ashlyn_bardot@yahoo.com
+</span></span><span class="line"><span class="cl">Subject: flag
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Hi, can you provide me the flag for E-CTF Vacation?
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I quickly received a response from here:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">From: ashlyn_bardot@yahoo.com
+</span></span><span class="line"><span class="cl">To: [myEmail]
+</span></span><span class="line"><span class="cl">Subject: Auto Response: flag
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Hello!
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">I&#39;m currently on vacation, so I can&#39;t really help at the moment.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">I wonder if this is what you were looking for when you contacted me: 
+</span></span><span class="line"><span class="cl">CTF{f0und_th3_fl@g}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Yours truly,
+</span></span><span class="line"><span class="cl">Ashlyn Bardot.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So the flag is</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CTF{f0und_th3_fl@g}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>E-CTF - Misc - What Is This</title><link>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</link><pubDate>Fri, 11 Mar 2022 00:58:29 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-misc-what-is-this/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/docker.jpg" referrerpolicy="no-referrer">
+            </div><h1 id="misc---whatisthis---writeup">Misc - whatisthis - writeup</h1>
+<h2 id="description">Description</h2>
+<p>Intelligence has found same weird material from Mr. Codeshankar (yes,him again).
+So it is your task now to find out whats contained in it.
+The link is here
+<a href="https://drive.google.com/file/d/1fFAexozA987VAgDI2AnOcr4ei2TLUO6Q/view?usp=sharing" target="_blank" rel="noopener noreffer"></a></p>
+<h2 id="writeup">Writeup</h2>
+<p>after unpacking the zip file whatisthis.zip
+I get an featuredImage file whatisthis.png</p>
+<p>The file itself is broken and cannot be opened.</p>
+<p>After checking with the file command what that file actually is
+I am presented with the following:
+whatisthis.png: POSIX tar archive</p>
+<p>So its a tar file</p>
+<p>So lets rename this file to a proper file extension</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp whatisthis.png whatisthis.tar
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now I will try to extract that archive</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -xf whatisthis.tar
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I get a lot of random folders</p>
+<p>each contains three files:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">json,
+</span></span><span class="line"><span class="cl">layer.tar,
+</span></span><span class="line"><span class="cl">VERSION
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>VERSION is always 1.0</p>
+<p>So lets look at the content of all those weird json files</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat *.json
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>what immediately sparks my eyes is the following:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat /etc/m/m/nothing.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>looks like we are dealing with docker containers here &hellip;</p>
+<p>There are still a lot of tar files inside each subfolders</p>
+<p>so lets extract them</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">find . -name <span class="s1">&#39;*.tar&#39;</span> -execdir tar -xzvf <span class="s1">&#39;{}&#39;</span> <span class="se">\;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After digging a lot around I found the file etc/m/m/nothing.txt</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat etc/m/m/nothing.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>CTF{D0cker_ent3r5_the_p4rty}</p>
+<p>So the flag is</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CTF{D0cker_ent3r5_the_p4rty}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>E-CTF - Forensics - THE CAT KNOWS THE CULPRIT</title><link>https://blog.ppeinecke.de/posts/ectf-forensics-the-cat-knows-the-culprit/</link><pubDate>Fri, 11 Mar 2022 00:36:10 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-forensics-the-cat-knows-the-culprit/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/cat.jfif" referrerpolicy="no-referrer">
+            </div><h1 id="forensics---the-cat-knows-the-culprit-writeup">Forensics - THE CAT KNOWS THE CULPRIT writeup</h1>
+<h2 id="description">Description</h2>
+<p>Detective Jake Peralta and his partner Charles Boyle are assigned a Grand Larceny case, by their captain Raymond Holt. Upon their arrival to crime scene they find that there are no clues for them to catch the victim, so they leave the crime scene and at the exif exit door they find an featuredImage along with a note saying &ldquo;THE CAT KNOWS THE CULPRIT.&rdquo;</p>
+<h2 id="writeup">Writeup</h2>
+<p>Ok so what we got here is a jfif file.</p>
+<p>A quick google search tells me this:</p>
+<blockquote>
+<p>A JFIF file is a bitmap graphic that uses JPEG compression.</p>
+</blockquote>
+<p>Ok so we just have a jpeg file here.</p>
+<p>The first thing I did was to check with steghide for any steganography. Negative.</p>
+<p>Then I just opened the jfif file in gHex to look at the bytes.</p>
+<p>After that I could directly see the flag</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CTF{It_1s_D0UG_JUdY}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>E-CTF - Forensics - I Can Do This All Day</title><link>https://blog.ppeinecke.de/posts/ectf-forensics-i-can-do-this-all-day/</link><pubDate>Fri, 11 Mar 2022 00:16:36 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-forensics-i-can-do-this-all-day/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/tony_stark.png" referrerpolicy="no-referrer">
+            </div><h1 id="forensics---i-can-do-this-all-day---writeup">Forensics - I can do this all day - writeup</h1>
+<h2 id="description">Description</h2>
+<p>Tony Stark: a hacker who&rsquo;s faster than ultron? he could be anywhere GLOBAL. And as this is the center of everything, I&rsquo;m just a REGULAR guy looking for a needle in the world&rsquo;s biggest haystack.</p>
+<p>World Hub Tech: How do you find it? <!-- raw HTML omitted --></p>
+<p>Tony Stark: pretty simple. you bring a magnet.</p>
+<p>Flag format: CTF{&hellip;}</p>
+<h2 id="writeup">Writeup</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat *.txt <span class="p">|</span> grep CTF
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CTF{d3cry471ng_nu3l34r_c0d35}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So by simply just simply cat&rsquo;ing all of the files in the different directories
+we got the flag. Easy.</p>
+]]></description></item><item><title>E-CTF - Forensics - I Am Groot</title><link>https://blog.ppeinecke.de/posts/ectf-forensics-i-am-groot/</link><pubDate>Thu, 10 Mar 2022 20:39:53 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-forensics-i-am-groot/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/groot.jpg" referrerpolicy="no-referrer">
+            </div><h1 id="forensics---i-am-groot---writeup">Forensics - I am Groot - writeup</h1>
+<h2 id="description">Description</h2>
+<p>Send the right message to get your flag from Groot.</p>
+<p>Check the discord server, !groot will call the bot.</p>
+<p>Hint: We are friends</p>
+<h2 id="writeup">Writeup</h2>
+<p>Once I tried to dm the bot directly with:
+!groot rocket</p>
+<p>I get</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01001001 00100000 01100001 01101101 00100000 01000111 01110010 01101111 01101111 01110100 00100001
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Lets convert that binary to ascii</p>
+<p>that is binary and coverts to</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">I am Groot!
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Once i try to dm the bot with:
+!groot pascal</p>
+<p>I get :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">SSBhbSBHcm9vdCE=
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>That is base64 and translates to:
+I am Groot!</p>
+<p>Lol</p>
+<p>After a lot of tinkering around , I finally got up with the right answer</p>
+<p>!groot WE are Groot</p>
+<p>By supplying the above command inside the groot discord channel,
+I get messaged with the right flag by Groot</p>
+<p>I am Groot!
+CTF{1_4m_6r007_w3_4r3_6r0o7}</p>
+<p>So the flag is</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CTF{1_4m_6r007_w3_4r3_6r0o7}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>
