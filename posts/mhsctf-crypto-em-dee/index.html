@@ -131,9 +131,9 @@ Pascals Blog
 <p>I have a good friend named Em. She loves secret codes, so when she challenged me this time, I was well up for it! She told me that she encoded the word &ldquo;happy&rdquo; as &ldquo;56ab24c15b72a457069c5ea42fcfc640&rdquo; and &ldquo;sad&rdquo; as &ldquo;49f0bad299687c62334182178bfd75d8&rdquo; (without the quotes) and challenged me to encode &ldquo;mhsctf&rdquo; using her method! I can&rsquo;t figure it out! What would it be? Enter your answer in flag format: &ldquo;flag{&mldr;}&rdquo;</p>
 <h2 id=writeup>Writeup</h2>
 <p>So i fired up <a href=https://crackstation.net>CrackStation</a> and it turns out that the encoded hashes are MD5 hashes.</p>
-<p>==happy== encoded in MD5 equals to <strong>56ab24c15b72a457069c5ea42fcfc640</strong>
-<strong>sad</strong> encoded in MD5 equals to <strong>49f0bad299687c62334182178bfd75d8</strong></p>
-<p><strong>mhsctf</strong> encoded in MD5 is <strong>fc3e3c405a66f8fe7cb7f17a838ea88c</strong></p>
+<p><code>happy</code> encoded in MD5 equals to <code>56ab24c15b72a457069c5ea42fcfc640</code>
+<code>sad</code> encoded in MD5 equals to <code>49f0bad299687c62334182178bfd75d8</code></p>
+<p><code>mhsctf</code> encoded in MD5 is <code>fc3e3c405a66f8fe7cb7f17a838ea88c</code></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>flag: flag{fc3e3c405a66f8fe7cb7f17a838ea88c}
 </code></pre></div>
 </div>
