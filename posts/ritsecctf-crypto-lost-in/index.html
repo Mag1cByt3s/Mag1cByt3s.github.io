@@ -4,25 +4,31 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1">
 <link rel=icon type=image/x-icon href=/favicon.ico>
-<title>picoCTF - Web Exploitation - SQLiLite | Pascals Blog</title>
+<title>RITSEC CTF - Crypto - Lost In | Pascals Blog</title>
 <meta name=description content>
 <meta name=twitter:card content="summary_large_image">
-<meta name=twitter:title content="picoCTF - Web Exploitation - SQLiLite | Pascals Blog">
-<meta name=twitter:description content="Web Exploitation - SQLiLite - writeup description Can you login to this website?
-Try to login here.
-writeup Once i visit the website http://saturn.picoctf.net:60431/ in firefox I can see a login form with a username and a password field.
-My first attempt was to use the username &lsquo;admin&rsquo; and try a basic sql injection.
-So I input in the username field this:
-admin'-- the single quote is here to end the input of the text box.">
-<meta name=twitter:image content="https://blog.ppeinecke.de/images/picoCTF_logo.png">
-<meta property="og:title" content="picoCTF - Web Exploitation - SQLiLite | Pascals Blog">
-<meta property="og:description" content="Web Exploitation - SQLiLite - writeup description Can you login to this website?
-Try to login here.
-writeup Once i visit the website http://saturn.picoctf.net:60431/ in firefox I can see a login form with a username and a password field.
-My first attempt was to use the username &lsquo;admin&rsquo; and try a basic sql injection.
-So I input in the username field this:
-admin'-- the single quote is here to end the input of the text box.">
-<meta property="og:image" content="https://blog.ppeinecke.de/images/picoCTF_logo.png">
+<meta name=twitter:title content="RITSEC CTF - Crypto - Lost In | Pascals Blog">
+<meta name=twitter:description content="Crypto - Lost in - writeup description 324c6e597364696f3259725a6f646d673261453d
+Bingus sent us this encrypted messagen
+Can you decrypt?
+writeup this is the message we got:
+324c6e597364696f3259725a6f646d673261453d this looks to be hex let&rsquo;s translate that hex string to ascii:
+2LnYsdio2YrZodmg2aE= The = at the end most probably means that this is base64
+If I try to decode this from base64 I get this:
+عربي١٠١ this is Arabic.
+Once I try to use google translate to translate this to English I get this:">
+<meta name=twitter:image content="https://blog.ppeinecke.de/images/ritsecCTF_logo.png">
+<meta property="og:title" content="RITSEC CTF - Crypto - Lost In | Pascals Blog">
+<meta property="og:description" content="Crypto - Lost in - writeup description 324c6e597364696f3259725a6f646d673261453d
+Bingus sent us this encrypted messagen
+Can you decrypt?
+writeup this is the message we got:
+324c6e597364696f3259725a6f646d673261453d this looks to be hex let&rsquo;s translate that hex string to ascii:
+2LnYsdio2YrZodmg2aE= The = at the end most probably means that this is base64
+If I try to decode this from base64 I get this:
+عربي١٠١ this is Arabic.
+Once I try to use google translate to translate this to English I get this:">
+<meta property="og:image" content="https://blog.ppeinecke.de/images/ritsecCTF_logo.png">
 <link rel=preconnect href=https://fonts.gstatic.com>
 <link rel=preload href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600%7CPoppins:400,600,700&display=swap" as=style>
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600%7CPoppins:400,600,700&display=swap" rel=stylesheet>
@@ -111,7 +117,7 @@ Pascals Blog
 <div class=row>
 <div class="col col-12">
 <div class=image-box>
-<img class=post-image src=https://blog.ppeinecke.de/images/picoCTF_logo.png alt="picoCTF - Web Exploitation - SQLiLite">
+<img class=post-image src=https://blog.ppeinecke.de/images/ritsecCTF_logo.png alt="RITSEC CTF - Crypto - Lost In">
 </div>
 </div>
 </div>
@@ -122,45 +128,39 @@ Pascals Blog
 <article class="post amimate">
 <div class=post__head>
 <div class=post__tags>
-<a href=https://blog.ppeinecke.de/tags/web/ class=post-tags__tag>web</a>
-<a href=https://blog.ppeinecke.de/tags/web-exploitation/ class=post-tags__tag>web-exploitation</a>
-<a href=https://blog.ppeinecke.de/tags/picoctf/ class=post-tags__tag>picoctf</a>
+<a href=https://blog.ppeinecke.de/tags/crypto/ class=post-tags__tag>crypto</a>
+<a href=https://blog.ppeinecke.de/tags/ritsecctf/ class=post-tags__tag>ritsecctf</a>
 </div>
-<h1 class=post__title>picoCTF - Web Exploitation - SQLiLite</h1>
+<h1 class=post__title>RITSEC CTF - Crypto - Lost In</h1>
 <div class=post__meta>
 <div class=post__author>
 <a href=/about/ class=post__author-image style=background-image:url(https://ppeinecke.de/custom_assets/images/pascal_portrait.png) aria-label="Pascal Peinecke's Picture"></a> <a href=/about/ class=post__author-link>Pascal Peinecke</a>
 </div>
 <span class=post__date>
-<time datetime=" 2022-04-06T16:12:40+02:00">Apr 6, 2022</time>
+<time datetime=" 2022-04-07T17:54:54+02:00">Apr 7, 2022</time>
 </span>
 </div>
 </div>
 <div class=post__content>
-<h1 id=web-exploitation---sqlilite---writeup>Web Exploitation - SQLiLite - writeup</h1>
+<h1 id=crypto---lost-in---writeup>Crypto - Lost in - writeup</h1>
 <h2 id=description>description</h2>
-<p>Can you login to this website?</p>
-<p>Try to login <a href=http://saturn.picoctf.net:60431/>here</a>.</p>
+<p>324c6e597364696f3259725a6f646d673261453d</p>
+<p>Bingus sent us this encrypted messagen</p>
+<p>Can you decrypt?</p>
 <h2 id=writeup>writeup</h2>
-<p>Once i visit the website <a href=http://saturn.picoctf.net:60431><a href=http://saturn.picoctf.net:60431/>http://saturn.picoctf.net:60431/</a></a>
-in firefox I can see a login form with a username and a password field.</p>
-<p>My first attempt was to use the username &lsquo;admin&rsquo;
-and try a basic sql injection.</p>
-<p>So I input in the username field this:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>admin&#39;--
-</code></pre></div><p>the single quote is here to end the input of the text box.</p>
-<p>The double dash (&ndash;) is here to comment out the rest of the sql query
-so we can skip the password check.</p>
-<p>Once I try to login using this method I get redirected to a page with the following content:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>username: admin&#39;--
-password: 
-SQL query: SELECT * FROM users WHERE name=&#39;admin&#39;--&#39; AND password=&#39;&#39;
-
-Logged in! But can you see the flag, it is in plainsight.
-</code></pre></div><p>But looking at the html code reveals the flag pretty quickly:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#ff79c6>p</span> <span style=color:#50fa7b>hidden</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;&#34;</span>&gt;Your flag is: picoCTF{L00k5_l1k3_y0u_solv3d_it_8dac17f1}&lt;/<span style=color:#ff79c6>p</span>&gt;
-</code></pre></div><p>So the flag is</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>picoCTF{L00k5_l1k3_y0u_solv3d_it_8dac17f1}
+<p>this is the message we got:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>324c6e597364696f3259725a6f646d673261453d
+</code></pre></div><p>this looks to be hex let&rsquo;s translate that hex string to ascii:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>2LnYsdio2YrZodmg2aE=
+</code></pre></div><p>The = at the end most probably means that this is base64</p>
+<p>If I try to decode this from base64 I get this:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>عربي١٠١
+</code></pre></div><p>this is Arabic.</p>
+<p>Once I try to use google translate to translate this to English I get this:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>Arabic101 
+</code></pre></div><p>All that is left is to wrap it with the flag format!</p>
+<p>The final flag is:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>RS{Arabic101}
 </code></pre></div>
 </div>
 <div class=post__share>
@@ -169,31 +169,25 @@ Logged in! But can you see the flag, it is in plainsight.
 </div>
 <ul class="share__list list-reset">
 <li class=share__item>
-<a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-web-exploitation-sqlilite%2f" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on Facebook" rel=nofollow><ion-icon name=logo-facebook role=img class="md hydrated" aria-label="logo facebook"></ion-icon></a>
+<a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fritsecctf-crypto-lost-in%2f" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on Facebook" rel=nofollow><ion-icon name=logo-facebook role=img class="md hydrated" aria-label="logo facebook"></ion-icon></a>
 </li>
 <li class=share__item>
-<a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=picoCTF%20-%20Web%20Exploitation%20-%20SQLiLite&url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-web-exploitation-sqlilite%2f" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on Twitter" rel=nofollow><ion-icon name=logo-twitter role=img class="md hydrated" aria-label="logo twitter"></ion-icon></a>
+<a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=RITSEC%20CTF%20-%20Crypto%20-%20Lost%20In&url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fritsecctf-crypto-lost-in%2f" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on Twitter" rel=nofollow><ion-icon name=logo-twitter role=img class="md hydrated" aria-label="logo twitter"></ion-icon></a>
 </li>
 <li class=share__item>
-<a class="share__link share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-web-exploitation-sqlilite%2f&title=picoCTF%20-%20Web%20Exploitation%20-%20SQLiLite&summary=&source=picoCTF%20-%20Web%20Exploitation%20-%20SQLiLite" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on LinkedIn" rel=nofollow><ion-icon name=logo-linkedin role=img class="md hydrated" aria-label="logo linkedin"></ion-icon></a>
+<a class="share__link share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fritsecctf-crypto-lost-in%2f&title=RITSEC%20CTF%20-%20Crypto%20-%20Lost%20In&summary=&source=RITSEC%20CTF%20-%20Crypto%20-%20Lost%20In" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'),!1" title="Share on LinkedIn" rel=nofollow><ion-icon name=logo-linkedin role=img class="md hydrated" aria-label="logo linkedin"></ion-icon></a>
 </li>
 <li class=share__item>
-<a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fpicoctf-web-exploitation-sqlilite%2f&media=https%3a%2f%2fblog.ppeinecke.de%2fimages%2fpicoCTF_logo.png&description=picoCTF%20-%20Web%20Exploitation%20-%20SQLiLite" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=900,height=500,toolbar=1,resizable=0'),!1" title="Share on Pinterest" aria-label="Share on Pinterest"><ion-icon name=logo-pinterest role=img class="md hydrated" aria-label="logo pinterest"></ion-icon></a>
+<a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fblog.ppeinecke.de%2fposts%2fritsecctf-crypto-lost-in%2f&media=https%3a%2f%2fblog.ppeinecke.de%2fimages%2fritsecCTF_logo.png&description=RITSEC%20CTF%20-%20Crypto%20-%20Lost%20In" onclick="return window.open(this.href,'pop-up','left=20,top=20,width=900,height=500,toolbar=1,resizable=0'),!1" title="Share on Pinterest" aria-label="Share on Pinterest"><ion-icon name=logo-pinterest role=img class="md hydrated" aria-label="logo pinterest"></ion-icon></a>
 </li>
 </ul>
 </div>
 <div class=post__navigation>
-<a class=prev href=https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sql-direct/ style=background-image:url(/images/picoCTF_logo.png)>
+<a class=prev href=https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/ style=background-image:url(/images/ritsecCTF_logo.png)>
 <div class=post__nav-box>
 <div class="post__nav post__nav__prev"><i class="ion ion-ios-arrow-back"></i> Previous
 Page</div>
-<h4 class=post__nav__title>picoCTF - Web Exploitation - SQL Direct</h4>
-</div>
-</a>
-<a class=next href=https://blog.ppeinecke.de/posts/ritsecctf-misc-scrumptions-snacks/ style=background-image:url(/images/ritsecCTF_logo.png)>
-<div class=post__nav-box>
-<div class="post__nav post__nav__next">Next Page <i class="ion ion-ios-arrow-forward"></i></div>
-<h4 class=post__nav__title>RITSEC CTF - Misc - Scrumptions Snacks</h4>
+<h4 class=post__nav__title>RITSEC CTF - Misc - Stegwalk</h4>
 </div>
 </a>
 </div>
