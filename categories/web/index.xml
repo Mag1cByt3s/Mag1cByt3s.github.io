@@ -29,7 +29,7 @@ picoCTF{1n5p3t0r_0f_h7ml_ab1df88d}</description></item><item><title>picoCTF - We
 writeup Ok so I went ahead and visited the url http://saturn.picoctf.net:52811/ in firefox.
 I am presente with a webpage with a bunch of text and a button that says &amp;ldquo;Say hello&amp;rdquo;.
 Once I press that button I get a javascript alert() popup that says &amp;ldquo;This code is in a separate file!</description></item><item><title>E-CTF - Web - Favourite Website</title><link>https://blog.ppeinecke.de/posts/ectf-web-favourite-website/</link><pubDate>Fri, 11 Mar 2022 01:14:24 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-web-favourite-website/</guid><description>Web - Favourite Website - writeup Description After a long time, Alex tries to visit his favorite website. But nobody thought he would become very unlucky. Visit the website and help him get the flag.
-Link:
+Link: https://wec-ctf-2022-web.herokuapp.com/q2
 Writeup If we refresh the webpage we see there is a cookie that changes everytime i refresh the page.
 That cookie is called _gatj
 Currently its value is
