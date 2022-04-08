@@ -1,10 +1,10 @@
 <!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>picoCTF - Reverse Engineering - bloat.py - Pascal's Blog</title><meta name=description content="Welcome to my personal blog!"><meta property="og:title" content="picoCTF - Reverse Engineering - bloat.py"><meta property="og:description" content="Reverse Engineering - bloat.py - writeup description Can you get the flag?
 Run this Python programin the same directory as this encrypted flag.writeup So let&rsquo;s download the python program and the encrypted flag first!
-1  wget https://artifacts.picoctf.net/c/434/bloat.flag.py   1  wget https://artifacts.picoctf.net/c/434/flag.txt.enc   Let&rsquo;s make a copy of the python program and try to fix it using debugging in bpython!
-1  cp bloat.flag.py flag.py   After a lot of debugging and reverse engineering using bpython I found the flag!"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-04-06T15:16:12+02:00"><meta property="article:modified_time" content="2022-04-06T15:16:12+02:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="picoCTF - Reverse Engineering - bloat.py"><meta name=twitter:description content="Reverse Engineering - bloat.py - writeup description Can you get the flag?
+wget https://artifacts.picoctf.net/c/434/bloat.flag.py  wget https://artifacts.picoctf.net/c/434/flag.txt.enc  Let&rsquo;s make a copy of the python program and try to fix it using debugging in bpython!
+cp bloat.flag.py flag.py  After a lot of debugging and reverse engineering using bpython I found the flag!"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-04-06T15:16:12+02:00"><meta property="article:modified_time" content="2022-04-06T15:16:12+02:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="picoCTF - Reverse Engineering - bloat.py"><meta name=twitter:description content="Reverse Engineering - bloat.py - writeup description Can you get the flag?
 Run this Python programin the same directory as this encrypted flag.writeup So let&rsquo;s download the python program and the encrypted flag first!
-1  wget https://artifacts.picoctf.net/c/434/bloat.flag.py   1  wget https://artifacts.picoctf.net/c/434/flag.txt.enc   Let&rsquo;s make a copy of the python program and try to fix it using debugging in bpython!
-1  cp bloat.flag.py flag.py   After a lot of debugging and reverse engineering using bpython I found the flag!"><meta name=application-name content="FeelIt"><meta name=apple-mobile-web-app-title content="FeelIt"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/><link rel=prev href=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bbbbloat/><link rel=next href=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-file-run1/><link rel=stylesheet href=/css/page.min.ab5c2757b4480379758ad45f7bd30f6a215b05015dd9dbab40f0da655e7795374c0eb032bcd53b32044b336b4125c28e534da5f39fb53b1549eb148462c0b80a.css integrity="sha512-q1wnV7RIA3l1itRfe9MPaiFbBQFd2durQPDaZV53lTdMDrAyvNU7MgRLM2tBJcKOU02l85+1OxVJ6xSEYsC4Cg=="><link rel=stylesheet href=/css/home.min.95866ed6ae8468584bd1e19684f4abbb49c9b774b547ea44b77e5f879a551eb41c6caf7f060d79136ee92d75d0116b3499ca41372aefe14e2c291d277572fc19.css integrity="sha512-lYZu1q6EaFhL0eGWhPSru0nJt3S1R+pEt35fh5pVHrQcbK9/Bg15E27pLXXQEWs0mcpBNyrv4U4sKR0ndXL8GQ=="><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"picoCTF - Reverse Engineering - bloat.py","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/blog.ppeinecke.de\/posts\/picoctf-reverse-engineering-bloat.py\/"},"genre":"posts","keywords":"reverse engineering, picoctf\u0022","wordcount":731,"url":"https:\/\/blog.ppeinecke.de\/posts\/picoctf-reverse-engineering-bloat.py\/","datePublished":"2022-04-06T15:16:12+02:00","dateModified":"2022-04-06T15:16:12+02:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Author"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"dark"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"dark"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Pascal's Blog"><span id=id-1 class=typeit></span></a></div><div class=menu><div class=menu-inner><span class="menu-item search" id=search-desktop><input type=text placeholder="Search titles or contents..." id=search-input-desktop>
+wget https://artifacts.picoctf.net/c/434/bloat.flag.py  wget https://artifacts.picoctf.net/c/434/flag.txt.enc  Let&rsquo;s make a copy of the python program and try to fix it using debugging in bpython!
+cp bloat.flag.py flag.py  After a lot of debugging and reverse engineering using bpython I found the flag!"><meta name=application-name content="FeelIt"><meta name=apple-mobile-web-app-title content="FeelIt"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/><link rel=prev href=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bbbbloat/><link rel=next href=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-file-run1/><link rel=stylesheet href=/css/page.min.ab5c2757b4480379758ad45f7bd30f6a215b05015dd9dbab40f0da655e7795374c0eb032bcd53b32044b336b4125c28e534da5f39fb53b1549eb148462c0b80a.css integrity="sha512-q1wnV7RIA3l1itRfe9MPaiFbBQFd2durQPDaZV53lTdMDrAyvNU7MgRLM2tBJcKOU02l85+1OxVJ6xSEYsC4Cg=="><link rel=stylesheet href=/css/home.min.95866ed6ae8468584bd1e19684f4abbb49c9b774b547ea44b77e5f879a551eb41c6caf7f060d79136ee92d75d0116b3499ca41372aefe14e2c291d277572fc19.css integrity="sha512-lYZu1q6EaFhL0eGWhPSru0nJt3S1R+pEt35fh5pVHrQcbK9/Bg15E27pLXXQEWs0mcpBNyrv4U4sKR0ndXL8GQ=="><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"picoCTF - Reverse Engineering - bloat.py","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/blog.ppeinecke.de\/posts\/picoctf-reverse-engineering-bloat.py\/"},"genre":"posts","keywords":"reverse engineering, picoctf\u0022","wordcount":578,"url":"https:\/\/blog.ppeinecke.de\/posts\/picoctf-reverse-engineering-bloat.py\/","datePublished":"2022-04-06T15:16:12+02:00","dateModified":"2022-04-06T15:16:12+02:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Author"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"dark"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"dark"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Pascal's Blog"><span id=id-1 class=typeit></span></a></div><div class=menu><div class=menu-inner><span class="menu-item search" id=search-desktop><input type=text placeholder="Search titles or contents..." id=search-input-desktop>
 <a href=# class="search-button search-toggle" id=search-toggle-desktop title=Search><i class="fas fa-search fa-fw"></i></a>
 <a href=# class="search-button search-clear" id=search-clear-desktop title=Clear><i class="fas fa-times-circle fa-fw"></i></a>
 <span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span>
@@ -13,321 +13,166 @@ Run this Python programin the same directory as this encrypted flag.writeup So l
 <a href=# class="search-button search-clear" id=search-clear-mobile title=Clear><i class="fas fa-times-circle fa-fw"></i></a>
 <span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=# class=search-cancel id=search-cancel-mobile>Cancel</a></div><div class=menu-item><a href=/index.xml title=RSS><i class="fas fa-rss fa-fw" title=RSS></i></a>
 <span>&nbsp;|&nbsp;</span><a href=javascript:void(0); class=theme-switch title="Switch Theme">
-<i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single" data-toc=enable><div class=featured-image><img class=lazyload src=/svg/loading.min.svg data-src=/featuredImages/picoCTF_logo.png data-srcset="/featuredImages/picoCTF_logo.png, /featuredImages/picoCTF_logo.png 1.5x, /featuredImages/picoCTF_logo.png 2x" data-sizes=auto alt=/featuredImages/picoCTF_logo.png title=/featuredImages/picoCTF_logo.png></div><div class=single-card data-image=true><h2 class="single-title animated flipInX">picoCTF - Reverse Engineering - bloat.py</h2><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Author</a></span>&nbsp;<span class=post-category>published in <a href=/categories/reverse-engineering/><i class="far fa-folder fa-fw"></i>reverse engineering</a>&nbsp;<a href=/categories/picoctf/><i class="far fa-folder fa-fw"></i>picoctf</a></span></div><div class=post-meta-line><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-04-06>2022-04-06</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;731 words</span>&nbsp;
-<span><i class="far fa-clock fa-fw"></i>&nbsp;4 minutes</span>&nbsp;</div></div><hr><div class="details toc" id=toc-static data-kept=true><div class="details-summary toc-title"><span>Contents</span>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single" data-toc=enable><div class=featured-image><img class=lazyload src=/svg/loading.min.svg data-src=/featuredImages/picoCTF_logo.png data-srcset="/featuredImages/picoCTF_logo.png, /featuredImages/picoCTF_logo.png 1.5x, /featuredImages/picoCTF_logo.png 2x" data-sizes=auto alt=/featuredImages/picoCTF_logo.png title=/featuredImages/picoCTF_logo.png></div><div class=single-card data-image=true><h2 class="single-title animated flipInX">picoCTF - Reverse Engineering - bloat.py</h2><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Author</a></span>&nbsp;<span class=post-category>published in <a href=/categories/reverse-engineering/><i class="far fa-folder fa-fw"></i>reverse engineering</a>&nbsp;<a href=/categories/picoctf/><i class="far fa-folder fa-fw"></i>picoctf</a></span></div><div class=post-meta-line><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-04-06>2022-04-06</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;578 words</span>&nbsp;
+<span><i class="far fa-clock fa-fw"></i>&nbsp;3 minutes</span>&nbsp;</div></div><hr><div class="details toc" id=toc-static data-kept=true><div class="details-summary toc-title"><span>Contents</span>
 <span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#description>description</a></li><li><a href=#writeup>writeup</a></li></ul></nav></div></div><div class=content id=content><h1 id=reverse-engineering---bloatpy---writeup>Reverse Engineering - bloat.py - writeup</h1><h2 id=description>description</h2><p>Can you get the flag?</p><p>Run this Python program
-in the same directory as this encrypted flag.</p><h2 id=writeup>writeup</h2><p>So let&rsquo;s download the python program and the encrypted flag first!</p><div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>wget https://artifacts.picoctf.net/c/434/bloat.flag.py
-</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>wget https://artifacts.picoctf.net/c/434/flag.txt.enc
-</span></span></code></pre></td></tr></table></div></div><p>Let&rsquo;s make a copy of the python program and try to fix it
-using debugging in bpython!</p><div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cp bloat.flag.py flag.py
-</span></span></code></pre></td></tr></table></div></div><p>After a lot of debugging and reverse engineering using bpython I found the flag!</p><div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>bpython
-</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">48
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">49
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">50
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">51
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">52
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">53
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">54
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">55
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">56
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">57
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">58
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">59
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">60
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">61
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">62
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">63
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">64
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">65
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">66
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">67
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">68
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">69
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">70
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">71
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">72
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">73
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">74
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">75
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">76
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">77
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">78
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">79
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">80
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">81
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">82
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">83
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">84
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">85
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">86
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>bpython Version <span style=color:#bd93f9>0.22.1</span> mit Python <span style=color:#bd93f9>3.9.10</span> <span style=color:#ff79c6>/</span>usr<span style=color:#ff79c6>/</span><span style=color:#8be9fd;font-style:italic>bin</span><span style=color:#ff79c6>/</span>python3
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> <span style=color:#ff79c6>import</span> sys;
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> a <span style=color:#ff79c6>=</span> <span style=color:#f1fa8c>&#34;!</span><span style=color:#f1fa8c>\&#34;</span><span style=color:#f1fa8c>#$%&amp;&#39;()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[</span><span style=color:#f1fa8c>\\</span><span style=color:#f1fa8c>]^_`abcdefghijklmnopqrstuvwxyz{|}~ &#34;</span>
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> <span style=color:#ff79c6>def</span> <span style=color:#50fa7b>arg133</span>(arg432):
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>   <span style=color:#ff79c6>if</span> arg432 <span style=color:#ff79c6>==</span> a[<span style=color:#bd93f9>71</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>79</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>79</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>88</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>71</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>77</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>68</span>]:
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>     <span style=color:#ff79c6>return</span> <span style=color:#ff79c6>True</span>
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>   <span style=color:#ff79c6>else</span>:
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>     <span style=color:#8be9fd;font-style:italic>print</span>(a[<span style=color:#bd93f9>51</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>71</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>83</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>79</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>86</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>\
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>67</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>72</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>72</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>77</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>\
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>68</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>83</span>])
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>     sys<span style=color:#ff79c6>.</span>exit(<span style=color:#bd93f9>0</span>)
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>     <span style=color:#ff79c6>return</span> <span style=color:#ff79c6>False</span>
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> 
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> <span style=color:#ff79c6>def</span> <span style=color:#50fa7b>arg111</span>(arg444):
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>   <span style=color:#ff79c6>return</span> arg122(arg444<span style=color:#ff79c6>.</span>decode(), a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>79</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>\
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>72</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>77</span>])
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> 
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> <span style=color:#ff79c6>def</span> <span style=color:#50fa7b>arg232</span>():
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>   <span style=color:#ff79c6>return</span> <span style=color:#8be9fd;font-style:italic>input</span>(a[<span style=color:#bd93f9>47</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>68</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>68</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>68</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>77</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>83</span>]<span style=color:#ff79c6>+</span>\
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> a[<span style=color:#bd93f9>68</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>68</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>83</span>]<span style=color:#ff79c6>+</span>\
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>79</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>86</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>67</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>\
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> a[<span style=color:#bd93f9>69</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>69</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>70</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>25</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>])
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> 
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> <span style=color:#ff79c6>def</span> <span style=color:#50fa7b>arg132</span>():
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>   <span style=color:#ff79c6>return</span> <span style=color:#8be9fd;font-style:italic>open</span>(<span style=color:#f1fa8c>&#39;flag.txt.enc&#39;</span>, <span style=color:#f1fa8c>&#39;rb&#39;</span>)<span style=color:#ff79c6>.</span>read()
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> 
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> pwd()
-</span></span><span style=display:flex><span>Traceback (most recent call last):
-</span></span><span style=display:flex><span>  File <span style=color:#f1fa8c>&#34;&lt;input&gt;&#34;</span>, line <span style=color:#bd93f9>1</span>, <span style=color:#ff79c6>in</span> <span style=color:#ff79c6>&lt;</span>module<span style=color:#ff79c6>&gt;</span>
-</span></span><span style=display:flex><span>    pwd()
-</span></span><span style=display:flex><span>NameError: name <span style=color:#f1fa8c>&#39;pwd&#39;</span> <span style=color:#ff79c6>is</span> <span style=color:#ff79c6>not</span> defined
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> <span style=color:#ff79c6>def</span> <span style=color:#50fa7b>arg112</span>():
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>   <span style=color:#8be9fd;font-style:italic>print</span>(a[<span style=color:#bd93f9>54</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>68</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>76</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>68</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>65</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>\
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> a[<span style=color:#bd93f9>74</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>13</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>13</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>13</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>88</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>84</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>69</span>]<span style=color:#ff79c6>+</span>\
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>70</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>11</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>84</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>68</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>25</span>])
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> 
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> <span style=color:#ff79c6>def</span> <span style=color:#50fa7b>arg122</span>(arg432, arg423):
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>     arg433 <span style=color:#ff79c6>=</span> arg423
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>     i <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>     
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>     <span style=color:#ff79c6>while</span> <span style=color:#8be9fd;font-style:italic>len</span>(arg433) <span style=color:#ff79c6>&lt;</span> <span style=color:#8be9fd;font-style:italic>len</span>(arg432):
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>         arg433 <span style=color:#ff79c6>=</span> arg433 <span style=color:#ff79c6>+</span> arg423[i]
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>         i <span style=color:#ff79c6>=</span> (i <span style=color:#ff79c6>+</span> <span style=color:#bd93f9>1</span>) <span style=color:#ff79c6>%</span> <span style=color:#8be9fd;font-style:italic>len</span>(arg423)        
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>     
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>     <span style=color:#ff79c6>return</span> <span style=color:#f1fa8c>&#34;&#34;</span><span style=color:#ff79c6>.</span>join([<span style=color:#8be9fd;font-style:italic>chr</span>(<span style=color:#8be9fd;font-style:italic>ord</span>(arg422) <span style=color:#ff79c6>^</span> <span style=color:#8be9fd;font-style:italic>ord</span>(arg442)) <span style=color:#ff79c6>for</span> (arg422,arg442) <span style=color:#ff79c6>in</span> <span style=color:#8be9fd;font-style:italic>zip</span>(arg432,arg433)])
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> 
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> arg112()
-</span></span><span style=display:flex><span>Welcome back<span style=color:#ff79c6>...</span> your flag, user:
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> <span style=color:#ff79c6>def</span> <span style=color:#50fa7b>arg232</span>()
-</span></span><span style=display:flex><span>  File <span style=color:#f1fa8c>&#34;&lt;input&gt;&#34;</span>, line <span style=color:#bd93f9>1</span>
-</span></span><span style=display:flex><span>    <span style=color:#ff79c6>def</span> <span style=color:#50fa7b>arg232</span>()
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>^</span>
-</span></span><span style=display:flex><span>SyntaxError: invalid syntax
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> arg232()
-</span></span><span style=display:flex><span>Please enter correct password <span style=color:#ff79c6>for</span> flag: Traceback (most recent call last):
-</span></span><span style=display:flex><span>  File <span style=color:#f1fa8c>&#34;&lt;input&gt;&#34;</span>, line <span style=color:#bd93f9>1</span>, <span style=color:#ff79c6>in</span> <span style=color:#ff79c6>&lt;</span>module<span style=color:#ff79c6>&gt;</span>
-</span></span><span style=display:flex><span>    arg232()
-</span></span><span style=display:flex><span>  File <span style=color:#f1fa8c>&#34;&lt;input&gt;&#34;</span>, line <span style=color:#bd93f9>2</span>, <span style=color:#ff79c6>in</span> arg232
-</span></span><span style=display:flex><span>    <span style=color:#ff79c6>return</span> <span style=color:#8be9fd;font-style:italic>input</span>(a[<span style=color:#bd93f9>47</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>68</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>68</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>68</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>77</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>83</span>]<span style=color:#ff79c6>+</span>\
-</span></span><span style=display:flex><span>  File <span style=color:#f1fa8c>&#34;/usr/lib/python3/dist-packages/bpython/curtsiesfrontend/repl.py&#34;</span>, line <span style=color:#bd93f9>168</span>, <span style=color:#ff79c6>in</span> readline
-</span></span><span style=display:flex><span>    value <span style=color:#ff79c6>=</span> self<span style=color:#ff79c6>.</span>coderunner<span style=color:#ff79c6>.</span>request_from_main_context()
-</span></span><span style=display:flex><span>  File <span style=color:#f1fa8c>&#34;/usr/lib/python3/dist-packages/bpython/curtsiesfrontend/coderunner.py&#34;</span>, line <span style=color:#bd93f9>200</span>, <span style=color:#ff79c6>in</span> request_from_main_
-</span></span><span style=display:flex><span>context
-</span></span><span style=display:flex><span>    <span style=color:#ff79c6>raise</span> KeyboardInterrupt()
-</span></span><span style=display:flex><span>KeyboardInterrupt
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> arg112()
-</span></span><span style=display:flex><span>Welcome back<span style=color:#ff79c6>...</span> your flag, user:
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> arg132()
-</span></span><span style=display:flex><span><span style=color:#f1fa8c>b</span><span style=color:#f1fa8c>&#39;</span><span style=color:#f1fa8c>\x02\x08\x13\x1c</span><span style=color:#f1fa8c> 5*</span><span style=color:#f1fa8c>\x17\r\\</span><span style=color:#f1fa8c>^</span><span style=color:#f1fa8c>\x10\x07\x05</span><span style=color:#f1fa8c>F</span><span style=color:#f1fa8c>\x00</span><span style=color:#f1fa8c>U[]Y</span><span style=color:#f1fa8c>\x01</span><span style=color:#f1fa8c>1</span><span style=color:#f1fa8c>\x14</span><span style=color:#f1fa8c>V</span><span style=color:#f1fa8c>\x07</span><span style=color:#f1fa8c>,</span><span style=color:#f1fa8c>\x06</span><span style=color:#f1fa8c>X</span><span style=color:#f1fa8c>\t</span><span style=color:#f1fa8c>_Q</span><span style=color:#f1fa8c>\x0c\\</span><span style=color:#f1fa8c>E</span><span style=color:#f1fa8c>\x1c</span><span style=color:#f1fa8c>&#39;</span>
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> arg232()
-</span></span><span style=display:flex><span>Please enter correct password <span style=color:#ff79c6>for</span> flag: bla
-</span></span><span style=display:flex><span><span style=color:#f1fa8c>&#39;bla&#39;</span>
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> arg132()
-</span></span><span style=display:flex><span><span style=color:#f1fa8c>b</span><span style=color:#f1fa8c>&#39;</span><span style=color:#f1fa8c>\x02\x08\x13\x1c</span><span style=color:#f1fa8c> 5*</span><span style=color:#f1fa8c>\x17\r\\</span><span style=color:#f1fa8c>^</span><span style=color:#f1fa8c>\x10\x07\x05</span><span style=color:#f1fa8c>F</span><span style=color:#f1fa8c>\x00</span><span style=color:#f1fa8c>U[]Y</span><span style=color:#f1fa8c>\x01</span><span style=color:#f1fa8c>1</span><span style=color:#f1fa8c>\x14</span><span style=color:#f1fa8c>V</span><span style=color:#f1fa8c>\x07</span><span style=color:#f1fa8c>,</span><span style=color:#f1fa8c>\x06</span><span style=color:#f1fa8c>X</span><span style=color:#f1fa8c>\t</span><span style=color:#f1fa8c>_Q</span><span style=color:#f1fa8c>\x0c\\</span><span style=color:#f1fa8c>E</span><span style=color:#f1fa8c>\x1c</span><span style=color:#f1fa8c>&#39;</span>
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> arg232()
-</span></span><span style=display:flex><span>Please enter correct password <span style=color:#ff79c6>for</span> flag: test
-</span></span><span style=display:flex><span><span style=color:#f1fa8c>&#39;test&#39;</span>
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> arg133(arg432)
-</span></span><span style=display:flex><span>Traceback (most recent call last):
-</span></span><span style=display:flex><span>  File <span style=color:#f1fa8c>&#34;&lt;input&gt;&#34;</span>, line <span style=color:#bd93f9>1</span>, <span style=color:#ff79c6>in</span> <span style=color:#ff79c6>&lt;</span>module<span style=color:#ff79c6>&gt;</span>
-</span></span><span style=display:flex><span>    arg133(arg432)
-</span></span><span style=display:flex><span>NameError: name <span style=color:#f1fa8c>&#39;arg432&#39;</span> <span style=color:#ff79c6>is</span> <span style=color:#ff79c6>not</span> defined
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> arg432 <span style=color:#ff79c6>=</span> arg232()
-</span></span><span style=display:flex><span>Please enter correct password <span style=color:#ff79c6>for</span> flag: test
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> arg133(arg432)
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> arg133(arg432)
-</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>bpython
-</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">48
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">49
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">50
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">51
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">52
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">53
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">54
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">55
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">56
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">57
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">58
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">59
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">60
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">61
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">62
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">63
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>bpython Version <span style=color:#bd93f9>0.22.1</span> mit Python <span style=color:#bd93f9>3.9.10</span> <span style=color:#ff79c6>/</span>usr<span style=color:#ff79c6>/</span><span style=color:#8be9fd;font-style:italic>bin</span><span style=color:#ff79c6>/</span>python3
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> a <span style=color:#ff79c6>=</span> <span style=color:#f1fa8c>&#34;!</span><span style=color:#f1fa8c>\&#34;</span><span style=color:#f1fa8c>#$%&amp;&#39;()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[</span><span style=color:#f1fa8c>\\</span><span style=color:#f1fa8c>]^_`abcdefghijklmnopqrstuvwxyz{|}~ &#34;</span>
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> <span style=color:#ff79c6>def</span> <span style=color:#50fa7b>arg232</span>():
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>   <span style=color:#ff79c6>return</span> <span style=color:#8be9fd;font-style:italic>input</span>(a[<span style=color:#bd93f9>47</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>68</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>68</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>68</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>77</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>83</span>]<span style=color:#ff79c6>+</span>\
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> a[<span style=color:#bd93f9>68</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>68</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>83</span>]<span style=color:#ff79c6>+</span>\
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>79</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>86</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>67</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>\
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> a[<span style=color:#bd93f9>69</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>69</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>70</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>25</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>94</span>])
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> 
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> <span style=color:#8be9fd;font-style:italic>print</span>(arg232());
-</span></span><span style=display:flex><span>Please enter correct password <span style=color:#ff79c6>for</span> flag: 
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> arg122(arg444<span style=color:#ff79c6>.</span>decode(), a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>79</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>\
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>72</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>77</span>])
-</span></span><span style=display:flex><span>Traceback (most recent call last):
-</span></span><span style=display:flex><span>  File <span style=color:#f1fa8c>&#34;&lt;input&gt;&#34;</span>, line <span style=color:#bd93f9>1</span>, <span style=color:#ff79c6>in</span> <span style=color:#ff79c6>&lt;</span>module<span style=color:#ff79c6>&gt;</span>
-</span></span><span style=display:flex><span>    arg122(arg444<span style=color:#ff79c6>.</span>decode(), a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>79</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>\
-</span></span><span style=display:flex><span>NameError: name <span style=color:#f1fa8c>&#39;arg122&#39;</span> <span style=color:#ff79c6>is</span> <span style=color:#ff79c6>not</span> defined
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> <span style=color:#ff79c6>def</span> <span style=color:#50fa7b>arg122</span>(arg432, arg423):
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>     arg433 <span style=color:#ff79c6>=</span> arg423
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>     i <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>     
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>     <span style=color:#ff79c6>while</span> <span style=color:#8be9fd;font-style:italic>len</span>(arg433) <span style=color:#ff79c6>&lt;</span> <span style=color:#8be9fd;font-style:italic>len</span>(arg432):
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>         arg433 <span style=color:#ff79c6>=</span> arg433 <span style=color:#ff79c6>+</span> arg423[i]
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>         i <span style=color:#ff79c6>=</span> (i <span style=color:#ff79c6>+</span> <span style=color:#bd93f9>1</span>) <span style=color:#ff79c6>%</span> <span style=color:#8be9fd;font-style:italic>len</span>(arg423)        
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>     
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>     <span style=color:#ff79c6>return</span> <span style=color:#f1fa8c>&#34;&#34;</span><span style=color:#ff79c6>.</span>join([<span style=color:#8be9fd;font-style:italic>chr</span>(<span style=color:#8be9fd;font-style:italic>ord</span>(arg422) <span style=color:#ff79c6>^</span> <span style=color:#8be9fd;font-style:italic>ord</span>(arg442)) <span style=color:#ff79c6>for</span> (arg422,arg442) <span style=color:#ff79c6>in</span> <span style=color:#8be9fd;font-style:italic>zip</span>(arg432,arg433)])
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> 
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> <span style=color:#8be9fd;font-style:italic>print</span>(arg122(arg444<span style=color:#ff79c6>.</span>decode(), a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>79</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>\)
-</span></span><span style=display:flex><span>  File <span style=color:#f1fa8c>&#34;&lt;input&gt;&#34;</span>, line <span style=color:#bd93f9>1</span>
-</span></span><span style=display:flex><span>    <span style=color:#8be9fd;font-style:italic>print</span>(arg122(arg444<span style=color:#ff79c6>.</span>decode(), a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>79</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>\)
-</span></span><span style=display:flex><span>                                                                             <span style=color:#ff79c6>^</span>
-</span></span><span style=display:flex><span>SyntaxError: unexpected character after line continuation character
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>72</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>77</span>])
-</span></span><span style=display:flex><span>  File <span style=color:#f1fa8c>&#34;&lt;input&gt;&#34;</span>, line <span style=color:#bd93f9>1</span>
-</span></span><span style=display:flex><span>    a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>72</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>77</span>])
-</span></span><span style=display:flex><span>                           <span style=color:#ff79c6>^</span>
-</span></span><span style=display:flex><span>SyntaxError: unmatched <span style=color:#f1fa8c>&#39;)&#39;</span>
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> <span style=color:#8be9fd;font-style:italic>print</span>(arg122(arg444<span style=color:#ff79c6>.</span>decode(), a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>79</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>\)
-</span></span><span style=display:flex><span>  File <span style=color:#f1fa8c>&#34;&lt;input&gt;&#34;</span>, line <span style=color:#bd93f9>1</span>
-</span></span><span style=display:flex><span>    <span style=color:#8be9fd;font-style:italic>print</span>(arg122(arg444<span style=color:#ff79c6>.</span>decode(), a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>79</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>\)
-</span></span><span style=display:flex><span>                                                                             <span style=color:#ff79c6>^</span>
-</span></span><span style=display:flex><span>SyntaxError: unexpected character after line continuation character
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>72</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>77</span>])
-</span></span><span style=display:flex><span>  File <span style=color:#f1fa8c>&#34;&lt;input&gt;&#34;</span>, line <span style=color:#bd93f9>1</span>
-</span></span><span style=display:flex><span>    a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>72</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>77</span>])
-</span></span><span style=display:flex><span>                           <span style=color:#ff79c6>^</span>
-</span></span><span style=display:flex><span>SyntaxError: unmatched <span style=color:#f1fa8c>&#39;)&#39;</span>
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> <span style=color:#8be9fd;font-style:italic>print</span>(arg122(arg444<span style=color:#ff79c6>.</span>decode(), a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>79</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>72</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>77</span>]))
-</span></span><span style=display:flex><span>Traceback (most recent call last):
-</span></span><span style=display:flex><span>  File <span style=color:#f1fa8c>&#34;&lt;input&gt;&#34;</span>, line <span style=color:#bd93f9>1</span>, <span style=color:#ff79c6>in</span> <span style=color:#ff79c6>&lt;</span>module<span style=color:#ff79c6>&gt;</span>
-</span></span><span style=display:flex><span>    <span style=color:#8be9fd;font-style:italic>print</span>(arg122(arg444<span style=color:#ff79c6>.</span>decode(), a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>79</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>72</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>77</span>]))
-</span></span><span style=display:flex><span>NameError: name <span style=color:#f1fa8c>&#39;arg444&#39;</span> <span style=color:#ff79c6>is</span> <span style=color:#ff79c6>not</span> defined
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> arg444 <span style=color:#ff79c6>=</span> arg132()
-</span></span><span style=display:flex><span>Traceback (most recent call last):
-</span></span><span style=display:flex><span>  File <span style=color:#f1fa8c>&#34;&lt;input&gt;&#34;</span>, line <span style=color:#bd93f9>1</span>, <span style=color:#ff79c6>in</span> <span style=color:#ff79c6>&lt;</span>module<span style=color:#ff79c6>&gt;</span>
-</span></span><span style=display:flex><span>    arg444 <span style=color:#ff79c6>=</span> arg132()
-</span></span><span style=display:flex><span>NameError: name <span style=color:#f1fa8c>&#39;arg132&#39;</span> <span style=color:#ff79c6>is</span> <span style=color:#ff79c6>not</span> defined
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> <span style=color:#ff79c6>def</span> <span style=color:#50fa7b>arg132</span>():
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span>   <span style=color:#ff79c6>return</span> <span style=color:#8be9fd;font-style:italic>open</span>(<span style=color:#f1fa8c>&#39;flag.txt.enc&#39;</span>, <span style=color:#f1fa8c>&#39;rb&#39;</span>)<span style=color:#ff79c6>.</span>read()
-</span></span><span style=display:flex><span><span style=color:#ff79c6>...</span> 
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> arg444 <span style=color:#ff79c6>=</span> arg132()
-</span></span><span style=display:flex><span><span style=color:#ff79c6>&gt;&gt;&gt;</span> <span style=color:#8be9fd;font-style:italic>print</span>(arg122(arg444<span style=color:#ff79c6>.</span>decode(), a[<span style=color:#bd93f9>81</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>79</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>82</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>66</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>64</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>75</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>72</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>78</span>]<span style=color:#ff79c6>+</span>a[<span style=color:#bd93f9>77</span>]))
-</span></span><span style=display:flex><span>picoCTF{d30bfu5c4710n_f7w_e9e38c27}
-</span></span></code></pre></td></tr></table></div></div><p>So the flag is:</p><div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>picoCTF{d30bfu5c4710n_f7w_e9e38c27}
-</span></span></code></pre></td></tr></table></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-tag><span><a href=/tags/reverse-engineering/>reverse engineering</a>
+in the same directory as this encrypted flag.</p><h2 id=writeup>writeup</h2><p>So let&rsquo;s download the python program and the encrypted flag first!</p><pre><code class=language-bash>wget https://artifacts.picoctf.net/c/434/bloat.flag.py
+</code></pre><pre><code class=language-bash>wget https://artifacts.picoctf.net/c/434/flag.txt.enc
+</code></pre><p>Let&rsquo;s make a copy of the python program and try to fix it
+using debugging in bpython!</p><pre><code class=language-bash>cp bloat.flag.py flag.py
+</code></pre><p>After a lot of debugging and reverse engineering using bpython I found the flag!</p><pre><code class=language-bash>bpython
+</code></pre><pre><code class=language-python>bpython Version 0.22.1 mit Python 3.9.10 /usr/bin/python3
+&gt;&gt;&gt; import sys;
+&gt;&gt;&gt; a = &quot;!\&quot;#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ &quot;
+&gt;&gt;&gt; def arg133(arg432):
+...   if arg432 == a[71]+a[64]+a[79]+a[79]+a[88]+a[66]+a[71]+a[64]+a[77]+a[66]+a[68]:
+...     return True
+...   else:
+...     print(a[51]+a[71]+a[64]+a[83]+a[94]+a[79]+a[64]+a[82]+a[82]+a[86]+a[78]+\
+... a[81]+a[67]+a[94]+a[72]+a[82]+a[94]+a[72]+a[77]+a[66]+a[78]+a[81]+\
+... a[81]+a[68]+a[66]+a[83])
+...     sys.exit(0)
+...     return False
+... 
+&gt;&gt;&gt; def arg111(arg444):
+...   return arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+\
+... a[75]+a[72]+a[78]+a[77])
+... 
+&gt;&gt;&gt; def arg232():
+...   return input(a[47]+a[75]+a[68]+a[64]+a[82]+a[68]+a[94]+a[68]+a[77]+a[83]+\
+... a[68]+a[81]+a[94]+a[66]+a[78]+a[81]+a[81]+a[68]+a[66]+a[83]+\
+... a[94]+a[79]+a[64]+a[82]+a[82]+a[86]+a[78]+a[81]+a[67]+a[94]+\
+... a[69]+a[78]+a[81]+a[94]+a[69]+a[75]+a[64]+a[70]+a[25]+a[94])
+... 
+&gt;&gt;&gt; def arg132():
+...   return open('flag.txt.enc', 'rb').read()
+... 
+&gt;&gt;&gt; pwd()
+Traceback (most recent call last):
+  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
+    pwd()
+NameError: name 'pwd' is not defined
+&gt;&gt;&gt; def arg112():
+...   print(a[54]+a[68]+a[75]+a[66]+a[78]+a[76]+a[68]+a[94]+a[65]+a[64]+a[66]+\
+... a[74]+a[13]+a[13]+a[13]+a[94]+a[88]+a[78]+a[84]+a[81]+a[94]+a[69]+\
+... a[75]+a[64]+a[70]+a[11]+a[94]+a[84]+a[82]+a[68]+a[81]+a[25])
+... 
+&gt;&gt;&gt; def arg122(arg432, arg423):
+...     arg433 = arg423
+...     i = 0
+...     
+...     while len(arg433) &lt; len(arg432):
+...         arg433 = arg433 + arg423[i]
+...         i = (i + 1) % len(arg423)        
+...     
+...     return &quot;&quot;.join([chr(ord(arg422) ^ ord(arg442)) for (arg422,arg442) in zip(arg432,arg433)])
+... 
+&gt;&gt;&gt; arg112()
+Welcome back... your flag, user:
+&gt;&gt;&gt; def arg232()
+  File &quot;&lt;input&gt;&quot;, line 1
+    def arg232()
+                ^
+SyntaxError: invalid syntax
+&gt;&gt;&gt; arg232()
+Please enter correct password for flag: Traceback (most recent call last):
+  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
+    arg232()
+  File &quot;&lt;input&gt;&quot;, line 2, in arg232
+    return input(a[47]+a[75]+a[68]+a[64]+a[82]+a[68]+a[94]+a[68]+a[77]+a[83]+\
+  File &quot;/usr/lib/python3/dist-packages/bpython/curtsiesfrontend/repl.py&quot;, line 168, in readline
+    value = self.coderunner.request_from_main_context()
+  File &quot;/usr/lib/python3/dist-packages/bpython/curtsiesfrontend/coderunner.py&quot;, line 200, in request_from_main_
+context
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+&gt;&gt;&gt; arg112()
+Welcome back... your flag, user:
+&gt;&gt;&gt; arg132()
+b'\x02\x08\x13\x1c 5*\x17\r\\^\x10\x07\x05F\x00U[]Y\x011\x14V\x07,\x06X\t_Q\x0c\\E\x1c'
+&gt;&gt;&gt; arg232()
+Please enter correct password for flag: bla
+'bla'
+&gt;&gt;&gt; arg132()
+b'\x02\x08\x13\x1c 5*\x17\r\\^\x10\x07\x05F\x00U[]Y\x011\x14V\x07,\x06X\t_Q\x0c\\E\x1c'
+&gt;&gt;&gt; arg232()
+Please enter correct password for flag: test
+'test'
+&gt;&gt;&gt; arg133(arg432)
+Traceback (most recent call last):
+  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
+    arg133(arg432)
+NameError: name 'arg432' is not defined
+&gt;&gt;&gt; arg432 = arg232()
+Please enter correct password for flag: test
+&gt;&gt;&gt; arg133(arg432)
+&gt;&gt;&gt; arg133(arg432)
+</code></pre><pre><code class=language-bash>bpython
+</code></pre><pre><code class=language-python>bpython Version 0.22.1 mit Python 3.9.10 /usr/bin/python3
+&gt;&gt;&gt; a = &quot;!\&quot;#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ &quot;
+&gt;&gt;&gt; def arg232():
+...   return input(a[47]+a[75]+a[68]+a[64]+a[82]+a[68]+a[94]+a[68]+a[77]+a[83]+\
+... a[68]+a[81]+a[94]+a[66]+a[78]+a[81]+a[81]+a[68]+a[66]+a[83]+\
+... a[94]+a[79]+a[64]+a[82]+a[82]+a[86]+a[78]+a[81]+a[67]+a[94]+\
+... a[69]+a[78]+a[81]+a[94]+a[69]+a[75]+a[64]+a[70]+a[25]+a[94])
+... 
+&gt;&gt;&gt; print(arg232());
+Please enter correct password for flag: 
+
+&gt;&gt;&gt; arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+\
+... a[75]+a[72]+a[78]+a[77])
+Traceback (most recent call last):
+  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
+    arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+\
+NameError: name 'arg122' is not defined
+&gt;&gt;&gt; def arg122(arg432, arg423):
+...     arg433 = arg423
+...     i = 0
+...     
+...     while len(arg433) &lt; len(arg432):
+...         arg433 = arg433 + arg423[i]
+...         i = (i + 1) % len(arg423)        
+...     
+...     return &quot;&quot;.join([chr(ord(arg422) ^ ord(arg442)) for (arg422,arg442) in zip(arg432,arg433)])
+... 
+&gt;&gt;&gt; print(arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+\)
+  File &quot;&lt;input&gt;&quot;, line 1
+    print(arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+\)
+                                                                             ^
+SyntaxError: unexpected character after line continuation character
+&gt;&gt;&gt; a[75]+a[72]+a[78]+a[77])
+  File &quot;&lt;input&gt;&quot;, line 1
+    a[75]+a[72]+a[78]+a[77])
+                           ^
+SyntaxError: unmatched ')'
+&gt;&gt;&gt; print(arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+\)
+  File &quot;&lt;input&gt;&quot;, line 1
+    print(arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+\)
+                                                                             ^
+SyntaxError: unexpected character after line continuation character
+&gt;&gt;&gt; a[75]+a[72]+a[78]+a[77])
+  File &quot;&lt;input&gt;&quot;, line 1
+    a[75]+a[72]+a[78]+a[77])
+                           ^
+SyntaxError: unmatched ')'
+&gt;&gt;&gt; print(arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+a[75]+a[72]+a[78]+a[77]))
+Traceback (most recent call last):
+  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
+    print(arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+a[75]+a[72]+a[78]+a[77]))
+NameError: name 'arg444' is not defined
+&gt;&gt;&gt; arg444 = arg132()
+Traceback (most recent call last):
+  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
+    arg444 = arg132()
+NameError: name 'arg132' is not defined
+&gt;&gt;&gt; def arg132():
+...   return open('flag.txt.enc', 'rb').read()
+... 
+&gt;&gt;&gt; arg444 = arg132()
+&gt;&gt;&gt; print(arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+a[75]+a[72]+a[78]+a[77]))
+picoCTF{d30bfu5c4710n_f7w_e9e38c27}
+</code></pre><p>So the flag is:</p><pre><code>picoCTF{d30bfu5c4710n_f7w_e9e38c27}
+</code></pre></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-tag><span><a href=/tags/reverse-engineering/>reverse engineering</a>
 </span><span><a href=/tags/picoctf/>picoctf</a></span></div><div class=post-info-line><div class=post-info-mod><span>Updated on 2022-04-06</span></div><div class=post-info-mod></div></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/ data-title="picoCTF - Reverse Engineering - bloat.py" data-hashtags='reverse engineering,picoctf"'><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/ data-hashtag="reverse engineering"><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="Share on Linkedin" data-sharer=linkedin data-url=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/><i class="fab fa-linkedin fa-fw"></i></a><a href=javascript:void(0); title="Share on WhatsApp" data-sharer=whatsapp data-url=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/ data-title="picoCTF - Reverse Engineering - bloat.py" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=javascript:void(0); title="Share on Reddit" data-sharer=reddit data-url=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/><i class="fab fa-reddit fa-fw"></i></a><a href=javascript:void(0); title="Share on Xing" data-sharer=xing data-url=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/ data-title="picoCTF - Reverse Engineering - bloat.py"><i class="fab fa-xing fa-fw"></i></a><a href=javascript:void(0); title="Share on Line" data-sharer=line data-url=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/ data-title="picoCTF - Reverse Engineering - bloat.py"><i class="fab fa-line fa-fw"></i></a><a href=javascript:void(0); title="Share on 微博" data-sharer=weibo data-url=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/ data-title="picoCTF - Reverse Engineering - bloat.py" data-image=/featuredImages/picoCTF_logo.png><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="Share on Myspace" data-sharer=myspace data-url=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/ data-title="picoCTF - Reverse Engineering - bloat.py" data-description><i data-svg-src=/lib/simple-icons/icons/myspace.min.svg></i></a><a href=javascript:void(0); title="Share on Blogger" data-sharer=blogger data-url=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/ data-title="picoCTF - Reverse Engineering - bloat.py" data-description><i class="fab fa-blogger fa-fw"></i></a><a href=javascript:void(0); title="Share on Evernote" data-sharer=evernote data-url=https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/ data-title="picoCTF - Reverse Engineering - bloat.py"><i class="fab fa-evernote fa-fw"></i></a></span></div></div><div class=post-nav><a href=/posts/picoctf-reverse-engineering-bbbbloat/ class=prev rel=prev title="picoCTF - Reverse Engineering - Bbbbloat"><i class="fas fa-angle-left fa-fw"></i>Previous Post</a>
 <a href=/posts/picoctf-reverse-engineering-file-run1/ class=next rel=next title="picoCTF - Reverse Engineering - file-run1">Next Post<i class="fas fa-angle-right fa-fw"></i></a></div></div></div><div id=comments class=single-card><div id=disqus_thread></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://disqus.com/?ref_noscript>Disqus</a>.</noscript></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/></a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div><script>"serviceWorker"in navigator&&(navigator.serviceWorker.register("/sw.min.js?version=1.0.1",{scope:"/"}).then(()=>{console.info("Pascal\u0027s Blog\u00A0Service Worker Registered")},e=>console.error("Pascal\u0027s Blog\u00A0Service Worker registration failed: ",e)),navigator.serviceWorker.ready.then(()=>{console.info("Pascal\u0027s Blog\u00A0Service Worker Ready")}))</script></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-chevron-up fa-fw"></i>
 </a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment-alt fa-fw"></i></a></div><link rel=stylesheet href=/lib/fontawesome-free/all.min.d72727e8871a410e34fcc2815b65b84618acfc36c82d4ef80b5bd2acb2710aae7ba3de35626d354b036c38caaf10116572051aeb12e23d8fcd4b947e13aced25.css integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="><link rel=stylesheet href=/lib/animate/animate.min.e68ad90d2f9b7f6b4e373c97297ee55bedc3dcf08adafb4903cbee9093358fe113080efdae3162b0d69987b2aacdf8f5f53eed9faef52cf397b8bd499f9a07ba.css integrity="sha512-5orZDS+bf2tONzyXKX7lW+3D3PCK2vtJA8vukJM1j+ETCA79rjFisNaZh7Kqzfj19T7tn671LPOXuL1Jn5oHug=="><link rel=stylesheet href=/lib/lightgallery/lightgallery.min.93025484925a4c3cc6a7a5533c16cc4160455287fafa9bf448cdecf1fa3e13a5e73e6566b5fc0434ad2f1d8ba9dedb189ea1e0443a010d3256a2aeeb9d0c36fa.css integrity="sha512-kwJUhJJaTDzGp6VTPBbMQWBFUof6+pv0SM3s8fo+E6XnPmVmtfwENK0vHYup3tsYnqHgRDoBDTJWoq7rnQw2+g=="><link rel=stylesheet href=/lib/katex/katex.min.06226afd2dd697e1801ed8227165c22b8b3e14b151b03c83901cfc8c57d20b9665678e453e5b2a73cc41e145252943b2557ee2ab6c44a0e24628d716f7cad074.css integrity="sha512-BiJq/S3Wl+GAHtgicWXCK4s+FLFRsDyDkBz8jFfSC5ZlZ45FPlsqc8xB4UUlKUOyVX7iq2xEoOJGKNcW98rQdA=="><link rel=stylesheet href=/lib/katex/copy-tex.min.ce9612e4a9d8cd65d40a9d9e295b4d0c804057184019b8573829e6e1e6540ec62a72f78cc289217d5e45a4d4f5af6de9af740b6f55ecc3ecc9edea806407416a.css integrity="sha512-zpYS5KnYzWXUCp2eKVtNDIBAVxhAGbhXOCnm4eZUDsYqcveMwokhfV5FpNT1r23pr3QLb1Xsw+zJ7eqAZAdBag=="><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.2d0f7b71a99aaff94e9624ff32a8dc42ce645a0cba433fdc091cf34735027efd1fa2db024c2f591d768f426255f17bbf3d500b7c967b0437b3979956dffa81c6.css integrity="sha512-LQ97camar/lOliT/MqjcQs5kWgy6Qz/cCRzzRzUCfv0fotsCTC9ZHXaPQmJV8Xu/PVALfJZ7BDezl5lW3/qBxg=="><script src=https://pascals-blog.disqus.com/embed.js defer></script><script src=/lib/autocomplete/autocomplete.min.2f5284223a38dd47122850532ee135049a58557810c4183f0f5422029de5b2a9af43ea35178943df4d222cae8ed43a7a789204bfd0bf7aea14f296e557b4c04d.js integrity="sha512-L1KEIjo43UcSKFBTLuE1BJpYVXgQxBg/D1QiAp3lsqmvQ+o1F4lD300iLK6O1Dp6eJIEv9C/euoU8pblV7TATQ=="></script><script src=/lib/lunr/lunr.min.e31525fdde83e931eb0275c0c066a35e4a1669e30dc0428ae2235fab90e8b446cb3c07e4e854b148fdf274dc6a0e00b0d5cff4675260e8bf21da3fbefbd0599a.js integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg=="></script><script src=/lib/lazysizes/lazysizes.min.2966e65b518f6d2c2e49602138527a612a93dcad59d702de3836518afd67c60da45ba8a6deecb9f57036440988f44079c4f615502b20698546ad100a826642c1.js integrity="sha512-KWbmW1GPbSwuSWAhOFJ6YSqT3K1Z1wLeODZRiv1nxg2kW6im3uy59XA2RAmI9EB5xPYVUCsgaYVGrRAKgmZCwQ=="></script><script src=/lib/twemoji/twemoji.min.6c24276208463913359c7a512e70acd942789811a0c7557daacb6770d2d0e2f7a31f04c7461f9bf02e13eae0e3b77ee1c5be0bbdbabaefcc99ff324627fa43a9.js integrity="sha512-bCQnYghGORM1nHpRLnCs2UJ4mBGgx1V9qstncNLQ4vejHwTHRh+b8C4T6uDjt37hxb4Lvbq678yZ/zJGJ/pDqQ=="></script><script src=/lib/typeit/typeit.min.f27efa857ac46448d67802135c65454dfc450176698f8fb06912d192dada782d98abfd8fbaf9ad33a15fb7971ed227e86d2082b88c2319260c237f147c9a624b.js integrity="sha512-8n76hXrEZEjWeAITXGVFTfxFAXZpj4+waRLRktraeC2Yq/2PuvmtM6Fft5ce0ifobSCCuIwjGSYMI38UfJpiSw=="></script><script src=/lib/lightgallery/lightgallery.min.19a5670215d212597a09d4971208e95020f2840f36e9d0b00daa18b35496b19b1ca1187a307b6c2efe567e80db1c16f1eb54e5aad208a4e8f2b56d635a96a94a.js integrity="sha512-GaVnAhXSEll6CdSXEgjpUCDyhA826dCwDaoYs1SWsZscoRh6MHtsLv5WfoDbHBbx61TlqtIIpOjytW1jWpapSg=="></script><script src=/lib/lightgallery/lg-thumbnail.min.2e9a05abd3c9e56cdd7ac0b426bd2241a4b735e6e34e1eea29f120f34aa61fd8efe38b7cf351ccf25ce5d2bb8f4d5d5d0d48637ad902c1898f0d8cf553d16d55.js integrity="sha512-LpoFq9PJ5WzdesC0Jr0iQaS3NebjTh7qKfEg80qmH9jv44t881HM8lzl0ruPTV1dDUhjetkCwYmPDYz1U9FtVQ=="></script><script src=/lib/lightgallery/lg-zoom.min.e6b30be1e97da9a2e10c04fe7e270d7296f8ab3ed59ee3104bef02e57d9678c19a5cad77b55f2f8d506ed128f80379dcb9a73c277b970fd3856bea08117a38b9.js integrity="sha512-5rML4el9qaLhDAT+ficNcpb4qz7VnuMQS+8C5X2WeMGaXK13tV8vjVBu0Sj4A3ncuac8J3uXD9OFa+oIEXo4uQ=="></script><script src=/lib/clipboard/clipboard.min.ccafafa8cae1986bfccbb2f650cdbfd99d8ea58d9baddc22b744efe0e9b95c249f2e6d6d160dddcb1d61db4d1135f3ee2691d4273f8d667c0d9666dcaf91e8b4.js integrity="sha512-zK+vqMrhmGv8y7L2UM2/2Z2OpY2brdwit0Tv4Om5XCSfLm1tFg3dyx1h200RNfPuJpHUJz+NZnwNlmbcr5HotA=="></script><script src=/lib/sharer/sharer.min.8a0920eb1227f32329af39f199f24f5429171e1431bbd26ba5d5591605ee8ff7ec57fd12c227378528076337e5c26828e29bcd8b121d15f68aaf6eccea7f44d9.js integrity="sha512-igkg6xIn8yMprznxmfJPVCkXHhQxu9JrpdVZFgXuj/fsV/0Swic3hSgHYzflwmgo4pvNixIdFfaKr27M6n9E2Q=="></script><script src=/lib/katex/katex.min.4c569eb93ddc633083f1769987bb7b7fe7bb01d081dd2b80bd5e2110fc21cacadb1d22b44975215c97efe777e75823169b0dbfb8c1e0c6ecd295cad6fb83d276.js integrity="sha512-TFaeuT3cYzCD8XaZh7t7f+e7AdCB3SuAvV4hEPwhysrbHSK0SXUhXJfv53fnWCMWmw2/uMHgxuzSlcrW+4PSdg=="></script><script src=/lib/katex/auto-render.min.0b3204394b35d5243bb5e90b8447b982297d9038a9e114c96557fba528e5c4e75569860711c41f961ba73f3d90fe89cd0b8b252fd8e92a3bcd8333c00311297b.js integrity="sha512-CzIEOUs11SQ7tekLhEe5gil9kDip4RTJZVf7pSjlxOdVaYYHEcQflhunPz2Q/onNC4slL9jpKjvNgzPAAxEpew=="></script><script src=/lib/katex/copy-tex.min.ebda10949ca337b54b4036a001a68ead47e0a7ae957564e2d19072edaa00ada007f07d82d7760cf8900f4743772815bb1bcda00e7bdc6f497de770ce8b41b2a1.js integrity="sha512-69oQlJyjN7VLQDagAaaOrUfgp66VdWTi0ZBy7aoAraAH8H2C13YM+JAPR0N3KBW7G82gDnvcb0l953DOi0GyoQ=="></script><script src=/lib/katex/mhchem.min.a064453932182c508ce7675b3547a49c3b0aa5e1668ebaaf1d31d1ee648317d928c6bfbd9c0e31019fea775465c92094fc14b91ef1d032dcb45408a466d7ccaa.js integrity="sha512-oGRFOTIYLFCM52dbNUeknDsKpeFmjrqvHTHR7mSDF9koxr+9nA4xAZ/qd1RlySCU/BS5HvHQMty0VAikZtfMqg=="></script><script src=/sw.min.100895851fc183b23792349136e782532081cfc67a5020892e17c4957e6f2078dd3e52f7e5335e0cab13c997aaaaf1e78f6b7e0571e4eb0be887be5e725d1dec.js integrity="sha512-EAiVhR/Bg7I3kjSRNueCUyCBz8Z6UCCJLhfElX5vIHjdPlL35TNeDKsTyZeqqvHnj2t+BXHk6wvoh75ecl0d7A=="></script><script src=/lib/cookieconsent/cookieconsent.min.c975ea3858dd8c7347d46343fb510ed236efbde6c0069cc6283eba7639d47e22a560c1391c6314247a0269e1380f93d31b662c4897fa770ab2514bd0bd2d2f68.js integrity="sha512-yXXqOFjdjHNH1GND+1EO0jbvvebABpzGKD66djnUfiKlYME5HGMUJHoCaeE4D5PTG2YsSJf6dwqyUUvQvS0vaA=="></script><script>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:-1},comment:{},cookieconsent:{content:{dismiss:"Got it!",link:"Learn more",message:"This website uses Cookies to improve your experience."},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless"},data:{"id-1":"Pascal's Blog","id-2":"Pascal's Blog"},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{highlightTag:"em",maxResultLength:10,noResultsFound:"No results found",snippetLength:30},twemoji:!0,typeit:{cursorChar:"|",cursorSpeed:1e3,data:{"id-1":["id-1"],"id-2":["id-2"]},duration:-1,speed:100}}</script><script src=/js/theme.min.22e8ceee81c7ec0367dff588ccc657f78feb2a29144aba12b25994709feab15b58c870f5111a1a68185a8722ac58d9a58919adbb3f65961cc41f58ee1fc6d364.js integrity="sha512-IujO7oHH7ANn3/WIzMZX94/rKikUSroSslmUcJ/qsVtYyHD1ERoaaBhahyKsWNmliRmtuz9llhzEH1juH8bTZA=="></script></body></html>

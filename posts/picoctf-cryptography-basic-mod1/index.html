@@ -1,6 +1,6 @@
 <!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>picoCTF - Cryptography - basic-mod1 - Pascal's Blog</title><meta name=description content="Welcome to my personal blog!"><meta property="og:title" content="picoCTF - Cryptography - basic-mod1"><meta property="og:description" content="Cryptography - basic-mod1 - writeup description We found this weird message being passed around on the servers, we think we have a working decrpytion scheme. Download the message here. Take each number mod 37 and map it to the following character set: 0-25 is the alphabet (uppercase), 26-35 are the decimal digits, and 36 is an underscore. Wrap your decrypted message in the picoCTF flag format (i.e. picoCTF{decrypted_message})
 writeup Lets write a simple python program which reads the message into a string first."><meta property="og:type" content="article"><meta property="og:url" content="https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-04-06T13:58:41+02:00"><meta property="article:modified_time" content="2022-04-06T13:58:41+02:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="picoCTF - Cryptography - basic-mod1"><meta name=twitter:description content="Cryptography - basic-mod1 - writeup description We found this weird message being passed around on the servers, we think we have a working decrpytion scheme. Download the message here. Take each number mod 37 and map it to the following character set: 0-25 is the alphabet (uppercase), 26-35 are the decimal digits, and 36 is an underscore. Wrap your decrypted message in the picoCTF flag format (i.e. picoCTF{decrypted_message})
-writeup Lets write a simple python program which reads the message into a string first."><meta name=application-name content="FeelIt"><meta name=apple-mobile-web-app-title content="FeelIt"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/><link rel=prev href=https://blog.ppeinecke.de/posts/picoctf-binary-exploitation-buffer-overflow-0/><link rel=next href=https://blog.ppeinecke.de/posts/picoctf-cryptography-credstuff/><link rel=stylesheet href=/css/page.min.ab5c2757b4480379758ad45f7bd30f6a215b05015dd9dbab40f0da655e7795374c0eb032bcd53b32044b336b4125c28e534da5f39fb53b1549eb148462c0b80a.css integrity="sha512-q1wnV7RIA3l1itRfe9MPaiFbBQFd2durQPDaZV53lTdMDrAyvNU7MgRLM2tBJcKOU02l85+1OxVJ6xSEYsC4Cg=="><link rel=stylesheet href=/css/home.min.95866ed6ae8468584bd1e19684f4abbb49c9b774b547ea44b77e5f879a551eb41c6caf7f060d79136ee92d75d0116b3499ca41372aefe14e2c291d277572fc19.css integrity="sha512-lYZu1q6EaFhL0eGWhPSru0nJt3S1R+pEt35fh5pVHrQcbK9/Bg15E27pLXXQEWs0mcpBNyrv4U4sKR0ndXL8GQ=="><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"picoCTF - Cryptography - basic-mod1","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/blog.ppeinecke.de\/posts\/picoctf-cryptography-basic-mod1\/"},"genre":"posts","keywords":"crypto, cryptography, picoctf","wordcount":561,"url":"https:\/\/blog.ppeinecke.de\/posts\/picoctf-cryptography-basic-mod1\/","datePublished":"2022-04-06T13:58:41+02:00","dateModified":"2022-04-06T13:58:41+02:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Author"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"dark"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"dark"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Pascal's Blog"><span id=id-1 class=typeit></span></a></div><div class=menu><div class=menu-inner><span class="menu-item search" id=search-desktop><input type=text placeholder="Search titles or contents..." id=search-input-desktop>
+writeup Lets write a simple python program which reads the message into a string first."><meta name=application-name content="FeelIt"><meta name=apple-mobile-web-app-title content="FeelIt"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/><link rel=prev href=https://blog.ppeinecke.de/posts/picoctf-binary-exploitation-buffer-overflow-0/><link rel=next href=https://blog.ppeinecke.de/posts/picoctf-cryptography-credstuff/><link rel=stylesheet href=/css/page.min.ab5c2757b4480379758ad45f7bd30f6a215b05015dd9dbab40f0da655e7795374c0eb032bcd53b32044b336b4125c28e534da5f39fb53b1549eb148462c0b80a.css integrity="sha512-q1wnV7RIA3l1itRfe9MPaiFbBQFd2durQPDaZV53lTdMDrAyvNU7MgRLM2tBJcKOU02l85+1OxVJ6xSEYsC4Cg=="><link rel=stylesheet href=/css/home.min.95866ed6ae8468584bd1e19684f4abbb49c9b774b547ea44b77e5f879a551eb41c6caf7f060d79136ee92d75d0116b3499ca41372aefe14e2c291d277572fc19.css integrity="sha512-lYZu1q6EaFhL0eGWhPSru0nJt3S1R+pEt35fh5pVHrQcbK9/Bg15E27pLXXQEWs0mcpBNyrv4U4sKR0ndXL8GQ=="><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"picoCTF - Cryptography - basic-mod1","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/blog.ppeinecke.de\/posts\/picoctf-cryptography-basic-mod1\/"},"genre":"posts","keywords":"crypto, cryptography, picoctf","wordcount":448,"url":"https:\/\/blog.ppeinecke.de\/posts\/picoctf-cryptography-basic-mod1\/","datePublished":"2022-04-06T13:58:41+02:00","dateModified":"2022-04-06T13:58:41+02:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Author"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"dark"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"dark"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Pascal's Blog"><span id=id-1 class=typeit></span></a></div><div class=menu><div class=menu-inner><span class="menu-item search" id=search-desktop><input type=text placeholder="Search titles or contents..." id=search-input-desktop>
 <a href=# class="search-button search-toggle" id=search-toggle-desktop title=Search><i class="fas fa-search fa-fw"></i></a>
 <a href=# class="search-button search-clear" id=search-clear-desktop title=Clear><i class="fas fa-times-circle fa-fw"></i></a>
 <span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span>
@@ -9,7 +9,7 @@ writeup Lets write a simple python program which reads the message into a string
 <a href=# class="search-button search-clear" id=search-clear-mobile title=Clear><i class="fas fa-times-circle fa-fw"></i></a>
 <span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=# class=search-cancel id=search-cancel-mobile>Cancel</a></div><div class=menu-item><a href=/index.xml title=RSS><i class="fas fa-rss fa-fw" title=RSS></i></a>
 <span>&nbsp;|&nbsp;</span><a href=javascript:void(0); class=theme-switch title="Switch Theme">
-<i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single" data-toc=enable><div class=featured-image><img class=lazyload src=/svg/loading.min.svg data-src=/featuredImages/picoCTF_logo.png data-srcset="/featuredImages/picoCTF_logo.png, /featuredImages/picoCTF_logo.png 1.5x, /featuredImages/picoCTF_logo.png 2x" data-sizes=auto alt=/featuredImages/picoCTF_logo.png title=/featuredImages/picoCTF_logo.png></div><div class=single-card data-image=true><h2 class="single-title animated flipInX">picoCTF - Cryptography - basic-mod1</h2><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Author</a></span>&nbsp;<span class=post-category>published in <a href=/categories/cryptography/><i class="far fa-folder fa-fw"></i>cryptography</a>&nbsp;<a href=/categories/picoctf/><i class="far fa-folder fa-fw"></i>picoctf</a></span></div><div class=post-meta-line><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-04-06>2022-04-06</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;561 words</span>&nbsp;
+<i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single" data-toc=enable><div class=featured-image><img class=lazyload src=/svg/loading.min.svg data-src=/featuredImages/picoCTF_logo.png data-srcset="/featuredImages/picoCTF_logo.png, /featuredImages/picoCTF_logo.png 1.5x, /featuredImages/picoCTF_logo.png 2x" data-sizes=auto alt=/featuredImages/picoCTF_logo.png title=/featuredImages/picoCTF_logo.png></div><div class=single-card data-image=true><h2 class="single-title animated flipInX">picoCTF - Cryptography - basic-mod1</h2><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Author</a></span>&nbsp;<span class=post-category>published in <a href=/categories/cryptography/><i class="far fa-folder fa-fw"></i>cryptography</a>&nbsp;<a href=/categories/picoctf/><i class="far fa-folder fa-fw"></i>picoctf</a></span></div><div class=post-meta-line><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-04-06>2022-04-06</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;448 words</span>&nbsp;
 <span><i class="far fa-clock fa-fw"></i>&nbsp;3 minutes</span>&nbsp;</div></div><hr><div class="details toc" id=toc-static data-kept=true><div class="details-summary toc-title"><span>Contents</span>
 <span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#description>description</a></li><li><a href=#writeup>writeup</a></li><li><a href=#flag>Flag:</a></li></ul></nav></div></div><div class=content id=content><h1 id=cryptography---basic-mod1---writeup>Cryptography - basic-mod1 - writeup</h1><h2 id=description>description</h2><p>We found this weird message being passed around on the servers,
 we think we have a working decrpytion scheme.
@@ -21,233 +21,120 @@ format (i.e. picoCTF{decrypted_message})</p><h2 id=writeup>writeup</h2><p>Lets w
 into a string first.</p><p>Then I will read each number into an array and take each
 number in the array mod 37</p><p>After that I will try to map each array field to the following scheme:</p><blockquote><p>0-25 is the alphabet (uppercase),
 26-35 are the decimal digits, and 36 is an underscore.</p></blockquote><p>At the end I will warp the decoded message in the picoCTF
-flag format like so: (i.e. picoCTF{decrypted_message})</p><div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  6
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  7
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  8
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  9
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 10
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 11
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 12
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 13
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 14
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 15
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 16
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 17
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 18
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 19
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 20
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 21
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 22
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 23
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 24
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 25
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 26
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 27
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 28
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 29
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 30
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 31
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 32
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 33
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 34
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 35
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 36
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 37
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 38
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 39
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 40
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 41
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 42
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 43
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 44
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 45
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 46
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 47
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 48
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 49
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 50
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 51
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 52
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 53
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 54
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 55
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 56
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 57
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 58
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 59
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 60
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 61
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 62
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 63
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 64
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 65
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 66
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 67
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 68
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 69
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 70
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 71
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 72
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 73
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 74
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 75
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 76
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 77
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 78
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 79
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 80
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 81
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 82
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 83
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 84
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 85
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 86
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 87
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 88
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 89
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 90
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 91
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 92
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 93
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 94
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 95
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 96
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 97
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 98
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 99
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">100
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">101
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">102
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">103
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">104
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">105
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">106
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">107
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">108
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">109
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">110
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">111
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">112
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#6272a4>#!/usr/bin/env python3</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#ff79c6>import</span> string
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#6272a4># read the file into a string</span>
-</span></span><span style=display:flex><span><span style=color:#ff79c6>with</span> <span style=color:#8be9fd;font-style:italic>open</span>(<span style=color:#f1fa8c>&#39;message.txt&#39;</span>, <span style=color:#f1fa8c>&#39;r&#39;</span>) <span style=color:#ff79c6>as</span> file:
-</span></span><span style=display:flex><span>    enc_msg <span style=color:#ff79c6>=</span> file<span style=color:#ff79c6>.</span>read()
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#6272a4># split the string by &#39; &#39; and insert the values into an array</span>
-</span></span><span style=display:flex><span>enc_arr <span style=color:#ff79c6>=</span> enc_msg<span style=color:#ff79c6>.</span>split( )
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#6272a4># print out the array for test purposes</span>
-</span></span><span style=display:flex><span>enc_arr_len <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>len</span>(enc_arr)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#6272a4># define empty mod_arr</span>
-</span></span><span style=display:flex><span>mod_arr <span style=color:#ff79c6>=</span> []
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#6272a4># calculate modulo 37 of every number</span>
-</span></span><span style=display:flex><span><span style=color:#ff79c6>for</span> i <span style=color:#ff79c6>in</span> <span style=color:#8be9fd;font-style:italic>range</span>(<span style=color:#bd93f9>0</span>, enc_arr_len):
-</span></span><span style=display:flex><span>        mod_arr<span style=color:#ff79c6>.</span>append(<span style=color:#8be9fd;font-style:italic>round</span>(<span style=color:#8be9fd;font-style:italic>int</span>(enc_arr[i]) <span style=color:#ff79c6>%</span> <span style=color:#bd93f9>37</span>))
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#6272a4># get length of resulting array</span>
-</span></span><span style=display:flex><span>mod_arr_len <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>len</span>(mod_arr)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#6272a4># define array for final string</span>
-</span></span><span style=display:flex><span>final_string <span style=color:#ff79c6>=</span> []
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#ff79c6>for</span> i <span style=color:#ff79c6>in</span> <span style=color:#8be9fd;font-style:italic>range</span>(<span style=color:#bd93f9>0</span>, mod_arr_len):
-</span></span><span style=display:flex><span>        <span style=color:#6272a4># try to map numbers from 0 to 25 to uppercase characters of the alphabet</span>
-</span></span><span style=display:flex><span>        <span style=color:#ff79c6>if</span> <span style=color:#bd93f9>0</span> <span style=color:#ff79c6>&lt;=</span> <span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>&lt;=</span> <span style=color:#bd93f9>25</span>:
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>if</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>0</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;A&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>1</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;B&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>2</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;C&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>3</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;D&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>4</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;E&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>5</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;F&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>6</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;G&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>7</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;H&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>8</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;I&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>9</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;J&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>10</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;K&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>11</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;L&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>12</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;M&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>13</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;N&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>14</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;O&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>15</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;P&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>16</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;Q&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>17</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;R&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>18</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;S&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>19</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;T&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>20</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;U&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>21</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;V&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>22</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;W&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>23</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;X&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>24</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;Y&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>25</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;Z&#39;</span>)
-</span></span><span style=display:flex><span>        <span style=color:#6272a4># try to map numbers from 26 to 35 to decimal digits</span>
-</span></span><span style=display:flex><span>        <span style=color:#ff79c6>elif</span> <span style=color:#bd93f9>26</span> <span style=color:#ff79c6>&lt;=</span> <span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>&lt;=</span> <span style=color:#bd93f9>35</span>:
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>if</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>26</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;0&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>27</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;1&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>28</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;2&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>29</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;3&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>30</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;4&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>31</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;5&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>32</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;6&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>33</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;7&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>34</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;8&#39;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#ff79c6>elif</span>(<span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>35</span>):
-</span></span><span style=display:flex><span>                        final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#39;9&#39;</span>)
-</span></span><span style=display:flex><span>        <span style=color:#6272a4># try to map 36 to an underscore _</span>
-</span></span><span style=display:flex><span>        <span style=color:#ff79c6>elif</span> <span style=color:#8be9fd;font-style:italic>int</span>(mod_arr[i]) <span style=color:#ff79c6>==</span> <span style=color:#bd93f9>36</span>:
-</span></span><span style=display:flex><span>                final_string<span style=color:#ff79c6>.</span>append(<span style=color:#f1fa8c>&#34;_&#34;</span>)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>final_flag <span style=color:#ff79c6>=</span> <span style=color:#f1fa8c>&#39;&#39;</span><span style=color:#ff79c6>.</span>join(final_string)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;picoCTF{&#34;</span> <span style=color:#ff79c6>+</span> final_flag <span style=color:#ff79c6>+</span> <span style=color:#f1fa8c>&#34;}&#34;</span>)
-</span></span></code></pre></td></tr></table></div></div><h2 id=flag>Flag:</h2><div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>picoCTF{R0UND_N_R0UND_B0D5F596}
-</span></span></code></pre></td></tr></table></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-tag><span><a href=/tags/crypto/>crypto</a>
+flag format like so: (i.e. picoCTF{decrypted_message})</p><pre><code class=language-python>#!/usr/bin/env python3
+
+import string
+
+# read the file into a string
+with open('message.txt', 'r') as file:
+    enc_msg = file.read()
+
+# split the string by ' ' and insert the values into an array
+enc_arr = enc_msg.split( )
+
+# print out the array for test purposes
+enc_arr_len = len(enc_arr)
+
+# define empty mod_arr
+mod_arr = []
+
+# calculate modulo 37 of every number
+for i in range(0, enc_arr_len):
+        mod_arr.append(round(int(enc_arr[i]) % 37))
+
+# get length of resulting array
+mod_arr_len = len(mod_arr)
+
+# define array for final string
+final_string = []
+
+
+for i in range(0, mod_arr_len):
+        # try to map numbers from 0 to 25 to uppercase characters of the alphabet
+        if 0 &lt;= int(mod_arr[i]) &lt;= 25:
+                if(int(mod_arr[i]) == 0):
+                        final_string.append('A')
+                elif(int(mod_arr[i]) == 1):
+                        final_string.append('B')
+                elif(int(mod_arr[i]) == 2):
+                        final_string.append('C')
+                elif(int(mod_arr[i]) == 3):
+                        final_string.append('D')
+                elif(int(mod_arr[i]) == 4):
+                        final_string.append('E')
+                elif(int(mod_arr[i]) == 5):
+                        final_string.append('F')
+                elif(int(mod_arr[i]) == 6):
+                        final_string.append('G')
+                elif(int(mod_arr[i]) == 7):
+                        final_string.append('H')
+                elif(int(mod_arr[i]) == 8):
+                        final_string.append('I')
+                elif(int(mod_arr[i]) == 9):
+                        final_string.append('J')
+                elif(int(mod_arr[i]) == 10):
+                        final_string.append('K')
+                elif(int(mod_arr[i]) == 11):
+                        final_string.append('L')
+                elif(int(mod_arr[i]) == 12):
+                        final_string.append('M')
+                elif(int(mod_arr[i]) == 13):
+                        final_string.append('N')
+                elif(int(mod_arr[i]) == 14):
+                        final_string.append('O')
+                elif(int(mod_arr[i]) == 15):
+                        final_string.append('P')
+                elif(int(mod_arr[i]) == 16):
+                        final_string.append('Q')
+                elif(int(mod_arr[i]) == 17):
+                        final_string.append('R')
+                elif(int(mod_arr[i]) == 18):
+                        final_string.append('S')
+                elif(int(mod_arr[i]) == 19):
+                        final_string.append('T')
+                elif(int(mod_arr[i]) == 20):
+                        final_string.append('U')
+                elif(int(mod_arr[i]) == 21):
+                        final_string.append('V')
+                elif(int(mod_arr[i]) == 22):
+                        final_string.append('W')
+                elif(int(mod_arr[i]) == 23):
+                        final_string.append('X')
+                elif(int(mod_arr[i]) == 24):
+                        final_string.append('Y')
+                elif(int(mod_arr[i]) == 25):
+                        final_string.append('Z')
+        # try to map numbers from 26 to 35 to decimal digits
+        elif 26 &lt;= int(mod_arr[i]) &lt;= 35:
+                if(int(mod_arr[i]) == 26):
+                        final_string.append('0')
+                elif(int(mod_arr[i]) == 27):
+                        final_string.append('1')
+                elif(int(mod_arr[i]) == 28):
+                        final_string.append('2')
+                elif(int(mod_arr[i]) == 29):
+                        final_string.append('3')
+                elif(int(mod_arr[i]) == 30):
+                        final_string.append('4')
+                elif(int(mod_arr[i]) == 31):
+                        final_string.append('5')
+                elif(int(mod_arr[i]) == 32):
+                        final_string.append('6')
+                elif(int(mod_arr[i]) == 33):
+                        final_string.append('7')
+                elif(int(mod_arr[i]) == 34):
+                        final_string.append('8')
+                elif(int(mod_arr[i]) == 35):
+                        final_string.append('9')
+        # try to map 36 to an underscore _
+        elif int(mod_arr[i]) == 36:
+                final_string.append(&quot;_&quot;)
+
+final_flag = ''.join(final_string)
+
+print(&quot;picoCTF{&quot; + final_flag + &quot;}&quot;)
+</code></pre><h2 id=flag>Flag:</h2><pre><code>picoCTF{R0UND_N_R0UND_B0D5F596}
+</code></pre></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-tag><span><a href=/tags/crypto/>crypto</a>
 </span><span><a href=/tags/cryptography/>cryptography</a>
 </span><span><a href=/tags/picoctf/>picoctf</a></span></div><div class=post-info-line><div class=post-info-mod><span>Updated on 2022-04-06</span></div><div class=post-info-mod></div></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-title="picoCTF - Cryptography - basic-mod1" data-hashtags=crypto,cryptography,picoctf><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-hashtag=crypto><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="Share on Linkedin" data-sharer=linkedin data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/><i class="fab fa-linkedin fa-fw"></i></a><a href=javascript:void(0); title="Share on WhatsApp" data-sharer=whatsapp data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-title="picoCTF - Cryptography - basic-mod1" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=javascript:void(0); title="Share on Reddit" data-sharer=reddit data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/><i class="fab fa-reddit fa-fw"></i></a><a href=javascript:void(0); title="Share on Xing" data-sharer=xing data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-title="picoCTF - Cryptography - basic-mod1"><i class="fab fa-xing fa-fw"></i></a><a href=javascript:void(0); title="Share on Line" data-sharer=line data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-title="picoCTF - Cryptography - basic-mod1"><i class="fab fa-line fa-fw"></i></a><a href=javascript:void(0); title="Share on 微博" data-sharer=weibo data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-title="picoCTF - Cryptography - basic-mod1" data-image=/featuredImages/picoCTF_logo.png><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="Share on Myspace" data-sharer=myspace data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-title="picoCTF - Cryptography - basic-mod1" data-description><i data-svg-src=/lib/simple-icons/icons/myspace.min.svg></i></a><a href=javascript:void(0); title="Share on Blogger" data-sharer=blogger data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-title="picoCTF - Cryptography - basic-mod1" data-description><i class="fab fa-blogger fa-fw"></i></a><a href=javascript:void(0); title="Share on Evernote" data-sharer=evernote data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-title="picoCTF - Cryptography - basic-mod1"><i class="fab fa-evernote fa-fw"></i></a></span></div></div><div class=post-nav><a href=/posts/picoctf-binary-exploitation-buffer-overflow-0/ class=prev rel=prev title="picoCTF - Binary Exploitation - Buffer Overflow 0"><i class="fas fa-angle-left fa-fw"></i>Previous Post</a>
 <a href=/posts/picoctf-cryptography-credstuff/ class=next rel=next title="picoCTF - Cryptography - credstuff">Next Post<i class="fas fa-angle-right fa-fw"></i></a></div></div></div><div id=comments class=single-card><div id=disqus_thread></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://disqus.com/?ref_noscript>Disqus</a>.</noscript></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/></a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div><script>"serviceWorker"in navigator&&(navigator.serviceWorker.register("/sw.min.js?version=1.0.1",{scope:"/"}).then(()=>{console.info("Pascal\u0027s Blog\u00A0Service Worker Registered")},e=>console.error("Pascal\u0027s Blog\u00A0Service Worker registration failed: ",e)),navigator.serviceWorker.ready.then(()=>{console.info("Pascal\u0027s Blog\u00A0Service Worker Ready")}))</script></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-chevron-up fa-fw"></i>

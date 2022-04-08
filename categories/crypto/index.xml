@@ -7,66 +7,30 @@
 <p>Can you decrypt?</p>
 <h2 id="writeup">writeup</h2>
 <p>this is the message we got:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>324c6e597364696f3259725a6f646d673261453d
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>this looks to be hex let&rsquo;s translate that hex string to ascii:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>2LnYsdio2YrZodmg2aE=
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>The = at the end most probably means that this is base64</p>
+<pre><code>324c6e597364696f3259725a6f646d673261453d
+</code></pre>
+<p>this looks to be hex let&rsquo;s translate that hex string to ascii:</p>
+<pre><code>2LnYsdio2YrZodmg2aE=
+</code></pre>
+<p>The = at the end most probably means that this is base64</p>
 <p>If I try to decode this from base64 I get this:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>عربي١٠١
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>this is Arabic.</p>
+<pre><code>عربي١٠١
+</code></pre>
+<p>this is Arabic.</p>
 <p>Once I try to use google translate to translate this to English I get this:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Arabic101 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>All that is left is to wrap it with the flag format!</p>
+<pre><code>Arabic101 
+</code></pre>
+<p>All that is left is to wrap it with the flag format!</p>
 <p>The final flag is:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>RS{Arabic101}
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>MHSCTF - Crypto - What's Cooking?</title><link>https://blog.ppeinecke.de/posts/mhsctf-crypto-whats-cooking/</link><pubDate>Fri, 11 Mar 2022 14:42:11 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-crypto-whats-cooking/</guid><description><![CDATA[<div class="featured-image">
+<pre><code>RS{Arabic101}
+</code></pre>
+]]></description></item><item><title>MHSCTF - Crypto - What's Cooking?</title><link>https://blog.ppeinecke.de/posts/mhsctf-crypto-whats-cooking/</link><pubDate>Fri, 11 Mar 2022 14:42:11 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-crypto-whats-cooking/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/base64.png" referrerpolicy="no-referrer">
             </div><h1 id="crypto---whats-cooking---writeup">Crypto - What&rsquo;s Cooking? - writeup</h1>
 <h2 id="writeup">Writeup</h2>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>65 141 40 66 144 40 67 70 40 66 70 40 65 141 40 63 63 40 67 64 40 67 64 40 66 62 40 65 67 40 63 61 40 66 66 40 66 63 40 64 65 40 64 61 40 66 142 40 66 64 40 64 67 40 64 66 40 63 71
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>According to cyberchef it is octal =&gt; hex =&gt; base64</p>
+<pre><code>65 141 40 66 144 40 67 70 40 66 70 40 65 141 40 63 63 40 67 64 40 67 64 40 66 62 40 65 67 40 63 61 40 66 66 40 66 63 40 64 65 40 64 61 40 66 142 40 66 64 40 64 67 40 64 66 40 63 71
+</code></pre>
+<p>According to cyberchef it is octal =&gt; hex =&gt; base64</p>
 <p>From_Octal(&lsquo;Space&rsquo;)
 From_Hex(&lsquo;Space&rsquo;)
 From_Base64(&lsquo;A-Za-z0-9+/=&rsquo;,true)</p>
@@ -106,52 +70,27 @@ From_Base64(&lsquo;A-Za-z0-9._-&rsquo;,true)</p>
             	Valid UTF8
 </code></pre>
 <p>Entropy: 3.46</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Flag: flag{mmm_p@$ta}
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>MHSCTF - Crypto - Em Dee 2</title><link>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee-2/</link><pubDate>Fri, 11 Mar 2022 14:35:29 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee-2/</guid><description><![CDATA[<div class="featured-image">
+<pre><code>Flag: flag{mmm_p@$ta}
+</code></pre>
+]]></description></item><item><title>MHSCTF - Crypto - Em Dee 2</title><link>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee-2/</link><pubDate>Fri, 11 Mar 2022 14:35:29 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee-2/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/binary.jpg" referrerpolicy="no-referrer">
             </div><h1 id="crypto---em-dee---writeup">Crypto - Em Dee - writeup</h1>
 <h2 id="description">Description</h2>
 <p>Another super-secret message from Em!</p>
 <p>What does this one mean?</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>b4b11af47f3086ce1293df4908d026d4 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Remember to enter your answer in the &ldquo;flag{&hellip;}&rdquo; format!</p>
+<pre><code>b4b11af47f3086ce1293df4908d026d4 
+</code></pre>
+<p>Remember to enter your answer in the &ldquo;flag{&hellip;}&rdquo; format!</p>
 <p>Hint: If at first you don&rsquo;t succeed, try, try again.</p>
 <h2 id="writeup">Writeup</h2>
 <p>Looks like an MD5 hash</p>
 <p><a href="md5online.org" rel=""></a> found the hash:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Found : zero_cool
-</span></span><span style="display:flex;"><span>(hash = b4b11af47f3086ce1293df4908d026d4)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>flag{zero_cool}
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>MHSCTF - Crypto - Em Dee</title><link>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee/</link><pubDate>Fri, 11 Mar 2022 14:24:10 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee/</guid><description><![CDATA[<div class="featured-image">
+<pre><code>Found : zero_cool
+(hash = b4b11af47f3086ce1293df4908d026d4)
+</code></pre>
+<pre><code>flag{zero_cool}
+</code></pre>
+]]></description></item><item><title>MHSCTF - Crypto - Em Dee</title><link>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee/</link><pubDate>Fri, 11 Mar 2022 14:24:10 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/mhsctf-crypto-em-dee/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/binary.jpg" referrerpolicy="no-referrer">
             </div><h1 id="crypto---em-dee---writeup">Crypto - Em Dee - writeup</h1>
 <h2 id="description">Description</h2>
@@ -161,12 +100,6 @@ From_Base64(&lsquo;A-Za-z0-9._-&rsquo;,true)</p>
 <p><code>happy</code> encoded in MD5 equals to <code>56ab24c15b72a457069c5ea42fcfc640</code>
 <code>sad</code> encoded in MD5 equals to <code>49f0bad299687c62334182178bfd75d8</code></p>
 <p><code>mhsctf</code> encoded in MD5 is <code>fc3e3c405a66f8fe7cb7f17a838ea88c</code></p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>flag: flag{fc3e3c405a66f8fe7cb7f17a838ea88c}
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+<pre><code>flag: flag{fc3e3c405a66f8fe7cb7f17a838ea88c}
+</code></pre>
+]]></description></item></channel></rss>

@@ -22,64 +22,30 @@ exactly one other account.</p>
 </blockquote>
 <p>Wait &hellip; that is peculiar &hellip; an exposed email on that profile??</p>
 <p>So I decided to send her an email:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>From: [myEmail]
-</span></span><span style="display:flex;"><span>To: ashlyn_bardot@yahoo.com
-</span></span><span style="display:flex;"><span>Subject: flag
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Hi, can you provide me the flag for E-CTF Vacation?
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>I quickly received a response from here:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>From: ashlyn_bardot@yahoo.com
-</span></span><span style="display:flex;"><span>To: [myEmail]
-</span></span><span style="display:flex;"><span>Subject: Auto Response: flag
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Hello!
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>I&#39;m currently on vacation, so I can&#39;t really help at the moment.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>I wonder if this is what you were looking for when you contacted me: 
-</span></span><span style="display:flex;"><span>CTF{f0und_th3_fl@g}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Yours truly,
-</span></span><span style="display:flex;"><span>Ashlyn Bardot.
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>So the flag is</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>CTF{f0und_th3_fl@g}
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+<pre><code>From: [myEmail]
+To: ashlyn_bardot@yahoo.com
+Subject: flag
+
+Hi, can you provide me the flag for E-CTF Vacation?
+
+</code></pre>
+<p>I quickly received a response from here:</p>
+<pre><code>From: ashlyn_bardot@yahoo.com
+To: [myEmail]
+Subject: Auto Response: flag
+
+Hello!
+
+I'm currently on vacation, so I can't really help at the moment.
+
+I wonder if this is what you were looking for when you contacted me: 
+CTF{f0und_th3_fl@g}
+
+
+Yours truly,
+Ashlyn Bardot.
+</code></pre>
+<p>So the flag is</p>
+<pre><code>CTF{f0und_th3_fl@g}
+</code></pre>
+]]></description></item></channel></rss>

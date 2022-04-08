@@ -7,54 +7,24 @@
 <p>Can you decrypt?</p>
 <h2 id="writeup">writeup</h2>
 <p>this is the message we got:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>324c6e597364696f3259725a6f646d673261453d
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>this looks to be hex let&rsquo;s translate that hex string to ascii:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>2LnYsdio2YrZodmg2aE=
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>The = at the end most probably means that this is base64</p>
+<pre><code>324c6e597364696f3259725a6f646d673261453d
+</code></pre>
+<p>this looks to be hex let&rsquo;s translate that hex string to ascii:</p>
+<pre><code>2LnYsdio2YrZodmg2aE=
+</code></pre>
+<p>The = at the end most probably means that this is base64</p>
 <p>If I try to decode this from base64 I get this:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>عربي١٠١
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>this is Arabic.</p>
+<pre><code>عربي١٠١
+</code></pre>
+<p>this is Arabic.</p>
 <p>Once I try to use google translate to translate this to English I get this:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Arabic101 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>All that is left is to wrap it with the flag format!</p>
+<pre><code>Arabic101 
+</code></pre>
+<p>All that is left is to wrap it with the flag format!</p>
 <p>The final flag is:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>RS{Arabic101}
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>RITSEC CTF - Misc - Stegwalk</title><link>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</link><pubDate>Thu, 07 Apr 2022 17:51:01 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</guid><description><![CDATA[<div class="featured-image">
+<pre><code>RS{Arabic101}
+</code></pre>
+]]></description></item><item><title>RITSEC CTF - Misc - Stegwalk</title><link>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</link><pubDate>Thu, 07 Apr 2022 17:51:01 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/ritsecCTF_logo.png" referrerpolicy="no-referrer">
             </div><h1 id="misc---stegwalk---writeup">Misc - Stegwalk - writeup</h1>
 <h2 id="description">description</h2>
@@ -63,96 +33,49 @@ something more to one of these featuredImages. Good luck!</p>
 <h2 id="writeup">writeup</h2>
 <p>Ok so I first downloaded the file &lsquo;StegWalk.zip&rsquo;</p>
 <p>Let&rsquo;s move it for our convenience.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mv ~/Downloads/StegWalk.zip .
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>I am going to extract the file first</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>unzip StegWalk.zip -d StegWalk
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Inside this zip archive are a dozen of .png files &hellip;</p>
+<pre><code class="language-bash">mv ~/Downloads/StegWalk.zip .
+</code></pre>
+<p>I am going to extract the file first</p>
+<pre><code class="language-bash">unzip StegWalk.zip -d StegWalk
+</code></pre>
+<p>Inside this zip archive are a dozen of .png files &hellip;</p>
 <p>Most of these featuredImage files just say &lsquo;Nothing&rsquo;.</p>
 <p>But looking at the file sizes of the files I can see that all
 files have the size 2150 bytes except the file &lsquo;iyav473h.png&rsquo;
 which is 110436 bytes in size.</p>
 <p>After opening that particular file I see some sort of ancient map.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>file iyav473h.png
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>iyav473h.png: JPEG featuredImage data, JFIF standard 1.01, aspect ratio, density 1x1, segment length 16, baseline, precision 8, 991x991, components <span style="color:#bd93f9">3</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>After trying to extract files from the featuredImage using cyberchef I found
+<pre><code class="language-bash">file iyav473h.png
+
+iyav473h.png: JPEG featuredImage data, JFIF standard 1.01, aspect ratio, density 1x1, segment length 16, baseline, precision 8, 991x991, components 3
+</code></pre>
+<p>After trying to extract files from the featuredImage using cyberchef I found
 a zip archive &rsquo;extracted_at_0x1adc4.zip'</p>
 <p>Inside this zip archive is a folder called &lsquo;secret&rsquo;</p>
 <p>I already had seen that folder while looking at the hexcode of the featuredImage bytes.</p>
 <p>Inside of that folder is a file called &lsquo;secret.txt&rsquo;</p>
 <p>Let&rsquo;s see what is inside there &hellip;</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat secret.txt
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Nothing here... or is there?                                                
-</span></span><span style="display:flex;"><span>                                                                          
-</span></span><span style="display:flex;"><span>                                                                           
-</span></span><span style="display:flex;"><span>                                                                           
-</span></span><span style="display:flex;"><span>                                                                           
-</span></span><span style="display:flex;"><span>                                                                         
-</span></span><span style="display:flex;"><span>                     
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Mh a lot of whitespace.</p>
+<pre><code class="language-bash">cat secret.txt
+
+Nothing here... or is there?                                                
+                                                                          
+                                                                           
+                                                                           
+                                                                           
+                                                                         
+                     
+
+</code></pre>
+<p>Mh a lot of whitespace.</p>
 <p>Chances are high this could be some sort of whitespace steganography
 or zero width space steganography &hellip;.</p>
 <p>Let&rsquo;s try to decode it using stegsnow &hellip;</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>stegsnow -C secret.txt output.txt
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat output.txt
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RS<span style="color:#ff79c6">{</span>st3g0_w4lk_432849<span style="color:#ff79c6">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>There is our flag!</p>
+<pre><code class="language-bash">stegsnow -C secret.txt output.txt
+</code></pre>
+<pre><code class="language-bash">cat output.txt
+
+RS{st3g0_w4lk_432849}
+</code></pre>
+<p>There is our flag!</p>
 ]]></description></item><item><title>RITSEC CTF - Misc - Scrumptions Snacks</title><link>https://blog.ppeinecke.de/posts/ritsecctf-misc-scrumptions-snacks/</link><pubDate>Thu, 07 Apr 2022 17:44:03 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-misc-scrumptions-snacks/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/ritsecCTF_logo.png" referrerpolicy="no-referrer">
             </div><h1 id="misc---scrumptions-snacks---writeup">Misc - Scrumptions Snacks - writeup</h1>
@@ -163,70 +86,30 @@ Can you identify the name of Sheamus&rsquo; favorite food establishment?</p>
 <h2 id="writeup">writeup</h2>
 <p>So I first downloaded the file &lsquo;stegosaurus.jpg&rsquo;.</p>
 <p>Let&rsquo;s see what we have here:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mv ~/Downloads/stegosaurus.jpg .
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>file stegosaurus.jpg 
-</span></span><span style="display:flex;"><span>stegosaurus.jpg: JPEG featuredImage data, JFIF standard 1.01, resolution <span style="color:#ff79c6">(</span>DPI<span style="color:#ff79c6">)</span>, density 168x168, segment length 16, baseline, precision 8, 964x910, components <span style="color:#bd93f9">3</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>It is a JPEG file so steganography is possible.</p>
+<pre><code class="language-bash">mv ~/Downloads/stegosaurus.jpg .
+</code></pre>
+<pre><code class="language-bash">file stegosaurus.jpg 
+stegosaurus.jpg: JPEG featuredImage data, JFIF standard 1.01, resolution (DPI), density 168x168, segment length 16, baseline, precision 8, 964x910, components 3
+</code></pre>
+<p>It is a JPEG file so steganography is possible.</p>
 <p>According to stegdetect there is no steganography hidden in here &hellip;</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>stegdetect ./stegosaurus.jpg 
-</span></span><span style="display:flex;"><span>./stegosaurus.jpg : negative
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Ok so that does not lead to anything &hellip;.</p>
+<pre><code class="language-bash">stegdetect ./stegosaurus.jpg 
+./stegosaurus.jpg : negative
+</code></pre>
+<p>Ok so that does not lead to anything &hellip;.</p>
 <p>In the task description there stands:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>He&#39;s somewhat secretive about his favorite snack spot, but he&#39;ll gladly share his secret if you say the word: &#34;lunch&#34;.
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>So I tried to extract any steganography using steghide with the password &rsquo;lunch'</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>steghide extract -sf stegosaurus.jpg -p lunch -xf solved.txt
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>The extracted data was written to a file &lsquo;solved.txt&rsquo;</p>
+<pre><code>He's somewhat secretive about his favorite snack spot, but he'll gladly share his secret if you say the word: &quot;lunch&quot;.
+</code></pre>
+<p>So I tried to extract any steganography using steghide with the password &rsquo;lunch'</p>
+<pre><code class="language-bash">steghide extract -sf stegosaurus.jpg -p lunch -xf solved.txt
+</code></pre>
+<p>The extracted data was written to a file &lsquo;solved.txt&rsquo;</p>
 <p>let&rsquo;s see what&rsquo;s inside !</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat solved.txt
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>39.95187791397735, -75.17117334360019
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Mhh &hellip; What is that?</p>
+<pre><code class="language-bash">cat solved.txt
+
+39.95187791397735, -75.17117334360019
+</code></pre>
+<p>Mhh &hellip; What is that?</p>
 <p>I suppose these have to be the coordinates of his favorite snack spot!</p>
 <p>Let&rsquo;s fire up google maps and input the above coordinates!</p>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
@@ -236,12 +119,6 @@ Can you identify the name of Sheamus&rsquo; favorite food establishment?</p>
 <p></p>
 <p>The establishment seems to be called &lsquo;sweetgreen&rsquo;</p>
 <p>So the flag is</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>RS{sweetgreen}
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+<pre><code>RS{sweetgreen}
+</code></pre>
+]]></description></item></channel></rss>
