@@ -762,7 +762,7 @@ Use the &quot;--show --format=NT&quot; options to display all of the cracked pas
 Session completed.
 </code></pre>
 <p>We successfully cracked the password hash!</p>
-<p>The passwords of the user <code>john</code> is <code>alqfna22</code> !</p>
+<p>The passwords for the user <code>Jon</code> is <code>alqfna22</code> !</p>
 <hr>
 <h2 id="task-5-find-flags">Task 5: Find flags!</h2>
 <h3 id="find-the-three-flags-planted-on-this-machine-these-are-not-traditional-flags-rather-theyre-meant-to-represent-key-locations-within-the-windows-system-use-the-hints-provided-below-to-complete-this-room">Find the three flags planted on this machine. These are not traditional flags, rather, they&rsquo;re meant to represent key locations within the Windows system. Use the hints provided below to complete this room!</h3>
