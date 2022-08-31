@@ -3,14 +3,38 @@
             </div><h1 id="general---where-the-wildcards-are-2---writeup">General - Where the Wildcards Are 2 - writeup</h1>
 <h2 id="writeup">Writeup</h2>
 <h2 id="match-all-lowercase-letters">Match all lowercase letters:</h2>
-<pre><code>[a-z]
-</code></pre>
-<h2 id="match-all-lowercase-letters-which-are-followed-by-two-or-more-capital-letters-then-three-or-more-digits-the-capital-letters-and-digits-should-not-be-included-in-the-match">Match all lowercase letters which are followed by two or more capital letters then three or more digits: (the capital letters and digits should not be included in the match)</h2>
-<pre><code>[a-z](?=[A-Z]{2,}[0-9]{3,})
-</code></pre>
-<h2 id="match-all-numbers-letters-or-underscores-using-the-shortest-possible-pattern">Match all numbers, letters, or underscores using the shortest possible pattern</h2>
-<pre><code>\w
-</code></pre>
-<pre><code>Flag: flag{m@tc#_mak3r}
-</code></pre>
-]]></description></item></channel></rss>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[a-z]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="match-all-lowercase-letters-which-are-followed-by-two-or-more-capital-letters-then-three-or-more-digits-the-capital-letters-and-digits-should-not-be-included-in-the-match">Match all lowercase letters which are followed by two or more capital letters then three or more digits: (the capital letters and digits should not be included in the match)</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[a-z](?=[A-Z]{2,}[0-9]{3,})
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="match-all-numbers-letters-or-underscores-using-the-shortest-possible-pattern">Match all numbers, letters, or underscores using the shortest possible pattern</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">\w
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Flag: flag{m@tc#_mak3r}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

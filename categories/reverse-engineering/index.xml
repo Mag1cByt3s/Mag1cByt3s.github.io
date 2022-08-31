@@ -6,46 +6,99 @@
 <p>Reverse engineer this <!-- raw HTML omitted -->Python program<!-- raw HTML omitted -->.</p>
 <h2 id="writeup">writeup</h2>
 <p>Let&rsquo;s download the python program first.</p>
-<pre><code class="language-bash">wget https://artifacts.picoctf.net/c/470/unpackme.flag.py
-</code></pre>
-<p>I will try to reverse engineer this python code &hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://artifacts.picoctf.net/c/470/unpackme.flag.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I will try to reverse engineer this python code &hellip;</p>
 <p>If we take a look at the code:</p>
-<pre><code class="language-python">import base64
-from cryptography.fernet import Fernet
-
-
-payload = b'gAAAAABiMD1Ju5_eZeZy7C03K_YcWGDGXfvy5A9b5HzV-uZIYN8syTFGHgLwoRonYtCS0WcDrufxRRXlvNKtyEMqMS0AADLcRNr6VYpLLbKaETF37L22GEg1ok8NutHXK6gy47sBLmxmWWU729b86rzK6IMc2Kg-CR0bMm_fzrbRrWEYSk0WRNnKxy7Juuy-Ss2RjbACKgbwL7HNGATu3hYuPflf3PCKztLRFXCBxijKncKZgt68wYhGnPAzYvUVrdhhtMg9ra7ZKIirltPfKC8iX2DqmR9vVA=='
-
-key_str = 'correctstaplecorrectstaplecorrec'
-key_base64 = base64.b64encode(key_str.encode())
-f = Fernet(key_base64)
-plain = f.decrypt(payload)
-exec(plain.decode())
-</code></pre>
-<p>We can see that some part of the code is missing.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">base64</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">cryptography.fernet</span> <span class="kn">import</span> <span class="n">Fernet</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;gAAAAABiMD1Ju5_eZeZy7C03K_YcWGDGXfvy5A9b5HzV-uZIYN8syTFGHgLwoRonYtCS0WcDrufxRRXlvNKtyEMqMS0AADLcRNr6VYpLLbKaETF37L22GEg1ok8NutHXK6gy47sBLmxmWWU729b86rzK6IMc2Kg-CR0bMm_fzrbRrWEYSk0WRNnKxy7Juuy-Ss2RjbACKgbwL7HNGATu3hYuPflf3PCKztLRFXCBxijKncKZgt68wYhGnPAzYvUVrdhhtMg9ra7ZKIirltPfKC8iX2DqmR9vVA==&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">key_str</span> <span class="o">=</span> <span class="s1">&#39;correctstaplecorrectstaplecorrec&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">key_base64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">key_str</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">f</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><span class="n">key_base64</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plain</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">exec</span><span class="p">(</span><span class="n">plain</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We can see that some part of the code is missing.</p>
 <p>That part is encoded using base64 with a key.</p>
 <p>Here is the part that encodes the code:</p>
-<pre><code class="language-python">f = Fernet(key_base64)
-plain = f.decrypt(payload)
-exec(plain.decode())
-</code></pre>
-<p>We can simply go ahead and modify the program
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">f</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><span class="n">key_base64</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plain</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">exec</span><span class="p">(</span><span class="n">plain</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We can simply go ahead and modify the program
 to show us the encoded code in plaintext:</p>
-<pre><code class="language-python">print(plain.decode())
-</code></pre>
-<p>We get this:</p>
-<pre><code class="language-python">pw = input('What\'s the password? ')
-
-if pw == 'batteryhorse':
-  print('picoCTF{175_chr157m45_616d21a3}')
-else:
-  print('That password is incorrect.')
-</code></pre>
-<p>This is the part that was missing.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">plain</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We get this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">pw</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;What</span><span class="se">\&#39;</span><span class="s1">s the password? &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">pw</span> <span class="o">==</span> <span class="s1">&#39;batteryhorse&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;picoCTF</span><span class="si">{175_chr157m45_616d21a3}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;That password is incorrect.&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is the part that was missing.</p>
 <p>And we can immediately see the flag:</p>
-<pre><code>picoCTF{175_chr157m45_616d21a3}
-</code></pre>
-]]></description></item><item><title>picoCTF - Reverse Engineering - Safe Opener</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-safe-opener/</link><pubDate>Wed, 06 Apr 2022 15:27:09 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-safe-opener/</guid><description><![CDATA[<div class="featured-image">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{175_chr157m45_616d21a3}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>picoCTF - Reverse Engineering - Safe Opener</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-safe-opener/</link><pubDate>Wed, 06 Apr 2022 15:27:09 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-safe-opener/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
             </div><h1 id="reverse-engineering---safe-opener---writeup">Reverse Engineering - Safe Opener - writeup</h1>
 <h2 id="description">description</h2>
@@ -59,34 +112,81 @@ else:
 fairly easy to reverse engineer.</p>
 <p>In the main method of the class &lsquo;SafeOpener&rsquo;,
 directly at the top I see this:</p>
-<pre><code class="language-java">Base64.Encoder encoder = Base64.getEncoder();
-String encodedkey = &quot;&quot;;
-</code></pre>
-<p>So the key is simply encoded in base64.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Base64</span><span class="o">.</span><span class="na">Encoder</span> <span class="n">encoder</span> <span class="o">=</span> <span class="n">Base64</span><span class="o">.</span><span class="na">getEncoder</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">String</span> <span class="n">encodedkey</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So the key is simply encoded in base64.</p>
 <p>Inside the method &lsquo;boolean openSafe(String password)&rsquo;
 I found this:</p>
-<pre><code class="language-java">String encodedkey = &quot;cGwzYXMzX2wzdF9tM18xbnQwX3RoM19zYWYz&quot;;
-</code></pre>
-<p>So that is the encoded key.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">String</span> <span class="n">encodedkey</span> <span class="o">=</span> <span class="s">&#34;cGwzYXMzX2wzdF9tM18xbnQwX3RoM19zYWYz&#34;</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So that is the encoded key.</p>
 <p>All I have to do here is to decode the aforementioned key using base64 decoding.</p>
-<pre><code class="language-bash">echo -n &quot;cGwzYXMzX2wzdF9tM18xbnQwX3RoM19zYWYz&quot; | base64 -d
-
-pl3as3_l3t_m3_1nt0_th3_saf3
-</code></pre>
-<p>That should be the correct password.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> -n <span class="s2">&#34;cGwzYXMzX2wzdF9tM18xbnQwX3RoM19zYWYz&#34;</span> <span class="p">|</span> base64 -d
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">pl3as3_l3t_m3_1nt0_th3_saf3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>That should be the correct password.</p>
 <p>Let&rsquo;s compile and run that java code&hellip;</p>
-<pre><code class="language-bash">javac SafeOpener.java
-</code></pre>
-<pre><code class="language-bash">java SafeOpener
-</code></pre>
-<pre><code class="language-bash">Enter password for the safe: pl3as3_l3t_m3_1nt0_th3_saf3
-cGwzYXMzX2wzdF9tM18xbnQwX3RoM19zYWYz
-Sesame open
-</code></pre>
-<p>And here we have our flag.</p>
-<pre><code>picoCTF{pl3as3_l3t_m3_1nt0_th3_saf3}
-</code></pre>
-]]></description></item><item><title>picoCTF - Reverse Engineering - patchme.py</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-patchme.py/</link><pubDate>Wed, 06 Apr 2022 15:25:17 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-patchme.py/</guid><description><![CDATA[<div class="featured-image">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">javac SafeOpener.java
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">java SafeOpener
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Enter password <span class="k">for</span> the safe: pl3as3_l3t_m3_1nt0_th3_saf3
+</span></span><span class="line"><span class="cl">cGwzYXMzX2wzdF9tM18xbnQwX3RoM19zYWYz
+</span></span><span class="line"><span class="cl">Sesame open
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>And here we have our flag.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{pl3as3_l3t_m3_1nt0_th3_saf3}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>picoCTF - Reverse Engineering - patchme.py</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-patchme.py/</link><pubDate>Wed, 06 Apr 2022 15:25:17 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-patchme.py/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
             </div><h1 id="reverse-engineering---patchmepy---writeup">Reverse Engineering - patchme.py - writeup</h1>
 <h2 id="description">description</h2>
@@ -94,38 +194,86 @@ Sesame open
 <p>Run this <!-- raw HTML omitted -->Python program<!-- raw HTML omitted --> in the same directory as this <!-- raw HTML omitted -->encrypted flag<!-- raw HTML omitted -->.</p>
 <h2 id="writeup">writeup</h2>
 <p>Let&rsquo;s take a look at the encrypted flag&hellip;</p>
-<pre><code class="language-bash">cat flag.txt.enc
-
-CR1@    UYX+
-6UB
-P\E
-</code></pre>
-<p>That does not help.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat flag.txt.enc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">CR1@    UYX+
+</span></span><span class="line"><span class="cl">6UB
+</span></span><span class="line"><span class="cl">P<span class="se">\E</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>That does not help.</p>
 <p>Let&rsquo;s look at the python code&hellip;</p>
 <p>Mh that is peculiar:</p>
-<pre><code class="language-python">if( user_pw == &quot;ak98&quot; + \
-                   &quot;-=90&quot; + \
-                   &quot;adfjhgj321&quot; + \
-                   &quot;sleuth9000&quot;)
-</code></pre>
-<p>Let&rsquo;s fire up bpython and input this code:</p>
-<pre><code class="language-python">&quot;ak98&quot; + \
-                   &quot;-=90&quot; + \
-                   &quot;adfjhgj321&quot; + \
-                   &quot;sleuth9000&quot;
-</code></pre>
-<p>This is the result:</p>
-<pre><code>'ak98-=90adfjhgj321sleuth9000'
-</code></pre>
-<p>Once I try to supply the aforementioned string as the password I get this output:</p>
-<pre><code>Please enter correct password for flag: ak98-=90adfjhgj321sleuth9000
-Welcome back... your flag, user:
-picoCTF{p47ch1ng_l1f3_h4ck_e40c120e}
-</code></pre>
-<p>so the flag is:</p>
-<pre><code>picoCTF{p47ch1ng_l1f3_h4ck_e40c120e}
-</code></pre>
-<p>This is probably not the way that was intended by the author to solve this challenge since the name of it is &lsquo;patchme.py&rsquo;.
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span> <span class="n">user_pw</span> <span class="o">==</span> <span class="s2">&#34;ak98&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;-=90&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;adfjhgj321&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;sleuth9000&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Let&rsquo;s fire up bpython and input this code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="s2">&#34;ak98&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;-=90&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;adfjhgj321&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;sleuth9000&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is the result:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#39;ak98-=90adfjhgj321sleuth9000&#39;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Once I try to supply the aforementioned string as the password I get this output:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Please enter correct password for flag: ak98-=90adfjhgj321sleuth9000
+</span></span><span class="line"><span class="cl">Welcome back... your flag, user:
+</span></span><span class="line"><span class="cl">picoCTF{p47ch1ng_l1f3_h4ck_e40c120e}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>so the flag is:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{p47ch1ng_l1f3_h4ck_e40c120e}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is probably not the way that was intended by the author to solve this challenge since the name of it is &lsquo;patchme.py&rsquo;.
 But I got the flag nevertheless.</p>
 ]]></description></item><item><title>picoCTF - Reverse Engineering - file-run2</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-file-run2/</link><pubDate>Wed, 06 Apr 2022 15:23:34 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-file-run2/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
@@ -136,15 +284,33 @@ What happens if you try to run it on the command line with input &ldquo;Hello!&r
 <p>Download the program <!-- raw HTML omitted -->here<!-- raw HTML omitted -->.</p>
 <h2 id="writeup">writeup</h2>
 <p>by simply executing the file with ./run we get</p>
-<pre><code class="language-bash">Run this file with only one argument.
-</code></pre>
-<p>if I try to supply one argument like this: ./run 1 I get</p>
-<pre><code class="language-bash">Won't you say 'Hello!' to me first?
-</code></pre>
-<p>So once I try to supply an argument like this: ./run Hello! I get</p>
-<pre><code class="language-bash">The flag is: picoCTF{F1r57_4rgum3n7_c2db2786}
-</code></pre>
-]]></description></item><item><title>picoCTF - Reverse Engineering - file-run1</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-file-run1/</link><pubDate>Wed, 06 Apr 2022 15:19:34 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-file-run1/</guid><description><![CDATA[<div class="featured-image">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Run this file with only one argument.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>if I try to supply one argument like this: ./run 1 I get</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Won<span class="s1">&#39;t you say &#39;</span>Hello!<span class="err">&#39;</span> to me first?
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So once I try to supply an argument like this: ./run Hello! I get</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">The flag is: picoCTF<span class="o">{</span>F1r57_4rgum3n7_c2db2786<span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>picoCTF - Reverse Engineering - file-run1</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-file-run1/</link><pubDate>Wed, 06 Apr 2022 15:19:34 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-file-run1/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
             </div><h1 id="reverse-engineering---file-run1---writeup">Reverse Engineering - file-run1 - writeup</h1>
 <h2 id="description">description</h2>
@@ -154,9 +320,15 @@ try to run it on the command line?</p>
 <p><!-- raw HTML omitted --><a href="https://artifacts.picoctf.net/c/314/run" target="_blank" rel="noopener noreffer">https://artifacts.picoctf.net/c/314/run</a><!-- raw HTML omitted --></p>
 <h2 id="writeup">writeup</h2>
 <p>by simply running the program we get the flag:</p>
-<pre><code>The flag is: picoCTF{U51N6_Y0Ur_F1r57_F113_ac61264e}
-</code></pre>
-]]></description></item><item><title>picoCTF - Reverse Engineering - bloat.py</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/</link><pubDate>Wed, 06 Apr 2022 15:16:12 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/</guid><description><![CDATA[<div class="featured-image">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">The flag is: picoCTF{U51N6_Y0Ur_F1r57_F113_ac61264e}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>picoCTF - Reverse Engineering - bloat.py</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/</link><pubDate>Wed, 06 Apr 2022 15:16:12 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bloat.py/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
             </div><h1 id="reverse-engineering---bloatpy---writeup">Reverse Engineering - bloat.py - writeup</h1>
 <h2 id="description">description</h2>
@@ -165,171 +337,366 @@ try to run it on the command line?</p>
 in the same directory as this <!-- raw HTML omitted -->encrypted flag.<!-- raw HTML omitted --></p>
 <h2 id="writeup">writeup</h2>
 <p>So let&rsquo;s download the python program and the encrypted flag first!</p>
-<pre><code class="language-bash">wget https://artifacts.picoctf.net/c/434/bloat.flag.py
-</code></pre>
-<pre><code class="language-bash">wget https://artifacts.picoctf.net/c/434/flag.txt.enc
-</code></pre>
-<p>Let&rsquo;s make a copy of the python program and try to fix it
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://artifacts.picoctf.net/c/434/bloat.flag.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://artifacts.picoctf.net/c/434/flag.txt.enc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Let&rsquo;s make a copy of the python program and try to fix it
 using debugging in bpython!</p>
-<pre><code class="language-bash">cp bloat.flag.py flag.py
-</code></pre>
-<p>After a lot of debugging and reverse engineering using bpython I found the flag!</p>
-<pre><code class="language-bash">bpython
-</code></pre>
-<pre><code class="language-python">bpython Version 0.22.1 mit Python 3.9.10 /usr/bin/python3
-&gt;&gt;&gt; import sys;
-&gt;&gt;&gt; a = &quot;!\&quot;#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ &quot;
-&gt;&gt;&gt; def arg133(arg432):
-...   if arg432 == a[71]+a[64]+a[79]+a[79]+a[88]+a[66]+a[71]+a[64]+a[77]+a[66]+a[68]:
-...     return True
-...   else:
-...     print(a[51]+a[71]+a[64]+a[83]+a[94]+a[79]+a[64]+a[82]+a[82]+a[86]+a[78]+\
-... a[81]+a[67]+a[94]+a[72]+a[82]+a[94]+a[72]+a[77]+a[66]+a[78]+a[81]+\
-... a[81]+a[68]+a[66]+a[83])
-...     sys.exit(0)
-...     return False
-... 
-&gt;&gt;&gt; def arg111(arg444):
-...   return arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+\
-... a[75]+a[72]+a[78]+a[77])
-... 
-&gt;&gt;&gt; def arg232():
-...   return input(a[47]+a[75]+a[68]+a[64]+a[82]+a[68]+a[94]+a[68]+a[77]+a[83]+\
-... a[68]+a[81]+a[94]+a[66]+a[78]+a[81]+a[81]+a[68]+a[66]+a[83]+\
-... a[94]+a[79]+a[64]+a[82]+a[82]+a[86]+a[78]+a[81]+a[67]+a[94]+\
-... a[69]+a[78]+a[81]+a[94]+a[69]+a[75]+a[64]+a[70]+a[25]+a[94])
-... 
-&gt;&gt;&gt; def arg132():
-...   return open('flag.txt.enc', 'rb').read()
-... 
-&gt;&gt;&gt; pwd()
-Traceback (most recent call last):
-  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
-    pwd()
-NameError: name 'pwd' is not defined
-&gt;&gt;&gt; def arg112():
-...   print(a[54]+a[68]+a[75]+a[66]+a[78]+a[76]+a[68]+a[94]+a[65]+a[64]+a[66]+\
-... a[74]+a[13]+a[13]+a[13]+a[94]+a[88]+a[78]+a[84]+a[81]+a[94]+a[69]+\
-... a[75]+a[64]+a[70]+a[11]+a[94]+a[84]+a[82]+a[68]+a[81]+a[25])
-... 
-&gt;&gt;&gt; def arg122(arg432, arg423):
-...     arg433 = arg423
-...     i = 0
-...     
-...     while len(arg433) &lt; len(arg432):
-...         arg433 = arg433 + arg423[i]
-...         i = (i + 1) % len(arg423)        
-...     
-...     return &quot;&quot;.join([chr(ord(arg422) ^ ord(arg442)) for (arg422,arg442) in zip(arg432,arg433)])
-... 
-&gt;&gt;&gt; arg112()
-Welcome back... your flag, user:
-&gt;&gt;&gt; def arg232()
-  File &quot;&lt;input&gt;&quot;, line 1
-    def arg232()
-                ^
-SyntaxError: invalid syntax
-&gt;&gt;&gt; arg232()
-Please enter correct password for flag: Traceback (most recent call last):
-  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
-    arg232()
-  File &quot;&lt;input&gt;&quot;, line 2, in arg232
-    return input(a[47]+a[75]+a[68]+a[64]+a[82]+a[68]+a[94]+a[68]+a[77]+a[83]+\
-  File &quot;/usr/lib/python3/dist-packages/bpython/curtsiesfrontend/repl.py&quot;, line 168, in readline
-    value = self.coderunner.request_from_main_context()
-  File &quot;/usr/lib/python3/dist-packages/bpython/curtsiesfrontend/coderunner.py&quot;, line 200, in request_from_main_
-context
-    raise KeyboardInterrupt()
-KeyboardInterrupt
-&gt;&gt;&gt; arg112()
-Welcome back... your flag, user:
-&gt;&gt;&gt; arg132()
-b'\x02\x08\x13\x1c 5*\x17\r\\^\x10\x07\x05F\x00U[]Y\x011\x14V\x07,\x06X\t_Q\x0c\\E\x1c'
-&gt;&gt;&gt; arg232()
-Please enter correct password for flag: bla
-'bla'
-&gt;&gt;&gt; arg132()
-b'\x02\x08\x13\x1c 5*\x17\r\\^\x10\x07\x05F\x00U[]Y\x011\x14V\x07,\x06X\t_Q\x0c\\E\x1c'
-&gt;&gt;&gt; arg232()
-Please enter correct password for flag: test
-'test'
-&gt;&gt;&gt; arg133(arg432)
-Traceback (most recent call last):
-  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
-    arg133(arg432)
-NameError: name 'arg432' is not defined
-&gt;&gt;&gt; arg432 = arg232()
-Please enter correct password for flag: test
-&gt;&gt;&gt; arg133(arg432)
-&gt;&gt;&gt; arg133(arg432)
-</code></pre>
-<pre><code class="language-bash">bpython
-</code></pre>
-<pre><code class="language-python">bpython Version 0.22.1 mit Python 3.9.10 /usr/bin/python3
-&gt;&gt;&gt; a = &quot;!\&quot;#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ &quot;
-&gt;&gt;&gt; def arg232():
-...   return input(a[47]+a[75]+a[68]+a[64]+a[82]+a[68]+a[94]+a[68]+a[77]+a[83]+\
-... a[68]+a[81]+a[94]+a[66]+a[78]+a[81]+a[81]+a[68]+a[66]+a[83]+\
-... a[94]+a[79]+a[64]+a[82]+a[82]+a[86]+a[78]+a[81]+a[67]+a[94]+\
-... a[69]+a[78]+a[81]+a[94]+a[69]+a[75]+a[64]+a[70]+a[25]+a[94])
-... 
-&gt;&gt;&gt; print(arg232());
-Please enter correct password for flag: 
-
-&gt;&gt;&gt; arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+\
-... a[75]+a[72]+a[78]+a[77])
-Traceback (most recent call last):
-  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
-    arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+\
-NameError: name 'arg122' is not defined
-&gt;&gt;&gt; def arg122(arg432, arg423):
-...     arg433 = arg423
-...     i = 0
-...     
-...     while len(arg433) &lt; len(arg432):
-...         arg433 = arg433 + arg423[i]
-...         i = (i + 1) % len(arg423)        
-...     
-...     return &quot;&quot;.join([chr(ord(arg422) ^ ord(arg442)) for (arg422,arg442) in zip(arg432,arg433)])
-... 
-&gt;&gt;&gt; print(arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+\)
-  File &quot;&lt;input&gt;&quot;, line 1
-    print(arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+\)
-                                                                             ^
-SyntaxError: unexpected character after line continuation character
-&gt;&gt;&gt; a[75]+a[72]+a[78]+a[77])
-  File &quot;&lt;input&gt;&quot;, line 1
-    a[75]+a[72]+a[78]+a[77])
-                           ^
-SyntaxError: unmatched ')'
-&gt;&gt;&gt; print(arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+\)
-  File &quot;&lt;input&gt;&quot;, line 1
-    print(arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+\)
-                                                                             ^
-SyntaxError: unexpected character after line continuation character
-&gt;&gt;&gt; a[75]+a[72]+a[78]+a[77])
-  File &quot;&lt;input&gt;&quot;, line 1
-    a[75]+a[72]+a[78]+a[77])
-                           ^
-SyntaxError: unmatched ')'
-&gt;&gt;&gt; print(arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+a[75]+a[72]+a[78]+a[77]))
-Traceback (most recent call last):
-  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
-    print(arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+a[75]+a[72]+a[78]+a[77]))
-NameError: name 'arg444' is not defined
-&gt;&gt;&gt; arg444 = arg132()
-Traceback (most recent call last):
-  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
-    arg444 = arg132()
-NameError: name 'arg132' is not defined
-&gt;&gt;&gt; def arg132():
-...   return open('flag.txt.enc', 'rb').read()
-... 
-&gt;&gt;&gt; arg444 = arg132()
-&gt;&gt;&gt; print(arg122(arg444.decode(), a[81]+a[64]+a[79]+a[82]+a[66]+a[64]+a[75]+a[75]+a[72]+a[78]+a[77]))
-picoCTF{d30bfu5c4710n_f7w_e9e38c27}
-</code></pre>
-<p>So the flag is:</p>
-<pre><code>picoCTF{d30bfu5c4710n_f7w_e9e38c27}
-</code></pre>
-]]></description></item></channel></rss>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp bloat.flag.py flag.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After a lot of debugging and reverse engineering using bpython I found the flag!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bpython
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">bpython</span> <span class="n">Version</span> <span class="mf">0.22.1</span> <span class="n">mit</span> <span class="n">Python</span> <span class="mf">3.9.10</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python3</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;!</span><span class="se">\&#34;</span><span class="s2">#$%&amp;&#39;()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[</span><span class="se">\\</span><span class="s2">]^_`abcdefghijklmnopqrstuvwxyz{|}~ &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">arg133</span><span class="p">(</span><span class="n">arg432</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>   <span class="k">if</span> <span class="n">arg432</span> <span class="o">==</span> <span class="n">a</span><span class="p">[</span><span class="mi">71</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">79</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">79</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">88</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">71</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">77</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     <span class="k">return</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>   <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">51</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">71</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">83</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">79</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">86</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span>\
+</span></span><span class="line"><span class="cl"><span class="o">...</span> <span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">67</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">72</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">72</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">77</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span>\
+</span></span><span class="line"><span class="cl"><span class="o">...</span> <span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">83</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     <span class="k">return</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">arg111</span><span class="p">(</span><span class="n">arg444</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>   <span class="k">return</span> <span class="n">arg122</span><span class="p">(</span><span class="n">arg444</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">79</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span>\
+</span></span><span class="line"><span class="cl"><span class="o">...</span> <span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">72</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">77</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">arg232</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>   <span class="k">return</span> <span class="nb">input</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">47</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">77</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">83</span><span class="p">]</span><span class="o">+</span>\
+</span></span><span class="line"><span class="cl"><span class="o">...</span> <span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">83</span><span class="p">]</span><span class="o">+</span>\
+</span></span><span class="line"><span class="cl"><span class="o">...</span> <span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">79</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">86</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">67</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span>\
+</span></span><span class="line"><span class="cl"><span class="o">...</span> <span class="n">a</span><span class="p">[</span><span class="mi">69</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">69</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">70</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">25</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">arg132</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>   <span class="k">return</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;flag.txt.enc&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">pwd</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;&lt;input&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pwd</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;pwd&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">arg112</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>   <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">54</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">76</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">65</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span>\
+</span></span><span class="line"><span class="cl"><span class="o">...</span> <span class="n">a</span><span class="p">[</span><span class="mi">74</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">88</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">84</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">69</span><span class="p">]</span><span class="o">+</span>\
+</span></span><span class="line"><span class="cl"><span class="o">...</span> <span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">70</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">84</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">25</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">arg122</span><span class="p">(</span><span class="n">arg432</span><span class="p">,</span> <span class="n">arg423</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     <span class="n">arg433</span> <span class="o">=</span> <span class="n">arg423</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">arg433</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">arg432</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>         <span class="n">arg433</span> <span class="o">=</span> <span class="n">arg433</span> <span class="o">+</span> <span class="n">arg423</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>         <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">arg423</span><span class="p">)</span>        
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     <span class="k">return</span> <span class="s2">&#34;&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">arg422</span><span class="p">)</span> <span class="o">^</span> <span class="nb">ord</span><span class="p">(</span><span class="n">arg442</span><span class="p">))</span> <span class="k">for</span> <span class="p">(</span><span class="n">arg422</span><span class="p">,</span><span class="n">arg442</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">arg432</span><span class="p">,</span><span class="n">arg433</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">arg112</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Welcome</span> <span class="n">back</span><span class="o">...</span> <span class="n">your</span> <span class="n">flag</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">arg232</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;&lt;input&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">arg232</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="o">^</span>
+</span></span><span class="line"><span class="cl"><span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">arg232</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Please</span> <span class="n">enter</span> <span class="n">correct</span> <span class="n">password</span> <span class="k">for</span> <span class="n">flag</span><span class="p">:</span> <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;&lt;input&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arg232</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;&lt;input&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="ow">in</span> <span class="n">arg232</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">input</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">47</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">77</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">83</span><span class="p">]</span><span class="o">+</span>\
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;/usr/lib/python3/dist-packages/bpython/curtsiesfrontend/repl.py&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">168</span><span class="p">,</span> <span class="ow">in</span> <span class="n">readline</span>
+</span></span><span class="line"><span class="cl">    <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coderunner</span><span class="o">.</span><span class="n">request_from_main_context</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;/usr/lib/python3/dist-packages/bpython/curtsiesfrontend/coderunner.py&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">200</span><span class="p">,</span> <span class="ow">in</span> <span class="n">request_from_main_</span>
+</span></span><span class="line"><span class="cl"><span class="n">context</span>
+</span></span><span class="line"><span class="cl">    <span class="k">raise</span> <span class="ne">KeyboardInterrupt</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="ne">KeyboardInterrupt</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">arg112</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Welcome</span> <span class="n">back</span><span class="o">...</span> <span class="n">your</span> <span class="n">flag</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">arg132</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x02\x08\x13\x1c</span><span class="s1"> 5*</span><span class="se">\x17\r\\</span><span class="s1">^</span><span class="se">\x10\x07\x05</span><span class="s1">F</span><span class="se">\x00</span><span class="s1">U[]Y</span><span class="se">\x01</span><span class="s1">1</span><span class="se">\x14</span><span class="s1">V</span><span class="se">\x07</span><span class="s1">,</span><span class="se">\x06</span><span class="s1">X</span><span class="se">\t</span><span class="s1">_Q</span><span class="se">\x0c\\</span><span class="s1">E</span><span class="se">\x1c</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">arg232</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Please</span> <span class="n">enter</span> <span class="n">correct</span> <span class="n">password</span> <span class="k">for</span> <span class="n">flag</span><span class="p">:</span> <span class="n">bla</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;bla&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">arg132</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x02\x08\x13\x1c</span><span class="s1"> 5*</span><span class="se">\x17\r\\</span><span class="s1">^</span><span class="se">\x10\x07\x05</span><span class="s1">F</span><span class="se">\x00</span><span class="s1">U[]Y</span><span class="se">\x01</span><span class="s1">1</span><span class="se">\x14</span><span class="s1">V</span><span class="se">\x07</span><span class="s1">,</span><span class="se">\x06</span><span class="s1">X</span><span class="se">\t</span><span class="s1">_Q</span><span class="se">\x0c\\</span><span class="s1">E</span><span class="se">\x1c</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">arg232</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Please</span> <span class="n">enter</span> <span class="n">correct</span> <span class="n">password</span> <span class="k">for</span> <span class="n">flag</span><span class="p">:</span> <span class="n">test</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;test&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">arg133</span><span class="p">(</span><span class="n">arg432</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;&lt;input&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arg133</span><span class="p">(</span><span class="n">arg432</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;arg432&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">arg432</span> <span class="o">=</span> <span class="n">arg232</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Please</span> <span class="n">enter</span> <span class="n">correct</span> <span class="n">password</span> <span class="k">for</span> <span class="n">flag</span><span class="p">:</span> <span class="n">test</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">arg133</span><span class="p">(</span><span class="n">arg432</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">arg133</span><span class="p">(</span><span class="n">arg432</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bpython
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">bpython</span> <span class="n">Version</span> <span class="mf">0.22.1</span> <span class="n">mit</span> <span class="n">Python</span> <span class="mf">3.9.10</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python3</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;!</span><span class="se">\&#34;</span><span class="s2">#$%&amp;&#39;()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[</span><span class="se">\\</span><span class="s2">]^_`abcdefghijklmnopqrstuvwxyz{|}~ &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">arg232</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>   <span class="k">return</span> <span class="nb">input</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">47</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">77</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">83</span><span class="p">]</span><span class="o">+</span>\
+</span></span><span class="line"><span class="cl"><span class="o">...</span> <span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">68</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">83</span><span class="p">]</span><span class="o">+</span>\
+</span></span><span class="line"><span class="cl"><span class="o">...</span> <span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">79</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">86</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">67</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span>\
+</span></span><span class="line"><span class="cl"><span class="o">...</span> <span class="n">a</span><span class="p">[</span><span class="mi">69</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">69</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">70</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">25</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">94</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">arg232</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="n">Please</span> <span class="n">enter</span> <span class="n">correct</span> <span class="n">password</span> <span class="k">for</span> <span class="n">flag</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">arg122</span><span class="p">(</span><span class="n">arg444</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">79</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span>\
+</span></span><span class="line"><span class="cl"><span class="o">...</span> <span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">72</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">77</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;&lt;input&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arg122</span><span class="p">(</span><span class="n">arg444</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">79</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span>\
+</span></span><span class="line"><span class="cl"><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;arg122&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">arg122</span><span class="p">(</span><span class="n">arg432</span><span class="p">,</span> <span class="n">arg423</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     <span class="n">arg433</span> <span class="o">=</span> <span class="n">arg423</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">arg433</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">arg432</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>         <span class="n">arg433</span> <span class="o">=</span> <span class="n">arg433</span> <span class="o">+</span> <span class="n">arg423</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>         <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">arg423</span><span class="p">)</span>        
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     <span class="k">return</span> <span class="s2">&#34;&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">arg422</span><span class="p">)</span> <span class="o">^</span> <span class="nb">ord</span><span class="p">(</span><span class="n">arg442</span><span class="p">))</span> <span class="k">for</span> <span class="p">(</span><span class="n">arg422</span><span class="p">,</span><span class="n">arg442</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">arg432</span><span class="p">,</span><span class="n">arg433</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">arg122</span><span class="p">(</span><span class="n">arg444</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">79</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span>\<span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;&lt;input&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">arg122</span><span class="p">(</span><span class="n">arg444</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">79</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span>\<span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                                                             <span class="o">^</span>
+</span></span><span class="line"><span class="cl"><span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">unexpected</span> <span class="n">character</span> <span class="n">after</span> <span class="n">line</span> <span class="n">continuation</span> <span class="n">character</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">72</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">77</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;&lt;input&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">72</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">77</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">                           <span class="o">^</span>
+</span></span><span class="line"><span class="cl"><span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">unmatched</span> <span class="s1">&#39;)&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">arg122</span><span class="p">(</span><span class="n">arg444</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">79</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span>\<span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;&lt;input&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">arg122</span><span class="p">(</span><span class="n">arg444</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">79</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span>\<span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                                                             <span class="o">^</span>
+</span></span><span class="line"><span class="cl"><span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">unexpected</span> <span class="n">character</span> <span class="n">after</span> <span class="n">line</span> <span class="n">continuation</span> <span class="n">character</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">72</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">77</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;&lt;input&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">72</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">77</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">                           <span class="o">^</span>
+</span></span><span class="line"><span class="cl"><span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">unmatched</span> <span class="s1">&#39;)&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">arg122</span><span class="p">(</span><span class="n">arg444</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">79</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">72</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">77</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl"><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;&lt;input&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">arg122</span><span class="p">(</span><span class="n">arg444</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">79</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">72</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">77</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl"><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;arg444&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">arg444</span> <span class="o">=</span> <span class="n">arg132</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;&lt;input&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arg444</span> <span class="o">=</span> <span class="n">arg132</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;arg132&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">arg132</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>   <span class="k">return</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;flag.txt.enc&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">arg444</span> <span class="o">=</span> <span class="n">arg132</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">arg122</span><span class="p">(</span><span class="n">arg444</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="n">a</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">79</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">82</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">66</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">75</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">72</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">78</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">77</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl"><span class="n">picoCTF</span><span class="p">{</span><span class="n">d30bfu5c4710n_f7w_e9e38c27</span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So the flag is:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{d30bfu5c4710n_f7w_e9e38c27}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

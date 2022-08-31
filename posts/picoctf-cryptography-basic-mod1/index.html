@@ -1,6 +1,6 @@
 <!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>picoCTF - Cryptography - basic-mod1 - Pascal's Blog</title><meta name=description content="Welcome to my personal blog!"><meta property="og:title" content="picoCTF - Cryptography - basic-mod1"><meta property="og:description" content="Cryptography - basic-mod1 - writeup description We found this weird message being passed around on the servers, we think we have a working decrpytion scheme. Download the message here. Take each number mod 37 and map it to the following character set: 0-25 is the alphabet (uppercase), 26-35 are the decimal digits, and 36 is an underscore. Wrap your decrypted message in the picoCTF flag format (i.e. picoCTF{decrypted_message})
 writeup Lets write a simple python program which reads the message into a string first."><meta property="og:type" content="article"><meta property="og:url" content="https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-04-06T13:58:41+02:00"><meta property="article:modified_time" content="2022-04-06T13:58:41+02:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="picoCTF - Cryptography - basic-mod1"><meta name=twitter:description content="Cryptography - basic-mod1 - writeup description We found this weird message being passed around on the servers, we think we have a working decrpytion scheme. Download the message here. Take each number mod 37 and map it to the following character set: 0-25 is the alphabet (uppercase), 26-35 are the decimal digits, and 36 is an underscore. Wrap your decrypted message in the picoCTF flag format (i.e. picoCTF{decrypted_message})
-writeup Lets write a simple python program which reads the message into a string first."><meta name=application-name content="FeelIt"><meta name=apple-mobile-web-app-title content="FeelIt"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/><link rel=prev href=https://blog.ppeinecke.de/posts/picoctf-binary-exploitation-buffer-overflow-0/><link rel=next href=https://blog.ppeinecke.de/posts/picoctf-cryptography-credstuff/><link rel=stylesheet href=/css/page.min.71c564da5b3f4eba95cbab8f0b60ebca631b65f6fa00249cad5936d8015a03635811dfec5b4a84c1c8d864b7fcc22ff6c1daffcee4875ce8de4a6e9ef5a236db.css integrity="sha512-ccVk2ls/TrqVy6uPC2DrymMbZfb6ACScrVk22AFaA2NYEd/sW0qEwcjYZLf8wi/2wdr/zuSHXOjeSm6e9aI22w=="><link rel=stylesheet href=/css/home.min.2246d1d9af15d10979fc73ed48565a5aba50ecce3faec166f3a56c0c66b5b5336cbd39ca9e94b38ebf4c4489d48a8da367f8c0e130daa104d6b3be7bf7213ff0.css integrity="sha512-IkbR2a8V0Ql5/HPtSFZaWrpQ7M4/rsFm86VsDGa1tTNsvTnKnpSzjr9MRInUio2jZ/jA4TDaoQTWs7579yE/8A=="><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"picoCTF - Cryptography - basic-mod1","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/blog.ppeinecke.de\/posts\/picoctf-cryptography-basic-mod1\/"},"genre":"posts","keywords":"crypto, cryptography, picoctf","wordcount":448,"url":"https:\/\/blog.ppeinecke.de\/posts\/picoctf-cryptography-basic-mod1\/","datePublished":"2022-04-06T13:58:41+02:00","dateModified":"2022-04-06T13:58:41+02:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Author"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"dark"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"dark"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Pascal's Blog"><span id=id-1 class=typeit></span></a></div><div class=menu><div class=menu-inner><a class=menu-item href=/>Posts </a><a class=menu-item href=/categories>Categories </a><a class=menu-item href=/tags>Tags </a><a class=menu-item href=/about>About </a><a class=menu-item href=/contact>Contact Me </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+writeup Lets write a simple python program which reads the message into a string first."><meta name=application-name content="FeelIt"><meta name=apple-mobile-web-app-title content="FeelIt"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/><link rel=prev href=https://blog.ppeinecke.de/posts/picoctf-binary-exploitation-buffer-overflow-0/><link rel=next href=https://blog.ppeinecke.de/posts/picoctf-cryptography-credstuff/><link rel=stylesheet href=/css/page.min.71c564da5b3f4eba95cbab8f0b60ebca631b65f6fa00249cad5936d8015a03635811dfec5b4a84c1c8d864b7fcc22ff6c1daffcee4875ce8de4a6e9ef5a236db.css integrity="sha512-ccVk2ls/TrqVy6uPC2DrymMbZfb6ACScrVk22AFaA2NYEd/sW0qEwcjYZLf8wi/2wdr/zuSHXOjeSm6e9aI22w=="><link rel=stylesheet href=/css/home.min.2246d1d9af15d10979fc73ed48565a5aba50ecce3faec166f3a56c0c66b5b5336cbd39ca9e94b38ebf4c4489d48a8da367f8c0e130daa104d6b3be7bf7213ff0.css integrity="sha512-IkbR2a8V0Ql5/HPtSFZaWrpQ7M4/rsFm86VsDGa1tTNsvTnKnpSzjr9MRInUio2jZ/jA4TDaoQTWs7579yE/8A=="><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"picoCTF - Cryptography - basic-mod1","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/blog.ppeinecke.de\/posts\/picoctf-cryptography-basic-mod1\/"},"genre":"posts","keywords":"crypto, cryptography, picoctf","wordcount":561,"url":"https:\/\/blog.ppeinecke.de\/posts\/picoctf-cryptography-basic-mod1\/","datePublished":"2022-04-06T13:58:41+02:00","dateModified":"2022-04-06T13:58:41+02:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Author"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"dark"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"dark"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Pascal's Blog"><span id=id-1 class=typeit></span></a></div><div class=menu><div class=menu-inner><a class=menu-item href=/>Posts </a><a class=menu-item href=/categories>Categories </a><a class=menu-item href=/tags>Tags </a><a class=menu-item href=/about>About </a><a class=menu-item href=/contact>Contact Me </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
 <input type=text placeholder="Search titles or contents..." id=search-input-desktop>
 <a href=# class="search-button search-toggle" id=search-toggle-desktop title=Search><i class="fas fa-search fa-fw"></i></a>
 <a href=# class="search-button search-clear" id=search-clear-desktop title=Clear><i class="fas fa-times-circle fa-fw"></i></a>
@@ -10,7 +10,7 @@ writeup Lets write a simple python program which reads the message into a string
 <a href=# class="search-button search-clear" id=search-clear-mobile title=Clear><i class="fas fa-times-circle fa-fw"></i></a>
 <span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=# class=search-cancel id=search-cancel-mobile>Cancel</a></div><a class=menu-item href=/ title>Posts</a><a class=menu-item href=/categories title>Categories</a><a class=menu-item href=/tags title>Tags</a><a class=menu-item href=/about title>About</a><a class=menu-item href=/contact title>Contact Me</a><div class=menu-item><a href=/index.xml title=RSS><i class="fas fa-rss fa-fw" title=RSS></i></a>
 <span>&nbsp;|&nbsp;</span><a href=javascript:void(0); class=theme-switch title="Switch Theme">
-<i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single" data-toc=enable><div class=featured-image><img class=lazyload src=/svg/loading.min.svg data-src=/featuredImages/picoCTF_logo.png data-srcset="/featuredImages/picoCTF_logo.png, /featuredImages/picoCTF_logo.png 1.5x, /featuredImages/picoCTF_logo.png 2x" data-sizes=auto alt=/featuredImages/picoCTF_logo.png title=/featuredImages/picoCTF_logo.png></div><div class=single-card data-image=true><h2 class="single-title animated flipInX">picoCTF - Cryptography - basic-mod1</h2><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title="Pascal Peinecke" rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Pascal Peinecke</a></span>&nbsp;<span class=post-category>published in <a href=/categories/cryptography/><i class="far fa-folder fa-fw"></i>cryptography</a>&nbsp;<a href=/categories/picoctf/><i class="far fa-folder fa-fw"></i>picoctf</a></span></div><div class=post-meta-line><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-04-06>2022-04-06</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;448 words</span>&nbsp;
+<i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single" data-toc=enable><div class=featured-image><img class=lazyload src=/svg/loading.min.svg data-src=/featuredImages/picoCTF_logo.png data-srcset="/featuredImages/picoCTF_logo.png, /featuredImages/picoCTF_logo.png 1.5x, /featuredImages/picoCTF_logo.png 2x" data-sizes=auto alt=/featuredImages/picoCTF_logo.png title=/featuredImages/picoCTF_logo.png></div><div class=single-card data-image=true><h2 class="single-title animated flipInX">picoCTF - Cryptography - basic-mod1</h2><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title="Pascal Peinecke" rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Pascal Peinecke</a></span>&nbsp;<span class=post-category>published in <a href=/categories/cryptography/><i class="far fa-folder fa-fw"></i>cryptography</a>&nbsp;<a href=/categories/picoctf/><i class="far fa-folder fa-fw"></i>picoctf</a></span></div><div class=post-meta-line><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-04-06>2022-04-06</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;561 words</span>&nbsp;
 <span><i class="far fa-clock fa-fw"></i>&nbsp;3 minutes</span>&nbsp;</div></div><hr><div class="details toc" id=toc-static data-kept=true><div class="details-summary toc-title"><span>Contents</span>
 <span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#description>description</a></li><li><a href=#writeup>writeup</a></li><li><a href=#flag>Flag:</a></li></ul></nav></div></div><div class=content id=content><h1 id=cryptography---basic-mod1---writeup>Cryptography - basic-mod1 - writeup</h1><h2 id=description>description</h2><p>We found this weird message being passed around on the servers,
 we think we have a working decrpytion scheme.
@@ -22,120 +22,233 @@ format (i.e. picoCTF{decrypted_message})</p><h2 id=writeup>writeup</h2><p>Lets w
 into a string first.</p><p>Then I will read each number into an array and take each
 number in the array mod 37</p><p>After that I will try to map each array field to the following scheme:</p><blockquote><p>0-25 is the alphabet (uppercase),
 26-35 are the decimal digits, and 36 is an underscore.</p></blockquote><p>At the end I will warp the decoded message in the picoCTF
-flag format like so: (i.e. picoCTF{decrypted_message})</p><pre><code class=language-python>#!/usr/bin/env python3
-
-import string
-
-# read the file into a string
-with open('message.txt', 'r') as file:
-    enc_msg = file.read()
-
-# split the string by ' ' and insert the values into an array
-enc_arr = enc_msg.split( )
-
-# print out the array for test purposes
-enc_arr_len = len(enc_arr)
-
-# define empty mod_arr
-mod_arr = []
-
-# calculate modulo 37 of every number
-for i in range(0, enc_arr_len):
-        mod_arr.append(round(int(enc_arr[i]) % 37))
-
-# get length of resulting array
-mod_arr_len = len(mod_arr)
-
-# define array for final string
-final_string = []
-
-
-for i in range(0, mod_arr_len):
-        # try to map numbers from 0 to 25 to uppercase characters of the alphabet
-        if 0 &lt;= int(mod_arr[i]) &lt;= 25:
-                if(int(mod_arr[i]) == 0):
-                        final_string.append('A')
-                elif(int(mod_arr[i]) == 1):
-                        final_string.append('B')
-                elif(int(mod_arr[i]) == 2):
-                        final_string.append('C')
-                elif(int(mod_arr[i]) == 3):
-                        final_string.append('D')
-                elif(int(mod_arr[i]) == 4):
-                        final_string.append('E')
-                elif(int(mod_arr[i]) == 5):
-                        final_string.append('F')
-                elif(int(mod_arr[i]) == 6):
-                        final_string.append('G')
-                elif(int(mod_arr[i]) == 7):
-                        final_string.append('H')
-                elif(int(mod_arr[i]) == 8):
-                        final_string.append('I')
-                elif(int(mod_arr[i]) == 9):
-                        final_string.append('J')
-                elif(int(mod_arr[i]) == 10):
-                        final_string.append('K')
-                elif(int(mod_arr[i]) == 11):
-                        final_string.append('L')
-                elif(int(mod_arr[i]) == 12):
-                        final_string.append('M')
-                elif(int(mod_arr[i]) == 13):
-                        final_string.append('N')
-                elif(int(mod_arr[i]) == 14):
-                        final_string.append('O')
-                elif(int(mod_arr[i]) == 15):
-                        final_string.append('P')
-                elif(int(mod_arr[i]) == 16):
-                        final_string.append('Q')
-                elif(int(mod_arr[i]) == 17):
-                        final_string.append('R')
-                elif(int(mod_arr[i]) == 18):
-                        final_string.append('S')
-                elif(int(mod_arr[i]) == 19):
-                        final_string.append('T')
-                elif(int(mod_arr[i]) == 20):
-                        final_string.append('U')
-                elif(int(mod_arr[i]) == 21):
-                        final_string.append('V')
-                elif(int(mod_arr[i]) == 22):
-                        final_string.append('W')
-                elif(int(mod_arr[i]) == 23):
-                        final_string.append('X')
-                elif(int(mod_arr[i]) == 24):
-                        final_string.append('Y')
-                elif(int(mod_arr[i]) == 25):
-                        final_string.append('Z')
-        # try to map numbers from 26 to 35 to decimal digits
-        elif 26 &lt;= int(mod_arr[i]) &lt;= 35:
-                if(int(mod_arr[i]) == 26):
-                        final_string.append('0')
-                elif(int(mod_arr[i]) == 27):
-                        final_string.append('1')
-                elif(int(mod_arr[i]) == 28):
-                        final_string.append('2')
-                elif(int(mod_arr[i]) == 29):
-                        final_string.append('3')
-                elif(int(mod_arr[i]) == 30):
-                        final_string.append('4')
-                elif(int(mod_arr[i]) == 31):
-                        final_string.append('5')
-                elif(int(mod_arr[i]) == 32):
-                        final_string.append('6')
-                elif(int(mod_arr[i]) == 33):
-                        final_string.append('7')
-                elif(int(mod_arr[i]) == 34):
-                        final_string.append('8')
-                elif(int(mod_arr[i]) == 35):
-                        final_string.append('9')
-        # try to map 36 to an underscore _
-        elif int(mod_arr[i]) == 36:
-                final_string.append(&quot;_&quot;)
-
-final_flag = ''.join(final_string)
-
-print(&quot;picoCTF{&quot; + final_flag + &quot;}&quot;)
-</code></pre><h2 id=flag>Flag:</h2><pre><code>picoCTF{R0UND_N_R0UND_B0D5F596}
-</code></pre></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-tag><span><a href=/tags/crypto/>crypto</a>
+flag format like so: (i.e. picoCTF{decrypted_message})</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=ch>#!/usr/bin/env python3</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>string</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># read the file into a string</span>
+</span></span><span class=line><span class=cl><span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=s1>&#39;message.txt&#39;</span><span class=p>,</span> <span class=s1>&#39;r&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>file</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>enc_msg</span> <span class=o>=</span> <span class=n>file</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># split the string by &#39; &#39; and insert the values into an array</span>
+</span></span><span class=line><span class=cl><span class=n>enc_arr</span> <span class=o>=</span> <span class=n>enc_msg</span><span class=o>.</span><span class=n>split</span><span class=p>(</span> <span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># print out the array for test purposes</span>
+</span></span><span class=line><span class=cl><span class=n>enc_arr_len</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=n>enc_arr</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># define empty mod_arr</span>
+</span></span><span class=line><span class=cl><span class=n>mod_arr</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># calculate modulo 37 of every number</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=n>enc_arr_len</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>mod_arr</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=nb>round</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>enc_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>%</span> <span class=mi>37</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># get length of resulting array</span>
+</span></span><span class=line><span class=cl><span class=n>mod_arr_len</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># define array for final string</span>
+</span></span><span class=line><span class=cl><span class=n>final_string</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=n>mod_arr_len</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=c1># try to map numbers from 0 to 25 to uppercase characters of the alphabet</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=mi>0</span> <span class=o>&lt;=</span> <span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>&lt;=</span> <span class=mi>25</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>0</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;A&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>1</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;B&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>2</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;C&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>3</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;D&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>4</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;E&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>5</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;F&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>6</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;G&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>7</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;H&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>8</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;I&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>9</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;J&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>10</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;K&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>11</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;L&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>12</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;M&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>13</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;N&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>14</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;O&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>15</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;P&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>16</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;Q&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>17</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;R&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>18</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;S&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>19</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;T&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>20</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;U&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>21</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;V&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>22</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;W&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>23</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;X&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>24</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;Y&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>25</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;Z&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=c1># try to map numbers from 26 to 35 to decimal digits</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=mi>26</span> <span class=o>&lt;=</span> <span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>&lt;=</span> <span class=mi>35</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>26</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;0&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>27</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;1&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>28</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;2&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>29</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;3&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>30</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;4&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>31</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;5&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>32</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;6&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>33</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;7&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>34</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;8&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>elif</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>35</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                        <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;9&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=c1># try to map 36 to an underscore _</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=nb>int</span><span class=p>(</span><span class=n>mod_arr</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>==</span> <span class=mi>36</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>final_string</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s2>&#34;_&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>final_flag</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>final_string</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;picoCTF{&#34;</span> <span class=o>+</span> <span class=n>final_flag</span> <span class=o>+</span> <span class=s2>&#34;}&#34;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=flag>Flag:</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>picoCTF{R0UND_N_R0UND_B0D5F596}
+</span></span></code></pre></td></tr></table></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-tag><span><a href=/tags/crypto/>crypto</a>
 </span><span><a href=/tags/cryptography/>cryptography</a>
 </span><span><a href=/tags/picoctf/>picoctf</a></span></div><div class=post-info-line><div class=post-info-mod><span>Updated on 2022-04-06</span></div><div class=post-info-mod></div></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-title="picoCTF - Cryptography - basic-mod1" data-hashtags=crypto,cryptography,picoctf><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-hashtag=crypto><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="Share on Linkedin" data-sharer=linkedin data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/><i class="fab fa-linkedin fa-fw"></i></a><a href=javascript:void(0); title="Share on WhatsApp" data-sharer=whatsapp data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-title="picoCTF - Cryptography - basic-mod1" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=javascript:void(0); title="Share on Reddit" data-sharer=reddit data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/><i class="fab fa-reddit fa-fw"></i></a><a href=javascript:void(0); title="Share on Xing" data-sharer=xing data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-title="picoCTF - Cryptography - basic-mod1"><i class="fab fa-xing fa-fw"></i></a><a href=javascript:void(0); title="Share on Line" data-sharer=line data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-title="picoCTF - Cryptography - basic-mod1"><i class="fab fa-line fa-fw"></i></a><a href=javascript:void(0); title="Share on 微博" data-sharer=weibo data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-title="picoCTF - Cryptography - basic-mod1" data-image=/featuredImages/picoCTF_logo.png><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="Share on Myspace" data-sharer=myspace data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-title="picoCTF - Cryptography - basic-mod1" data-description><i data-svg-src=/lib/simple-icons/icons/myspace.min.svg></i></a><a href=javascript:void(0); title="Share on Blogger" data-sharer=blogger data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-title="picoCTF - Cryptography - basic-mod1" data-description><i class="fab fa-blogger fa-fw"></i></a><a href=javascript:void(0); title="Share on Evernote" data-sharer=evernote data-url=https://blog.ppeinecke.de/posts/picoctf-cryptography-basic-mod1/ data-title="picoCTF - Cryptography - basic-mod1"><i class="fab fa-evernote fa-fw"></i></a></span></div></div><div class=post-nav><a href=/posts/picoctf-binary-exploitation-buffer-overflow-0/ class=prev rel=prev title="picoCTF - Binary Exploitation - Buffer Overflow 0"><i class="fas fa-angle-left fa-fw"></i>Previous Post</a>
 <a href=/posts/picoctf-cryptography-credstuff/ class=next rel=next title="picoCTF - Cryptography - credstuff">Next Post<i class="fas fa-angle-right fa-fw"></i></a></div></div></div><div id=comments class=single-card><div id=disqus_thread></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://disqus.com/?ref_noscript>Disqus</a>.</noscript></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/></a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div><script>"serviceWorker"in navigator&&(navigator.serviceWorker.register("/sw.min.js?version=1.0.1",{scope:"/"}).then(()=>{console.info("Pascal\u0027s Blog\u00A0Service Worker Registered")},e=>console.error("Pascal\u0027s Blog\u00A0Service Worker registration failed: ",e)),navigator.serviceWorker.ready.then(()=>{console.info("Pascal\u0027s Blog\u00A0Service Worker Ready")}))</script></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-chevron-up fa-fw"></i>
