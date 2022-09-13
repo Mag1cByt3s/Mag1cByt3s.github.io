@@ -2,7 +2,7 @@
                 <img src="/featuredImages/responder.jpeg" referrerpolicy="no-referrer">
             </div><h1 id="htb---starting-point-responder---writeup">HTB - Starting Point: Responder - writeup:</h1>
 <h2 id="target-ip-address">Target IP Address:</h2>
-<p>10.129.17.20</p>
+<p><strong>10.129.17.20</strong></p>
 <p><code>export IP=&quot;10.129.17.20&quot;</code></p>
 <h1 id="tasks">Tasks</h1>
 <h2 id="task1-when-visiting-the-web-service-using-the-ip-address-what-is-the-domain-that-we-are-being-redirected-to">Task1: When visiting the web service using the IP address, what is the domain that we are being redirected to?</h2>
@@ -16,7 +16,7 @@
 </span></span><span class="line"><span class="cl">&lt;meta http-equiv<span class="o">=</span><span class="s2">&#34;refresh&#34;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&#34;0;url=http://unika.htb/&#34;</span>&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>A: unika.htb</p>
+</div><p><strong>A: unika.htb</strong></p>
 <!-- raw HTML omitted -->
 <h2 id="task2-which-scripting-language-is-being-used-on-the-server-to-generate-webpages">Task2: Which scripting language is being used on the server to generate webpages?</h2>
 <div class="highlight"><div class="chroma">
@@ -65,27 +65,27 @@
 </span></span><span class="line"><span class="cl">+ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME <span class="nb">type</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>A: PHP</p>
+</div><p><strong>A: PHP</strong></p>
 <!-- raw HTML omitted -->
 <h2 id="task3-what-is-the-name-of-the-url-parameter-which-is-used-to-load-different-language-versions-of-the-webpage">Task3: What is the name of the URL parameter which is used to load different language versions of the webpage?</h2>
-<p>A: page</p>
+<p><strong>A: page</strong></p>
 <!-- raw HTML omitted -->
 <h2 id="task4-which-of-the-following-values-for-the-page-parameter-would-be-an-example-of-exploiting-a-local-file-include-lfi-vulnerability-frenchhtml-1010146somefile-windowssystem32driversetchosts-minikatzexe">Task4: Which of the following values for the <code>page</code> parameter would be an example of exploiting a Local File Include (LFI) vulnerability: &ldquo;french.html&rdquo;, &ldquo;//10.10.14.6/somefile&rdquo;, &ldquo;../../../../../../../../windows/system32/drivers/etc/hosts&rdquo;, &ldquo;minikatz.exe&rdquo;</h2>
 <p>I was able to exploit LFI like so:</p>
 <p><code>http://unika.htb/index.php?page=../../../../../../../../windows/system32/drivers/etc/hosts</code></p>
-<p>A: <a href="http://unika.htb/index.php?page=../../../../../../../../windows/system32/drivers/etc/hosts" target="_blank" rel="noopener noreffer">http://unika.htb/index.php?page=../../../../../../../../windows/system32/drivers/etc/hosts</a></p>
+<p><strong>A: <a href="http://unika.htb/index.php?page=../../../../../../../../windows/system32/drivers/etc/hosts" target="_blank" rel="noopener noreffer">http://unika.htb/index.php?page=../../../../../../../../windows/system32/drivers/etc/hosts</a></strong></p>
 <!-- raw HTML omitted -->
 <h2 id="task5-which-of-the-following-values-for-the-page-parameter-would-be-an-example-of-exploiting-a-remote-file-include-rfi-vulnerability-frenchhtml-1010146somefile-windowssystem32driversetchosts-minikatzexe">Task5: Which of the following values for the <code>page</code> parameter would be an example of exploiting a Remote File Include (RFI) vulnerability: &ldquo;french.html&rdquo;, &ldquo;//10.10.14.6/somefile&rdquo;, &ldquo;../../../../../../../../windows/system32/drivers/etc/hosts&rdquo;, &ldquo;minikatz.exe&rdquo;</h2>
-<p>A: //10.10.14.6/somefile</p>
+<p><strong>A: //10.10.14.6/somefile</strong></p>
 <!-- raw HTML omitted -->
 <h2 id="task6-what-does-ntlm-stand-for">Task6: What does NTLM stand for?</h2>
-<p>A: New Technology LAN Manager</p>
+<p><strong>A: New Technology LAN Manager</strong></p>
 <!-- raw HTML omitted -->
 <h2 id="task7-which-flag-do-we-use-in-the-responder-utility-to-specify-the-network-interface">Task7: Which flag do we use in the Responder utility to specify the network interface?</h2>
-<p>A: -I</p>
+<p><strong>A: -I</strong></p>
 <!-- raw HTML omitted -->
 <h2 id="task8-there-are-several-tools-that-take-a-netntlmv2-challengeresponse-and-try-millions-of-passwords-to-see-if-any-of-them-generate-the-same-response-one-such-tool-is-often-referred-to-as-john-but-the-full-name-is-what">Task8: There are several tools that take a NetNTLMv2 challenge/response and try millions of passwords to see if any of them generate the same response. One such tool is often referred to as <code>john</code>, but the full name is what?.</h2>
-<p>A: John the Ripper</p>
+<p><strong>A: John the Ripper</strong></p>
 <!-- raw HTML omitted -->
 <h2 id="task9-what-is-the-password-for-the-administrator-user">Task9: What is the password for the administrator user?</h2>
 <p>I was able to run responder and capture hashes by using RFI like mentioned in the bonus section to sideload the php meterpreter file and gaining a shell.</p>
@@ -292,7 +292,7 @@
 <p>The password of the <code>Administrator</code> account is <code>badminton</code></p>
 <!-- raw HTML omitted -->
 <h2 id="task10-well-use-a-windows-service-ie-running-on-the-box-to-remotely-access-the-responder-machine-using-the-password-we-recovered-what-port-tcp-does-it-listen-on">Task10: We&rsquo;ll use a Windows service (i.e. running on the box) to remotely access the Responder machine using the password we recovered. What port TCP does it listen on?</h2>
-<p>A: 5985</p>
+<p><strong>A: 5985</strong></p>
 <!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -568,7 +568,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><!-- raw HTML omitted -->
-<p>Next we need to connect with evil-winrm to the winrm service running on the target machine!</p>
+<p>Next we need to connect with <code>evil-winrm</code> to the winrm service running on the target machine!</p>
 <!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
