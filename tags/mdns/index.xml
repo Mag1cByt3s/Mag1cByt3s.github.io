@@ -260,14 +260,14 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">john ntlm2_hash --wordlist=/usr/share/wordlists/rockyou.txt
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">john ntlm2_hash --wordlist<span class="o">=</span>/usr/share/wordlists/rockyou.txt
 </span></span><span class="line"><span class="cl">Using default input encoding: UTF-8
-</span></span><span class="line"><span class="cl">Loaded 1 password hash (netntlmv2, NTLMv2 C/R [MD4 HMAC-MD5 32/64])
-</span></span><span class="line"><span class="cl">Will run 8 OpenMP threads
-</span></span><span class="line"><span class="cl">Press &#39;q&#39; or Ctrl-C to abort, almost any other key for status
-</span></span><span class="line"><span class="cl">badminton        (Administrator)     
-</span></span><span class="line"><span class="cl">1g 0:00:00:00 DONE (2022-09-13 17:55) 11.11g/s 45511p/s 45511c/s 45511C/s 123456..oooooo
-</span></span><span class="line"><span class="cl">Use the &#34;--show --format=netntlmv2&#34; options to display all of the cracked passwords reliably
+</span></span><span class="line"><span class="cl">Loaded <span class="m">1</span> password <span class="nb">hash</span> <span class="o">(</span>netntlmv2, NTLMv2 C/R <span class="o">[</span>MD4 HMAC-MD5 32/64<span class="o">])</span>
+</span></span><span class="line"><span class="cl">Will run <span class="m">8</span> OpenMP threads
+</span></span><span class="line"><span class="cl">Press <span class="s1">&#39;q&#39;</span> or Ctrl-C to abort, almost any other key <span class="k">for</span> status
+</span></span><span class="line"><span class="cl">badminton        <span class="o">(</span>Administrator<span class="o">)</span>     
+</span></span><span class="line"><span class="cl">1g 0:00:00:00 DONE <span class="o">(</span>2022-09-13 17:55<span class="o">)</span> 11.11g/s 45511p/s 45511c/s 45511C/s 123456..oooooo
+</span></span><span class="line"><span class="cl">Use the <span class="s2">&#34;--show --format=netntlmv2&#34;</span> options to display all of the cracked passwords reliably
 </span></span><span class="line"><span class="cl">Session completed.
 </span></span></code></pre></td></tr></table>
 </div>
