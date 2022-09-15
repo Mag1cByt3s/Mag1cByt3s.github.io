@@ -88,7 +88,7 @@
 <p><strong>A: John the Ripper</strong></p>
 <!-- raw HTML omitted -->
 <h2 id="task9-what-is-the-password-for-the-administrator-user">Task9: What is the password for the administrator user?</h2>
-<p>I was able to run responder and capture hashes by using RFI like mentioned in the bonus section to sideload the php meterpreter file and gaining a shell.</p>
+<p>I was able to run responder and capture hashes by using RFI to sideload a php meterpreter file and ultimately gaining a shell.</p>
 <p>Responder was then able to capture hashes.</p>
 <!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
