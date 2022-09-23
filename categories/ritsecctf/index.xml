@@ -1,4 +1,60 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>ritsecctf - Category - Pascal's Blog</title><link>https://blog.ppeinecke.de/categories/ritsecctf/</link><description>ritsecctf - Category - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 07 Apr 2022 17:51:01 +0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/categories/ritsecctf/" rel="self" type="application/rss+xml"/><item><title>RITSEC CTF - Misc - Stegwalk</title><link>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</link><pubDate>Thu, 07 Apr 2022 17:51:01 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</guid><description><![CDATA[<div class="featured-image">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>ritsecctf - Category - Pascal's Blog</title><link>https://blog.ppeinecke.de/categories/ritsecctf/</link><description>ritsecctf - Category - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 07 Apr 2022 17:54:54 +0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/categories/ritsecctf/" rel="self" type="application/rss+xml"/><item><title>RITSEC CTF - Crypto - Lost In</title><link>https://blog.ppeinecke.de/posts/ritsecctf-crypto-lost-in/</link><pubDate>Thu, 07 Apr 2022 17:54:54 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-crypto-lost-in/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/ritsecCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="crypto---lost-in---writeup">Crypto - Lost in - writeup</h1>
+<h2 id="description">description</h2>
+<p>324c6e597364696f3259725a6f646d673261453d</p>
+<p>Bingus sent us this encrypted messagen</p>
+<p>Can you decrypt?</p>
+<h2 id="writeup">writeup</h2>
+<p>this is the message we got:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">324c6e597364696f3259725a6f646d673261453d
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>this looks to be hex let&rsquo;s translate that hex string to ascii:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">2LnYsdio2YrZodmg2aE=
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The = at the end most probably means that this is base64</p>
+<p>If I try to decode this from base64 I get this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">عربي١٠١
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>this is Arabic.</p>
+<p>Once I try to use google translate to translate this to English I get this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Arabic101 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>All that is left is to wrap it with the flag format!</p>
+<p>The final flag is:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">RS{Arabic101}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>RITSEC CTF - Misc - Stegwalk</title><link>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</link><pubDate>Thu, 07 Apr 2022 17:51:01 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-misc-stegwalk/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/ritsecCTF_logo.png" referrerpolicy="no-referrer">
             </div><h1 id="misc---stegwalk---writeup">Misc - Stegwalk - writeup</h1>
 <h2 id="description">description</h2>

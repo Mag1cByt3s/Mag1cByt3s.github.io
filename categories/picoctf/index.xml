@@ -1,60 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>picoctf - Category - Pascal's Blog</title><link>https://blog.ppeinecke.de/categories/picoctf/</link><description>picoctf - Category - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 07 Apr 2022 17:54:54 +0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/categories/picoctf/" rel="self" type="application/rss+xml"/><item><title>RITSEC CTF - Crypto - Lost In</title><link>https://blog.ppeinecke.de/posts/ritsecctf-crypto-lost-in/</link><pubDate>Thu, 07 Apr 2022 17:54:54 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/ritsecctf-crypto-lost-in/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/ritsecCTF_logo.png" referrerpolicy="no-referrer">
-            </div><h1 id="crypto---lost-in---writeup">Crypto - Lost in - writeup</h1>
-<h2 id="description">description</h2>
-<p>324c6e597364696f3259725a6f646d673261453d</p>
-<p>Bingus sent us this encrypted messagen</p>
-<p>Can you decrypt?</p>
-<h2 id="writeup">writeup</h2>
-<p>this is the message we got:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">324c6e597364696f3259725a6f646d673261453d
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>this looks to be hex let&rsquo;s translate that hex string to ascii:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">2LnYsdio2YrZodmg2aE=
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>The = at the end most probably means that this is base64</p>
-<p>If I try to decode this from base64 I get this:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">عربي١٠١
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>this is Arabic.</p>
-<p>Once I try to use google translate to translate this to English I get this:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Arabic101 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>All that is left is to wrap it with the flag format!</p>
-<p>The final flag is:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">RS{Arabic101}
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>picoCTF - Web Exploitation - SQLiLite</title><link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sqlilite/</link><pubDate>Wed, 06 Apr 2022 16:12:40 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sqlilite/</guid><description><![CDATA[<div class="featured-image">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>picoctf - Category - Pascal's Blog</title><link>https://blog.ppeinecke.de/categories/picoctf/</link><description>picoctf - Category - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 06 Apr 2022 16:12:40 +0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/categories/picoctf/" rel="self" type="application/rss+xml"/><item><title>picoCTF - Web Exploitation - SQLiLite</title><link>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sqlilite/</link><pubDate>Wed, 06 Apr 2022 16:12:40 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-web-exploitation-sqlilite/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
             </div><h1 id="web-exploitation---sqlilite---writeup">Web Exploitation - SQLiLite - writeup</h1>
 <h2 id="description">description</h2>
@@ -792,4 +736,93 @@ I found this:</p>
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{pl3as3_l3t_m3_1nt0_th3_saf3}
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item></channel></rss>
+</div>]]></description></item><item><title>picoCTF - Reverse Engineering - patchme.py</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-patchme.py/</link><pubDate>Wed, 06 Apr 2022 15:25:17 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-patchme.py/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="reverse-engineering---patchmepy---writeup">Reverse Engineering - patchme.py - writeup</h1>
+<h2 id="description">description</h2>
+<p>Can you get the flag?</p>
+<p>Run this <!-- raw HTML omitted -->Python program<!-- raw HTML omitted --> in the same directory as this <!-- raw HTML omitted -->encrypted flag<!-- raw HTML omitted -->.</p>
+<h2 id="writeup">writeup</h2>
+<p>Let&rsquo;s take a look at the encrypted flag&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat flag.txt.enc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">CR1@    UYX+
+</span></span><span class="line"><span class="cl">6UB
+</span></span><span class="line"><span class="cl">P<span class="se">\E</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>That does not help.</p>
+<p>Let&rsquo;s look at the python code&hellip;</p>
+<p>Mh that is peculiar:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span> <span class="n">user_pw</span> <span class="o">==</span> <span class="s2">&#34;ak98&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;-=90&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;adfjhgj321&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;sleuth9000&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Let&rsquo;s fire up bpython and input this code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="s2">&#34;ak98&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;-=90&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;adfjhgj321&#34;</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                   <span class="s2">&#34;sleuth9000&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is the result:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#39;ak98-=90adfjhgj321sleuth9000&#39;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Once I try to supply the aforementioned string as the password I get this output:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Please enter correct password for flag: ak98-=90adfjhgj321sleuth9000
+</span></span><span class="line"><span class="cl">Welcome back... your flag, user:
+</span></span><span class="line"><span class="cl">picoCTF{p47ch1ng_l1f3_h4ck_e40c120e}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>so the flag is:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{p47ch1ng_l1f3_h4ck_e40c120e}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is probably not the way that was intended by the author to solve this challenge since the name of it is &lsquo;patchme.py&rsquo;.
+But I got the flag nevertheless.</p>
+]]></description></item></channel></rss>
