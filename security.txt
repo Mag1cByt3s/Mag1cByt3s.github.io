@@ -1,0 +1,8 @@
+Contact: mailto:ppeinecke@protonmail.com
+Contact: mailto:info@ppeinecke.de
+Expires: 2029-12-31T23:00:00.000Z
+Encryption: https://ppeinecke.de/publickey.ppeinecke@protonmail.com-7e1c9202045d77b840f79bd79b0ff5abb8a67527.txt
+Preferred-Languages: en, de
+Canonical: https://ppeinecke.de/.well-known/security.txt
+Hiring: https://ppeinecke.de/#contact
+Hiring: https://www.ppeinecke.de/custom_assets/documents/cv-Pascal-Peinecke.pdf
