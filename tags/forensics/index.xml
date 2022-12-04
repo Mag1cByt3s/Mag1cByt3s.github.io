@@ -3885,63 +3885,7 @@
 </div>
 </div><p>Here is the final image containing the flag:</p>
 <p></p>
-]]></description></item><item><title>Technovate2022 - Forensics - Trail Blazer</title><link>https://blog.ppeinecke.de/posts/technovate2022-forensics-trail-blazer/</link><pubDate>Sun, 04 Dec 2022 23:39:42 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/technovate2022-forensics-trail-blazer/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/technovate2022.jpg" referrerpolicy="no-referrer">
-            </div><h1 id="trail-blazer">Trail Blazer</h1>
-<h2 id="description">description</h2>
-<p>I just made <a href="http://host3.metaproblems.com:4110/" target="_blank" rel="noopener noreffer">this cool website</a> that acts as your own personal web browser!</p>
-<p>Why is this cool? Well&hellip; I wrote it! Anyway, check it out and let me know if there are any
-features you would like to see added!</p>
-<p><strong>Hint: You just need to search for /flag.txt.</strong></p>
-<h2 id="writeup">writeup</h2>
-<p>upon opening the website in my browser i am presented with the following form:</p>
-<p></p>
-<p>If i try to input any url e.g. <a href="http://google.com" target="_blank" rel="noopener noreffer">google.com</a> I get redirected to this page: <a href="http://host3.metaproblems.com:4110/blaze.php?page=google.com" target="_blank" rel="noopener noreffer"><code>http://host3.metaproblems.com:4110/blaze.php?page=google.com</code></a></p>
-<p>But I get an error:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">Could not open file.
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>So it looks like the program is including an actual single file.</p>
-<p>Let’s try something like: <code>/proc/version</code></p>
-<p>The GET request would look like this:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">http://host3.metaproblems.com:4110/blaze.php?page=/proc/version
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>And I get the following response:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">Linux version 4.19.0-22-cloud-amd64 (debian-kernel@lists.debian.org) (gcc version 8.3.0 (Debian 8.3.0-6)) #1 SMP Debian 4.19.260-1 (2022-09-29)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>So that confirms that the LFI technique is in fact working.</p>
-<p>Since the hint for this challenge says: <strong>You just need to search for /flag.txt</strong></p>
-<p>We can just get the flag like so:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">http://host3.metaproblems.com:4110/blaze.php?page<span class="o">=</span>/flag.txt
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">MetaCTF<span class="o">{</span>blazing_paths_will_blaze_your_app_t00<span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>picoCTF - Reverse Engineering - Bbbbloat</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bbbbloat/</link><pubDate>Wed, 06 Apr 2022 15:12:22 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bbbbloat/</guid><description><![CDATA[<div class="featured-image">
+]]></description></item><item><title>picoCTF - Reverse Engineering - Bbbbloat</title><link>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bbbbloat/</link><pubDate>Wed, 06 Apr 2022 15:12:22 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-reverse-engineering-bbbbloat/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
             </div><h1 id="forensics---bbbbloat---writeup">Forensics - Bbbbloat - writeup</h1>
 <h2 id="description">description</h2>
@@ -5108,6 +5052,464 @@ a lot of random text&hellip;</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{gr3p_15_@w3s0m3_c91a291d}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>picoCTF - Forensics - File types</title><link>https://blog.ppeinecke.de/posts/picoctf-forensics-file-types/</link><pubDate>Wed, 06 Apr 2022 14:21:10 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-forensics-file-types/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
+            </div><h1 id="forensics---file-types---writeup">Forensics - File types - writeup</h1>
+<h2 id="description">description</h2>
+<p>This file was found among some files marked confidential
+but my pdf reader cannot read it, maybe yours can.
+You can download the file from <!-- raw HTML omitted -->here<!-- raw HTML omitted -->.</p>
+<h2 id="writeup">writeup</h2>
+<p>Let&rsquo;s download the file!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://artifacts.picoctf.net/c/329/Flag.pdf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>lets see what file we got here&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file Flag.pdf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Flag.pdf: shell archive text
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Looks like this is a shell archive file (.shar)</p>
+<p>lets rename the file to a proper file extension first.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp Flag.pdf Flag.shar 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now I will try to simply execute it.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sh ./Flag.shar 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I get the following output:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">x - created lock directory _sh00046.
+</span></span><span class="line"><span class="cl">x - extracting flag <span class="o">(</span>text<span class="o">)</span>
+</span></span><span class="line"><span class="cl">./Flag.shar: 119: uudecode: not found
+</span></span><span class="line"><span class="cl">restore of flag failed
+</span></span><span class="line"><span class="cl">flag: MD5 check failed
+</span></span><span class="line"><span class="cl">x - removed lock directory _sh00046.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Looks like I am missing uudecode</p>
+<p>After a quick google search I found out that I need to install sharutils</p>
+<p>So lets install it quick</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apt install sharutils
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After running the file Flag.shar again I get a new file called &lsquo;flag&rsquo;
+with a lot of nonsense:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">!&lt;arch&gt;
+</span></span><span class="line"><span class="cl">flag/           0           0     0     644     1024      `
+</span></span><span class="line"><span class="cl">4�4i�ѵ��F�DѣCC �M4hɦ�Sd��Y�6��&#34;��������ש����5�h���{����������N��▒▒4���Ѡ2
+</span></span><span class="line"><span class="cl">0!�a�                    �0�6�▒2F����&amp;���2&amp;�� �
+</span></span><span class="line"><span class="cl">��y ڀ��
+</span></span><span class="line"><span class="cl">�^��r�e�▒�L�ʿ��H&#34;72�\U#f�*������qCa}�s6��
+</span></span><span class="line"><span class="cl">`�K�I�{Wx�#W5�+f�и-�#i���G�£vV�#��%
+</span></span><span class="line"><span class="cl">�G&gt;.���Z8ѬL×��9�%)�`��1�CxyR��=��9nf�q�!��h����f우��T��6��      ��݆������F�&amp;�ؘbB��uu�!��&#34;`e9P�Q����K3F�Q�k�C���)8
+</span></span><span class="line"><span class="cl">                  ���
+</span></span><span class="line"><span class="cl">!��F5&#39;(5��3�L�@�     ��H���,�hQ&amp;▒�
+</span></span><span class="line"><span class="cl"> k��.Th2�D����`�&gt;;&lt;���▒��&#34;�(HH�]���q
+</span></span><span class="line"><span class="cl">                                    TRAILER!!!
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Cheking with the file command what that file actually is we can see that it is an &lsquo;ar archive&rsquo;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file flag     
+</span></span><span class="line"><span class="cl">flag: current ar archive
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So lets rename the file to flag.ar</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp flag flag.ar
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>check the file type again&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file flag.ar
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">flag.ar: cpio archive
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>rename the file to .cpio</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp flag.ar flag.cpio
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>lets extract that cpio archive</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cpio -idv &lt; flag.cpio
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We successfully extracted a new file called &lsquo;flag&rsquo;</p>
+<p>lets see what that is now:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file flag
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">flag: bzip2 compressed data, block <span class="nv">size</span> <span class="o">=</span> 900k
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Lets extract that with bunzip2 real quick</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bunzip2 flag
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We got a file &lsquo;flag.out&rsquo;</p>
+<p>lets see what it is:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file flag.out 
+</span></span><span class="line"><span class="cl">flag.out: gzip compressed data, was <span class="s2">&#34;flag&#34;</span>, last modified: Tue Mar <span class="m">15</span> 06:50:51 2022, from Unix, original size modulo 2^32 <span class="m">327</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Lets rename it to a proper file extension again</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp flag.out flag.gz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now I will try to extract that gzip file</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gunzip flag.gz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We got a new file flag</p>
+<p>lets see what it is this time:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file flag   
+</span></span><span class="line"><span class="cl">flag: lzip compressed data, version: <span class="m">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>lets extract it using lunzip</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lunzip flag
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>we get a new file flag.out</p>
+<p>lets see what we have now&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file flag.out 
+</span></span><span class="line"><span class="cl">flag.out: LZ4 compressed data <span class="o">(</span>v1.4+<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>lets rename it to a proper file extension first&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp flag.out flag.lz4
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>now i will try to extract it&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lz4 -d flag.lz4 
+</span></span><span class="line"><span class="cl">Decoding file flag 
+</span></span><span class="line"><span class="cl">flag.lz4             : decoded <span class="m">264</span> bytes
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>lets check again&hellip;.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file flag    
+</span></span><span class="line"><span class="cl">flag: LZMA compressed data, non-streamed, size <span class="m">253</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>lets rename it to a proper file extension first &hellip;.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp flag flag.xz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>lets decompress it again&hellip;.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lzma -d flag.xz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>lets check again&hellip;.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file flag      
+</span></span><span class="line"><span class="cl">flag: lzop compressed data - version 1.040, LZO1X-1, os: Unix
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>lets extract it &hellip;.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lzop -x flag
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">lzop: flag: can<span class="err">&#39;</span>t decompress to same file
+</span></span><span class="line"><span class="cl">skipping flag <span class="o">[</span>flag<span class="o">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Looks like I need to specify a different destination file</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lzop flag -d -oflag.new
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Checking with file again it is still an lzop archive</p>
+<p>So I will try to extract it again&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lzop flag.new -d -oflag.new.new
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It is still an lzop file</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lzop flag.new.new -d -oflag.new.new.new
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If I now check the filetype</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file flag.new.new.new 
+</span></span><span class="line"><span class="cl">flag.new.new.new: lzip compressed data, version: <span class="m">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It is an lzip archive this time&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lzip -d flag.new.new.new 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>By checking the filetype I get</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file flag.new.new.new.out
+</span></span><span class="line"><span class="cl">flag.new.new.new.out: XZ compressed data, checksum CRC64
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>let&rsquo;s rename it to a proper extension</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp flag.new.new.new.out flag.new.new.new.xz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now extract it one more time&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">unxz flag.new.new.new.xz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file flag.new.new.new                                                               
+</span></span><span class="line"><span class="cl">flag.new.new.new: ASCII text
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>cat&rsquo;ing out this file we finally get some text &hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat flag.new.new.new
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">7069636f4354467b66316c656e406d335f6d406e3170756c407431306e5f
+</span></span><span class="line"><span class="cl">6630725f3062326375723137795f32373866316131387d0a
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The first line is hex and translates to</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{f1len@m3_m@n1pul@t10n_
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The second line is also hex and translates to</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">f0r_0b2cur17y_278f1a18}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So the flag is:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{f1len@m3_m@n1pul@t10n_f0r_0b2cur17y_278f1a18}
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item></channel></rss>

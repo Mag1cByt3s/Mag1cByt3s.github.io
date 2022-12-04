@@ -1,4 +1,60 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>web - Category - Pascal's Blog</title><link>https://blog.ppeinecke.de/categories/web/</link><description>web - Category - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 01 Oct 2022 18:57:31 +0200</lastBuildDate><atom:link href="https://blog.ppeinecke.de/categories/web/" rel="self" type="application/rss+xml"/><item><title>WRECKCTF_2022 - web - sources</title><link>https://blog.ppeinecke.de/posts/wreckctf-2022-web-sources/</link><pubDate>Sat, 01 Oct 2022 18:57:31 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/wreckctf-2022-web-sources/</guid><description><![CDATA[<div class="featured-image">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>web - Category - Pascal's Blog</title><link>https://blog.ppeinecke.de/categories/web/</link><description>web - Category - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 04 Dec 2022 23:39:42 +0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/categories/web/" rel="self" type="application/rss+xml"/><item><title>Technovate2022 - Forensics - Trail Blazer</title><link>https://blog.ppeinecke.de/posts/technovate2022-forensics-trail-blazer/</link><pubDate>Sun, 04 Dec 2022 23:39:42 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/technovate2022-forensics-trail-blazer/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/technovate2022.jpg" referrerpolicy="no-referrer">
+            </div><h1 id="trail-blazer">Trail Blazer</h1>
+<h2 id="description">description</h2>
+<p>I just made <a href="http://host3.metaproblems.com:4110/" target="_blank" rel="noopener noreffer">this cool website</a> that acts as your own personal web browser!</p>
+<p>Why is this cool? Well&hellip; I wrote it! Anyway, check it out and let me know if there are any
+features you would like to see added!</p>
+<p><strong>Hint: You just need to search for /flag.txt.</strong></p>
+<h2 id="writeup">writeup</h2>
+<p>upon opening the website in my browser i am presented with the following form:</p>
+<p></p>
+<p>If i try to input any url e.g. <a href="http://google.com" target="_blank" rel="noopener noreffer">google.com</a> I get redirected to this page: <a href="http://host3.metaproblems.com:4110/blaze.php?page=google.com" target="_blank" rel="noopener noreffer"><code>http://host3.metaproblems.com:4110/blaze.php?page=google.com</code></a></p>
+<p>But I get an error:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">Could not open file.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So it looks like the program is including an actual single file.</p>
+<p>Let’s try something like: <code>/proc/version</code></p>
+<p>The GET request would look like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">http://host3.metaproblems.com:4110/blaze.php?page=/proc/version
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>And I get the following response:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">Linux version 4.19.0-22-cloud-amd64 (debian-kernel@lists.debian.org) (gcc version 8.3.0 (Debian 8.3.0-6)) #1 SMP Debian 4.19.260-1 (2022-09-29)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So that confirms that the LFI technique is in fact working.</p>
+<p>Since the hint for this challenge says: <strong>You just need to search for /flag.txt</strong></p>
+<p>We can just get the flag like so:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">http://host3.metaproblems.com:4110/blaze.php?page<span class="o">=</span>/flag.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">MetaCTF<span class="o">{</span>blazing_paths_will_blaze_your_app_t00<span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>WRECKCTF_2022 - web - sources</title><link>https://blog.ppeinecke.de/posts/wreckctf-2022-web-sources/</link><pubDate>Sat, 01 Oct 2022 18:57:31 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/wreckctf-2022-web-sources/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/wreckctf_logo.png" referrerpolicy="no-referrer">
             </div><h1 id="wreckctf_2022---web---sources---writeup">WreckCTF_2022 - web - sources - writeup</h1>
 <h2 id="description">description</h2>
@@ -812,65 +868,6 @@ Go to this <!-- raw HTML omitted -->website<!-- raw HTML omitted --> and see wha
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">flag{pur3_s7r3ngth}
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>E-CTF - Web - Favourite Website</title><link>https://blog.ppeinecke.de/posts/ectf-web-favourite-website/</link><pubDate>Fri, 11 Mar 2022 01:14:24 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-web-favourite-website/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/cookies.png" referrerpolicy="no-referrer">
-            </div><h1 id="web---favourite-website---writeup">Web - Favourite Website - writeup</h1>
-<h2 id="description">Description</h2>
-<p>After a long time, Alex tries to visit his favorite website. But nobody thought he would become very unlucky. Visit the website and help him get the flag.</p>
-<p>Link: <!-- raw HTML omitted --><a href="https://wec-ctf-2022-web.herokuapp.com/q2" target="_blank" rel="noopener noreffer">https://wec-ctf-2022-web.herokuapp.com/q2</a><!-- raw HTML omitted --></p>
-<h2 id="writeup">Writeup</h2>
-<p>If we refresh the webpage we see there is a cookie that changes everytime i refresh the page.</p>
-<p>That cookie is called _gatj</p>
-<p>Currently its value is</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">c3RpbGwgY2Fubm90IHNvbHZlIHRoaXMgdGFzaz90aW1lcz0wMDAwMDAwOCZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>That is base64 and decodes to</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">still cannot solve this task?times=00000008&amp;id=7c87f0e8-a83b-42d4-be51-aab926934cc27
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>So since the website says
-You can get the flag when you visit our website for 12893422th time.</p>
-<p>We just change the value to</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">task?times=12893422&amp;id=7c87f0e8-a83b-42d4-be51-aab926934cc27
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Then we use base64 to encode this string again and we get</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">dGFzaz90aW1lcz0xMjg5MzQyMiZpZD03Yzg3ZjBlOC1hODNiLTQyZDQtYmU1MS1hYWI5MjY5MzRjYzI3
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>If we now replace the cookies value with that string &hellip; lets see what happens</p>
-<p>If we now refresh the page after replacing the cookie value we see:</p>
-<p>Congrats! You got the flag: CTF{C@@kie$_@re_the_be$t}</p>
-<p>So the flag is</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CTF{C@@kie$_@re_the_be$t}
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item></channel></rss>
