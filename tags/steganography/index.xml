@@ -1,0 +1,146 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Steganography - Tag - Pascal's Blog</title><link>https://blog.ppeinecke.de/tags/steganography/</link><description>Steganography - Tag - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 05 Dec 2022 00:20:38 +0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/steganography/" rel="self" type="application/rss+xml"/><item><title>Synk Fetch the Flag 2022 - Forensics - Potty Training</title><link>https://blog.ppeinecke.de/posts/fetch-the-flag-2022-forensics-potty-training/</link><pubDate>Mon, 05 Dec 2022 00:20:38 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/fetch-the-flag-2022-forensics-potty-training/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/potty.png" referrerpolicy="no-referrer">
+            </div><h1 id="potty-training">Potty Training</h1>
+<h2 id="writeup">writeup</h2>
+<p>This challenge has no task description besides that the challenge was sponsored by stegano.</p>
+<p>Let’s download the file from the description:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://fetch.ctf-snyk.io/files/4d3889ec3c6d7d8af2978a36d6bc1460/potty.png?token<span class="o">=</span>eyJ1c2VyX2lkIjo1MjExLCJ0ZWFtX2lkIjo0MDgsImZpbGVfaWQiOjQyfQ.Y2whFQ.hjYZ3KoJnXjQD7-foPUzzD8UTyQ -O potty.png
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Here is the image:</p>
+<p></p>
+<p>First let’s check if this is really a png file by running the <code>file</code> command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file potty.png 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">potty.png: PNG image data, <span class="m">1650</span> x 1200, 8-bit/color RGB, non-interlaced
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So it looks like it is in fact a png file.</p>
+<p>My first attempt was to just print out every readable string using the <code>strings</code> while searching for the flag format like so:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">strings potty.png <span class="p">|</span> grep SNYK
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>But it did not find anything.</p>
+<p>Knowing that we have a png file here, I could use some tools like <code>zsteg</code> to find the flag:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zsteg ./potty.png   
+</span></span><span class="line"><span class="cl">                                                                        <span class="m">1</span> ⨯
+</span></span><span class="line"><span class="cl">imagedata           .. text: <span class="s2">&#34;-\&#34;\nVD51%&#34;</span>
+</span></span><span class="line"><span class="cl">b1,r,lsb,xy         .. text: <span class="s2">&#34;;R.3Ov?*7.&gt;?&amp;\&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">b1,rgb,lsb,xy       .. text: <span class="s2">&#34;111:\n        import requests\n        r = requests.get(&#39;http://potty-training.c.ctf-snyk.io/&#39;)\n        print(r.text)&#34;</span>
+</span></span><span class="line"><span class="cl">b2,r,msb,xy         .. text: <span class="s2">&#34;]}}wUuUu&#34;</span>
+</span></span><span class="line"><span class="cl">b2,g,msb,xy         .. text: <span class="s2">&#34;u}UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU&#34;</span>
+</span></span><span class="line"><span class="cl">b2,b,lsb,xy         .. text: <span class="s2">&#34;AUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU&#34;</span>
+</span></span><span class="line"><span class="cl">b4,r,lsb,xy         .. text: <span class="s2">&#34;gfgvgvvvfffvfffvfgwwggwvgffvfggwfggwgvvvfffvfffvfgfvgffvfggwfggwgvvwfgfvfwvwggfvfvwvfwfwgfwwgwgvfwwwfvvvfwgwfvwvfwwvfwwwfvgvfvfvfffvfffvggfvfwfvgvvwfgvwffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff&#34;</span>
+</span></span><span class="line"><span class="cl">b4,r,msb,xy         .. text: <span class="s2">&#34;nnnfffnfffnf&#34;</span>
+</span></span><span class="line"><span class="cl">b4,g,lsb,xy         .. text: <span class="s2">&#34;fwfvgffffgfffgfffgffvgvwvgfwvwfvvwfvvvfffgfffgfffgffgwfwvwfvvwfvvwvgvwvffwfvvgfwgwvvwwvvwwvvvgffwgfgvwvgggfvvgvwwgfgggfggwvfggfffgfffgffvgffwgvfvgvvvwfvgvffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff&#34;</span>
+</span></span><span class="line"><span class="cl">b4,g,msb,xy         .. text: <span class="s2">&#34;nffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff&#34;</span>
+</span></span><span class="line"><span class="cl">b4,b,lsb,xy         .. file: <span class="m">0420</span> Alliant virtual executable not stripped
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>zsteg found some python code hidden in the lsb (least significant bit) inside the image:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">import requests<span class="se">\n</span>        <span class="nv">r</span> <span class="o">=</span> requests.get<span class="o">(</span><span class="s1">&#39;http://potty-training.c.ctf-snyk.io/&#39;</span><span class="o">)</span><span class="se">\n</span>        print<span class="o">(</span>r.text<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>LSB steganography is a common way of hiding text inside images.</p>
+<p>You can read more about LSB Steganography here: <a href="https://itnext.io/steganography-101-lsb-introduction-with-python-4c4803e08041" target="_blank" rel="noopener noreffer">https://itnext.io/steganography-101-lsb-introduction-with-python-4c4803e08041</a> as I will not dive too deep into how exactly this works here.</p>
+<p>We can now start to create a new python program using the code we got from zsteg:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;import requests\n        r = requests.get(&#39;http://potty-training.c.ctf-snyk.io/&#39;)\n        print(r.text)&#34;</span> &gt; flag.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>let’s check it:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat flag.py   
+</span></span><span class="line"><span class="cl">          
+</span></span><span class="line"><span class="cl">import requests
+</span></span><span class="line"><span class="cl">        <span class="nv">r</span> <span class="o">=</span> requests.get<span class="o">(</span><span class="s1">&#39;http://potty-training.c.ctf-snyk.io/&#39;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        print<span class="o">(</span>r.text<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ok let’s try to run it and see if we can get the flag:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 ./flag.py
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;html&gt;
+</span></span><span class="line"><span class="cl">  &lt;head&gt;
+</span></span><span class="line"><span class="cl">    &lt;title&gt;Good puppy!&lt;/title&gt;
+</span></span><span class="line"><span class="cl">  &lt;/head&gt;
+</span></span><span class="line"><span class="cl">  &lt;body&gt;
+</span></span><span class="line"><span class="cl">    &lt;h1&gt;Good puppy! 🐕&lt;/h1&gt;
+</span></span><span class="line"><span class="cl">    &lt;p&gt;Here<span class="err">&#39;</span>s your flag 🦴&lt;/p&gt;
+</span></span><span class="line"><span class="cl">    &lt;p&gt;SNYK<span class="o">{</span>dd67edb70a28335068dd5ea9304007b69543357ff471b3144e3355bca34cb35d<span class="o">}</span>&lt;/p&gt;
+</span></span><span class="line"><span class="cl">    &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&#34;https://snyk.io/blog/snyk-international-dog-day-recap/&#34;</span>&gt;Snyk + <span class="nv">Dogs</span> <span class="o">=</span> 💜&lt;/a&gt;
+</span></span><span class="line"><span class="cl">  &lt;/body&gt;
+</span></span><span class="line"><span class="cl">&lt;/html&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>And it worked! We got back the flag from the sever.</p>
+<p>flag: <code>SNYK{dd67edb70a28335068dd5ea9304007b69543357ff471b3144e3355bca34cb35d}</code></p>
+]]></description></item></channel></rss>
