@@ -1,5 +1,5 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>All Posts - Pascal's Blog</title><link>https://blog.ppeinecke.de/posts/</link><description>All Posts | Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 22 Jan 2023 23:43:05 +0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/posts/" rel="self" type="application/rss+xml"/><item><title>CTF After Dark - File - Get a Grep</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-file-get-a-grep/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-file-get-a-grep/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+                <img src="/images/ctf_after_dark.png" referrerpolicy="no-referrer">
             </div><h1 id="get-a-grep">get a grep</h1>
 <h2 id="task">task</h2>
 <p>It appears as though someone had quite the field day with bash commands and made this <a href="https://acmcyber.com/static/files/a6ea3133e470a2b7/bigfile.txt" target="_blank" rel="noopener noreffer">file</a> of random stuff, i wonder if there is a way to extract any useful information from it?</p>
