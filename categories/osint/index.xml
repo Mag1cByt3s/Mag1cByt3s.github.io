@@ -1,5 +1,5 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>OSINT - Category - Pascal's Blog</title><link>https://blog.ppeinecke.de/categories/osint/</link><description>OSINT - Category - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 22 Jan 2023 23:43:05 +0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/categories/osint/" rel="self" type="application/rss+xml"/><item><title>CTF After Dark - OSINT - Back in My Day</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-back-in-my-day/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-back-in-my-day/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+                <img src="/images/ctf_after_dark.png" referrerpolicy="no-referrer">
             </div><h1 id="back-in-my-day">Back in My Day</h1>
 <h2 id="task">task</h2>
 <p>What was the first IP address <a href="http://uclaacm.com/" target="_blank" rel="noopener noreffer">uclaacm.com</a> was hosted on? Place your answer within flag{}</p>
@@ -169,7 +169,7 @@
 <p>We found the flag!</p>
 <p>Although the flag is called: <code>flag{th1s_isn't_th3_fl4g_y0u're_l00king_f0r}</code> , it is indeed the correct flag ;)</p>
 ]]></description></item><item><title>CTF After Dark - OSINT - When it all began</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-when-it-all-began/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-when-it-all-began/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+                <img src="/images/ctf_after_dark.png" referrerpolicy="no-referrer">
             </div><h1 id="when-it-all-began">When It All Began</h1>
 <h2 id="task">task</h2>
 <p>Starting off with some detective work&hellip; Can you figure out when the domain for ACM Cyber&rsquo;s website was created? Answer will be of the form: flag{YYYY-MM-DD}</p>
