@@ -74,7 +74,7 @@
 </div><p>So on 03.07.2016 the first ip address was 192.64.119.64.</p>
 <p>Therefore the flag is: <code>flag{192.64.119.64}</code></p>
 ]]></description></item><item><title>CTF After Dark - OSINT - Beanstalking</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-beanstalking/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-beanstalking/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+                <img src="/images/lima_bean.png" referrerpolicy="no-referrer">
             </div><h1 id="beanstalking">Beanstalking</h1>
 <h2 id="task">task</h2>
 <p>Lima Bean is a senior at Rice University. He used to work as a Project Manager for Super Secure Systems, but recently got a job at Brick. What&rsquo;s his current job title?</p>
@@ -93,7 +93,7 @@
 <p>So the flag is:</p>
 <p><code>flag{fr0m_beans_t0_bricks}</code></p>
 ]]></description></item><item><title>CTF After Dark - OSINT - Hello There</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-hello-there/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-hello-there/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+                <img src="/images/hello_there_3.png" referrerpolicy="no-referrer">
             </div><h1 id="hello-there">Hello There</h1>
 <h2 id="task">task</h2>
 <p>A short time ago, in an Internet close, close by&hellip; a certain Cyber Officer definitely did not create an OSINT challenge that definitely is not hiding on a certain social media site owned by Microsoft. Do show your CTF skills by finding the (hypothetical) flag or do not. There is no try.</p>
@@ -222,7 +222,7 @@
 </div>
 </div><p><code>flag: flag{2019-09-29}</code></p>
 ]]></description></item><item><title>CTF After Dark - OSINT - Where is my Supersuit?</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-where-is-my-supersuit/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-where-is-my-supersuit/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+                <img src="/images/secretsuit.png" referrerpolicy="no-referrer">
             </div><h1 id="where-is-my-supersuit">Where is my Supersuit?</h1>
 <h2 id="task">task</h2>
 <p>Where is my <a href="https://acmcyber.com/static/files/2b88871584d66cff/secretsuit.png" target="_blank" rel="noopener noreffer">supersuit</a>?

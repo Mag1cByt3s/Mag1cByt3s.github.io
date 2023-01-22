@@ -1,5 +1,5 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Steganography - Category - Pascal's Blog</title><link>https://blog.ppeinecke.de/categories/steganography/</link><description>Steganography - Category - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 22 Jan 2023 23:43:05 +0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/categories/steganography/" rel="self" type="application/rss+xml"/><item><title>CTF After Dark - Steg - Day and Night</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-steg-day-and-night/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-steg-day-and-night/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+                <img src="/images/los_angeles.jpg" referrerpolicy="no-referrer">
             </div><h1 id="day-and-night">Day and Night</h1>
 <h2 id="task">task</h2>
 <p>Los Angeles is so different and <a href="https://acmcyber.com/static/files/7983b9ad984e324b/los_angeles.jpg" target="_blank" rel="noopener noreffer">beautiful</a> at night. The key to taking such beautiful photos is to do it in BLACKANDWHITE, and always point your camera towards the skyline, facing
@@ -221,7 +221,7 @@ out, I guess.</p>
 <p></p>
 <p>And we can see the flag is: <code>flag{pandas_zebras_and_orcas}</code></p>
 ]]></description></item><item><title>CTF After Dark - Steg - Moanin</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-steg-moanin/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-steg-moanin/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+                <img src="/images/moanin_1.png" referrerpolicy="no-referrer">
             </div><h1 id="moanin">Moanin</h1>
 <h2 id="task">task</h2>
 <p>Any true jazzer knows that you&rsquo;re always supposed to listen in mono.

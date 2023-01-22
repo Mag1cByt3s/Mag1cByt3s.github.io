@@ -42,7 +42,7 @@
 </div><p>I assume the correct flag is: <code>flag{grep_mastermind}</code></p>
 <p>And that is indeed the correct flag.</p>
 ]]></description></item><item><title>CTF After Dark - File - Missing Person</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-file-missing-person/</link><pubDate>Sun, 22 Jan 2023 23:33:34 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-file-missing-person/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+                <img src="/images/Hidden_File.png" referrerpolicy="no-referrer">
             </div><h1 id="missing-person">Missing Person</h1>
 <h2 id="task">task</h2>
 <p>I was zipping all my <a href="https://acmcyber.com/static/files/d72e9be6ade2bb73/stuff.zip" target="_blank" rel="noopener noreffer">stuff</a> together and realized that I&rsquo;m missing a person. Could you find them for me?</p>
@@ -163,7 +163,7 @@
 <p>We can see the flag now!</p>
 <p>flag: <code>flag{sm00th_op3rator}</code></p>
 ]]></description></item><item><title>CTF After Dark - File - No Flags??</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-file-no-flags/</link><pubDate>Sun, 22 Jan 2023 23:33:34 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-file-no-flags/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+                <img src="/images/no_flags.png" referrerpolicy="no-referrer">
             </div><h1 id="no-flags">No Flags??</h1>
 <h2 id="task">task</h2>
 <p>This individual known as <a href="https://acmcyber.com/static/files/51026a428002bf94/megamind.pdf" target="_blank" rel="noopener noreffer">megamind</a> has gotten quite the ego, he&rsquo;s even taunting the very cool people in Cyber!
@@ -297,7 +297,7 @@ Show them that we do, in fact, have the inappropriate word that the popular meme
 </div>
 </div><p>found flag: <code>flag{no_compan1onship}</code></p>
 ]]></description></item><item><title>CTF After Dark - File - Tyler Is the One</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-file-tyler-is-the-one/</link><pubDate>Sun, 22 Jan 2023 23:33:34 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-file-tyler-is-the-one/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+                <img src="/images/alpha.jpg" referrerpolicy="no-referrer">
             </div><h1 id="tyler-is-the-one">Tyler is the one</h1>
 <h2 id="task">task</h2>
 <p>Tyler has an incredibly busy <a href="https://www.youtube.com/watch?v=zMVOBu1cUro" target="_blank" rel="noopener noreffer">schedule</a>.
