@@ -1,4 +1,459 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>osint - Tag - Pascal's Blog</title><link>https://blog.ppeinecke.de/tags/osint/</link><description>osint - Tag - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 11 Mar 2022 01:07:27 +0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/osint/" rel="self" type="application/rss+xml"/><item><title>E-CTF - Osint - Vacation</title><link>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</link><pubDate>Fri, 11 Mar 2022 01:07:27 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</guid><description><![CDATA[<div class="featured-image">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>OSINT - Tag - Pascal's Blog</title><link>https://blog.ppeinecke.de/tags/osint/</link><description>OSINT - Tag - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 22 Jan 2023 23:43:05 +0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/osint/" rel="self" type="application/rss+xml"/><item><title>CTF After Dark - OSINT - Back in My Day</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-back-in-my-day/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-back-in-my-day/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="back-in-my-day">Back in My Day</h1>
+<h2 id="task">task</h2>
+<p>What was the first IP address <a href="http://uclaacm.com/" target="_blank" rel="noopener noreffer">uclaacm.com</a> was hosted on? Place your answer within flag{}</p>
+<p>Author: Juliet</p>
+<p>tags: osint</p>
+<h2 id="writeup">writeup</h2>
+<p>find domain ip history using this osint tool:</p>
+<p><a href="https://suip.biz/?act=domainiphistory" target="_blank" rel="noopener noreffer">IP address history of domains</a></p>
+<p>enter this in the url field: <a href="http://uclaacm.com/" target="_blank" rel="noopener noreffer">uclaacm.com</a> and hit <code>Submit</code></p>
+<p>we get this result for the ip address history:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">IP address <span class="nb">history</span> <span class="k">for</span> <span class="s1">&#39;uclaacm.com&#39;</span>:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Date: 2020-08-07 08:10:14
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">IP address: 104.198.14.52
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Date: 2019-12-21 18:24:05
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">IP address: 162.255.119.254
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Date: 2019-08-22 07:35:18
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">IP address: 192.64.119.134
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Date: 2016-03-07 00:00:00
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">IP address: 192.64.119.64
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Date: 2021-05-29 17:18:42
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">IP address: 75.2.60.5
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>this first entry is this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Date: 2016-03-07 00:00:00
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">IP address: 192.64.119.64
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So on 03.07.2016 the first ip address was 192.64.119.64.</p>
+<p>Therefore the flag is: <code>flag{192.64.119.64}</code></p>
+]]></description></item><item><title>CTF After Dark - OSINT - Beanstalking</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-beanstalking/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-beanstalking/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="beanstalking">Beanstalking</h1>
+<h2 id="task">task</h2>
+<p>Lima Bean is a senior at Rice University. He used to work as a Project Manager for Super Secure Systems, but recently got a job at Brick. What&rsquo;s his current job title?</p>
+<p>Author: Juliet</p>
+<p>Tags: osint</p>
+<h2 id="writeup">writeup</h2>
+<p>after searching on google for <code>Lima Bean Rice University</code>, I found this linkedin profile:</p>
+<p><a href="https://www.linkedin.com/in/lima-bean-b3b876172" target="_blank" rel="noopener noreffer"></a></p>
+<p>but this is not the correct profile.</p>
+<p>The profile that we are looking for does not exist anymore.</p>
+<p>But it is still cached on other search engines.</p>
+<p>I was able to find the profile using my own SearxNG search engine which cached old search results:</p>
+<p></p>
+<p>And the flag is in the title of the linkedin result:</p>
+<p><strong><a href="https://www.linkedin.com/in/lima-bean-05a204257" target="_blank" rel="noopener noreffer">Lima Bean - flag{fr0m_beans_t0_bricks} - Brick | LinkedIn</a></strong></p>
+<p>So the flag is:</p>
+<p><code>flag{fr0m_beans_t0_bricks}</code></p>
+]]></description></item><item><title>CTF After Dark - OSINT - Hello There</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-hello-there/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-hello-there/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="hello-there">Hello There</h1>
+<h2 id="task">task</h2>
+<p>A short time ago, in an Internet close, close by&hellip; a certain Cyber Officer definitely did not create an OSINT challenge that definitely is not hiding on a certain social media site owned by Microsoft. Do show your CTF skills by finding the (hypothetical) flag or do not. There is no try.</p>
+<p>Author: Laura</p>
+<p>Tags: osint</p>
+<h2 id="notes">notes</h2>
+<p>Let’s look for users which have the <code>officer</code> role assigned on the official ACM Cyber discord server</p>
+<p></p>
+<p>So the target person should be one of those 5 users.</p>
+<p>One of those users immediately sticks out after looking at the profile descriptions.</p>
+<p>That user is Laura:</p>
+<p></p>
+<p>We can see, that she has linked her GitHub profile for us!</p>
+<p>It is <a href="https://github.com/lness02/" target="_blank" rel="noopener noreffer">https://github.com/lness02/</a>.</p>
+<p>On her GitHub profile we find this repository:</p>
+<p><a href="https://github.com/lness02/definitely-not-an-osint-challenge" target="_blank" rel="noopener noreffer">https://github.com/lness02/definitely-not-an-osint-challenge</a></p>
+<p>That is definitely the correct path for this challenge (pun intended).</p>
+<p>In the description it says:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">not an osint challenge
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">nothing to see here... move along, move along
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If we take a look at the source code, there is just an <code>index.html</code> file which is not interesting:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&lt;!doctype html&gt;
+</span></span><span class="line"><span class="cl">&lt;html&gt;
+</span></span><span class="line"><span class="cl">    &lt;head&gt;
+</span></span><span class="line"><span class="cl">        &lt;title&gt;just an ordinary website&lt;/title&gt;
+</span></span><span class="line"><span class="cl">        &lt;meta <span class="nv">name</span><span class="o">=</span><span class="s2">&#34;description&#34;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&#34;your run-of-the-mill website&#34;</span>&gt;
+</span></span><span class="line"><span class="cl">        &lt;meta <span class="nv">name</span><span class="o">=</span><span class="s2">&#34;keywords&#34;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&#34;ordinary website&#34;</span>&gt;
+</span></span><span class="line"><span class="cl">    &lt;/head&gt;
+</span></span><span class="line"><span class="cl">    &lt;body&gt;
+</span></span><span class="line"><span class="cl">        &lt;h1&gt;just a website.&lt;/h1&gt;
+</span></span><span class="line"><span class="cl">        &lt;p&gt;seriously, it<span class="err">&#39;</span>s just a website.&lt;/p&gt;
+</span></span><span class="line"><span class="cl">        &lt;p&gt;...&lt;/p&gt;
+</span></span><span class="line"><span class="cl">        &lt;p&gt;I find your lack of faith... disturbing.&lt;/p&gt;
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    &lt;/body&gt;
+</span></span><span class="line"><span class="cl">&lt;/html&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>There is nothing hidden at this stage of the main branch.</p>
+<p>However if we take a look at the commit history there is one commit that is worth a look.</p>
+<p>It is this commit: <code>eb55556894fb90a0bfb34095ee14b74f3613ebc2</code></p>
+<p>link: <a href="https://github.com/lness02/definitely-not-an-osint-challenge/commit/eb55556894fb90a0bfb34095ee14b74f3613ebc2" target="_blank" rel="noopener noreffer">https://github.com/lness02/definitely-not-an-osint-challenge/commit/eb55556894fb90a0bfb34095ee14b74f3613ebc2</a></p>
+<p></p>
+<p>We found the flag!</p>
+<p>Although the flag is called: <code>flag{th1s_isn't_th3_fl4g_y0u're_l00king_f0r}</code> , it is indeed the correct flag ;)</p>
+]]></description></item><item><title>CTF After Dark - OSINT - When it all began</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-when-it-all-began/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-when-it-all-began/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="when-it-all-began">When It All Began</h1>
+<h2 id="task">task</h2>
+<p>Starting off with some detective work&hellip; Can you figure out when the domain for ACM Cyber&rsquo;s website was created? Answer will be of the form: flag{YYYY-MM-DD}</p>
+<p>Author: Juliet</p>
+<p>tags: osint</p>
+<h2 id="writeup">writeup</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">whois acmcyber.com                                                        
+</span></span><span class="line"><span class="cl">   Domain Name: ACMCYBER.COM
+</span></span><span class="line"><span class="cl">   Registry Domain ID: 2438728089_DOMAIN_COM-VRSN
+</span></span><span class="line"><span class="cl">   Registrar WHOIS Server: whois.registrar.amazon.com
+</span></span><span class="line"><span class="cl">   Registrar URL: http://registrar.amazon.com
+</span></span><span class="line"><span class="cl">   Updated Date: 2022-08-26T21:28:21Z
+</span></span><span class="line"><span class="cl">   Creation Date: 2019-09-29T23:58:03Z
+</span></span><span class="line"><span class="cl">   Registry Expiry Date: 2023-09-29T23:58:03Z
+</span></span><span class="line"><span class="cl">   Registrar: Amazon Registrar, Inc.
+</span></span><span class="line"><span class="cl">   Registrar IANA ID: <span class="m">468</span>
+</span></span><span class="line"><span class="cl">   Registrar Abuse Contact Email: abuse@amazonaws.com
+</span></span><span class="line"><span class="cl">   Registrar Abuse Contact Phone: +1.2067406200
+</span></span><span class="line"><span class="cl">   Domain Status: ok https://icann.org/epp#ok
+</span></span><span class="line"><span class="cl">   Name Server: NS-1366.AWSDNS-42.ORG
+</span></span><span class="line"><span class="cl">   Name Server: NS-1574.AWSDNS-04.CO.UK
+</span></span><span class="line"><span class="cl">   Name Server: NS-310.AWSDNS-38.COM
+</span></span><span class="line"><span class="cl">   Name Server: NS-961.AWSDNS-56.NET
+</span></span><span class="line"><span class="cl">   DNSSEC: unsigned
+</span></span><span class="line"><span class="cl">   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>flag: flag{2019-09-29}</code></p>
+]]></description></item><item><title>CTF After Dark - OSINT - Where is my Supersuit?</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-where-is-my-supersuit/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-where-is-my-supersuit/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="where-is-my-supersuit">Where is my Supersuit?</h1>
+<h2 id="task">task</h2>
+<p>Where is my <a href="https://acmcyber.com/static/files/2b88871584d66cff/secretsuit.png" target="_blank" rel="noopener noreffer">supersuit</a>?
+(Hints for submission: Enter as flag{street_address}, all lowercase.
+Separate word with underscores. Use standard street abbreviations (i.e.
+blvd, ln, dr).)</p>
+<p>Author: Laura</p>
+<p>Tags: osint</p>
+<h2 id="writeup">writeup</h2>
+<p>let’s download the image file first:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://acmcyber.com/static/files/2b88871584d66cff/secretsuit.png
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">--2022-11-19 01:35:06--  https://acmcyber.com/static/files/2b88871584d66cff/secretsuit.png
+</span></span><span class="line"><span class="cl">Resolving acmcyber.com <span class="o">(</span>acmcyber.com<span class="o">)</span>... 54.215.8.184
+</span></span><span class="line"><span class="cl">Connecting to acmcyber.com <span class="o">(</span>acmcyber.com<span class="o">)</span><span class="p">|</span>54.215.8.184<span class="p">|</span>:443... connected.
+</span></span><span class="line"><span class="cl">HTTP request sent, awaiting response... <span class="m">200</span> OK
+</span></span><span class="line"><span class="cl">Length: <span class="m">844279</span> <span class="o">(</span>824K<span class="o">)</span> <span class="o">[</span>image/png<span class="o">]</span>
+</span></span><span class="line"><span class="cl">Saving to: ‘secretsuit.png’
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">secretsuit.png           100%<span class="o">[==================================</span>&gt;<span class="o">]</span> 824.49K   473KB/s    in 1.7s    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">2022-11-19 01:35:08 <span class="o">(</span><span class="m">473</span> KB/s<span class="o">)</span> - ‘secretsuit.png’ saved <span class="o">[</span>844279/844279<span class="o">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Here is the image:</p>
+<p></p>
+<p>First I like to do some common checks using <code>file</code> and <code>exfitool</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file secretsuit.png 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">secretsuit.png: PNG image data, <span class="m">1080</span> x 686, 8-bit/color RGB, non-interlaced
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">exiftool secretsuit.png 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ExifTool Version Number         : 12.44
+</span></span><span class="line"><span class="cl">File Name                       : secretsuit.png
+</span></span><span class="line"><span class="cl">Directory                       : .
+</span></span><span class="line"><span class="cl">File Size                       : <span class="m">844</span> kB
+</span></span><span class="line"><span class="cl">File Modification Date/Time     : 2022:11:17 08:13:57+01:00
+</span></span><span class="line"><span class="cl">File Access Date/Time           : 2022:11:19 01:35:15+01:00
+</span></span><span class="line"><span class="cl">File Inode Change Date/Time     : 2022:11:19 01:35:08+01:00
+</span></span><span class="line"><span class="cl">File Permissions                : -rw-r--r--
+</span></span><span class="line"><span class="cl">File Type                       : PNG
+</span></span><span class="line"><span class="cl">File Type Extension             : png
+</span></span><span class="line"><span class="cl">MIME Type                       : image/png
+</span></span><span class="line"><span class="cl">Image Width                     : <span class="m">1080</span>
+</span></span><span class="line"><span class="cl">Image Height                    : <span class="m">686</span>
+</span></span><span class="line"><span class="cl">Bit Depth                       : <span class="m">8</span>
+</span></span><span class="line"><span class="cl">Color Type                      : RGB
+</span></span><span class="line"><span class="cl">Compression                     : Deflate/Inflate
+</span></span><span class="line"><span class="cl">Filter                          : Adaptive
+</span></span><span class="line"><span class="cl">Interlace                       : Noninterlaced
+</span></span><span class="line"><span class="cl">Warning                         : <span class="o">[</span>minor<span class="o">]</span> Trailer data after PNG IEND chunk
+</span></span><span class="line"><span class="cl">Image Size                      : 1080x686
+</span></span><span class="line"><span class="cl">Megapixels                      : 0.741
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Exiftool tells us, that there is some data appended after the PNG file end chunk:</p>
+<p><code>Warning : [minor] Trailer data after PNG IEND chunk</code></p>
+<p>If I am looking for any kind of png steganography I first check the file against <code>zsteg</code></p>
+<p>So let’s do that:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zsteg secretsuit.png 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>?<span class="o">]</span> <span class="m">135</span> bytes of extra data after image end <span class="o">(</span>IEND<span class="o">)</span>, <span class="nv">offset</span> <span class="o">=</span> 0xce170
+</span></span><span class="line"><span class="cl">extradata:0         .. file: Zip archive data, at least v2.0 to extract, compression <span class="nv">method</span><span class="o">=</span>store
+</span></span><span class="line"><span class="cl">    00000000: <span class="m">50</span> 4b <span class="m">03</span> <span class="m">04</span> <span class="m">14</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>  <span class="m">00</span> <span class="m">00</span> da 6b 6e <span class="m">55</span> <span class="m">12</span> <span class="m">84</span>  <span class="p">|</span>PK.........knU..<span class="p">|</span>
+</span></span><span class="line"><span class="cl">    00000010: 0b 9a <span class="m">15</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">15</span> <span class="m">00</span>  <span class="m">00</span> <span class="m">00</span> <span class="m">08</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> 6e <span class="m">75</span>  <span class="p">|</span>..............nu<span class="p">|</span>
+</span></span><span class="line"><span class="cl">    00000020: 6d <span class="m">73</span> 2e <span class="m">74</span> <span class="m">78</span> <span class="m">74</span> <span class="m">33</span> <span class="m">37</span>  2e <span class="m">38</span> <span class="m">33</span> <span class="m">32</span> <span class="m">30</span> <span class="m">31</span> <span class="m">35</span> 2c  <span class="p">|</span>ms.txt37.832015,<span class="p">|</span>
+</span></span><span class="line"><span class="cl">    00000030: 2d <span class="m">31</span> <span class="m">32</span> <span class="m">32</span> 2e <span class="m">32</span> <span class="m">38</span> <span class="m">33</span>  <span class="m">36</span> <span class="m">36</span> <span class="m">31</span> <span class="m">50</span> 4b <span class="m">01</span> <span class="m">02</span> <span class="m">14</span>  <span class="p">|</span>-122.283661PK...<span class="p">|</span>
+</span></span><span class="line"><span class="cl">    00000040: <span class="m">00</span> <span class="m">14</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> da  6b 6e <span class="m">55</span> <span class="m">12</span> <span class="m">84</span> 0b 9a <span class="m">15</span>  <span class="p">|</span>........knU.....<span class="p">|</span>
+</span></span><span class="line"><span class="cl">    00000050: <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">15</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">08</span>  <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">01</span>  <span class="p">|</span>................<span class="p">|</span>
+</span></span><span class="line"><span class="cl">    00000060: <span class="m">00</span> <span class="m">20</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>  <span class="m">00</span> 6e <span class="m">75</span> 6d <span class="m">73</span> 2e <span class="m">74</span> <span class="m">78</span>  <span class="p">|</span>. .......nums.tx<span class="p">|</span>
+</span></span><span class="line"><span class="cl">    00000070: <span class="m">74</span> <span class="m">50</span> 4b <span class="m">05</span> <span class="m">06</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>  <span class="m">00</span> <span class="m">01</span> <span class="m">00</span> <span class="m">01</span> <span class="m">00</span> <span class="m">36</span> <span class="m">00</span> <span class="m">00</span>  <span class="p">|</span>tPK..........6..<span class="p">|</span>
+</span></span><span class="line"><span class="cl">    00000080: <span class="m">00</span> 3b <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>                              <span class="p">|</span>.<span class="p">;</span>.....         <span class="p">|</span>
+</span></span><span class="line"><span class="cl">imagedata           .. text: <span class="s2">&#34;\t\n\n\n\t\t\n\n&#34;</span>
+</span></span><span class="line"><span class="cl">b1,g,msb,xy         .. file: <span class="m">370</span> XA sysV pure executable
+</span></span><span class="line"><span class="cl">b1,rgb,lsb,xy       .. text: <span class="s2">&#34;74NSCp?0&#34;</span>
+</span></span><span class="line"><span class="cl">b2,b,msb,xy         .. text: <span class="s2">&#34;Va\u9,HVUU+&#34;</span>
+</span></span><span class="line"><span class="cl">b4,r,lsb,xy         .. text: <span class="s2">&#34;VVwvefgvww&#34;</span>
+</span></span><span class="line"><span class="cl">b4,g,lsb,xy         .. text: <span class="s2">&#34;uwgvUU4DC\&#34;</span><span class="nv">$DC32</span><span class="s2">\&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">b4,b,msb,xy         .. text: <span class="s2">&#34;5=3333333=&#34;</span>
+</span></span><span class="line"><span class="cl">b4,rgb,lsb,xy       .. text: <span class="s2">&#34;sw7sdE5Qe&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>zsteg</code> also tells us that there are 135 bytes of extra data appended after the end of the image (IEND).</p>
+<p>But we do not get any data from it yet.</p>
+<p>In most cases we can use <code>binwalk</code> to carve out any piece of data from image files.</p>
+<p>So let’s try that:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">binwalk -e secretsuit.png         
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">DECIMAL       HEXADECIMAL     DESCRIPTION
+</span></span><span class="line"><span class="cl">--------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl"><span class="m">0</span>             0x0             PNG image, <span class="m">1080</span> x 686, 8-bit/color RGB, non-interlaced
+</span></span><span class="line"><span class="cl"><span class="m">41</span>            0x29            Zlib compressed data, best compression
+</span></span><span class="line"><span class="cl"><span class="m">844144</span>        0xCE170         Zip archive data, at least v2.0 to extract, compressed size: 21, uncompressed size: 21, name: nums.txt
+</span></span><span class="line"><span class="cl"><span class="m">844257</span>        0xCE1E1         End of Zip archive, footer length: <span class="m">22</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> _secretsuit.png.extracted
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ls
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="m">29</span>  29.zlib  CE170.zip  nums.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>binwalk was able to extract a file called <code>nums.txt</code> .</p>
+<p>That should be interesting !</p>
+<p>Let’s see what’s in there:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat nums.txt       
+</span></span><span class="line"><span class="cl">         
+</span></span><span class="line"><span class="cl">37.832015,-122.283661
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>That pretty much looks like some kind of coordinates.</p>
+<p>We can use Google Maps to find the location of these coordinates!</p>
+<p><a href="https://goo.gl/maps/eSSNBLWgapxCP7Gc9" target="_blank" rel="noopener noreffer">https://goo.gl/maps/eSSNBLWgapxCP7Gc9</a></p>
+<p><a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.550414163673!2d-122.28588167289328!3d37.83190104558327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8a4359ebd7d1dbc5!2zMzfCsDQ5JzU1LjMiTiAxMjLCsDE3JzAxLjIiVw!5e0!3m2!1sde!2sde!4v1668822071145!5m2!1sde!2sde" target="_blank" rel="noopener noreffer">https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.550414163673!2d-122.28588167289328!3d37.83190104558327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8a4359ebd7d1dbc5!2zMzfCsDQ5JzU1LjMiTiAxMjLCsDE3JzAxLjIiVw!5e0!3m2!1sde!2sde!4v1668822071145!5m2!1sde!2sde</a></p>
+<p>The address we found is: <code>1200 Park Ave, Emeryville, CA 94608, USA</code></p>
+<p>Because the flag format for this challenge is: <code>flag{street_address}</code> , is this the correct flag:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">flag<span class="o">{</span>1200_park_ave<span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>E-CTF - Osint - Vacation</title><link>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</link><pubDate>Fri, 11 Mar 2022 01:07:27 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ectf-osint-vacation/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/tiger_and_bear.jpeg" referrerpolicy="no-referrer">
             </div><h1 id="osint---vacation---writeup">Osint - Vacation - Writeup</h1>
 <h2 id="description">Description</h2>

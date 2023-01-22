@@ -1,4 +1,527 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>forensics - Category - Pascal's Blog</title><link>https://blog.ppeinecke.de/categories/forensics/</link><description>forensics - Category - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 05 Dec 2022 00:20:38 +0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/categories/forensics/" rel="self" type="application/rss+xml"/><item><title>Synk Fetch the Flag 2022 - Forensics - Potty Training</title><link>https://blog.ppeinecke.de/posts/fetch-the-flag-2022-forensics-potty-training/</link><pubDate>Mon, 05 Dec 2022 00:20:38 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/fetch-the-flag-2022-forensics-potty-training/</guid><description><![CDATA[<div class="featured-image">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>forensics - Category - Pascal's Blog</title><link>https://blog.ppeinecke.de/categories/forensics/</link><description>forensics - Category - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 22 Jan 2023 23:43:05 +0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/categories/forensics/" rel="self" type="application/rss+xml"/><item><title>CTF After Dark - File - Get a Grep</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-file-get-a-grep/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-file-get-a-grep/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="get-a-grep">get a grep</h1>
+<h2 id="task">task</h2>
+<p>It appears as though someone had quite the field day with bash commands and made this <a href="https://acmcyber.com/static/files/a6ea3133e470a2b7/bigfile.txt" target="_blank" rel="noopener noreffer">file</a> of random stuff, i wonder if there is a way to extract any useful information from it?</p>
+<p>Author: james</p>
+<p>Tags: file</p>
+<h2 id="writeup">writeup</h2>
+<p>Let’s grab this file !</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://acmcyber.com/static/files/a6ea3133e470a2b7/bigfile.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>By using the <code>strings</code> utility to print out any printable characters I see a lot of useless random character.</p>
+<p>However since the challenge is called <strong>get a grep</strong> I can try to use grep to find any useful information by searching for the flag:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">strings bigfile.txt <span class="p">|</span> grep flag
+</span></span><span class="line"><span class="cl">flag<span class="o">{</span>incompelete
+</span></span><span class="line"><span class="cl">flag
+</span></span><span class="line"><span class="cl">asdglj flag
+</span></span><span class="line"><span class="cl">_flag
+</span></span><span class="line"><span class="cl">flag<span class="o">{</span>wrong parenthese<span class="o">)</span>
+</span></span><span class="line"><span class="cl">flag<span class="o">{</span>grep_mastermind<span class="o">}</span>
+</span></span><span class="line"><span class="cl">flag<span class="o">{</span>aklsdgjnakjehgl<span class="p">;</span>ewjhg<span class="p">;</span>lwejahg<span class="p">;</span>lasdjg<span class="p">;</span>klasdjg<span class="p">;</span>ljwnglj<span class="p">;</span>q342ngl<span class="p">;</span>jwdang<span class="p">;</span>vlnasdg<span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I assume the correct flag is: <code>flag{grep_mastermind}</code></p>
+<p>And that is indeed the correct flag.</p>
+]]></description></item><item><title>CTF After Dark - File - Missing Person</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-file-missing-person/</link><pubDate>Sun, 22 Jan 2023 23:33:34 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-file-missing-person/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="missing-person">Missing Person</h1>
+<h2 id="task">task</h2>
+<p>I was zipping all my <a href="https://acmcyber.com/static/files/d72e9be6ade2bb73/stuff.zip" target="_blank" rel="noopener noreffer">stuff</a> together and realized that I&rsquo;m missing a person. Could you find them for me?</p>
+<p>Author: Luke</p>
+<p>Tags: file</p>
+<h2 id="writeup">writeup</h2>
+<p>We get a file called <code>stuff.zip</code>.</p>
+<p>And if we check the file signature using the <code>file</code>  command, we can see that it looks like a regular zip archive.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file stuff.zip 
+</span></span><span class="line"><span class="cl">stuff.zip: Zip archive data, at least v2.0 to extract, compression <span class="nv">method</span><span class="o">=</span>deflate
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Let’s extract this!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">unzip stuff.zip 
+</span></span><span class="line"><span class="cl">Archive:  stuff.zip
+</span></span><span class="line"><span class="cl">  inflating: whygod.jpg              
+</span></span><span class="line"><span class="cl">  inflating: banana.jpg              
+</span></span><span class="line"><span class="cl">  inflating: stash2.jpg
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ok, we get 3 files: <code>whygod.jpg</code> <code>banana.jpg</code> and <code>stash2.jpg</code>.</p>
+<p>Here are the files:</p>
+<p></p>
+<p></p>
+<p></p>
+<p>However all those files seem to be useless.</p>
+<p>But there are only those 3 files, right? Wrong!</p>
+<p>There are hidden files inside this zipfile which can be extracted using tools like cyberchef or binwalk.</p>
+<p>In fact we can use the <code>Extract Files</code> recipe of CyberChef to get the hidden file:</p>
+<p></p>
+<p>We can also get this file using <code>binwalk</code>.</p>
+<p>We can use <code>binwalk</code> like so</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">binwalk -e --dd<span class="o">=</span><span class="s1">&#39;.*&#39;</span> stuff.zip 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">DECIMAL       HEXADECIMAL     DESCRIPTION
+</span></span><span class="line"><span class="cl">--------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl"><span class="m">0</span>             0x0             Zip archive data, at least v2.0 to extract, compressed size: 160689, uncompressed size: 160664, name: whygod.jpg
+</span></span><span class="line"><span class="cl"><span class="m">160729</span>        0x273D9         Zip archive data, at least v2.0 to extract, compressed size: 131231, uncompressed size: 131862, name: banana.jpg
+</span></span><span class="line"><span class="cl"><span class="m">292000</span>        0x474A0         Zip archive data, at least v2.0 to extract, compressed size: 729180, uncompressed size: 729476, name: stash2.jpg
+</span></span><span class="line"><span class="cl"><span class="m">1021496</span>       0xF9638         End of Zip archive, footer length: <span class="m">22</span>
+</span></span><span class="line"><span class="cl"><span class="m">1021518</span>       0xF964E         JPEG image data, EXIF standard
+</span></span><span class="line"><span class="cl"><span class="m">1021530</span>       0xF965A         TIFF image data, big-endian, offset of first image directory: <span class="m">8</span>
+</span></span><span class="line"><span class="cl"><span class="m">1022232</span>       0xF9918         Copyright string: <span class="s2">&#34;Copyright (c) 1998 Hewlett-Packard Company&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="m">1032776</span>       0xFC248         Copyright string: <span class="s2">&#34;Copyright (c) 1998 Hewlett-Packard Company&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file *    
+</span></span><span class="line"><span class="cl">0.zip:      Zip archive data, at least v2.0 to extract, compression <span class="nv">method</span><span class="o">=</span>deflate
+</span></span><span class="line"><span class="cl">banana.jpg: JPEG image data, JFIF standard 1.01, aspect ratio, density 1x1, segment length 16, Exif Standard: <span class="o">[</span>TIFF image data, big-endian, <span class="nv">direntries</span><span class="o">=</span>4, <span class="nv">software</span><span class="o">=</span>Picasa, <span class="nv">datetime</span><span class="o">=</span>2020:04:25 10:07:27<span class="o">]</span>, baseline, precision 8, 774x811, components <span class="m">3</span>
+</span></span><span class="line"><span class="cl">F964E:      JPEG image data, Exif standard: <span class="o">[</span>TIFF image data, big-endian, <span class="nv">direntries</span><span class="o">=</span>9, <span class="nv">height</span><span class="o">=</span>828, <span class="nv">orientation</span><span class="o">=</span>upper-left, <span class="nv">xresolution</span><span class="o">=</span>122, <span class="nv">yresolution</span><span class="o">=</span>130, <span class="nv">resolutionunit</span><span class="o">=</span>2, <span class="nv">software</span><span class="o">=</span>Adobe Photoshop CS6 <span class="o">(</span>Windows<span class="o">)</span>, <span class="nv">datetime</span><span class="o">=</span>2022:11:14 16:57:58, <span class="nv">width</span><span class="o">=</span>585<span class="o">]</span>, progressive, precision 8, 525x668, components <span class="m">3</span>
+</span></span><span class="line"><span class="cl">F965A:      TIFF image data, big-endian, <span class="nv">direntries</span><span class="o">=</span>9, <span class="nv">height</span><span class="o">=</span>828, <span class="nv">orientation</span><span class="o">=</span>upper-left, <span class="nv">xresolution</span><span class="o">=</span>122, <span class="nv">yresolution</span><span class="o">=</span>130, <span class="nv">resolutionunit</span><span class="o">=</span>2, <span class="nv">software</span><span class="o">=</span>Adobe Photoshop CS6 <span class="o">(</span>Windows<span class="o">)</span>, <span class="nv">datetime</span><span class="o">=</span>2022:11:14 16:57:58, <span class="nv">width</span><span class="o">=</span><span class="m">585</span>
+</span></span><span class="line"><span class="cl">F9638:      Zip archive data <span class="o">(</span>empty<span class="o">)</span>
+</span></span><span class="line"><span class="cl">F9918:      data
+</span></span><span class="line"><span class="cl">FC248:      data
+</span></span><span class="line"><span class="cl">stash2.jpg: PNG image data, <span class="m">741</span> x 758, 8-bit/color RGB, non-interlaced
+</span></span><span class="line"><span class="cl">whygod.jpg: PNG image data, <span class="m">408</span> x 331, 8-bit/color RGB, non-interlaced
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The new file here that <code>binwalk</code> extracted is <code>F964E</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file F964E
+</span></span><span class="line"><span class="cl">F964E: JPEG image data, Exif standard: <span class="o">[</span>TIFF image data, big-endian, <span class="nv">direntries</span><span class="o">=</span>9, <span class="nv">height</span><span class="o">=</span>828, <span class="nv">orientation</span><span class="o">=</span>upper-left, <span class="nv">xresolution</span><span class="o">=</span>122, <span class="nv">yresolution</span><span class="o">=</span>130, <span class="nv">resolutionunit</span><span class="o">=</span>2, <span class="nv">software</span><span class="o">=</span>Adobe Photoshop CS6 <span class="o">(</span>Windows<span class="o">)</span>, <span class="nv">datetime</span><span class="o">=</span>2022:11:14 16:57:58, <span class="nv">width</span><span class="o">=</span>585<span class="o">]</span>, progressive, precision 8, 525x668, components <span class="m">3</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It is a jpeg file.</p>
+<p>Here is the new image:</p>
+<p></p>
+<p>We can see the flag now!</p>
+<p>flag: <code>flag{sm00th_op3rator}</code></p>
+]]></description></item><item><title>CTF After Dark - File - No Flags??</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-file-no-flags/</link><pubDate>Sun, 22 Jan 2023 23:33:34 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-file-no-flags/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="no-flags">No Flags??</h1>
+<h2 id="task">task</h2>
+<p>This individual known as <a href="https://acmcyber.com/static/files/51026a428002bf94/megamind.pdf" target="_blank" rel="noopener noreffer">megamind</a> has gotten quite the ego, he&rsquo;s even taunting the very cool people in Cyber!
+Show them that we do, in fact, have the inappropriate word that the popular meme mentions!</p>
+<p>Author: james</p>
+<p>Tags: file</p>
+<h2 id="writeup">writeup</h2>
+<p>let’s download the pdf file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://acmcyber.com/static/files/51026a428002bf94/megamind.pdf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>now check with file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file megamind.pdf 
+</span></span><span class="line"><span class="cl">megamind.pdf: PDF document, version 1.4, <span class="m">1</span> pages
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>what does exitool say?</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">exiftool megamind.pdf                                                                                                
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ExifTool Version Number         : 12.44
+</span></span><span class="line"><span class="cl">File Name                       : megamind.pdf
+</span></span><span class="line"><span class="cl">Directory                       : .
+</span></span><span class="line"><span class="cl">File Size                       : <span class="m">22</span> kB
+</span></span><span class="line"><span class="cl">File Modification Date/Time     : 2022:11:17 08:13:57+01:00
+</span></span><span class="line"><span class="cl">File Access Date/Time           : 2022:11:17 18:36:21+01:00
+</span></span><span class="line"><span class="cl">File Inode Change Date/Time     : 2022:11:17 18:36:16+01:00
+</span></span><span class="line"><span class="cl">File Permissions                : -rw-r--r--
+</span></span><span class="line"><span class="cl">File Type                       : PDF
+</span></span><span class="line"><span class="cl">File Type Extension             : pdf
+</span></span><span class="line"><span class="cl">MIME Type                       : application/pdf
+</span></span><span class="line"><span class="cl">PDF Version                     : 1.4
+</span></span><span class="line"><span class="cl">Linearized                      : No
+</span></span><span class="line"><span class="cl">Page Count                      : <span class="m">1</span>
+</span></span><span class="line"><span class="cl">Title                           : megamind
+</span></span><span class="line"><span class="cl">Producer                        : Skia/PDF m109 Google Docs Renderer
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>this is what the pdf file looks like:</p>
+<p></p>
+<p>After just getting all printable characters using the <code>strings</code> command we get the flag:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">xref
+</span></span><span class="line"><span class="cl"><span class="m">0</span> <span class="m">17</span>
+</span></span><span class="line"><span class="cl"><span class="m">0000000000</span> <span class="m">65535</span> f 
+</span></span><span class="line"><span class="cl"><span class="m">0000000015</span> <span class="m">00000</span> n 
+</span></span><span class="line"><span class="cl"><span class="m">0000001320</span> <span class="m">00000</span> n 
+</span></span><span class="line"><span class="cl"><span class="m">0000000099</span> <span class="m">00000</span> n 
+</span></span><span class="line"><span class="cl"><span class="m">0000015589</span> <span class="m">00000</span> n 
+</span></span><span class="line"><span class="cl"><span class="m">0000021286</span> <span class="m">00000</span> n 
+</span></span><span class="line"><span class="cl"><span class="m">0000000136</span> <span class="m">00000</span> n 
+</span></span><span class="line"><span class="cl"><span class="m">0000001538</span> <span class="m">00000</span> n 
+</span></span><span class="line"><span class="cl"><span class="m">0000001593</span> <span class="m">00000</span> n 
+</span></span><span class="line"><span class="cl"><span class="m">0000001640</span> <span class="m">00000</span> n 
+</span></span><span class="line"><span class="cl"><span class="m">0000014632</span> <span class="m">00000</span> n 
+</span></span><span class="line"><span class="cl"><span class="m">0000014877</span> <span class="m">00000</span> n 
+</span></span><span class="line"><span class="cl"><span class="m">0000015233</span> <span class="m">00000</span> n 
+</span></span><span class="line"><span class="cl"><span class="m">0000015738</span> <span class="m">00000</span> n 
+</span></span><span class="line"><span class="cl"><span class="m">0000020195</span> <span class="m">00000</span> n 
+</span></span><span class="line"><span class="cl"><span class="m">0000020388</span> <span class="m">00000</span> n 
+</span></span><span class="line"><span class="cl"><span class="m">0000020621</span> <span class="m">00000</span> n 
+</span></span><span class="line"><span class="cl">trailer
+</span></span><span class="line"><span class="cl">&lt;&lt;/Size <span class="m">17</span>
+</span></span><span class="line"><span class="cl">/Root <span class="m">8</span> <span class="m">0</span> R
+</span></span><span class="line"><span class="cl">/Info <span class="m">1</span> <span class="m">0</span> R&gt;&gt;
+</span></span><span class="line"><span class="cl">startxref
+</span></span><span class="line"><span class="cl"><span class="m">21426</span>
+</span></span><span class="line"><span class="cl">%%EOFflag<span class="o">{</span>no_compan1onship<span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>found flag: <code>flag{no_compan1onship}</code></p>
+]]></description></item><item><title>CTF After Dark - File - Tyler Is the One</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-file-tyler-is-the-one/</link><pubDate>Sun, 22 Jan 2023 23:33:34 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-file-tyler-is-the-one/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="tyler-is-the-one">Tyler is the one</h1>
+<h2 id="task">task</h2>
+<p>Tyler has an incredibly busy <a href="https://www.youtube.com/watch?v=zMVOBu1cUro" target="_blank" rel="noopener noreffer">schedule</a>.
+Government agents are after him for being too alpha, disrupting the
+balance of alpha and beta energy of the world. He is trying to send a
+secret message but we can&rsquo;t decipher it. <a href="https://acmcyber.com/static/files/abde20916e91ef4d/alpha.jpg" target="_blank" rel="noopener noreffer">Here</a> is the last trace he left.</p>
+<p>Author: loltyler1dotcom-discount-code-alpha</p>
+<p>Tags: file</p>
+<h2 id="writeup">writeup</h2>
+<p>let’s grab the file</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://acmcyber.com/static/files/abde20916e91ef4d/alpha.jpg
+</span></span><span class="line"><span class="cl">--2022-11-18 16:57:25--  https://acmcyber.com/static/files/abde20916e91ef4d/alpha.jpg
+</span></span><span class="line"><span class="cl">Resolving acmcyber.com <span class="o">(</span>acmcyber.com<span class="o">)</span>... 54.215.8.184
+</span></span><span class="line"><span class="cl">Connecting to acmcyber.com <span class="o">(</span>acmcyber.com<span class="o">)</span><span class="p">|</span>54.215.8.184<span class="p">|</span>:443... connected.
+</span></span><span class="line"><span class="cl">HTTP request sent, awaiting response... <span class="m">200</span> OK
+</span></span><span class="line"><span class="cl">Length: <span class="m">3880139</span> <span class="o">(</span>3.7M<span class="o">)</span> <span class="o">[</span>image/jpeg<span class="o">]</span>
+</span></span><span class="line"><span class="cl">Saving to: ‘alpha.jpg’
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">alpha.jpg                100%<span class="o">[==================================</span>&gt;<span class="o">]</span>   3.70M   626KB/s    in 7.1s    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">2022-11-18 16:57:33 <span class="o">(</span><span class="m">536</span> KB/s<span class="o">)</span> - ‘alpha.jpg’ saved <span class="o">[</span>3880139/3880139<span class="o">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Here is the image:</p>
+<p></p>
+<p>Let’s check if this is really a jpeg file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file alpha.jpg 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">alpha.jpg: JPEG image data, JFIF standard 1.01, aspect ratio, density 1x1, segment length 16, progressive, precision 8, 1920x1080, components <span class="m">3</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Nothing suspicious here.</p>
+<p>Since this is a jpeg file I can check for any steganography using stegdetect</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">stegdetect ./alpha.jpg 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">./alpha.jpg : appended<span class="o">(</span>3741<span class="o">)</span>&lt;<span class="o">[</span>nonrandom<span class="o">][</span>data<span class="o">][</span>PK........t.mU3<span class="o">=]</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>according to stegdetect there are characters added.</p>
+<p>We can try to extract data from it using steghide</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">steghide extract -sf alpha.jpg  
+</span></span><span class="line"><span class="cl">                                                            
+</span></span><span class="line"><span class="cl">Enter passphrase: 
+</span></span><span class="line"><span class="cl">steghide: could not extract any data with that passphrase!
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>But we don’t have a password.</p>
+<p>However we can also use binwalk to extract data from this image.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">binwalk -e --dd<span class="o">=</span><span class="s1">&#39;.*&#39;</span> alpha.jpg                                                              
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">DECIMAL       HEXADECIMAL     DESCRIPTION
+</span></span><span class="line"><span class="cl">--------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl"><span class="m">0</span>             0x0             JPEG image data, JFIF standard 1.01
+</span></span><span class="line"><span class="cl"><span class="m">246115</span>        0x3C163         Zip archive data, at least v1.0 to extract, compressed size: 1978455, uncompressed size: 1978455, name: hidden.zip
+</span></span><span class="line"><span class="cl"><span class="m">2224616</span>       0x21F1E8        End of Zip archive, footer length: <span class="m">22</span>
+</span></span><span class="line"><span class="cl"><span class="m">2224638</span>       0x21F1FE        Zip archive data, at least v2.0 to extract, compressed size: 1655251, uncompressed size: 1661078, name: tyler1.png
+</span></span><span class="line"><span class="cl"><span class="m">3880117</span>       0x3B34B5        End of Zip archive, footer length: <span class="m">22</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Binwalk was able to extract two files: hidden.zip and tyler1.png</p>
+<p>We can’t extract hidden.zip yet because we don’t have a password for it.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">unzip hidden.zip   
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Archive:  hidden.zip
+</span></span><span class="line"><span class="cl"><span class="o">[</span>hidden.zip<span class="o">]</span> secret.png password:
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>tyler1.png is a PNG file.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file tyler1.png
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tyler1.png: PNG image data, <span class="m">1200</span> x 1600, 8-bit/color RGBA, non-interlaced
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We can use a tool like zsteg or binwalk to find any hidden data in it.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zsteg ./tyler1.png 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">b1,r,msb,xy         .. file: OpenPGP Public Key
+</span></span><span class="line"><span class="cl">b1,b,lsb,xy         .. file: OpenPGP Secret Key
+</span></span><span class="line"><span class="cl">b1,rgb,lsb,xy       .. text: <span class="s2">&#34;r0fLM@OT1okg00dy3s&#34;</span>
+</span></span><span class="line"><span class="cl">b1,abgr,msb,xy      .. file: PGP Secret Sub-key -
+</span></span><span class="line"><span class="cl">b4,r,lsb,xy         .. file: Novell LANalyzer capture file
+</span></span><span class="line"><span class="cl">b4,g,lsb,xy         .. file: <span class="m">0420</span> Alliant virtual executable not stripped
+</span></span><span class="line"><span class="cl">b4,b,lsb,xy         .. file: Targa image data - Map <span class="o">(</span>256-256<span class="o">)</span> <span class="m">17</span> x <span class="m">273</span> x <span class="m">16</span> +257 +256 - 1-bit alpha <span class="s2">&#34;\001&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>zsteg found something in the LSB (Least Significant Bit) which looks like a passphrase.</p>
+<p>This could be the password for the hidden.zip file.</p>
+<p>Let’s try to extract it with that password:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">unzip -P r0fLM@OT1okg00dy3s hidden.zip
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Archive:  hidden.zip
+</span></span><span class="line"><span class="cl">  inflating: secret.png
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ok that was the correct password and we get a new file: secret.png</p>
+<p>Let’s check the png file using the file command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file secret.png 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">secret.png: PNG image data, <span class="m">1920</span> x 1080, 8-bit/color RGBA, non-interlaced
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ok it is a png file.</p>
+<p>Here is the image:</p>
+<p></p>
+<p>We can try to use binwalk again to see if anything is hidden in the file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">binwalk -e --dd<span class="o">=</span><span class="s1">&#39;.*&#39;</span> secret.png 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">DECIMAL       HEXADECIMAL     DESCRIPTION
+</span></span><span class="line"><span class="cl">--------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl"><span class="m">0</span>             0x0             PNG image, <span class="m">1920</span> x 1080, 8-bit/color RGBA, non-interlaced
+</span></span><span class="line"><span class="cl"><span class="m">54</span>            0x36            Zlib compressed data, compressed
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>But there is nothing in there. Then I quickly scanned the file with strings to extract any printable characters but there is also nothing hidden.</p>
+<p>If all of this does not lead to anything, we can use a tool like stegsolve to shift through the different color channels in the image to eventually find anything hidden in there.</p>
+<p>Using stegsolve I am able to manipulate the colors. When given certain filters, colors that were barely perceptible before are made obvious.</p>
+<p>After shifting through the different color planes in stegsolve, I found the flag in the Red plane 0</p>
+<p>Here is the flag visible:</p>
+<p></p>
+<p>flag: flag{th3re$_N0_D3nt}</p>
+]]></description></item><item><title>Synk Fetch the Flag 2022 - Forensics - Potty Training</title><link>https://blog.ppeinecke.de/posts/fetch-the-flag-2022-forensics-potty-training/</link><pubDate>Mon, 05 Dec 2022 00:20:38 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/fetch-the-flag-2022-forensics-potty-training/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/potty.png" referrerpolicy="no-referrer">
             </div><h1 id="potty-training">Potty Training</h1>
 <h2 id="writeup">writeup</h2>
@@ -4601,602 +5124,6 @@ folder.</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{p4ck37_5h4rk_2edd7e58}
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>picoCTF - Forensics - Redaction gone wrong</title><link>https://blog.ppeinecke.de/posts/picoctf-forensics-redaction-gone-wrong/</link><pubDate>Wed, 06 Apr 2022 14:51:19 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-forensics-redaction-gone-wrong/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
-            </div><h1 id="forensics---redaction-gone-wrong---writeup">Forensics - Redaction gone wrong - writeup</h1>
-<h2 id="description">description</h2>
-<p>Now you DON’T see me.
-This report has some critical data in it, some of which
-have been redacted correctly, while some were not.
-Can you find an important key that was not redacted properly?</p>
-<h2 id="writeup">writeup</h2>
-<p>By simply opening the pdf file in LibreOffice Draw
-I was able to move the black boxes to uncover the flag!</p>
-<p>The flag is:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{C4n_Y0u_S33_m3_fully} 
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>picoCTF - Forensics - Operation Orchid</title><link>https://blog.ppeinecke.de/posts/picoctf-forensics-operation-orchid/</link><pubDate>Wed, 06 Apr 2022 14:49:28 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-forensics-operation-orchid/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
-            </div><h1 id="forensics---operation-orchid---writeup">Forensics - Operation Orchid - writeup</h1>
-<h2 id="description">description</h2>
-<p>Download this disk featuredImage and find the flag.</p>
-<p>Note: if you are using the webshell, download and
-extract the disk featuredImage into /tmp not your home directory.</p>
-<p><!-- raw HTML omitted --><a href="https://artifacts.picoctf.net/c/242/disk.flag.img.gz" target="_blank" rel="noopener noreffer">https://artifacts.picoctf.net/c/242/disk.flag.img.gz</a><!-- raw HTML omitted --></p>
-<h2 id="writeup">writeup</h2>
-<p>Ok let&rsquo;s download the featuredImage first!</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://artifacts.picoctf.net/c/242/disk.flag.img.gz
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Next I will extract it.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gunzip disk.flag.img.gz
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file disk.flag.img    
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">disk.flag.img: DOS/MBR boot sector<span class="p">;</span> partition <span class="m">1</span> : <span class="nv">ID</span><span class="o">=</span>0x83, active, start-CHS <span class="o">(</span>0x0,32,33<span class="o">)</span>, end-CHS <span class="o">(</span>0xc,223,19<span class="o">)</span>, startsector 2048, <span class="m">204800</span> sectors<span class="p">;</span> partition <span class="m">2</span> : <span class="nv">ID</span><span class="o">=</span>0x82, start-CHS <span class="o">(</span>0xc,223,20<span class="o">)</span>, end-CHS <span class="o">(</span>0x19,159,6<span class="o">)</span>, startsector 206848, <span class="m">204800</span> sectors<span class="p">;</span> partition <span class="m">3</span> : <span class="nv">ID</span><span class="o">=</span>0x83, start-CHS <span class="o">(</span>0x19,159,7<span class="o">)</span>, end-CHS <span class="o">(</span>0x32,253,11<span class="o">)</span>, startsector 411648, <span class="m">407552</span> sectors
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>That is a dos / mbr boot partition</p>
-<p>Let&rsquo;s look at the partitions.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">fdisk -l disk.flag.img
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Disk disk.flag.img: <span class="m">400</span> MiB, <span class="m">419430400</span> bytes, <span class="m">819200</span> sectors
-</span></span><span class="line"><span class="cl">Units: sectors of <span class="m">1</span> * <span class="nv">512</span> <span class="o">=</span> <span class="m">512</span> bytes
-</span></span><span class="line"><span class="cl">Sector size <span class="o">(</span>logical/physical<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
-</span></span><span class="line"><span class="cl">I/O size <span class="o">(</span>minimum/optimal<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
-</span></span><span class="line"><span class="cl">Disklabel type: dos
-</span></span><span class="line"><span class="cl">Disk identifier: 0xb11a86e3
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Device         Boot  Start    End Sectors  Size Id Type
-</span></span><span class="line"><span class="cl">disk.flag.img1 *      <span class="m">2048</span> <span class="m">206847</span>  <span class="m">204800</span>  100M <span class="m">83</span> Linux
-</span></span><span class="line"><span class="cl">disk.flag.img2      <span class="m">206848</span> <span class="m">411647</span>  <span class="m">204800</span>  100M <span class="m">82</span> Linux swap / Solaris
-</span></span><span class="line"><span class="cl">disk.flag.img3      <span class="m">411648</span> <span class="m">819199</span>  <span class="m">407552</span>  199M <span class="m">83</span> Linux
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Let&rsquo;s try to mount the partitions using my bash script again:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="nv">img</span><span class="o">=</span><span class="s2">&#34;disk.flag.img&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">dev</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>sudo losetup --show -f -P <span class="s2">&#34;</span><span class="nv">$img</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$dev</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">for</span> part in <span class="s2">&#34;</span><span class="nv">$dev</span><span class="s2">&#34;</span>?*<span class="p">;</span> <span class="k">do</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$part</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">dev</span><span class="si">}</span><span class="s2">p*&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">part</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">dev</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
-</span></span><span class="line"><span class="cl">  <span class="nv">dst</span><span class="o">=</span><span class="s2">&#34;mnt/</span><span class="k">$(</span>basename <span class="s2">&#34;</span><span class="nv">$part</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$dst</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">  mkdir -p <span class="s2">&#34;</span><span class="nv">$dst</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">  sudo mount -o loop <span class="s2">&#34;</span><span class="nv">$part</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$dst</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="k">done</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./mount_loop.sh 
-</span></span><span class="line"><span class="cl"><span class="o">[</span>sudo<span class="o">]</span> Passwort für pascal: 
-</span></span><span class="line"><span class="cl">/dev/loop11
-</span></span><span class="line"><span class="cl">mnt/loop11p1
-</span></span><span class="line"><span class="cl">mnt/loop11p2
-</span></span><span class="line"><span class="cl">mount: /home/pascal/Pentesting/picoCTF_2022/Forensics/Operation Orchid/mnt/loop11p2: unknown filesystem <span class="nb">type</span> <span class="s1">&#39;swap&#39;</span>.
-</span></span><span class="line"><span class="cl">mnt/loop11p3
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Let&rsquo;s look for the flag &hellip;</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">find . <span class="p">|</span> grep flag
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">./loop11p3/root/flag.txt.enc
-</span></span><span class="line"><span class="cl">./loop11p3/root/flag.txt
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>&rsquo;loop11p3&rsquo; is the root partition.</p>
-<p>I found the file /root/flag.txt.enc</p>
-<p>Let&rsquo;s see what this is&hellip;</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file flag.txt.enc                                                                                                  
-</span></span><span class="line"><span class="cl">flag.txt.enc: openssl enc<span class="err">&#39;</span>d data with salted password
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>That&rsquo;s a salted openssl file</p>
-<p>I found an ash shell history file!</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat root/.ash_history  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">touch flag.txt
-</span></span><span class="line"><span class="cl">nano flag.txt 
-</span></span><span class="line"><span class="cl">apk get nano
-</span></span><span class="line"><span class="cl">apk --help
-</span></span><span class="line"><span class="cl">apk add nano
-</span></span><span class="line"><span class="cl">nano flag.txt 
-</span></span><span class="line"><span class="cl">openssl
-</span></span><span class="line"><span class="cl">openssl aes256 -salt -in flag.txt -out flag.txt.enc -k unbreakablepassword1234567
-</span></span><span class="line"><span class="cl">shred -u flag.txt
-</span></span><span class="line"><span class="cl">ls -al
-</span></span><span class="line"><span class="cl">halt
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>The command used to encrypt the flag file was</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl aes256 -salt -in flag.txt -out flag.txt.enc -k unbreakablepassword1234567
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>And we can see that the key is &lsquo;unbreakablepassword1234567&rsquo;</p>
-<p>Let&rsquo;s decrypt it using openssl again!</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl aes256 -d -in flag.txt.enc -out flag.txt -k unbreakablepassword1234567
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">*** WARNING : deprecated key derivation used.
-</span></span><span class="line"><span class="cl">Using -iter or -pbkdf2 would be better.
-</span></span><span class="line"><span class="cl">bad decrypt
-</span></span><span class="line"><span class="cl">140528353342848:error:06065064:digital envelope routines:EVP_DecryptFinal_ex:bad decrypt:../crypto/evp/evp_enc.c:610:
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>We get a few warnings but the decryption worked!</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat flag.txt                                                                                                         
-</span></span><span class="line"><span class="cl">picoCTF<span class="o">{</span>h4un71ng_p457_cc87abb6<span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>So the flag is:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{h4un71ng_p457_cc87abb6}
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>picoCTF - Forensics - Operation Oni</title><link>https://blog.ppeinecke.de/posts/picoctf-forensics-operation-oni/</link><pubDate>Wed, 06 Apr 2022 14:47:15 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-forensics-operation-oni/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
-            </div><h1 id="forensics---operation-oni---writeup">Forensics - Operation Oni - writeup</h1>
-<h2 id="description">description</h2>
-<p>Download <!-- raw HTML omitted -->this<!-- raw HTML omitted -->
-disk featuredImage, find the key and
-log into the remote machine.</p>
-<p>Note: if you are using the webshell,
-download and extract the disk featuredImage
-into /tmp not your home directory.</p>
-<h2 id="writeup">writeup</h2>
-<p>So I went ahead, fired up the remote machine
-and downloaded the disk featuredImage.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://artifacts.picoctf.net/c/372/disk.img.gz
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>It is gzip compressed so I first had to decompress it</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gunzip disk.img.gz
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Now I have a &lsquo;disk.img&rsquo; file.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file disk.img 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">disk.img: DOS/MBR boot sector<span class="p">;</span> partition <span class="m">1</span> : <span class="nv">ID</span><span class="o">=</span>0x83, active, start-CHS <span class="o">(</span>0x0,32,33<span class="o">)</span>, end-CHS <span class="o">(</span>0xc,223,19<span class="o">)</span>, startsector 2048, <span class="m">204800</span> sectors<span class="p">;</span> partition <span class="m">2</span> : <span class="nv">ID</span><span class="o">=</span>0x83, start-CHS <span class="o">(</span>0xc,223,20<span class="o">)</span>, end-CHS <span class="o">(</span>0x1d,81,52<span class="o">)</span>, startsector 206848, <span class="m">264192</span> sectors
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>That is a dos (MBR) partiton table.</p>
-<p>Let&rsquo;s look at the partitions.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">fdisk -l disk.img 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Disk disk.img: <span class="m">230</span> MiB, <span class="m">241172480</span> bytes, <span class="m">471040</span> sectors
-</span></span><span class="line"><span class="cl">Units: sectors of <span class="m">1</span> * <span class="nv">512</span> <span class="o">=</span> <span class="m">512</span> bytes
-</span></span><span class="line"><span class="cl">Sector size <span class="o">(</span>logical/physical<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
-</span></span><span class="line"><span class="cl">I/O size <span class="o">(</span>minimum/optimal<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
-</span></span><span class="line"><span class="cl">Disklabel type: dos
-</span></span><span class="line"><span class="cl">Disk identifier: 0x0b0051d0
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Device     Boot  Start    End Sectors  Size Id Type
-</span></span><span class="line"><span class="cl">disk.img1  *      <span class="m">2048</span> <span class="m">206847</span>  <span class="m">204800</span>  100M <span class="m">83</span> Linux
-</span></span><span class="line"><span class="cl">disk.img2       <span class="m">206848</span> <span class="m">471039</span>  <span class="m">264192</span>  129M <span class="m">83</span> Linux
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Let&rsquo;s try to mount the partitions using my bash script again:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="nv">img</span><span class="o">=</span><span class="s2">&#34;disk.flag.img&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">dev</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>sudo losetup --show -f -P <span class="s2">&#34;</span><span class="nv">$img</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$dev</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">for</span> part in <span class="s2">&#34;</span><span class="nv">$dev</span><span class="s2">&#34;</span>?*<span class="p">;</span> <span class="k">do</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$part</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">dev</span><span class="si">}</span><span class="s2">p*&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">part</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">dev</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
-</span></span><span class="line"><span class="cl">  <span class="nv">dst</span><span class="o">=</span><span class="s2">&#34;mnt/</span><span class="k">$(</span>basename <span class="s2">&#34;</span><span class="nv">$part</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$dst</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">  mkdir -p <span class="s2">&#34;</span><span class="nv">$dst</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">  sudo mount -o loop <span class="s2">&#34;</span><span class="nv">$part</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$dst</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="k">done</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>I was able to mount these two partitions:</p>
-<p>disk/loop14p1
-disk/loop14p2</p>
-<p>The first partition is a boot partiton and does not
-contain any interesting data.</p>
-<p>The second partition is a root partition.</p>
-<p>In the directory of the root user I found a public and
-a private ssh key.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls loop14p2/root/.ssh 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">id_ed25519  id_ed25519.pub
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>I can use these credentials to login to the ssh server
-on the remote machine using the following command
-that was mentioned in the description of this challenge:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh -i key_file -p 49764 ctf-player@saturn.picoctf.net
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>So let&rsquo;s first copy the ssh prvivate key:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp disk/loop14p2/root/.ssh/id_ed25519 ./
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Now let&rsquo;s try to connect to the aforementioned ssh server&hellip;</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh -i id_ed25519 -p <span class="m">49764</span> ctf-player@saturn.picoctf.net
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>That does not work because the permission of the ssh key are wrong.</p>
-<p>I first have to change the owner to my own username and the permission
-of ssh keys are usually 400.</p>
-<p>So let&rsquo;s fix that.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo chown pascal:pascal id_ed25519
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo chmod <span class="m">400</span> id_ed25519
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Now the connection works!</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh -i id_ed25519 -p <span class="m">49764</span> ctf-player@saturn.picoctf.net
-</span></span><span class="line"><span class="cl">Welcome to Ubuntu 20.04.3 LTS <span class="o">(</span>GNU/Linux 5.13.0-1017-aws x86_64<span class="o">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> * Documentation:  https://help.ubuntu.com
-</span></span><span class="line"><span class="cl"> * Management:     https://landscape.canonical.com
-</span></span><span class="line"><span class="cl"> * Support:        https://ubuntu.com/advantage
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">This system has been minimized by removing packages and content that are
-</span></span><span class="line"><span class="cl">not required on a system that users <span class="k">do</span> not log into.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">To restore this content, you can run the <span class="s1">&#39;unminimize&#39;</span> command.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">The programs included with the Ubuntu system are free software<span class="p">;</span>
-</span></span><span class="line"><span class="cl">the exact distribution terms <span class="k">for</span> each program are described in the
-</span></span><span class="line"><span class="cl">individual files in /usr/share/doc/*/copyright.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-</span></span><span class="line"><span class="cl">applicable law.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ctf-player@challenge:~$
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>In the home directory of that user a a file flag.txt</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ctf-player@challenge:~$ <span class="nb">pwd</span>
-</span></span><span class="line"><span class="cl">/home/ctf-player
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ctf-player@challenge:~$ ls
-</span></span><span class="line"><span class="cl">flag.txt
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Let&rsquo;s cat it out!</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ctf-player@challenge:~$ cat flag.txt 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">picoCTF<span class="o">{</span>k3y_5l3u7h_339601ed<span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>There is our flag!</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{k3y_5l3u7h_339601ed}
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>picoCTF - Forensics - Lookey Here</title><link>https://blog.ppeinecke.de/posts/picoctf-forensics-lookey-here/</link><pubDate>Wed, 06 Apr 2022 14:25:47 +0200</pubDate><guid>https://blog.ppeinecke.de/posts/picoctf-forensics-lookey-here/</guid><description><![CDATA[<div class="featured-image">
-                <img src="/featuredImages/picoCTF_logo.png" referrerpolicy="no-referrer">
-            </div><h1 id="forensics---lookey-here---writeup">Forensics - Lookey here - writeup</h1>
-<h2 id="description">description</h2>
-<p>Attackers have hidden information in a very large mass of data in the past, maybe they are still doing it. Download the data <!-- raw HTML omitted -->here<!-- raw HTML omitted -->.</p>
-<h2 id="writeup">writeup</h2>
-<p>looking at the content of the txt file I can see
-a lot of random text&hellip;</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">head anthem.flag.txt
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ANTHEM
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      by Ayn Rand
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        CONTENTS
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">         PART ONE
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">         PART TWO
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>By simply grepping out picoCTF I could find the flag</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat anthem.flag.txt<span class="p">|</span> grep picoCTF
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">we think that the men of picoCTF<span class="o">{</span>gr3p_15_@w3s0m3_c91a291d<span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>So the flag is</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">picoCTF{gr3p_15_@w3s0m3_c91a291d}
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item></channel></rss>

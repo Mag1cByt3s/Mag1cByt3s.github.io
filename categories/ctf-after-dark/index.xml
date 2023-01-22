@@ -1,0 +1,1094 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>CTF After Dark - Category - Pascal's Blog</title><link>https://blog.ppeinecke.de/categories/ctf-after-dark/</link><description>CTF After Dark - Category - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 22 Jan 2023 23:43:05 +0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/categories/ctf-after-dark/" rel="self" type="application/rss+xml"/><item><title>CTF After Dark - File - Get a Grep</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-file-get-a-grep/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-file-get-a-grep/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="get-a-grep">get a grep</h1>
+<h2 id="task">task</h2>
+<p>It appears as though someone had quite the field day with bash commands and made this <a href="https://acmcyber.com/static/files/a6ea3133e470a2b7/bigfile.txt" target="_blank" rel="noopener noreffer">file</a> of random stuff, i wonder if there is a way to extract any useful information from it?</p>
+<p>Author: james</p>
+<p>Tags: file</p>
+<h2 id="writeup">writeup</h2>
+<p>Let’s grab this file !</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://acmcyber.com/static/files/a6ea3133e470a2b7/bigfile.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>By using the <code>strings</code> utility to print out any printable characters I see a lot of useless random character.</p>
+<p>However since the challenge is called <strong>get a grep</strong> I can try to use grep to find any useful information by searching for the flag:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">strings bigfile.txt <span class="p">|</span> grep flag
+</span></span><span class="line"><span class="cl">flag<span class="o">{</span>incompelete
+</span></span><span class="line"><span class="cl">flag
+</span></span><span class="line"><span class="cl">asdglj flag
+</span></span><span class="line"><span class="cl">_flag
+</span></span><span class="line"><span class="cl">flag<span class="o">{</span>wrong parenthese<span class="o">)</span>
+</span></span><span class="line"><span class="cl">flag<span class="o">{</span>grep_mastermind<span class="o">}</span>
+</span></span><span class="line"><span class="cl">flag<span class="o">{</span>aklsdgjnakjehgl<span class="p">;</span>ewjhg<span class="p">;</span>lwejahg<span class="p">;</span>lasdjg<span class="p">;</span>klasdjg<span class="p">;</span>ljwnglj<span class="p">;</span>q342ngl<span class="p">;</span>jwdang<span class="p">;</span>vlnasdg<span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I assume the correct flag is: <code>flag{grep_mastermind}</code></p>
+<p>And that is indeed the correct flag.</p>
+]]></description></item><item><title>CTF After Dark - OSINT - Back in My Day</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-back-in-my-day/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-back-in-my-day/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="back-in-my-day">Back in My Day</h1>
+<h2 id="task">task</h2>
+<p>What was the first IP address <a href="http://uclaacm.com/" target="_blank" rel="noopener noreffer">uclaacm.com</a> was hosted on? Place your answer within flag{}</p>
+<p>Author: Juliet</p>
+<p>tags: osint</p>
+<h2 id="writeup">writeup</h2>
+<p>find domain ip history using this osint tool:</p>
+<p><a href="https://suip.biz/?act=domainiphistory" target="_blank" rel="noopener noreffer">IP address history of domains</a></p>
+<p>enter this in the url field: <a href="http://uclaacm.com/" target="_blank" rel="noopener noreffer">uclaacm.com</a> and hit <code>Submit</code></p>
+<p>we get this result for the ip address history:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">IP address <span class="nb">history</span> <span class="k">for</span> <span class="s1">&#39;uclaacm.com&#39;</span>:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Date: 2020-08-07 08:10:14
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">IP address: 104.198.14.52
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Date: 2019-12-21 18:24:05
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">IP address: 162.255.119.254
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Date: 2019-08-22 07:35:18
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">IP address: 192.64.119.134
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Date: 2016-03-07 00:00:00
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">IP address: 192.64.119.64
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Date: 2021-05-29 17:18:42
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">IP address: 75.2.60.5
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>this first entry is this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Date: 2016-03-07 00:00:00
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">IP address: 192.64.119.64
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So on 03.07.2016 the first ip address was 192.64.119.64.</p>
+<p>Therefore the flag is: <code>flag{192.64.119.64}</code></p>
+]]></description></item><item><title>CTF After Dark - OSINT - Beanstalking</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-beanstalking/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-beanstalking/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="beanstalking">Beanstalking</h1>
+<h2 id="task">task</h2>
+<p>Lima Bean is a senior at Rice University. He used to work as a Project Manager for Super Secure Systems, but recently got a job at Brick. What&rsquo;s his current job title?</p>
+<p>Author: Juliet</p>
+<p>Tags: osint</p>
+<h2 id="writeup">writeup</h2>
+<p>after searching on google for <code>Lima Bean Rice University</code>, I found this linkedin profile:</p>
+<p><a href="https://www.linkedin.com/in/lima-bean-b3b876172" target="_blank" rel="noopener noreffer"></a></p>
+<p>but this is not the correct profile.</p>
+<p>The profile that we are looking for does not exist anymore.</p>
+<p>But it is still cached on other search engines.</p>
+<p>I was able to find the profile using my own SearxNG search engine which cached old search results:</p>
+<p></p>
+<p>And the flag is in the title of the linkedin result:</p>
+<p><strong><a href="https://www.linkedin.com/in/lima-bean-05a204257" target="_blank" rel="noopener noreffer">Lima Bean - flag{fr0m_beans_t0_bricks} - Brick | LinkedIn</a></strong></p>
+<p>So the flag is:</p>
+<p><code>flag{fr0m_beans_t0_bricks}</code></p>
+]]></description></item><item><title>CTF After Dark - OSINT - Hello There</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-hello-there/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-hello-there/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="hello-there">Hello There</h1>
+<h2 id="task">task</h2>
+<p>A short time ago, in an Internet close, close by&hellip; a certain Cyber Officer definitely did not create an OSINT challenge that definitely is not hiding on a certain social media site owned by Microsoft. Do show your CTF skills by finding the (hypothetical) flag or do not. There is no try.</p>
+<p>Author: Laura</p>
+<p>Tags: osint</p>
+<h2 id="notes">notes</h2>
+<p>Let’s look for users which have the <code>officer</code> role assigned on the official ACM Cyber discord server</p>
+<p></p>
+<p>So the target person should be one of those 5 users.</p>
+<p>One of those users immediately sticks out after looking at the profile descriptions.</p>
+<p>That user is Laura:</p>
+<p></p>
+<p>We can see, that she has linked her GitHub profile for us!</p>
+<p>It is <a href="https://github.com/lness02/" target="_blank" rel="noopener noreffer">https://github.com/lness02/</a>.</p>
+<p>On her GitHub profile we find this repository:</p>
+<p><a href="https://github.com/lness02/definitely-not-an-osint-challenge" target="_blank" rel="noopener noreffer">https://github.com/lness02/definitely-not-an-osint-challenge</a></p>
+<p>That is definitely the correct path for this challenge (pun intended).</p>
+<p>In the description it says:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">not an osint challenge
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">nothing to see here... move along, move along
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If we take a look at the source code, there is just an <code>index.html</code> file which is not interesting:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&lt;!doctype html&gt;
+</span></span><span class="line"><span class="cl">&lt;html&gt;
+</span></span><span class="line"><span class="cl">    &lt;head&gt;
+</span></span><span class="line"><span class="cl">        &lt;title&gt;just an ordinary website&lt;/title&gt;
+</span></span><span class="line"><span class="cl">        &lt;meta <span class="nv">name</span><span class="o">=</span><span class="s2">&#34;description&#34;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&#34;your run-of-the-mill website&#34;</span>&gt;
+</span></span><span class="line"><span class="cl">        &lt;meta <span class="nv">name</span><span class="o">=</span><span class="s2">&#34;keywords&#34;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&#34;ordinary website&#34;</span>&gt;
+</span></span><span class="line"><span class="cl">    &lt;/head&gt;
+</span></span><span class="line"><span class="cl">    &lt;body&gt;
+</span></span><span class="line"><span class="cl">        &lt;h1&gt;just a website.&lt;/h1&gt;
+</span></span><span class="line"><span class="cl">        &lt;p&gt;seriously, it<span class="err">&#39;</span>s just a website.&lt;/p&gt;
+</span></span><span class="line"><span class="cl">        &lt;p&gt;...&lt;/p&gt;
+</span></span><span class="line"><span class="cl">        &lt;p&gt;I find your lack of faith... disturbing.&lt;/p&gt;
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    &lt;/body&gt;
+</span></span><span class="line"><span class="cl">&lt;/html&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>There is nothing hidden at this stage of the main branch.</p>
+<p>However if we take a look at the commit history there is one commit that is worth a look.</p>
+<p>It is this commit: <code>eb55556894fb90a0bfb34095ee14b74f3613ebc2</code></p>
+<p>link: <a href="https://github.com/lness02/definitely-not-an-osint-challenge/commit/eb55556894fb90a0bfb34095ee14b74f3613ebc2" target="_blank" rel="noopener noreffer">https://github.com/lness02/definitely-not-an-osint-challenge/commit/eb55556894fb90a0bfb34095ee14b74f3613ebc2</a></p>
+<p></p>
+<p>We found the flag!</p>
+<p>Although the flag is called: <code>flag{th1s_isn't_th3_fl4g_y0u're_l00king_f0r}</code> , it is indeed the correct flag ;)</p>
+]]></description></item><item><title>CTF After Dark - OSINT - When it all began</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-when-it-all-began/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-when-it-all-began/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="when-it-all-began">When It All Began</h1>
+<h2 id="task">task</h2>
+<p>Starting off with some detective work&hellip; Can you figure out when the domain for ACM Cyber&rsquo;s website was created? Answer will be of the form: flag{YYYY-MM-DD}</p>
+<p>Author: Juliet</p>
+<p>tags: osint</p>
+<h2 id="writeup">writeup</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">whois acmcyber.com                                                        
+</span></span><span class="line"><span class="cl">   Domain Name: ACMCYBER.COM
+</span></span><span class="line"><span class="cl">   Registry Domain ID: 2438728089_DOMAIN_COM-VRSN
+</span></span><span class="line"><span class="cl">   Registrar WHOIS Server: whois.registrar.amazon.com
+</span></span><span class="line"><span class="cl">   Registrar URL: http://registrar.amazon.com
+</span></span><span class="line"><span class="cl">   Updated Date: 2022-08-26T21:28:21Z
+</span></span><span class="line"><span class="cl">   Creation Date: 2019-09-29T23:58:03Z
+</span></span><span class="line"><span class="cl">   Registry Expiry Date: 2023-09-29T23:58:03Z
+</span></span><span class="line"><span class="cl">   Registrar: Amazon Registrar, Inc.
+</span></span><span class="line"><span class="cl">   Registrar IANA ID: <span class="m">468</span>
+</span></span><span class="line"><span class="cl">   Registrar Abuse Contact Email: abuse@amazonaws.com
+</span></span><span class="line"><span class="cl">   Registrar Abuse Contact Phone: +1.2067406200
+</span></span><span class="line"><span class="cl">   Domain Status: ok https://icann.org/epp#ok
+</span></span><span class="line"><span class="cl">   Name Server: NS-1366.AWSDNS-42.ORG
+</span></span><span class="line"><span class="cl">   Name Server: NS-1574.AWSDNS-04.CO.UK
+</span></span><span class="line"><span class="cl">   Name Server: NS-310.AWSDNS-38.COM
+</span></span><span class="line"><span class="cl">   Name Server: NS-961.AWSDNS-56.NET
+</span></span><span class="line"><span class="cl">   DNSSEC: unsigned
+</span></span><span class="line"><span class="cl">   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>flag: flag{2019-09-29}</code></p>
+]]></description></item><item><title>CTF After Dark - OSINT - Where is my Supersuit?</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-where-is-my-supersuit/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-osint-where-is-my-supersuit/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="where-is-my-supersuit">Where is my Supersuit?</h1>
+<h2 id="task">task</h2>
+<p>Where is my <a href="https://acmcyber.com/static/files/2b88871584d66cff/secretsuit.png" target="_blank" rel="noopener noreffer">supersuit</a>?
+(Hints for submission: Enter as flag{street_address}, all lowercase.
+Separate word with underscores. Use standard street abbreviations (i.e.
+blvd, ln, dr).)</p>
+<p>Author: Laura</p>
+<p>Tags: osint</p>
+<h2 id="writeup">writeup</h2>
+<p>let’s download the image file first:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://acmcyber.com/static/files/2b88871584d66cff/secretsuit.png
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">--2022-11-19 01:35:06--  https://acmcyber.com/static/files/2b88871584d66cff/secretsuit.png
+</span></span><span class="line"><span class="cl">Resolving acmcyber.com <span class="o">(</span>acmcyber.com<span class="o">)</span>... 54.215.8.184
+</span></span><span class="line"><span class="cl">Connecting to acmcyber.com <span class="o">(</span>acmcyber.com<span class="o">)</span><span class="p">|</span>54.215.8.184<span class="p">|</span>:443... connected.
+</span></span><span class="line"><span class="cl">HTTP request sent, awaiting response... <span class="m">200</span> OK
+</span></span><span class="line"><span class="cl">Length: <span class="m">844279</span> <span class="o">(</span>824K<span class="o">)</span> <span class="o">[</span>image/png<span class="o">]</span>
+</span></span><span class="line"><span class="cl">Saving to: ‘secretsuit.png’
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">secretsuit.png           100%<span class="o">[==================================</span>&gt;<span class="o">]</span> 824.49K   473KB/s    in 1.7s    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">2022-11-19 01:35:08 <span class="o">(</span><span class="m">473</span> KB/s<span class="o">)</span> - ‘secretsuit.png’ saved <span class="o">[</span>844279/844279<span class="o">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Here is the image:</p>
+<p></p>
+<p>First I like to do some common checks using <code>file</code> and <code>exfitool</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file secretsuit.png 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">secretsuit.png: PNG image data, <span class="m">1080</span> x 686, 8-bit/color RGB, non-interlaced
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">exiftool secretsuit.png 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ExifTool Version Number         : 12.44
+</span></span><span class="line"><span class="cl">File Name                       : secretsuit.png
+</span></span><span class="line"><span class="cl">Directory                       : .
+</span></span><span class="line"><span class="cl">File Size                       : <span class="m">844</span> kB
+</span></span><span class="line"><span class="cl">File Modification Date/Time     : 2022:11:17 08:13:57+01:00
+</span></span><span class="line"><span class="cl">File Access Date/Time           : 2022:11:19 01:35:15+01:00
+</span></span><span class="line"><span class="cl">File Inode Change Date/Time     : 2022:11:19 01:35:08+01:00
+</span></span><span class="line"><span class="cl">File Permissions                : -rw-r--r--
+</span></span><span class="line"><span class="cl">File Type                       : PNG
+</span></span><span class="line"><span class="cl">File Type Extension             : png
+</span></span><span class="line"><span class="cl">MIME Type                       : image/png
+</span></span><span class="line"><span class="cl">Image Width                     : <span class="m">1080</span>
+</span></span><span class="line"><span class="cl">Image Height                    : <span class="m">686</span>
+</span></span><span class="line"><span class="cl">Bit Depth                       : <span class="m">8</span>
+</span></span><span class="line"><span class="cl">Color Type                      : RGB
+</span></span><span class="line"><span class="cl">Compression                     : Deflate/Inflate
+</span></span><span class="line"><span class="cl">Filter                          : Adaptive
+</span></span><span class="line"><span class="cl">Interlace                       : Noninterlaced
+</span></span><span class="line"><span class="cl">Warning                         : <span class="o">[</span>minor<span class="o">]</span> Trailer data after PNG IEND chunk
+</span></span><span class="line"><span class="cl">Image Size                      : 1080x686
+</span></span><span class="line"><span class="cl">Megapixels                      : 0.741
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Exiftool tells us, that there is some data appended after the PNG file end chunk:</p>
+<p><code>Warning : [minor] Trailer data after PNG IEND chunk</code></p>
+<p>If I am looking for any kind of png steganography I first check the file against <code>zsteg</code></p>
+<p>So let’s do that:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zsteg secretsuit.png 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>?<span class="o">]</span> <span class="m">135</span> bytes of extra data after image end <span class="o">(</span>IEND<span class="o">)</span>, <span class="nv">offset</span> <span class="o">=</span> 0xce170
+</span></span><span class="line"><span class="cl">extradata:0         .. file: Zip archive data, at least v2.0 to extract, compression <span class="nv">method</span><span class="o">=</span>store
+</span></span><span class="line"><span class="cl">    00000000: <span class="m">50</span> 4b <span class="m">03</span> <span class="m">04</span> <span class="m">14</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>  <span class="m">00</span> <span class="m">00</span> da 6b 6e <span class="m">55</span> <span class="m">12</span> <span class="m">84</span>  <span class="p">|</span>PK.........knU..<span class="p">|</span>
+</span></span><span class="line"><span class="cl">    00000010: 0b 9a <span class="m">15</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">15</span> <span class="m">00</span>  <span class="m">00</span> <span class="m">00</span> <span class="m">08</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> 6e <span class="m">75</span>  <span class="p">|</span>..............nu<span class="p">|</span>
+</span></span><span class="line"><span class="cl">    00000020: 6d <span class="m">73</span> 2e <span class="m">74</span> <span class="m">78</span> <span class="m">74</span> <span class="m">33</span> <span class="m">37</span>  2e <span class="m">38</span> <span class="m">33</span> <span class="m">32</span> <span class="m">30</span> <span class="m">31</span> <span class="m">35</span> 2c  <span class="p">|</span>ms.txt37.832015,<span class="p">|</span>
+</span></span><span class="line"><span class="cl">    00000030: 2d <span class="m">31</span> <span class="m">32</span> <span class="m">32</span> 2e <span class="m">32</span> <span class="m">38</span> <span class="m">33</span>  <span class="m">36</span> <span class="m">36</span> <span class="m">31</span> <span class="m">50</span> 4b <span class="m">01</span> <span class="m">02</span> <span class="m">14</span>  <span class="p">|</span>-122.283661PK...<span class="p">|</span>
+</span></span><span class="line"><span class="cl">    00000040: <span class="m">00</span> <span class="m">14</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> da  6b 6e <span class="m">55</span> <span class="m">12</span> <span class="m">84</span> 0b 9a <span class="m">15</span>  <span class="p">|</span>........knU.....<span class="p">|</span>
+</span></span><span class="line"><span class="cl">    00000050: <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">15</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">08</span>  <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">01</span>  <span class="p">|</span>................<span class="p">|</span>
+</span></span><span class="line"><span class="cl">    00000060: <span class="m">00</span> <span class="m">20</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>  <span class="m">00</span> 6e <span class="m">75</span> 6d <span class="m">73</span> 2e <span class="m">74</span> <span class="m">78</span>  <span class="p">|</span>. .......nums.tx<span class="p">|</span>
+</span></span><span class="line"><span class="cl">    00000070: <span class="m">74</span> <span class="m">50</span> 4b <span class="m">05</span> <span class="m">06</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>  <span class="m">00</span> <span class="m">01</span> <span class="m">00</span> <span class="m">01</span> <span class="m">00</span> <span class="m">36</span> <span class="m">00</span> <span class="m">00</span>  <span class="p">|</span>tPK..........6..<span class="p">|</span>
+</span></span><span class="line"><span class="cl">    00000080: <span class="m">00</span> 3b <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>                              <span class="p">|</span>.<span class="p">;</span>.....         <span class="p">|</span>
+</span></span><span class="line"><span class="cl">imagedata           .. text: <span class="s2">&#34;\t\n\n\n\t\t\n\n&#34;</span>
+</span></span><span class="line"><span class="cl">b1,g,msb,xy         .. file: <span class="m">370</span> XA sysV pure executable
+</span></span><span class="line"><span class="cl">b1,rgb,lsb,xy       .. text: <span class="s2">&#34;74NSCp?0&#34;</span>
+</span></span><span class="line"><span class="cl">b2,b,msb,xy         .. text: <span class="s2">&#34;Va\u9,HVUU+&#34;</span>
+</span></span><span class="line"><span class="cl">b4,r,lsb,xy         .. text: <span class="s2">&#34;VVwvefgvww&#34;</span>
+</span></span><span class="line"><span class="cl">b4,g,lsb,xy         .. text: <span class="s2">&#34;uwgvUU4DC\&#34;</span><span class="nv">$DC32</span><span class="s2">\&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">b4,b,msb,xy         .. text: <span class="s2">&#34;5=3333333=&#34;</span>
+</span></span><span class="line"><span class="cl">b4,rgb,lsb,xy       .. text: <span class="s2">&#34;sw7sdE5Qe&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>zsteg</code> also tells us that there are 135 bytes of extra data appended after the end of the image (IEND).</p>
+<p>But we do not get any data from it yet.</p>
+<p>In most cases we can use <code>binwalk</code> to carve out any piece of data from image files.</p>
+<p>So let’s try that:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">binwalk -e secretsuit.png         
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">DECIMAL       HEXADECIMAL     DESCRIPTION
+</span></span><span class="line"><span class="cl">--------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl"><span class="m">0</span>             0x0             PNG image, <span class="m">1080</span> x 686, 8-bit/color RGB, non-interlaced
+</span></span><span class="line"><span class="cl"><span class="m">41</span>            0x29            Zlib compressed data, best compression
+</span></span><span class="line"><span class="cl"><span class="m">844144</span>        0xCE170         Zip archive data, at least v2.0 to extract, compressed size: 21, uncompressed size: 21, name: nums.txt
+</span></span><span class="line"><span class="cl"><span class="m">844257</span>        0xCE1E1         End of Zip archive, footer length: <span class="m">22</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> _secretsuit.png.extracted
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ls
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="m">29</span>  29.zlib  CE170.zip  nums.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>binwalk was able to extract a file called <code>nums.txt</code> .</p>
+<p>That should be interesting !</p>
+<p>Let’s see what’s in there:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat nums.txt       
+</span></span><span class="line"><span class="cl">         
+</span></span><span class="line"><span class="cl">37.832015,-122.283661
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>That pretty much looks like some kind of coordinates.</p>
+<p>We can use Google Maps to find the location of these coordinates!</p>
+<p><a href="https://goo.gl/maps/eSSNBLWgapxCP7Gc9" target="_blank" rel="noopener noreffer">https://goo.gl/maps/eSSNBLWgapxCP7Gc9</a></p>
+<p><a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.550414163673!2d-122.28588167289328!3d37.83190104558327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8a4359ebd7d1dbc5!2zMzfCsDQ5JzU1LjMiTiAxMjLCsDE3JzAxLjIiVw!5e0!3m2!1sde!2sde!4v1668822071145!5m2!1sde!2sde" target="_blank" rel="noopener noreffer">https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.550414163673!2d-122.28588167289328!3d37.83190104558327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8a4359ebd7d1dbc5!2zMzfCsDQ5JzU1LjMiTiAxMjLCsDE3JzAxLjIiVw!5e0!3m2!1sde!2sde!4v1668822071145!5m2!1sde!2sde</a></p>
+<p>The address we found is: <code>1200 Park Ave, Emeryville, CA 94608, USA</code></p>
+<p>Because the flag format for this challenge is: <code>flag{street_address}</code> , is this the correct flag:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">flag<span class="o">{</span>1200_park_ave<span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>CTF After Dark - Steg - Day and Night</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-steg-day-and-night/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-steg-day-and-night/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="day-and-night">Day and Night</h1>
+<h2 id="task">task</h2>
+<p>Los Angeles is so different and <a href="https://acmcyber.com/static/files/7983b9ad984e324b/los_angeles.jpg" target="_blank" rel="noopener noreffer">beautiful</a> at night. The key to taking such beautiful photos is to do it in BLACKANDWHITE, and always point your camera towards the skyline, facing
+out, I guess.</p>
+<p>Author: Jerry</p>
+<p>Tags: steg</p>
+<h2 id="writeup">writeup</h2>
+<p>Let’s grab this jpg file!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://acmcyber.com/static/files/7983b9ad984e324b/los_angeles.jpg
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>here is the image</p>
+<p></p>
+<p>let’s look at it’s metadata using <code>exiftool</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">exiftool los_angeles.jpg                                                                                               
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ExifTool Version Number         : 12.44
+</span></span><span class="line"><span class="cl">File Name                       : los_angeles.jpg
+</span></span><span class="line"><span class="cl">Directory                       : .
+</span></span><span class="line"><span class="cl">File Size                       : <span class="m">119</span> kB
+</span></span><span class="line"><span class="cl">File Modification Date/Time     : 2022:11:17 08:13:57+01:00
+</span></span><span class="line"><span class="cl">File Access Date/Time           : 2022:11:17 17:23:13+01:00
+</span></span><span class="line"><span class="cl">File Inode Change Date/Time     : 2022:11:17 17:23:08+01:00
+</span></span><span class="line"><span class="cl">File Permissions                : -rw-r--r--
+</span></span><span class="line"><span class="cl">File Type                       : JPEG
+</span></span><span class="line"><span class="cl">File Type Extension             : jpg
+</span></span><span class="line"><span class="cl">MIME Type                       : image/jpeg
+</span></span><span class="line"><span class="cl">JFIF Version                    : 1.01
+</span></span><span class="line"><span class="cl">Resolution Unit                 : None
+</span></span><span class="line"><span class="cl">X Resolution                    : <span class="m">1</span>
+</span></span><span class="line"><span class="cl">Y Resolution                    : <span class="m">1</span>
+</span></span><span class="line"><span class="cl">Image Width                     : <span class="m">900</span>
+</span></span><span class="line"><span class="cl">Image Height                    : <span class="m">600</span>
+</span></span><span class="line"><span class="cl">Encoding Process                : Baseline DCT, Huffman coding
+</span></span><span class="line"><span class="cl">Bits Per Sample                 : <span class="m">8</span>
+</span></span><span class="line"><span class="cl">Color Components                : <span class="m">3</span>
+</span></span><span class="line"><span class="cl">Y Cb Cr Sub Sampling            : YCbCr4:2:0 <span class="o">(</span><span class="m">2</span> 2<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Image Size                      : 900x600
+</span></span><span class="line"><span class="cl">Megapixels                      : 0.540
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>nothing interesting so far</p>
+<p>Since we know this is a challenge from the steg category we can use stegdetect to detect any kind of jpg steganography:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">stegdetect ./los_angeles.jpg 
+</span></span><span class="line"><span class="cl">./los_angeles.jpg : negative
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>However it reports back as negative.</p>
+<p>If we check the strings at the beginning of the jpg file we see something is added:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">strings ./los_angeles.jpg                                                                                            <span class="m">130</span> ⨯
+</span></span><span class="line"><span class="cl">JFIF
+</span></span><span class="line"><span class="cl"> $.<span class="s1">&#39; &#34;,#
+</span></span></span><span class="line"><span class="cl"><span class="s1">(7),01444
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;</span><span class="nv">9</span><span class="o">=</span>82&lt;.342
+</span></span><span class="line"><span class="cl">!22222222222222222222222222222222222222222222222222
+</span></span><span class="line"><span class="cl"><span class="nv">$3</span>br
+</span></span><span class="line"><span class="cl">%<span class="p">&amp;</span><span class="s1">&#39;()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+</span></span></span><span class="line"><span class="cl"><span class="s1">	#3R
+</span></span></span><span class="line"><span class="cl"><span class="s1">&amp;&#39;</span><span class="o">()</span>*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+</span></span><span class="line"><span class="cl">J1KE
+</span></span><span class="line"><span class="cl">.<span class="o">)</span>qI
+</span></span><span class="line"><span class="cl">1E.<span class="o">(</span>
+</span></span><span class="line"><span class="cl">n<span class="o">)</span>1O
+</span></span><span class="line"><span class="cl">1@	E-
+</span></span><span class="line"><span class="cl">@	E-
+</span></span><span class="line"><span class="cl">@	E-
+</span></span><span class="line"><span class="cl">@	E-
+</span></span><span class="line"><span class="cl">@	E.<span class="o">(</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After looking at the sheets for recommended stegtools for this CTF:</p>
+<p><a href="https://docs.google.com/presentation/d/1BjNLvf3msw5saI7xFt4w1JHsQ9a5mQurZhl_n4N0dh4/edit#slide=id.g18416d9516a_1_301" target="_blank" rel="noopener noreffer">https://docs.google.com/presentation/d/1BjNLvf3msw5saI7xFt4w1JHsQ9a5mQurZhl_n4N0dh4/edit#slide=id.g18416d9516a_1_301</a></p>
+<p>there is one tool listed that sticks out here: <code>Outguess</code></p>
+<p>Because the challenge description mentiones this:</p>
+<p><em>facing out, I guess.</em></p>
+<p>The usage for the tool <code>outguess</code> looks like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">outguess -h  
+</span></span><span class="line"><span class="cl">                                                                                                          
+</span></span><span class="line"><span class="cl">OutGuess 0.4 Universal Stego 1999-2021 Niels Provos and others
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">outguess <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>&lt;input file&gt; <span class="o">[</span>&lt;output file&gt;<span class="o">]]</span>
+</span></span><span class="line"><span class="cl">	-h           print this usage <span class="nb">help</span> text and <span class="nb">exit</span>
+</span></span><span class="line"><span class="cl">	-<span class="o">[</span>sS<span class="o">]</span> &lt;n&gt;    iteration start, capital letter <span class="k">for</span> 2nd dataset
+</span></span><span class="line"><span class="cl">	-<span class="o">[</span>iI<span class="o">]</span> &lt;n&gt;    iteration limit
+</span></span><span class="line"><span class="cl">	-<span class="o">[</span>kK<span class="o">]</span> &lt;key&gt;  key
+</span></span><span class="line"><span class="cl">	-<span class="o">[</span>dD<span class="o">]</span> &lt;name&gt; filename of dataset
+</span></span><span class="line"><span class="cl">	-<span class="o">[</span>eE<span class="o">]</span>        use error correcting encoding
+</span></span><span class="line"><span class="cl">	-p &lt;param&gt;   parameter passed to destination data handler
+</span></span><span class="line"><span class="cl">	-r           retrieve message from data
+</span></span><span class="line"><span class="cl">	-x &lt;n&gt;       number of key derivations to be tried
+</span></span><span class="line"><span class="cl">	-m           mark pixels that have been modified
+</span></span><span class="line"><span class="cl">	-t           collect statistic information
+</span></span><span class="line"><span class="cl">	-F<span class="o">[</span>+-<span class="o">]</span>       turns statistical steganalysis foiling on/off.
+</span></span><span class="line"><span class="cl">	             The default is on.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We need to supply the <code>-r</code> flag to tell outguess to retrieve data from the image.</p>
+<p>Also we need to supply a key.</p>
+<p>I think it is pretty obvious that the key is <code>BLACKANDWHITE</code> because it is written in capital letters in the challenge description.</p>
+<p>All we need to do to get the flag should be this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">outguess -k BLACKANDWHITE -r los_angeles.jpg outguess
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>that worked.</p>
+<p>Let’s see what we got:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file outguess       
+</span></span><span class="line"><span class="cl">outguess: PNG image data, <span class="m">300</span> x 300, 8-bit/color RGBA, non-interlaced
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It is a png image file, so let’s rename it to a proper file extension:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mv outguess outguess.png
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>here is the image:</p>
+<p></p>
+<p>That is a QR Code!</p>
+<p>We can simply use the recipe <code>Parse QR Code</code> on CyberChef to retrieve the flag!</p>
+<p></p>
+<p>And we can see the flag is: <code>flag{pandas_zebras_and_orcas}</code></p>
+]]></description></item><item><title>CTF After Dark - Steg - Moanin</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-steg-moanin/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-steg-moanin/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="moanin">Moanin</h1>
+<h2 id="task">task</h2>
+<p>Any true jazzer knows that you&rsquo;re always supposed to listen in mono.
+I got <a href="https://acmcyber.com/static/files/ff112ae182d2bab0/moanin.wav" target="_blank" rel="noopener noreffer">this track</a> from my dad&rsquo;s old records. It&rsquo;s a bit scratched in some spots. Could
+you help me convert it to mono, and maybe even remove the scratching?</p>
+<p>(the flag is 1 word, wrap it with flag{})</p>
+<p>Author: Stephen</p>
+<p>Tags: steg</p>
+<h2 id="writeup">writeup</h2>
+<p>Ok so the track we get is called <strong>moanin.wav.</strong></p>
+<p>Here is the file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file moanin.wav 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">moanin.wav: RIFF <span class="o">(</span>little-endian<span class="o">)</span> data, WAVE audio, Microsoft PCM, <span class="m">16</span> bit, stereo <span class="m">44100</span> Hz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <code>file</code> utility tells us, that it is a normal 16 bit wave file.</p>
+<p>Also running <code>exiftool</code> against it does not reveal much</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">exiftool moanin.wav 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ExifTool Version Number         : 12.44
+</span></span><span class="line"><span class="cl">File Name                       : moanin.wav
+</span></span><span class="line"><span class="cl">Directory                       : .
+</span></span><span class="line"><span class="cl">File Size                       : <span class="m">103</span> MB
+</span></span><span class="line"><span class="cl">File Modification Date/Time     : 2022:11:17 22:35:46+01:00
+</span></span><span class="line"><span class="cl">File Access Date/Time           : 2022:11:17 22:42:11+01:00
+</span></span><span class="line"><span class="cl">File Inode Change Date/Time     : 2022:11:17 22:42:05+01:00
+</span></span><span class="line"><span class="cl">File Permissions                : -rw-r--r--
+</span></span><span class="line"><span class="cl">File Type                       : WAV
+</span></span><span class="line"><span class="cl">File Type Extension             : wav
+</span></span><span class="line"><span class="cl">MIME Type                       : audio/x-wav
+</span></span><span class="line"><span class="cl">Encoding                        : Microsoft PCM
+</span></span><span class="line"><span class="cl">Num Channels                    : <span class="m">2</span>
+</span></span><span class="line"><span class="cl">Sample Rate                     : <span class="m">44100</span>
+</span></span><span class="line"><span class="cl">Avg Bytes Per Sec               : <span class="m">176400</span>
+</span></span><span class="line"><span class="cl">Bits Per Sample                 : <span class="m">16</span>
+</span></span><span class="line"><span class="cl">ID3 Size                        : <span class="m">38</span>
+</span></span><span class="line"><span class="cl">User Defined Text               : <span class="o">(</span>TXXX<span class="o">)</span> isomiso2mp41
+</span></span><span class="line"><span class="cl">Duration                        : 0:09:42
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We can use a tool like <strong>Sonic Visualizer</strong> to look at the actual waveform of the audio signal</p>
+<p></p>
+<p>However there is nothing that directly reveals the flag.</p>
+<p>Let’s take a look at the spectrogram of the left channel.</p>
+<p>To do so I select <code>Pane ⇒ Add Spectrogram ⇒ moanin.wav: Channel 1</code></p>
+<p></p>
+<p>We can see this. But I am not quite sure what this should tell me yet.</p>
+<p>But I can already tell that it is the same word repeated 3 times.</p>
+<p></p>
+<p>Now we just need to figure out what this word could mean …</p>
+<p>If we now click on <code>Pane ⇒ Add Spectrogram ⇒ moanin.wav: All Channels Mixed</code></p>
+<p>we get the spectrogram of both channels:</p>
+<p></p>
+<p>From the spectrogram we saw earlier we know that it is one word repeated three times consisting out of 7 letters.</p>
+<p>Now we can see what the word should look like.</p>
+<p>The first three letters are: <code>gro</code></p>
+<p>and the last two letters are: <code>in</code></p>
+<p>And we can see that there are two letters missing in-between.</p>
+<p>It is the 4th and 5th character that is missing.</p>
+<p>From the last visible word <code>groa</code> we can see, that the 4th character should be an <code>a</code>.</p>
+<p>If we look at the word before <code>groa</code> which is <code>oani</code> we see that the letter <code>a</code> is followed by <code>ni</code>.</p>
+<p>And if we look at the first word <code>groin</code> we see that it ends with <code>in</code>.</p>
+<p>If we piece these information together we get: <code>groanin</code>.</p>
+<p>Here i marked the repeated characters so it is easier to understand</p>
+<p></p>
+<p>The task description says that the solution is one single word</p>
+<p>and we need to wrap it with <code>flag{ }</code> .</p>
+<p>So the final flag is: <code>flag{groanin}</code></p>
+]]></description></item><item><title>CTF After Dark - Steg - Senobnesieh</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-steg-senobnesieh/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-steg-senobnesieh/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="senobnesieh">Senobnesieh</h1>
+<h2 id="task">task</h2>
+<p>lla ta siht rebmemer t&rsquo;nod I ???senobnesieh deman retcarahc noteleks suolucidir <a href="https://acmcyber.com/static/files/e8350154bad3f643/senobnesieh.lmao" target="_blank" rel="noopener noreffer">siht</a> s&rsquo;ereht yltnerappa dna dab gnikaerb gnihctawer m&rsquo;I. <a href="https://github.com/JavDomGom/videostego" target="_blank" rel="noopener noreffer">wow</a></p>
+<p>Rory</p>
+<p>steg</p>
+<h2 id="writeup">writeup</h2>
+<p>ok let’s grab this weird file</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://acmcyber.com/static/files/e8350154bad3f643/senobnesieh.lmao
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>check the file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file senobnesieh.lmao 
+</span></span><span class="line"><span class="cl">senobnesieh.lmao: ISO Media, MP4 v2 <span class="o">[</span>ISO 14496-14<span class="o">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It is an mp4 file and can be played. It sounds like some weird music.</p>
+<p>The link behind <code>wow</code> is this:</p>
+<p><a href="https://github.com/JavDomGom/videostego" target="_blank" rel="noopener noreffer">https://github.com/JavDomGom/videostego</a></p>
+<p><strong>Videostego</strong> is a tool that you can use to write and read hidden messages in MP4 files using Steganography techniques like LSB.</p>
+<p>let’s clone this repository:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/JavDomGom/videostego      
+</span></span><span class="line"><span class="cl">Cloning into <span class="s1">&#39;videostego&#39;</span>...
+</span></span><span class="line"><span class="cl">remote: Enumerating objects: 62, <span class="k">done</span>.
+</span></span><span class="line"><span class="cl">remote: Counting objects: 100% <span class="o">(</span>62/62<span class="o">)</span>, <span class="k">done</span>.
+</span></span><span class="line"><span class="cl">remote: Compressing objects: 100% <span class="o">(</span>51/51<span class="o">)</span>, <span class="k">done</span>.
+</span></span><span class="line"><span class="cl">remote: Total <span class="m">62</span> <span class="o">(</span>delta 14<span class="o">)</span>, reused <span class="m">55</span> <span class="o">(</span>delta 10<span class="o">)</span>, pack-reused <span class="m">0</span>
+</span></span><span class="line"><span class="cl">Receiving objects: 100% <span class="o">(</span>62/62<span class="o">)</span>, 3.20 MiB <span class="p">|</span> 2.56 MiB/s, <span class="k">done</span>.
+</span></span><span class="line"><span class="cl">Resolving deltas: 100% <span class="o">(</span>14/14<span class="o">)</span>, <span class="k">done</span>.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>and try to install it:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> videostego
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo make install                                                                                                    <span class="m">130</span> ⨯
+</span></span><span class="line"><span class="cl"><span class="o">[</span>sudo<span class="o">]</span> password <span class="k">for</span> pascal: 
+</span></span><span class="line"><span class="cl">2022/11/17 18:58:01 <span class="o">[</span>build<span class="o">]</span> Building videostego binary ...
+</span></span><span class="line"><span class="cl">gcc -Wall -g -o videostego src/*.c
+</span></span><span class="line"><span class="cl">2022/11/17 18:58:02 <span class="o">[</span>build<span class="o">]</span> Done!
+</span></span><span class="line"><span class="cl">2022/11/17 18:58:02 <span class="o">[</span>install<span class="o">]</span> Installing videostego ...
+</span></span><span class="line"><span class="cl">install -m <span class="m">0755</span> videostego /usr/local/bin
+</span></span><span class="line"><span class="cl">2022/11/17 18:58:02 <span class="o">[</span>install<span class="o">]</span> Done!
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ok that worked.</p>
+<p>How can this tool be used?</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">videostego --help                
+</span></span><span class="line"><span class="cl">USAGE
+</span></span><span class="line"><span class="cl">	VideoStego <span class="o">[</span>-f filename<span class="o">]</span> <span class="o">[</span>-w <span class="o">[</span>-m message<span class="o">]</span> <span class="p">|</span> -r <span class="p">|</span> -i<span class="o">]</span> <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-v<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">DESCRIPTION
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	Tool to apply steganography in video files.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">OPTIONS
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	-f, --file	Input video file.
+</span></span><span class="line"><span class="cl">	-m, --message	Message to hide. It has to be specified only <span class="k">if</span> the mode is -w, --write.
+</span></span><span class="line"><span class="cl">	-w, --write	Write mode. Hide a secret message in video file.
+</span></span><span class="line"><span class="cl">	-r, --read	Read mode. Read a secret message in video file.
+</span></span><span class="line"><span class="cl">	-i, --info	Info mode. Print general structure and containers of video file.
+</span></span><span class="line"><span class="cl">	-v, --version	Print the program version.
+</span></span><span class="line"><span class="cl">	-h, --help	Print this help.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">LICENSE
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	License GPLv3+: GNU GPL version <span class="m">3</span> or later &lt;https://gnu.org/licenses/gpl.html&gt;
+</span></span><span class="line"><span class="cl">	This is free software: you are free to change and redistribute it.
+</span></span><span class="line"><span class="cl">	There is NO WARRANTY, to the extent permitted by law.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ok we need to supply the input file as well as the <code>-r</code> parameter to read the hidden message from a video file.</p>
+<p>Let’s try this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">videostego -f senobnesieh.lmao -r                                                                                    
+</span></span><span class="line"><span class="cl">flag<span class="o">{</span>newer_mandela_effect_just_dropped<span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>there is the flag !</p>
+]]></description></item><item><title>CTF After Dark - File - Missing Person</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-file-missing-person/</link><pubDate>Sun, 22 Jan 2023 23:33:34 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-file-missing-person/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="missing-person">Missing Person</h1>
+<h2 id="task">task</h2>
+<p>I was zipping all my <a href="https://acmcyber.com/static/files/d72e9be6ade2bb73/stuff.zip" target="_blank" rel="noopener noreffer">stuff</a> together and realized that I&rsquo;m missing a person. Could you find them for me?</p>
+<p>Author: Luke</p>
+<p>Tags: file</p>
+<h2 id="writeup">writeup</h2>
+<p>We get a file called <code>stuff.zip</code>.</p>
+<p>And if we check the file signature using the <code>file</code>  command, we can see that it looks like a regular zip archive.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file stuff.zip 
+</span></span><span class="line"><span class="cl">stuff.zip: Zip archive data, at least v2.0 to extract, compression <span class="nv">method</span><span class="o">=</span>deflate
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Let’s extract this!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">unzip stuff.zip 
+</span></span><span class="line"><span class="cl">Archive:  stuff.zip
+</span></span><span class="line"><span class="cl">  inflating: whygod.jpg              
+</span></span><span class="line"><span class="cl">  inflating: banana.jpg              
+</span></span><span class="line"><span class="cl">  inflating: stash2.jpg
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ok, we get 3 files: <code>whygod.jpg</code> <code>banana.jpg</code> and <code>stash2.jpg</code>.</p>
+<p>Here are the files:</p>
+<p></p>
+<p></p>
+<p></p>
+<p>However all those files seem to be useless.</p>
+<p>But there are only those 3 files, right? Wrong!</p>
+<p>There are hidden files inside this zipfile which can be extracted using tools like cyberchef or binwalk.</p>
+<p>In fact we can use the <code>Extract Files</code> recipe of CyberChef to get the hidden file:</p>
+<p></p>
+<p>We can also get this file using <code>binwalk</code>.</p>
+<p>We can use <code>binwalk</code> like so</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">binwalk -e --dd<span class="o">=</span><span class="s1">&#39;.*&#39;</span> stuff.zip 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">DECIMAL       HEXADECIMAL     DESCRIPTION
+</span></span><span class="line"><span class="cl">--------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl"><span class="m">0</span>             0x0             Zip archive data, at least v2.0 to extract, compressed size: 160689, uncompressed size: 160664, name: whygod.jpg
+</span></span><span class="line"><span class="cl"><span class="m">160729</span>        0x273D9         Zip archive data, at least v2.0 to extract, compressed size: 131231, uncompressed size: 131862, name: banana.jpg
+</span></span><span class="line"><span class="cl"><span class="m">292000</span>        0x474A0         Zip archive data, at least v2.0 to extract, compressed size: 729180, uncompressed size: 729476, name: stash2.jpg
+</span></span><span class="line"><span class="cl"><span class="m">1021496</span>       0xF9638         End of Zip archive, footer length: <span class="m">22</span>
+</span></span><span class="line"><span class="cl"><span class="m">1021518</span>       0xF964E         JPEG image data, EXIF standard
+</span></span><span class="line"><span class="cl"><span class="m">1021530</span>       0xF965A         TIFF image data, big-endian, offset of first image directory: <span class="m">8</span>
+</span></span><span class="line"><span class="cl"><span class="m">1022232</span>       0xF9918         Copyright string: <span class="s2">&#34;Copyright (c) 1998 Hewlett-Packard Company&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="m">1032776</span>       0xFC248         Copyright string: <span class="s2">&#34;Copyright (c) 1998 Hewlett-Packard Company&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file *    
+</span></span><span class="line"><span class="cl">0.zip:      Zip archive data, at least v2.0 to extract, compression <span class="nv">method</span><span class="o">=</span>deflate
+</span></span><span class="line"><span class="cl">banana.jpg: JPEG image data, JFIF standard 1.01, aspect ratio, density 1x1, segment length 16, Exif Standard: <span class="o">[</span>TIFF image data, big-endian, <span class="nv">direntries</span><span class="o">=</span>4, <span class="nv">software</span><span class="o">=</span>Picasa, <span class="nv">datetime</span><span class="o">=</span>2020:04:25 10:07:27<span class="o">]</span>, baseline, precision 8, 774x811, components <span class="m">3</span>
+</span></span><span class="line"><span class="cl">F964E:      JPEG image data, Exif standard: <span class="o">[</span>TIFF image data, big-endian, <span class="nv">direntries</span><span class="o">=</span>9, <span class="nv">height</span><span class="o">=</span>828, <span class="nv">orientation</span><span class="o">=</span>upper-left, <span class="nv">xresolution</span><span class="o">=</span>122, <span class="nv">yresolution</span><span class="o">=</span>130, <span class="nv">resolutionunit</span><span class="o">=</span>2, <span class="nv">software</span><span class="o">=</span>Adobe Photoshop CS6 <span class="o">(</span>Windows<span class="o">)</span>, <span class="nv">datetime</span><span class="o">=</span>2022:11:14 16:57:58, <span class="nv">width</span><span class="o">=</span>585<span class="o">]</span>, progressive, precision 8, 525x668, components <span class="m">3</span>
+</span></span><span class="line"><span class="cl">F965A:      TIFF image data, big-endian, <span class="nv">direntries</span><span class="o">=</span>9, <span class="nv">height</span><span class="o">=</span>828, <span class="nv">orientation</span><span class="o">=</span>upper-left, <span class="nv">xresolution</span><span class="o">=</span>122, <span class="nv">yresolution</span><span class="o">=</span>130, <span class="nv">resolutionunit</span><span class="o">=</span>2, <span class="nv">software</span><span class="o">=</span>Adobe Photoshop CS6 <span class="o">(</span>Windows<span class="o">)</span>, <span class="nv">datetime</span><span class="o">=</span>2022:11:14 16:57:58, <span class="nv">width</span><span class="o">=</span><span class="m">585</span>
+</span></span><span class="line"><span class="cl">F9638:      Zip archive data <span class="o">(</span>empty<span class="o">)</span>
+</span></span><span class="line"><span class="cl">F9918:      data
+</span></span><span class="line"><span class="cl">FC248:      data
+</span></span><span class="line"><span class="cl">stash2.jpg: PNG image data, <span class="m">741</span> x 758, 8-bit/color RGB, non-interlaced
+</span></span><span class="line"><span class="cl">whygod.jpg: PNG image data, <span class="m">408</span> x 331, 8-bit/color RGB, non-interlaced
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The new file here that <code>binwalk</code> extracted is <code>F964E</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file F964E
+</span></span><span class="line"><span class="cl">F964E: JPEG image data, Exif standard: <span class="o">[</span>TIFF image data, big-endian, <span class="nv">direntries</span><span class="o">=</span>9, <span class="nv">height</span><span class="o">=</span>828, <span class="nv">orientation</span><span class="o">=</span>upper-left, <span class="nv">xresolution</span><span class="o">=</span>122, <span class="nv">yresolution</span><span class="o">=</span>130, <span class="nv">resolutionunit</span><span class="o">=</span>2, <span class="nv">software</span><span class="o">=</span>Adobe Photoshop CS6 <span class="o">(</span>Windows<span class="o">)</span>, <span class="nv">datetime</span><span class="o">=</span>2022:11:14 16:57:58, <span class="nv">width</span><span class="o">=</span>585<span class="o">]</span>, progressive, precision 8, 525x668, components <span class="m">3</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It is a jpeg file.</p>
+<p>Here is the new image:</p>
+<p></p>
+<p>We can see the flag now!</p>
+<p>flag: <code>flag{sm00th_op3rator}</code></p>
+]]></description></item></channel></rss>

@@ -1,4 +1,478 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Steganography - Tag - Pascal's Blog</title><link>https://blog.ppeinecke.de/tags/steganography/</link><description>Steganography - Tag - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 05 Dec 2022 00:20:38 +0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/steganography/" rel="self" type="application/rss+xml"/><item><title>Synk Fetch the Flag 2022 - Forensics - Potty Training</title><link>https://blog.ppeinecke.de/posts/fetch-the-flag-2022-forensics-potty-training/</link><pubDate>Mon, 05 Dec 2022 00:20:38 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/fetch-the-flag-2022-forensics-potty-training/</guid><description><![CDATA[<div class="featured-image">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Steganography - Tag - Pascal's Blog</title><link>https://blog.ppeinecke.de/tags/steganography/</link><description>Steganography - Tag - Pascal's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 22 Jan 2023 23:43:05 +0100</lastBuildDate><atom:link href="https://blog.ppeinecke.de/tags/steganography/" rel="self" type="application/rss+xml"/><item><title>CTF After Dark - Steg - Day and Night</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-steg-day-and-night/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-steg-day-and-night/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="day-and-night">Day and Night</h1>
+<h2 id="task">task</h2>
+<p>Los Angeles is so different and <a href="https://acmcyber.com/static/files/7983b9ad984e324b/los_angeles.jpg" target="_blank" rel="noopener noreffer">beautiful</a> at night. The key to taking such beautiful photos is to do it in BLACKANDWHITE, and always point your camera towards the skyline, facing
+out, I guess.</p>
+<p>Author: Jerry</p>
+<p>Tags: steg</p>
+<h2 id="writeup">writeup</h2>
+<p>Let’s grab this jpg file!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://acmcyber.com/static/files/7983b9ad984e324b/los_angeles.jpg
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>here is the image</p>
+<p></p>
+<p>let’s look at it’s metadata using <code>exiftool</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">exiftool los_angeles.jpg                                                                                               
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ExifTool Version Number         : 12.44
+</span></span><span class="line"><span class="cl">File Name                       : los_angeles.jpg
+</span></span><span class="line"><span class="cl">Directory                       : .
+</span></span><span class="line"><span class="cl">File Size                       : <span class="m">119</span> kB
+</span></span><span class="line"><span class="cl">File Modification Date/Time     : 2022:11:17 08:13:57+01:00
+</span></span><span class="line"><span class="cl">File Access Date/Time           : 2022:11:17 17:23:13+01:00
+</span></span><span class="line"><span class="cl">File Inode Change Date/Time     : 2022:11:17 17:23:08+01:00
+</span></span><span class="line"><span class="cl">File Permissions                : -rw-r--r--
+</span></span><span class="line"><span class="cl">File Type                       : JPEG
+</span></span><span class="line"><span class="cl">File Type Extension             : jpg
+</span></span><span class="line"><span class="cl">MIME Type                       : image/jpeg
+</span></span><span class="line"><span class="cl">JFIF Version                    : 1.01
+</span></span><span class="line"><span class="cl">Resolution Unit                 : None
+</span></span><span class="line"><span class="cl">X Resolution                    : <span class="m">1</span>
+</span></span><span class="line"><span class="cl">Y Resolution                    : <span class="m">1</span>
+</span></span><span class="line"><span class="cl">Image Width                     : <span class="m">900</span>
+</span></span><span class="line"><span class="cl">Image Height                    : <span class="m">600</span>
+</span></span><span class="line"><span class="cl">Encoding Process                : Baseline DCT, Huffman coding
+</span></span><span class="line"><span class="cl">Bits Per Sample                 : <span class="m">8</span>
+</span></span><span class="line"><span class="cl">Color Components                : <span class="m">3</span>
+</span></span><span class="line"><span class="cl">Y Cb Cr Sub Sampling            : YCbCr4:2:0 <span class="o">(</span><span class="m">2</span> 2<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Image Size                      : 900x600
+</span></span><span class="line"><span class="cl">Megapixels                      : 0.540
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>nothing interesting so far</p>
+<p>Since we know this is a challenge from the steg category we can use stegdetect to detect any kind of jpg steganography:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">stegdetect ./los_angeles.jpg 
+</span></span><span class="line"><span class="cl">./los_angeles.jpg : negative
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>However it reports back as negative.</p>
+<p>If we check the strings at the beginning of the jpg file we see something is added:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">strings ./los_angeles.jpg                                                                                            <span class="m">130</span> ⨯
+</span></span><span class="line"><span class="cl">JFIF
+</span></span><span class="line"><span class="cl"> $.<span class="s1">&#39; &#34;,#
+</span></span></span><span class="line"><span class="cl"><span class="s1">(7),01444
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;</span><span class="nv">9</span><span class="o">=</span>82&lt;.342
+</span></span><span class="line"><span class="cl">!22222222222222222222222222222222222222222222222222
+</span></span><span class="line"><span class="cl"><span class="nv">$3</span>br
+</span></span><span class="line"><span class="cl">%<span class="p">&amp;</span><span class="s1">&#39;()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+</span></span></span><span class="line"><span class="cl"><span class="s1">	#3R
+</span></span></span><span class="line"><span class="cl"><span class="s1">&amp;&#39;</span><span class="o">()</span>*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+</span></span><span class="line"><span class="cl">J1KE
+</span></span><span class="line"><span class="cl">.<span class="o">)</span>qI
+</span></span><span class="line"><span class="cl">1E.<span class="o">(</span>
+</span></span><span class="line"><span class="cl">n<span class="o">)</span>1O
+</span></span><span class="line"><span class="cl">1@	E-
+</span></span><span class="line"><span class="cl">@	E-
+</span></span><span class="line"><span class="cl">@	E-
+</span></span><span class="line"><span class="cl">@	E-
+</span></span><span class="line"><span class="cl">@	E.<span class="o">(</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After looking at the sheets for recommended stegtools for this CTF:</p>
+<p><a href="https://docs.google.com/presentation/d/1BjNLvf3msw5saI7xFt4w1JHsQ9a5mQurZhl_n4N0dh4/edit#slide=id.g18416d9516a_1_301" target="_blank" rel="noopener noreffer">https://docs.google.com/presentation/d/1BjNLvf3msw5saI7xFt4w1JHsQ9a5mQurZhl_n4N0dh4/edit#slide=id.g18416d9516a_1_301</a></p>
+<p>there is one tool listed that sticks out here: <code>Outguess</code></p>
+<p>Because the challenge description mentiones this:</p>
+<p><em>facing out, I guess.</em></p>
+<p>The usage for the tool <code>outguess</code> looks like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">outguess -h  
+</span></span><span class="line"><span class="cl">                                                                                                          
+</span></span><span class="line"><span class="cl">OutGuess 0.4 Universal Stego 1999-2021 Niels Provos and others
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">outguess <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>&lt;input file&gt; <span class="o">[</span>&lt;output file&gt;<span class="o">]]</span>
+</span></span><span class="line"><span class="cl">	-h           print this usage <span class="nb">help</span> text and <span class="nb">exit</span>
+</span></span><span class="line"><span class="cl">	-<span class="o">[</span>sS<span class="o">]</span> &lt;n&gt;    iteration start, capital letter <span class="k">for</span> 2nd dataset
+</span></span><span class="line"><span class="cl">	-<span class="o">[</span>iI<span class="o">]</span> &lt;n&gt;    iteration limit
+</span></span><span class="line"><span class="cl">	-<span class="o">[</span>kK<span class="o">]</span> &lt;key&gt;  key
+</span></span><span class="line"><span class="cl">	-<span class="o">[</span>dD<span class="o">]</span> &lt;name&gt; filename of dataset
+</span></span><span class="line"><span class="cl">	-<span class="o">[</span>eE<span class="o">]</span>        use error correcting encoding
+</span></span><span class="line"><span class="cl">	-p &lt;param&gt;   parameter passed to destination data handler
+</span></span><span class="line"><span class="cl">	-r           retrieve message from data
+</span></span><span class="line"><span class="cl">	-x &lt;n&gt;       number of key derivations to be tried
+</span></span><span class="line"><span class="cl">	-m           mark pixels that have been modified
+</span></span><span class="line"><span class="cl">	-t           collect statistic information
+</span></span><span class="line"><span class="cl">	-F<span class="o">[</span>+-<span class="o">]</span>       turns statistical steganalysis foiling on/off.
+</span></span><span class="line"><span class="cl">	             The default is on.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We need to supply the <code>-r</code> flag to tell outguess to retrieve data from the image.</p>
+<p>Also we need to supply a key.</p>
+<p>I think it is pretty obvious that the key is <code>BLACKANDWHITE</code> because it is written in capital letters in the challenge description.</p>
+<p>All we need to do to get the flag should be this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">outguess -k BLACKANDWHITE -r los_angeles.jpg outguess
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>that worked.</p>
+<p>Let’s see what we got:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file outguess       
+</span></span><span class="line"><span class="cl">outguess: PNG image data, <span class="m">300</span> x 300, 8-bit/color RGBA, non-interlaced
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It is a png image file, so let’s rename it to a proper file extension:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mv outguess outguess.png
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>here is the image:</p>
+<p></p>
+<p>That is a QR Code!</p>
+<p>We can simply use the recipe <code>Parse QR Code</code> on CyberChef to retrieve the flag!</p>
+<p></p>
+<p>And we can see the flag is: <code>flag{pandas_zebras_and_orcas}</code></p>
+]]></description></item><item><title>CTF After Dark - Steg - Moanin</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-steg-moanin/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-steg-moanin/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="moanin">Moanin</h1>
+<h2 id="task">task</h2>
+<p>Any true jazzer knows that you&rsquo;re always supposed to listen in mono.
+I got <a href="https://acmcyber.com/static/files/ff112ae182d2bab0/moanin.wav" target="_blank" rel="noopener noreffer">this track</a> from my dad&rsquo;s old records. It&rsquo;s a bit scratched in some spots. Could
+you help me convert it to mono, and maybe even remove the scratching?</p>
+<p>(the flag is 1 word, wrap it with flag{})</p>
+<p>Author: Stephen</p>
+<p>Tags: steg</p>
+<h2 id="writeup">writeup</h2>
+<p>Ok so the track we get is called <strong>moanin.wav.</strong></p>
+<p>Here is the file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file moanin.wav 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">moanin.wav: RIFF <span class="o">(</span>little-endian<span class="o">)</span> data, WAVE audio, Microsoft PCM, <span class="m">16</span> bit, stereo <span class="m">44100</span> Hz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <code>file</code> utility tells us, that it is a normal 16 bit wave file.</p>
+<p>Also running <code>exiftool</code> against it does not reveal much</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">exiftool moanin.wav 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ExifTool Version Number         : 12.44
+</span></span><span class="line"><span class="cl">File Name                       : moanin.wav
+</span></span><span class="line"><span class="cl">Directory                       : .
+</span></span><span class="line"><span class="cl">File Size                       : <span class="m">103</span> MB
+</span></span><span class="line"><span class="cl">File Modification Date/Time     : 2022:11:17 22:35:46+01:00
+</span></span><span class="line"><span class="cl">File Access Date/Time           : 2022:11:17 22:42:11+01:00
+</span></span><span class="line"><span class="cl">File Inode Change Date/Time     : 2022:11:17 22:42:05+01:00
+</span></span><span class="line"><span class="cl">File Permissions                : -rw-r--r--
+</span></span><span class="line"><span class="cl">File Type                       : WAV
+</span></span><span class="line"><span class="cl">File Type Extension             : wav
+</span></span><span class="line"><span class="cl">MIME Type                       : audio/x-wav
+</span></span><span class="line"><span class="cl">Encoding                        : Microsoft PCM
+</span></span><span class="line"><span class="cl">Num Channels                    : <span class="m">2</span>
+</span></span><span class="line"><span class="cl">Sample Rate                     : <span class="m">44100</span>
+</span></span><span class="line"><span class="cl">Avg Bytes Per Sec               : <span class="m">176400</span>
+</span></span><span class="line"><span class="cl">Bits Per Sample                 : <span class="m">16</span>
+</span></span><span class="line"><span class="cl">ID3 Size                        : <span class="m">38</span>
+</span></span><span class="line"><span class="cl">User Defined Text               : <span class="o">(</span>TXXX<span class="o">)</span> isomiso2mp41
+</span></span><span class="line"><span class="cl">Duration                        : 0:09:42
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We can use a tool like <strong>Sonic Visualizer</strong> to look at the actual waveform of the audio signal</p>
+<p></p>
+<p>However there is nothing that directly reveals the flag.</p>
+<p>Let’s take a look at the spectrogram of the left channel.</p>
+<p>To do so I select <code>Pane ⇒ Add Spectrogram ⇒ moanin.wav: Channel 1</code></p>
+<p></p>
+<p>We can see this. But I am not quite sure what this should tell me yet.</p>
+<p>But I can already tell that it is the same word repeated 3 times.</p>
+<p></p>
+<p>Now we just need to figure out what this word could mean …</p>
+<p>If we now click on <code>Pane ⇒ Add Spectrogram ⇒ moanin.wav: All Channels Mixed</code></p>
+<p>we get the spectrogram of both channels:</p>
+<p></p>
+<p>From the spectrogram we saw earlier we know that it is one word repeated three times consisting out of 7 letters.</p>
+<p>Now we can see what the word should look like.</p>
+<p>The first three letters are: <code>gro</code></p>
+<p>and the last two letters are: <code>in</code></p>
+<p>And we can see that there are two letters missing in-between.</p>
+<p>It is the 4th and 5th character that is missing.</p>
+<p>From the last visible word <code>groa</code> we can see, that the 4th character should be an <code>a</code>.</p>
+<p>If we look at the word before <code>groa</code> which is <code>oani</code> we see that the letter <code>a</code> is followed by <code>ni</code>.</p>
+<p>And if we look at the first word <code>groin</code> we see that it ends with <code>in</code>.</p>
+<p>If we piece these information together we get: <code>groanin</code>.</p>
+<p>Here i marked the repeated characters so it is easier to understand</p>
+<p></p>
+<p>The task description says that the solution is one single word</p>
+<p>and we need to wrap it with <code>flag{ }</code> .</p>
+<p>So the final flag is: <code>flag{groanin}</code></p>
+]]></description></item><item><title>CTF After Dark - Steg - Senobnesieh</title><link>https://blog.ppeinecke.de/posts/ctf-after-dark-steg-senobnesieh/</link><pubDate>Sun, 22 Jan 2023 23:43:05 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/ctf-after-dark-steg-senobnesieh/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/featuredImages/blue-thumbnail.png" referrerpolicy="no-referrer">
+            </div><h1 id="senobnesieh">Senobnesieh</h1>
+<h2 id="task">task</h2>
+<p>lla ta siht rebmemer t&rsquo;nod I ???senobnesieh deman retcarahc noteleks suolucidir <a href="https://acmcyber.com/static/files/e8350154bad3f643/senobnesieh.lmao" target="_blank" rel="noopener noreffer">siht</a> s&rsquo;ereht yltnerappa dna dab gnikaerb gnihctawer m&rsquo;I. <a href="https://github.com/JavDomGom/videostego" target="_blank" rel="noopener noreffer">wow</a></p>
+<p>Rory</p>
+<p>steg</p>
+<h2 id="writeup">writeup</h2>
+<p>ok let’s grab this weird file</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://acmcyber.com/static/files/e8350154bad3f643/senobnesieh.lmao
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>check the file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file senobnesieh.lmao 
+</span></span><span class="line"><span class="cl">senobnesieh.lmao: ISO Media, MP4 v2 <span class="o">[</span>ISO 14496-14<span class="o">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It is an mp4 file and can be played. It sounds like some weird music.</p>
+<p>The link behind <code>wow</code> is this:</p>
+<p><a href="https://github.com/JavDomGom/videostego" target="_blank" rel="noopener noreffer">https://github.com/JavDomGom/videostego</a></p>
+<p><strong>Videostego</strong> is a tool that you can use to write and read hidden messages in MP4 files using Steganography techniques like LSB.</p>
+<p>let’s clone this repository:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/JavDomGom/videostego      
+</span></span><span class="line"><span class="cl">Cloning into <span class="s1">&#39;videostego&#39;</span>...
+</span></span><span class="line"><span class="cl">remote: Enumerating objects: 62, <span class="k">done</span>.
+</span></span><span class="line"><span class="cl">remote: Counting objects: 100% <span class="o">(</span>62/62<span class="o">)</span>, <span class="k">done</span>.
+</span></span><span class="line"><span class="cl">remote: Compressing objects: 100% <span class="o">(</span>51/51<span class="o">)</span>, <span class="k">done</span>.
+</span></span><span class="line"><span class="cl">remote: Total <span class="m">62</span> <span class="o">(</span>delta 14<span class="o">)</span>, reused <span class="m">55</span> <span class="o">(</span>delta 10<span class="o">)</span>, pack-reused <span class="m">0</span>
+</span></span><span class="line"><span class="cl">Receiving objects: 100% <span class="o">(</span>62/62<span class="o">)</span>, 3.20 MiB <span class="p">|</span> 2.56 MiB/s, <span class="k">done</span>.
+</span></span><span class="line"><span class="cl">Resolving deltas: 100% <span class="o">(</span>14/14<span class="o">)</span>, <span class="k">done</span>.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>and try to install it:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> videostego
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo make install                                                                                                    <span class="m">130</span> ⨯
+</span></span><span class="line"><span class="cl"><span class="o">[</span>sudo<span class="o">]</span> password <span class="k">for</span> pascal: 
+</span></span><span class="line"><span class="cl">2022/11/17 18:58:01 <span class="o">[</span>build<span class="o">]</span> Building videostego binary ...
+</span></span><span class="line"><span class="cl">gcc -Wall -g -o videostego src/*.c
+</span></span><span class="line"><span class="cl">2022/11/17 18:58:02 <span class="o">[</span>build<span class="o">]</span> Done!
+</span></span><span class="line"><span class="cl">2022/11/17 18:58:02 <span class="o">[</span>install<span class="o">]</span> Installing videostego ...
+</span></span><span class="line"><span class="cl">install -m <span class="m">0755</span> videostego /usr/local/bin
+</span></span><span class="line"><span class="cl">2022/11/17 18:58:02 <span class="o">[</span>install<span class="o">]</span> Done!
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ok that worked.</p>
+<p>How can this tool be used?</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">videostego --help                
+</span></span><span class="line"><span class="cl">USAGE
+</span></span><span class="line"><span class="cl">	VideoStego <span class="o">[</span>-f filename<span class="o">]</span> <span class="o">[</span>-w <span class="o">[</span>-m message<span class="o">]</span> <span class="p">|</span> -r <span class="p">|</span> -i<span class="o">]</span> <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-v<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">DESCRIPTION
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	Tool to apply steganography in video files.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">OPTIONS
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	-f, --file	Input video file.
+</span></span><span class="line"><span class="cl">	-m, --message	Message to hide. It has to be specified only <span class="k">if</span> the mode is -w, --write.
+</span></span><span class="line"><span class="cl">	-w, --write	Write mode. Hide a secret message in video file.
+</span></span><span class="line"><span class="cl">	-r, --read	Read mode. Read a secret message in video file.
+</span></span><span class="line"><span class="cl">	-i, --info	Info mode. Print general structure and containers of video file.
+</span></span><span class="line"><span class="cl">	-v, --version	Print the program version.
+</span></span><span class="line"><span class="cl">	-h, --help	Print this help.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">LICENSE
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	License GPLv3+: GNU GPL version <span class="m">3</span> or later &lt;https://gnu.org/licenses/gpl.html&gt;
+</span></span><span class="line"><span class="cl">	This is free software: you are free to change and redistribute it.
+</span></span><span class="line"><span class="cl">	There is NO WARRANTY, to the extent permitted by law.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ok we need to supply the input file as well as the <code>-r</code> parameter to read the hidden message from a video file.</p>
+<p>Let’s try this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">videostego -f senobnesieh.lmao -r                                                                                    
+</span></span><span class="line"><span class="cl">flag<span class="o">{</span>newer_mandela_effect_just_dropped<span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>there is the flag !</p>
+]]></description></item><item><title>Synk Fetch the Flag 2022 - Forensics - Potty Training</title><link>https://blog.ppeinecke.de/posts/fetch-the-flag-2022-forensics-potty-training/</link><pubDate>Mon, 05 Dec 2022 00:20:38 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/fetch-the-flag-2022-forensics-potty-training/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/potty.png" referrerpolicy="no-referrer">
             </div><h1 id="potty-training">Potty Training</h1>
 <h2 id="writeup">writeup</h2>
