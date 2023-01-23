@@ -15,8 +15,8 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://acmcyber.com/static/files/a6ea3133e470a2b7/bigfile.txt
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>By using the <code>strings</code> utility to print out any printable characters I see a lot of useless random character.</p>
-<p>However since the challenge is called <strong>get a grep</strong> I can try to use grep to find any useful information by searching for the flag:</p>
+</div><p>By using the <code>strings</code> utility to print out any printable characters I see a lot of useless random characters.</p>
+<p>However since the challenge is called <strong>get a grep</strong> I can try to use grep to find any useful information by searching for the flag using Global Regular Expression (grep):</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -101,7 +101,7 @@
 </span></span><span class="line"><span class="cl">IP address: 75.2.60.5
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>this first entry is this:</p>
+</div><p>the first entry is this:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -125,7 +125,7 @@
 <p>Tags: osint</p>
 <h2 id="writeup">writeup</h2>
 <p>after searching on google for <code>Lima Bean Rice University</code>, I found this linkedin profile:</p>
-<p><a href="https://www.linkedin.com/in/lima-bean-b3b876172" target="_blank" rel="noopener noreffer"></a></p>
+<p><a href="https://www.linkedin.com/in/lima-bean-b3b876172" target="_blank" rel="noopener noreffer">https://www.linkedin.com/in/lima-bean-b3b876172</a></p>
 <p>but this is not the correct profile.</p>
 <p>The profile that we are looking for does not exist anymore.</p>
 <p>But it is still cached on other search engines.</p>

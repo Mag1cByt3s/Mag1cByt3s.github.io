@@ -15,8 +15,8 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://acmcyber.com/static/files/a6ea3133e470a2b7/bigfile.txt
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>By using the <code>strings</code> utility to print out any printable characters I see a lot of useless random character.</p>
-<p>However since the challenge is called <strong>get a grep</strong> I can try to use grep to find any useful information by searching for the flag:</p>
+</div><p>By using the <code>strings</code> utility to print out any printable characters I see a lot of useless random characters.</p>
+<p>However since the challenge is called <strong>get a grep</strong> I can try to use grep to find any useful information by searching for the flag using Global Regular Expression (grep):</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -171,7 +171,7 @@ Show them that we do, in fact, have the inappropriate word that the popular meme
 <p>Author: james</p>
 <p>Tags: file</p>
 <h2 id="writeup">writeup</h2>
-<p>let’s download the pdf file:</p>
+<p>Let’s download the pdf file:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -180,7 +180,7 @@ Show them that we do, in fact, have the inappropriate word that the popular meme
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://acmcyber.com/static/files/51026a428002bf94/megamind.pdf
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>now check with file:</p>
+</div><p>Next check the file with the <code>file</code> utility:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -191,7 +191,7 @@ Show them that we do, in fact, have the inappropriate word that the popular meme
 </span></span><span class="line"><span class="cl">megamind.pdf: PDF document, version 1.4, <span class="m">1</span> pages
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>what does exitool say?</p>
+</div><p>What does exiftool say?</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -234,7 +234,7 @@ Show them that we do, in fact, have the inappropriate word that the popular meme
 </span></span><span class="line"><span class="cl">Producer                        : Skia/PDF m109 Google Docs Renderer
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>this is what the pdf file looks like:</p>
+</div><p>This is what the pdf file looks like:</p>
 <p></p>
 <p>After just getting all printable characters using the <code>strings</code> command we get the flag:</p>
 <div class="highlight"><div class="chroma">
@@ -352,7 +352,7 @@ secret message but we can&rsquo;t decipher it. <a href="https://acmcyber.com/sta
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Nothing suspicious here.</p>
-<p>Since this is a jpeg file I can check for any steganography using stegdetect</p>
+<p>Since this is a jpeg file I can check for any steganography using <code>stegdetect</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -365,8 +365,8 @@ secret message but we can&rsquo;t decipher it. <a href="https://acmcyber.com/sta
 </span></span><span class="line"><span class="cl">./alpha.jpg : appended<span class="o">(</span>3741<span class="o">)</span>&lt;<span class="o">[</span>nonrandom<span class="o">][</span>data<span class="o">][</span>PK........t.mU3<span class="o">=]</span>&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>according to stegdetect there are characters added.</p>
-<p>We can try to extract data from it using steghide</p>
+</div><p>according to <code>stegdetect</code> there are characters added.</p>
+<p>We can try to extract data from it using <code>steghide</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -382,7 +382,7 @@ secret message but we can&rsquo;t decipher it. <a href="https://acmcyber.com/sta
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>But we don’t have a password.</p>
-<p>However we can also use binwalk to extract data from this image.</p>
+<p>However we can also use <code>binwalk</code> to extract data from this image.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -407,8 +407,8 @@ secret message but we can&rsquo;t decipher it. <a href="https://acmcyber.com/sta
 </span></span><span class="line"><span class="cl"><span class="m">3880117</span>       0x3B34B5        End of Zip archive, footer length: <span class="m">22</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Binwalk was able to extract two files: hidden.zip and tyler1.png</p>
-<p>We can’t extract hidden.zip yet because we don’t have a password for it.</p>
+</div><p>Binwalk was able to extract two files: <code>hidden.zip</code> and <code>tyler1.png</code>.</p>
+<p>We can’t extract <code>hidden.zip</code> yet because we don’t have a password for it.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -423,7 +423,7 @@ secret message but we can&rsquo;t decipher it. <a href="https://acmcyber.com/sta
 </span></span><span class="line"><span class="cl"><span class="o">[</span>hidden.zip<span class="o">]</span> secret.png password:
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>tyler1.png is a PNG file.</p>
+</div><p><code>tyler1.png</code> is a PNG file.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -436,7 +436,7 @@ secret message but we can&rsquo;t decipher it. <a href="https://acmcyber.com/sta
 </span></span><span class="line"><span class="cl">tyler1.png: PNG image data, <span class="m">1200</span> x 1600, 8-bit/color RGBA, non-interlaced
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>We can use a tool like zsteg or binwalk to find any hidden data in it.</p>
+</div><p>We can use a tool like <code>zsteg</code> or <code>binwalk</code> to find any hidden data in it.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -461,8 +461,8 @@ secret message but we can&rsquo;t decipher it. <a href="https://acmcyber.com/sta
 </span></span><span class="line"><span class="cl">b4,b,lsb,xy         .. file: Targa image data - Map <span class="o">(</span>256-256<span class="o">)</span> <span class="m">17</span> x <span class="m">273</span> x <span class="m">16</span> +257 +256 - 1-bit alpha <span class="s2">&#34;\001&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>zsteg found something in the LSB (Least Significant Bit) which looks like a passphrase.</p>
-<p>This could be the password for the hidden.zip file.</p>
+</div><p><code>zsteg</code> found something in the LSB (Least Significant Bit) which looks like a passphrase.</p>
+<p>This could be the password for the <code>hidden.zip</code> file.</p>
 <p>Let’s try to extract it with that password:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -478,7 +478,7 @@ secret message but we can&rsquo;t decipher it. <a href="https://acmcyber.com/sta
 </span></span><span class="line"><span class="cl">  inflating: secret.png
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Ok that was the correct password and we get a new file: secret.png</p>
+</div><p>Ok that was the correct password and we get a new file: <code>secret.png</code></p>
 <p>Let’s check the png file using the file command:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -495,7 +495,7 @@ secret message but we can&rsquo;t decipher it. <a href="https://acmcyber.com/sta
 </div><p>Ok it is a png file.</p>
 <p>Here is the image:</p>
 <p></p>
-<p>We can try to use binwalk again to see if anything is hidden in the file:</p>
+<p>We can try to use <code>binwalk</code> again to see if anything is hidden in the file:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -514,13 +514,13 @@ secret message but we can&rsquo;t decipher it. <a href="https://acmcyber.com/sta
 </span></span><span class="line"><span class="cl"><span class="m">54</span>            0x36            Zlib compressed data, compressed
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>But there is nothing in there. Then I quickly scanned the file with strings to extract any printable characters but there is also nothing hidden.</p>
-<p>If all of this does not lead to anything, we can use a tool like stegsolve to shift through the different color channels in the image to eventually find anything hidden in there.</p>
-<p>Using stegsolve I am able to manipulate the colors. When given certain filters, colors that were barely perceptible before are made obvious.</p>
-<p>After shifting through the different color planes in stegsolve, I found the flag in the Red plane 0</p>
+</div><p>But there is nothing in there. Then I quickly scanned the file with <code>strings</code> to extract any printable characters but there is also nothing hidden.</p>
+<p>If all of this does not lead to anything, we can use a tool like <code>stegsolve</code> to shift through the different color channels in the image to eventually find anything hidden in there.</p>
+<p>Using <code>stegsolve</code> I am able to manipulate the colors. When given certain filters, colors that were barely perceptible before are made obvious.</p>
+<p>After shifting through the different color planes in <code>stegsolve</code>, I found the flag in the Red plane 0</p>
 <p>Here is the flag visible:</p>
 <p></p>
-<p>flag: flag{th3re$_N0_D3nt}</p>
+<p>flag: <code>flag{th3re$_N0_D3nt}</code></p>
 ]]></description></item><item><title>Synk Fetch the Flag 2022 - Forensics - Potty Training</title><link>https://blog.ppeinecke.de/posts/fetch-the-flag-2022-forensics-potty-training/</link><pubDate>Mon, 05 Dec 2022 00:20:38 +0100</pubDate><guid>https://blog.ppeinecke.de/posts/fetch-the-flag-2022-forensics-potty-training/</guid><description><![CDATA[<div class="featured-image">
                 <img src="/featuredImages/potty.png" referrerpolicy="no-referrer">
             </div><h1 id="potty-training">Potty Training</h1>
