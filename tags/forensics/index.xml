@@ -4615,20 +4615,20 @@ code I noticed this function:</p>
 </span></span><span class="line"><span class="cl">  <span class="n">local_30</span> <span class="o">=</span> <span class="mh">0x3062396630664634</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="n">local_28</span> <span class="o">=</span> <span class="mh">0x33343066635f3d33</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="n">local_20</span> <span class="o">=</span> <span class="mh">0x4e5f3463665f34</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;What</span><span class="se">\&#39;</span><span class="s">s my favorite number? &#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="n">__isoc99_scanf</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;What</span><span class="se">\&#39;</span><span class="s">s my favorite number? &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">__isoc99_scanf</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">local_48</span> <span class="o">==</span> <span class="mh">0x86187</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">__s</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">FUN_00101249</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">&amp;</span><span class="n">local_38</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">fputs</span><span class="p">(</span><span class="n">__s</span><span class="p">,</span><span class="n">stdout</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">putchar</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">free</span><span class="p">(</span><span class="n">__s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">__s</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="nf">FUN_00101249</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">&amp;</span><span class="n">local_38</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">fputs</span><span class="p">(</span><span class="n">__s</span><span class="p">,</span><span class="n">stdout</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">putchar</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">free</span><span class="p">(</span><span class="n">__s</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl">  <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">puts</span><span class="p">(</span><span class="s">&#34;Sorry, that</span><span class="se">\&#39;</span><span class="s">s not it!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">puts</span><span class="p">(</span><span class="s">&#34;Sorry, that</span><span class="se">\&#39;</span><span class="s">s not it!&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">local_10</span> <span class="o">!=</span> <span class="o">*</span><span class="p">(</span><span class="kt">long</span> <span class="o">*</span><span class="p">)(</span><span class="n">in_FS_OFFSET</span> <span class="o">+</span> <span class="mh">0x28</span><span class="p">))</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                    <span class="cm">/* WARNING: Subroutine does not return */</span>
-</span></span><span class="line"><span class="cl">    <span class="n">__stack_chk_fail</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">__stack_chk_fail</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -4649,13 +4649,13 @@ code I noticed this function:</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">local_48</span> <span class="o">==</span> <span class="mh">0x86187</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">__s</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">FUN_00101249</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">&amp;</span><span class="n">local_38</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">fputs</span><span class="p">(</span><span class="n">__s</span><span class="p">,</span><span class="n">stdout</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">putchar</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">free</span><span class="p">(</span><span class="n">__s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">__s</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="nf">FUN_00101249</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">&amp;</span><span class="n">local_38</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">fputs</span><span class="p">(</span><span class="n">__s</span><span class="p">,</span><span class="n">stdout</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">putchar</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">free</span><span class="p">(</span><span class="n">__s</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">puts</span><span class="p">(</span><span class="s">&#34;Sorry, that</span><span class="se">\&#39;</span><span class="s">s not it!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">puts</span><span class="p">(</span><span class="s">&#34;Sorry, that</span><span class="se">\&#39;</span><span class="s">s not it!&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
